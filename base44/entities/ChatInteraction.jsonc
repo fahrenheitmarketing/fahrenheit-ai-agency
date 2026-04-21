@@ -1,0 +1,43 @@
+{
+  "name": "ChatInteraction",
+  "type": "object",
+  "properties": {
+    "visitor_name": {
+      "type": "string",
+      "description": "Name of the visitor"
+    },
+    "visitor_email": {
+      "type": "string",
+      "description": "Email of the visitor"
+    },
+    "visitor_company": {
+      "type": "string",
+      "description": "Company name of the visitor"
+    },
+    "conversation_summary": {
+      "type": "string",
+      "description": "Summary of the conversation"
+    },
+    "full_transcript": {
+      "type": "string",
+      "description": "Full transcript of the conversation"
+    },
+    "page_source": {
+      "type": "string",
+      "description": "Which page the chat was initiated from"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "reviewed",
+        "contacted",
+        "converted"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "full_transcript"
+  ]
+}
