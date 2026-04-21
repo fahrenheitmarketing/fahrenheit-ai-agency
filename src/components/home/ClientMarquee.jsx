@@ -8,7 +8,7 @@ const clients = [
 
 export default function ClientMarquee() {
   return (
-    <div className="border-t border-b border-border py-6 overflow-hidden bg-background">
+    <div className="border-t border-b border-border py-6 overflow-hidden bg-secondary/30">
       <p className="text-xs uppercase tracking-widest text-center text-muted-foreground mb-6 font-body px-6">
         Trusted where performance is measured
       </p>
