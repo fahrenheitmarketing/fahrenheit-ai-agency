@@ -13,6 +13,7 @@ import SEM from './pages/services/SEM';
 import SMM from './pages/services/SMM';
 import CRO from './pages/services/CRO';
 import Strategy from './pages/services/Strategy';
+import MarketingAutomation from './pages/services/MarketingAutomation';
 import Pricing from './pages/Pricing';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -48,6 +49,7 @@ const AuthenticatedApp = () => {
         <Route path="/services/smm" element={<SMM />} />
         <Route path="/services/cro" element={<CRO />} />
         <Route path="/services/strategy" element={<Strategy />} />
+        <Route path="/services/marketing-automation" element={<MarketingAutomation />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

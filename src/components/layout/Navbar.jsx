@@ -17,6 +17,7 @@ const services = [
   { label: 'Social Media', path: '/services/smm' },
   { label: 'CRO', path: '/services/cro' },
   { label: 'Strategy', path: '/services/strategy' },
+  { label: 'Marketing Automation', path: '/services/marketing-automation' },
 ];
 
 export default function Navbar() {
