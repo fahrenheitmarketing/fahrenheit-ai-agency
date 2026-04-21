@@ -31,7 +31,7 @@ const services = [
     subtitle: 'Strategy · Planning',
     title: 'Strategic Intelligence',
     tagline: 'Intelligence, not instinct',
-    description: 'Data-driven roadmaps built from competitive analysis, market signals, and AI modeling. Your growth strategy shouldn't rely on gut feel.',
+    description: "Data-driven roadmaps built from competitive analysis, market signals, and AI modeling. Your growth strategy shouldn't rely on gut feel.",
     link: '/services/strategy',
   },
 ];
