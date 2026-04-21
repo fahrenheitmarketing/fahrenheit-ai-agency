@@ -102,19 +102,18 @@ export default function BlogPostPage() {
             <article className="lg:col-span-2">
               {post.content ? (
                 <ReactMarkdown className="prose prose-lg max-w-none font-body
-                  prose-headings:font-heading prose-headings:font-normal prose-headings:!text-accent
-                  prose-h1:text-2xl md:prose-h1:text-3xl prose-h1:mt-0 prose-h1:mb-8
-                  prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6
-                  [&_h3]:!text-accent [&_h3]:text-xl md:[&_h3]:text-2xl [&_h3]:mt-12 [&_h3]:mb-6
-                  [&_h4]:!text-accent [&_h4]:text-lg md:[&_h4]:text-xl [&_h4]:mt-10 [&_h4]:mb-5
-                  prose-p:text-base prose-p:leading-loose prose-p:mb-6
-                  prose-a:text-accent prose-a:underline
-                  prose-img:rounded-sm prose-img:my-12
-                  prose-strong:font-semibold
-                  prose-em:italic
-                  prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground prose-blockquote:my-12
-                  prose-figcaption:text-xs prose-figcaption:uppercase prose-figcaption:tracking-widest prose-figcaption:text-muted-foreground prose-figcaption:mt-4
-                  prose-li:mb-4">
+                  [&_h1]:font-heading [&_h1]:font-normal [&_h1]:!text-accent [&_h1]:text-2xl md:[&_h1]:text-3xl [&_h1]:mt-0 [&_h1]:mb-8
+                  [&_h2]:font-heading [&_h2]:font-normal [&_h2]:!text-accent [&_h2]:text-2xl md:[&_h2]:text-3xl [&_h2]:mt-16 [&_h2]:mb-6
+                  [&_h3]:font-heading [&_h3]:font-normal [&_h3]:!text-accent [&_h3]:text-xl md:[&_h3]:text-2xl [&_h3]:mt-12 [&_h3]:mb-6
+                  [&_h4]:font-heading [&_h4]:font-normal [&_h4]:!text-accent [&_h4]:text-lg md:[&_h4]:text-xl [&_h4]:mt-10 [&_h4]:mb-5
+                  [&_p]:text-base [&_p]:leading-loose [&_p]:mb-6
+                  [&_a]:text-accent [&_a]:underline
+                  [&_img]:rounded-sm [&_img]:my-12
+                  [&_strong]:font-semibold
+                  [&_em]:italic
+                  [&_blockquote]:border-l-4 [&_blockquote]:border-accent [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-muted-foreground [&_blockquote]:my-12
+                  [&_figcaption]:text-xs [&_figcaption]:uppercase [&_figcaption]:tracking-widest [&_figcaption]:text-muted-foreground [&_figcaption]:mt-4
+                  [&_li]:mb-4">
                   {post.content}
                 </ReactMarkdown>
               ) : (
