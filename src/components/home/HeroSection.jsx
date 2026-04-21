@@ -1,14 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ChatPanel from './ChatPanel';
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[72px]">
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+          {/* Left — Chat Panel */}
+          <div className="h-full">
+            <ChatPanel />
+          </div>
+
+          {/* Right */}
           <div>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
