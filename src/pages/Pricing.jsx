@@ -61,7 +61,7 @@ export default function Pricing() {
           src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
           alt=""
           aria-hidden="true"
-          className="absolute top-0 right-0 w-[400px] pointer-events-none opacity-30 select-none"
+          className="absolute top-0 right-0 w-[400px] pointer-events-none opacity-60 select-none"
         />
         <div className="relative max-w-7xl mx-auto text-center">
           <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">

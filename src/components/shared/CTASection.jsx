@@ -16,7 +16,7 @@ export default function CTASection({
         src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
         alt=""
         aria-hidden="true"
-        className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-10 select-none rotate-180"
+        className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-25 select-none rotate-180"
       />
       <div className="relative max-w-7xl mx-auto">
         <p className="text-xs uppercase tracking-widest text-background/40 mb-6 font-body">Ready when you are</p>
