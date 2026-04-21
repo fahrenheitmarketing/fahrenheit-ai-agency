@@ -5,8 +5,20 @@ import ChatPanel from './ChatPanel';
 export default function HeroSection() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[72px] scroll-m-0">
+      {/* Pattern Background */}
+      <div className="absolute top-0 right-0 w-96 h-96 opacity-5 pointer-events-none">
+        <svg viewBox="0 0 400 400" className="w-full h-full">
+          <defs>
+            <pattern id="pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <circle cx="20" cy="20" r="2" fill="currentColor" />
+              <path d="M 20 0 L 20 40 M 0 20 L 40 20" stroke="currentColor" strokeWidth="0.5" fill="none" />
+            </pattern>
+          </defs>
+          <rect width="400" height="400" fill="url(#pattern)" />
+        </svg>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full py-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full py-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
           {/* Left */}
           <div>
