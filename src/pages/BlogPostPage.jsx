@@ -58,7 +58,7 @@ export default function BlogPostPage() {
     <>
       <div className="min-h-screen bg-background">
         {/* Back */}
-        <div className="max-w-3xl mx-auto px-6 pt-32 pb-8">
+        <div className="max-w-7xl mx-auto px-6 pt-24 pb-4">
           <Link to="/blog" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors font-body">
             <ArrowLeft className="w-3.5 h-3.5" /> Journal
           </Link>
