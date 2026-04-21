@@ -65,8 +65,14 @@ export default function BlogPostPage() {
         </div>
 
         {/* Header */}
-        <header className="max-w-7xl mx-auto px-6 pb-20 border-b border-border">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <header className="max-w-7xl mx-auto px-6 pb-20 border-b border-border relative">
+          <img
+            src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute top-0 right-0 w-[320px] pointer-events-none opacity-30 select-none"
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
             {/* Left - Title & Meta */}
             <div>
               <div className="flex items-center gap-3 mb-8">
