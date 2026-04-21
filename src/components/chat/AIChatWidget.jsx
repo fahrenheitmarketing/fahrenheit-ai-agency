@@ -32,7 +32,14 @@ export default function AIChatWidget({ pageSource = 'Unknown' }) {
 
   const handleOpen = async () => {
     setIsOpen(true);
-    if (!conversation) await initConversation();
+    if (!conversation) {
+      try {
+        await initConversation();
+      } catch (error) {
+        console.error('Failed to initialize conversation:', error);
+        setMessages([{ role: 'assistant', content: 'Unable to start chat. Please try again or email rcasas@fahrenheitmarketing.com.' }]);
+      }
+    }
     setTimeout(() => inputRef.current?.focus(), 300);
   };
 
@@ -56,7 +63,8 @@ export default function AIChatWidget({ pageSource = 'Unknown' }) {
         if (data.messages) setMessages(data.messages.filter(m => m.role === 'user' || m.role === 'assistant'));
       });
       setTimeout(() => { unsubscribe(); setLoading(false); }, 15000);
-    } catch {
+    } catch (error) {
+      console.error('Failed to send message:', error);
       setMessages(prev => [...prev, { role: 'assistant', content: 'Something went wrong. Try again or email rcasas@fahrenheitmarketing.com.' }]);
       setLoading(false);
     }
