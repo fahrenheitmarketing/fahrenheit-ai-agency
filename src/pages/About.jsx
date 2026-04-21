@@ -82,7 +82,7 @@ export default function About() {
                 <img
                   src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/ee7b2888d_Ricardoprofile.jpg"
                   alt="Ricardo Casas"
-                  className="w-full h-full object-cover object-top opacity-90"
+                  className="w-full h-full object-cover object-center opacity-90"
                 />
               </div>
               <div className="border-t border-border pt-6">
