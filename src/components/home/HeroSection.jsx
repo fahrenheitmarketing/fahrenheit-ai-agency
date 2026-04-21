@@ -76,13 +76,6 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[72px]">
-      {/* Cubes pattern — top right */}
-      <img
-        src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute top-0 right-0 w-[480px] pointer-events-none opacity-70 select-none"
-      />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
