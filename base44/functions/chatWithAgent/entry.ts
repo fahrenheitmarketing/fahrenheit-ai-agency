@@ -6,24 +6,24 @@ Deno.serve(async (req) => {
     const { action, conversationId, message, pageSource } = await req.json();
 
     if (action === 'create') {
-      // Create a conversation as a service role (works for public apps)
       const conv = await base44.asServiceRole.agents.createConversation({
         agent_name: 'fahrenheit_assistant',
         metadata: { 
           name: `Chat — ${pageSource}`, 
           description: pageSource,
-          is_public: true
         },
       });
       return Response.json({ conversation: conv });
     } 
     
     if (action === 'addMessage') {
-      // Add a message to conversation
-      const conv = await base44.asServiceRole.agents.addMessage(conversationId, { 
+      await base44.asServiceRole.agents.addMessage(conversationId, { 
         role: 'user', 
         content: message 
       });
+      
+      // Fetch updated conversation to get agent response
+      const conv = await base44.asServiceRole.agents.getConversation(conversationId);
       return Response.json({ conversation: conv });
     }
 
