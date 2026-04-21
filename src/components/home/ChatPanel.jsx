@@ -7,7 +7,7 @@ export default function ChatPanel() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
-  const [conversation, setConversation] = useState(null);
+  const [conversationId, setConversationId] = useState(null);
   const [started, setStarted] = useState(false);
   const messagesEndRef = useRef(null);
 
@@ -24,21 +24,18 @@ export default function ChatPanel() {
 
   const initConversation = async () => {
     try {
-      const conv = await base44.agents.createConversation({
-        agent_name: 'fahrenheit_assistant',
-        metadata: { name: 'Hero Chat', description: 'Homepage hero chatbox' },
-      });
-      console.log('Conversation created:', conv);
-      setConversation(conv);
-      return conv;
+      const res = await base44.functions.invoke('initializeChat', {});
+      console.log('Chat initialized:', res.data);
+      setConversationId(res.data.conversationId);
+      return res.data.conversationId;
     } catch (error) {
-      console.error('Failed to create conversation:', error);
+      console.error('Failed to init chat:', error);
       throw error;
     }
   };
 
-  const sendMessage = async (text, conv) => {
-    const activeConv = conv || conversation;
+  const sendMessage = async (text, convId) => {
+    const activeId = convId || conversationId;
     if (!text.trim() || loading) return;
 
     setInput('');
@@ -46,56 +43,38 @@ export default function ChatPanel() {
     setStarted(true);
 
     try {
-      // Add user message immediately to UI
+      // Add user message immediately
       setMessages(prev => [...prev, { role: 'user', content: text }]);
       
-      // Send to agent
-      const updated = await base44.agents.addMessage(activeConv, { role: 'user', content: text });
-      setConversation(updated);
-      
-      // Subscribe for agent response
-      let responseReceived = false;
-      const unsubscribe = base44.agents.subscribeToConversation(activeConv.id, (data) => {
-        if (data.messages && data.messages.length > 0) {
-          const allMessages = data.messages.filter(m => m.role === 'user' || m.role === 'assistant');
-          setMessages(allMessages);
-          
-          // Check if we have assistant response after user message
-          const hasNewAssistant = allMessages.some(m => m.role === 'assistant');
-          if (hasNewAssistant && !responseReceived) {
-            responseReceived = true;
-            setLoading(false);
-            unsubscribe();
-          }
-        }
+      // Send via backend function
+      const res = await base44.functions.invoke('chatWithAgent', {
+        conversationId: activeId,
+        message: text,
       });
       
-      // Fallback timeout
-      setTimeout(() => {
-        if (!responseReceived) {
-          unsubscribe();
-          setLoading(false);
-        }
-      }, 15000);
+      if (res.data.response) {
+        setMessages(prev => [...prev, { role: 'assistant', content: res.data.response }]);
+      }
+      setLoading(false);
     } catch (error) {
       console.error('Error sending message:', error);
-      setMessages(prev => [...prev, { role: 'assistant', content: 'Error: Unable to connect to agent.' }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: 'Unable to get a response. Try again.' }]);
       setLoading(false);
     }
   };
 
   const handleSuggestion = async (text) => {
-    let conv = conversation;
-    if (!conv) conv = await initConversation();
-    await sendMessage(text, conv);
+    let convId = conversationId;
+    if (!convId) convId = await initConversation();
+    await sendMessage(text, convId);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
-    let conv = conversation;
-    if (!conv) conv = await initConversation();
-    await sendMessage(input, conv);
+    let convId = conversationId;
+    if (!convId) convId = await initConversation();
+    await sendMessage(input, convId);
   };
 
   return (
