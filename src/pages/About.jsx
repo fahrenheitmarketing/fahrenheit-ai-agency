@@ -80,7 +80,7 @@ export default function About() {
             <div>
               <div className="aspect-[4/3] bg-foreground rounded-sm overflow-hidden mb-8 relative">
                 <img
-                  src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/ee7b2888d_Ricardoprofile.jpg"
+                  src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/1e2a5c8c8_generated_image.png"
                   alt="Ricardo Casas"
                   className="w-full h-full object-cover object-top opacity-90"
                 />
