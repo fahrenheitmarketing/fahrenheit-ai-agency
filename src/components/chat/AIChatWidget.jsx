@@ -21,13 +21,13 @@ export default function AIChatWidget({ pageSource = 'Unknown' }) {
   }, [messages]);
 
   const initConversation = async () => {
-    const conv = await base44.agents.createConversation({
-      agent_name: 'fahrenheit_assistant',
-      metadata: { name: `Chat — ${pageSource}`, description: pageSource },
+    const res = await base44.functions.invoke('chatWithAgent', {
+      action: 'create',
+      pageSource,
     });
-    setConversation(conv);
+    setConversation(res.data.conversation);
     setMessages([{ role: 'assistant', content: 'Ask me anything about Fahrenheit — our approach, services, pricing, or whether we might be a good fit for your business.' }]);
-    return conv;
+    return res.data.conversation;
   };
 
   const handleOpen = async () => {
@@ -56,7 +56,12 @@ export default function AIChatWidget({ pageSource = 'Unknown' }) {
     if (emailMatch && !visitorEmail) setVisitorEmail(emailMatch[0]);
 
     try {
-      const updated = await base44.agents.addMessage(conversation, { role: 'user', content: text });
+      const res = await base44.functions.invoke('chatWithAgent', {
+        action: 'addMessage',
+        conversationId: conversation.id,
+        message: text,
+      });
+      const updated = res.data.conversation;
       setConversation(updated);
 
       const unsubscribe = base44.agents.subscribeToConversation(conversation.id, (data) => {
