@@ -17,11 +17,22 @@ const categoryColors = {
 export default function BlogPostPage() {
   const { id } = useParams();
   const [post, setPost] = useState(null);
+  const [relatedPosts, setRelatedPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     base44.entities.BlogPost.filter({ id }).then((data) => {
-      setPost(data[0] || null);
+      const currentPost = data[0] || null;
+      setPost(currentPost);
+      
+      if (currentPost) {
+        base44.entities.BlogPost.list().then((allPosts) => {
+          const related = allPosts
+            .filter(p => p.category === currentPost.category && p.id !== currentPost.id)
+            .slice(0, 3);
+          setRelatedPosts(related);
+        });
+      }
       setLoading(false);
     });
   }, [id]);
@@ -96,6 +107,33 @@ export default function BlogPostPage() {
             <p className="text-muted-foreground font-body">No content available for this article.</p>
           )}
         </article>
+
+        {/* Related Articles */}
+        {relatedPosts.length > 0 && (
+          <section className="max-w-3xl mx-auto px-6 py-24 border-t border-border">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-12 font-body flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-accent inline-block" />
+              Related Reading
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {relatedPosts.map((relatedPost) => (
+                <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="group">
+                  <div className="mb-4">
+                    <span className={`text-xs font-body font-medium px-2.5 py-1 rounded-sm ${categoryColors[relatedPost.category] || 'bg-muted text-muted-foreground'}`}>
+                      {relatedPost.category}
+                    </span>
+                  </div>
+                  <h3 className="font-heading text-xl font-normal leading-snug mb-3 group-hover:text-accent transition-colors">
+                    {relatedPost.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground font-body leading-relaxed line-clamp-2">
+                    {relatedPost.excerpt}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
 
       <CTASection />
