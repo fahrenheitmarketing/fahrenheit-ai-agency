@@ -4,8 +4,8 @@ Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
     
-    // Create conversation using user auth
-    const conv = await base44.agents.createConversation({
+    // Create conversation using service role
+    const conv = await base44.asServiceRole.agents.createConversation({
       agent_name: 'fahrenheit_assistant',
       metadata: { 
         name: 'Hero Chat', 
