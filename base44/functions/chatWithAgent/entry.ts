@@ -13,18 +13,16 @@ Deno.serve(async (req) => {
           description: pageSource,
         },
       });
-      return Response.json({ conversation: conv });
+      return Response.json({ success: true, conversationId: conv.id });
     } 
     
     if (action === 'addMessage') {
+      // Add user message - agent response comes via subscription
       await base44.asServiceRole.agents.addMessage(conversationId, { 
         role: 'user', 
         content: message 
       });
-      
-      // Fetch updated conversation to get agent response
-      const conv = await base44.asServiceRole.agents.getConversation(conversationId);
-      return Response.json({ conversation: conv });
+      return Response.json({ success: true });
     }
 
     return Response.json({ error: 'Invalid action' }, { status: 400 });

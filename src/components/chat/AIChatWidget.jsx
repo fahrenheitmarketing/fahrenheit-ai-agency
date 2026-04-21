@@ -25,9 +25,10 @@ export default function AIChatWidget({ pageSource = 'Unknown' }) {
       action: 'create',
       pageSource,
     });
-    setConversation(res.data.conversation);
+    const convId = res.data.conversationId;
+    setConversation({ id: convId });
     setMessages([{ role: 'assistant', content: 'Ask me anything about Fahrenheit — our approach, services, pricing, or whether we might be a good fit for your business.' }]);
-    return res.data.conversation;
+    return { id: convId };
   };
 
   const handleOpen = async () => {
