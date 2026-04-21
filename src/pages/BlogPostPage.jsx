@@ -65,24 +65,32 @@ export default function BlogPostPage() {
         </div>
 
         {/* Header */}
-        <header className="max-w-3xl mx-auto px-6 pb-20 border-b border-border">
-          <div className="flex items-center gap-3 mb-8">
-            <span className={`text-xs font-body font-medium px-2.5 py-1 rounded-sm ${categoryColors[post.category] || 'bg-muted text-muted-foreground'}`}>
-              {post.category}
-            </span>
-            {post.read_time && <span className="text-xs text-muted-foreground font-body">{post.read_time} read</span>}
-          </div>
-          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] mb-8">
-            {post.title}
-          </h1>
-          {post.excerpt && (
-            <p className="text-base md:text-lg text-muted-foreground font-body leading-relaxed mb-8 max-w-2xl">{post.excerpt}</p>
-          )}
-          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-xs uppercase tracking-widest text-muted-foreground font-body">
-            {post.author && <span>{post.author}</span>}
-            {post.author && post.published_date && <span className="hidden md:inline">•</span>}
-            {post.published_date && (
-              <span>{new Date(post.published_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+        <header className="max-w-7xl mx-auto px-6 pb-20 border-b border-border">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left - Title & Meta */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <span className={`text-xs font-body font-medium px-2.5 py-1 rounded-sm ${categoryColors[post.category] || 'bg-muted text-muted-foreground'}`}>
+                  {post.category}
+                </span>
+                {post.read_time && <span className="text-xs text-muted-foreground font-body">{post.read_time} read</span>}
+              </div>
+              <h1 className="font-heading text-4xl md:text-5xl font-normal leading-[1.1] mb-8">
+                {post.title}
+              </h1>
+              <div className="flex flex-col gap-2 text-xs uppercase tracking-widest text-muted-foreground font-body">
+                {post.author && <span>{post.author}</span>}
+                {post.published_date && (
+                  <span>{new Date(post.published_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                )}
+              </div>
+            </div>
+
+            {/* Right - Excerpt with Orange Divider */}
+            {post.excerpt && (
+              <div className="pl-8 border-l border-accent">
+                <p className="text-base text-muted-foreground font-body leading-relaxed">{post.excerpt}</p>
+              </div>
             )}
           </div>
         </header>
