@@ -23,12 +23,18 @@ export default function ChatPanel() {
   }, [messages]);
 
   const initConversation = async () => {
-    const conv = await base44.agents.createConversation({
-      agent_name: 'fahrenheit_assistant',
-      metadata: { name: 'Hero Chat', description: 'Homepage hero chatbox' },
-    });
-    setConversation(conv);
-    return conv;
+    try {
+      const conv = await base44.agents.createConversation({
+        agent_name: 'fahrenheit_assistant',
+        metadata: { name: 'Hero Chat', description: 'Homepage hero chatbox' },
+      });
+      console.log('Conversation created:', conv);
+      setConversation(conv);
+      return conv;
+    } catch (error) {
+      console.error('Failed to create conversation:', error);
+      throw error;
+    }
   };
 
   const sendMessage = async (text, conv) => {
