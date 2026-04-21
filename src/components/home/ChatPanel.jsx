@@ -19,8 +19,10 @@ export default function ChatPanel() {
   ];
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+    if (started && loading) {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [loading, started]);
 
   const initConversation = async () => {
     try {
@@ -92,7 +94,7 @@ export default function ChatPanel() {
       </div>
 
       <div className="flex-1 flex flex-col overflow-hidden">
-        <div className="flex-1 overflow-y-auto p-5 space-y-4">
+        <div className="flex-1 overflow-y-auto p-5 space-y-4 overflow-anchor-none">
           {!started ? (
             <>
               <h3 className="font-heading text-lg font-normal mb-2 leading-snug">
@@ -150,7 +152,6 @@ export default function ChatPanel() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask anything..."
               className="flex-1 bg-transparent text-xs outline-none font-body text-foreground placeholder:text-muted-foreground"
-              onFocus={(e) => e.target.scrollIntoView({ block: 'nearest', behavior: 'auto' })}
             />
             <button
               type="submit"
