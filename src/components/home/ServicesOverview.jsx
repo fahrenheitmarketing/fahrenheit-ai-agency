@@ -38,8 +38,14 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="py-24 px-6 lg:px-10">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 px-6 lg:px-10 overflow-hidden">
+      <img
+        src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute bottom-0 right-0 w-[400px] pointer-events-none opacity-60 select-none"
+      />
+      <div className="relative max-w-7xl mx-auto">
         <p className="text-xs uppercase tracking-widest text-muted-foreground mb-16 font-body">02 · What we do</p>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
           <div className="lg:col-span-1 pr-0 lg:pr-16 mb-12 lg:mb-0">
