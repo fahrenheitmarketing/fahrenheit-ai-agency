@@ -88,7 +88,7 @@ export default function BlogPostPage() {
         </header>
 
         {/* Body */}
-        <article className="max-w-3xl mx-auto px-6 py-24">
+        <article className="max-w-3xl mx-auto px-6 py-12">
           {post.content ? (
             <ReactMarkdown className="prose prose-lg max-w-none font-body
               prose-headings:font-heading prose-headings:font-normal prose-headings:text-accent
