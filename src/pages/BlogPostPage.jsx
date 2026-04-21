@@ -66,7 +66,7 @@ export default function BlogPostPage() {
 
         {/* Header */}
         <header className="max-w-7xl mx-auto px-6 pb-20 border-b border-border">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left - Title & Meta */}
             <div>
               <div className="flex items-center gap-3 mb-8">
@@ -88,7 +88,7 @@ export default function BlogPostPage() {
 
             {/* Right - Excerpt with Orange Divider */}
             {post.excerpt && (
-              <div className="pl-8 border-l border-accent">
+              <div className="pl-8 border-l border-accent pt-1">
                 <p className="text-base text-muted-foreground font-body leading-relaxed">{post.excerpt}</p>
               </div>
             )}
