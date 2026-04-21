@@ -23,7 +23,7 @@ export default function CRO() {
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
               Conversion Rate Optimization
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
               Turn More Visitors Into <span className="text-primary">Paying Customers</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
@@ -58,7 +58,7 @@ export default function CRO() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   <cap.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-heading text-lg font-semibold mb-2">{cap.title}</h3>
+                <h3 className="font-heading text-lg font-normal mb-2">{cap.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{cap.description}</p>
               </div>
             ))}
@@ -68,7 +68,7 @@ export default function CRO() {
 
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto text-center max-w-3xl mx-auto">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold mb-6">The Math Is Simple</h2>
+          <h2 className="font-heading text-3xl md:text-4xl font-normal mb-6">The Math Is Simple</h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-12">
             If you're getting 10,000 visitors and converting 2%, that's 200 customers. Improve to 3%? That's 300 customers — a 50% revenue increase without spending a single extra dollar on traffic.
           </p>

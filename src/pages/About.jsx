@@ -44,7 +44,7 @@ export default function About() {
               <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
                 About Fahrenheit
               </span>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-6">
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
                 The Agency That <span className="text-primary">Bets on Itself</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -90,7 +90,7 @@ export default function About() {
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-3 font-body">
               Our Philosophy
             </span>
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold mb-4">
+            <h2 className="font-heading text-3xl md:text-4xl font-normal mb-4">
               What We Stand For
             </h2>
           </div>
@@ -100,7 +100,7 @@ export default function About() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   <v.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-heading text-xl font-semibold mb-2">{v.title}</h3>
+                <h3 className="font-heading text-xl font-normal mb-2">{v.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{v.description}</p>
               </div>
             ))}
@@ -111,7 +111,7 @@ export default function About() {
       {/* AI-First */}
       <section className="py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold mb-6">Why AI-First?</h2>
+          <h2 className="font-heading text-3xl md:text-4xl font-normal mb-6">Why AI-First?</h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-6">
             Traditional agencies hire more people to do more work. We build smarter systems. Our AI-first approach means your campaigns are optimized 24/7, insights surface in real-time, and every decision is backed by data — not guesswork.
           </p>

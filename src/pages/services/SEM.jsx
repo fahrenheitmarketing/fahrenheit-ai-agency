@@ -23,7 +23,7 @@ export default function SEM() {
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
               Search Engine Marketing / PPC
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
               AI-Managed PPC That <span className="text-primary">Eliminates Waste</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
@@ -58,7 +58,7 @@ export default function SEM() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   <cap.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-heading text-lg font-semibold mb-2">{cap.title}</h3>
+                <h3 className="font-heading text-lg font-normal mb-2">{cap.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{cap.description}</p>
               </div>
             ))}
@@ -71,7 +71,7 @@ export default function SEM() {
           <div className="bg-foreground text-background rounded-2xl p-10 md:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="font-heading text-3xl md:text-4xl font-semibold mb-6">How We Handle Ad Spend</h2>
+                <h2 className="font-heading text-3xl md:text-4xl font-normal mb-6">How We Handle Ad Spend</h2>
                 <p className="text-background/70 leading-relaxed mb-4">
                   Your retainer covers strategy, campaign management, optimization, and reporting. The ad spend itself is separate — you pay platforms directly and control your budget.
                 </p>

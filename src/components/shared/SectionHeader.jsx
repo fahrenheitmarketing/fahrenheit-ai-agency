@@ -9,7 +9,7 @@ export default function SectionHeader({ label, number, title, description, align
           {label}
         </p>
       )}
-      <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-normal mb-4 leading-[1.15]">
+      <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-normal leading-[1.15] mb-4">
         {title}
       </h2>
       {description && (

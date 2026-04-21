@@ -67,7 +67,7 @@ export default function Pricing() {
           <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
             Transparent Pricing
           </span>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-6 max-w-4xl mx-auto">
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6 max-w-4xl mx-auto">
             Month-to-Month. <span className="text-primary">No Contracts.</span>
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
@@ -100,9 +100,9 @@ export default function Pricing() {
                   </span>
                 )}
                 <div className="mb-6">
-                  <h3 className="font-heading text-xl font-semibold mb-2">{tier.name}</h3>
+                  <h3 className="font-heading text-xl font-normal mb-2">{tier.name}</h3>
                   <div className="flex items-baseline gap-1 mb-3">
-                    <span className="text-4xl font-heading font-bold">{tier.price}</span>
+                    <span className="text-4xl font-heading font-normal">{tier.price}</span>
                     {tier.price !== 'Custom' && <span className={`text-sm ${tier.popular ? 'text-background/60' : 'text-muted-foreground'}`}>/month</span>}
                   </div>
                   <p className={`text-sm leading-relaxed ${tier.popular ? 'text-background/70' : 'text-muted-foreground'}`}>
@@ -136,7 +136,7 @@ export default function Pricing() {
       <section className="pb-24 px-6">
         <div className="max-w-3xl mx-auto">
           <div className="bg-muted rounded-2xl p-8">
-            <h3 className="font-heading text-xl font-semibold mb-4">What's Not Included (and Why)</h3>
+            <h3 className="font-heading text-xl font-normal mb-4">What's Not Included (and Why)</h3>
             <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
               <p>
                 <strong className="text-foreground">Ad Spend:</strong> Your advertising budget is paid directly to platforms (Google, Meta, LinkedIn, etc.). You control exactly how much you spend, and we optimize every dollar of it.

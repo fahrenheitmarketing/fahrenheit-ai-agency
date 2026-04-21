@@ -23,7 +23,7 @@ export default function Strategy() {
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
               Digital Strategy
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
               Strategy Built on <span className="text-primary">Intelligence, Not Instinct</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
@@ -58,7 +58,7 @@ export default function Strategy() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   <cap.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-heading text-lg font-semibold mb-2">{cap.title}</h3>
+                <h3 className="font-heading text-lg font-normal mb-2">{cap.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{cap.description}</p>
               </div>
             ))}
@@ -70,7 +70,7 @@ export default function Strategy() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="font-heading text-3xl md:text-4xl font-semibold mb-6">Strategy That Evolves With You</h2>
+              <h2 className="font-heading text-3xl md:text-4xl font-normal mb-6">Strategy That Evolves With You</h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Markets change. Competitors adapt. Your strategy should too. Our month-to-month model means your strategic plan is a living document — continuously refined by new data and AI intelligence.
               </p>
@@ -84,7 +84,7 @@ export default function Strategy() {
               </div>
             </div>
             <div className="bg-foreground text-background rounded-2xl p-10">
-              <h3 className="font-heading text-2xl font-semibold mb-4">Your AI Stack, Your Competitive Edge</h3>
+              <h3 className="font-heading text-2xl font-normal mb-4">Your AI Stack, Your Competitive Edge</h3>
               <p className="text-background/70 leading-relaxed mb-4">
                 As part of your strategy engagement, we recommend and help deploy AI tools specifically chosen for your business — from predictive analytics to automated reporting.
               </p>

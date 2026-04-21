@@ -53,7 +53,7 @@ export default function Contact() {
           <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="font-heading text-3xl font-semibold mb-4">Thank You</h1>
+          <h1 className="font-heading text-3xl font-normal mb-4">Thank You</h1>
           <p className="text-muted-foreground leading-relaxed">
             We've received your message and will be in touch within 24 hours. In the meantime, feel free to chat with our AI assistant for immediate answers.
           </p>
@@ -71,7 +71,7 @@ export default function Contact() {
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
               Get In Touch
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl font-semibold leading-[1.1] mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl font-normal leading-[1.1] mb-6">
               Let's Discuss Your <span className="text-primary">Growth</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-10">
