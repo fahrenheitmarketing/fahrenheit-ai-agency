@@ -40,31 +40,40 @@ export default function ChatPanel() {
     setStarted(true);
 
     try {
-      // Add message and get updated conversation
+      // Add user message immediately to UI
+      setMessages(prev => [...prev, { role: 'user', content: text }]);
+      
+      // Send to agent
       const updated = await base44.agents.addMessage(activeConv, { role: 'user', content: text });
       setConversation(updated);
       
-      // Immediately show user message
-      setMessages(prev => [...prev, { role: 'user', content: text }]);
-      
-      // Subscribe to get agent response
+      // Subscribe for agent response
+      let responseReceived = false;
       const unsubscribe = base44.agents.subscribeToConversation(activeConv.id, (data) => {
         if (data.messages && data.messages.length > 0) {
-          const filtered = data.messages.filter(m => m.role === 'user' || m.role === 'assistant');
-          setMessages(filtered);
+          const allMessages = data.messages.filter(m => m.role === 'user' || m.role === 'assistant');
+          setMessages(allMessages);
+          
+          // Check if we have assistant response after user message
+          const hasNewAssistant = allMessages.some(m => m.role === 'assistant');
+          if (hasNewAssistant && !responseReceived) {
+            responseReceived = true;
+            setLoading(false);
+            unsubscribe();
+          }
         }
       });
       
-      // Clean up after timeout
-      const timer = setTimeout(() => {
-        unsubscribe();
-        setLoading(false);
-      }, 20000);
-      
-      return () => clearTimeout(timer);
+      // Fallback timeout
+      setTimeout(() => {
+        if (!responseReceived) {
+          unsubscribe();
+          setLoading(false);
+        }
+      }, 15000);
     } catch (error) {
       console.error('Error sending message:', error);
-      setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, something went wrong. Please try again.' }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: 'Error: Unable to connect to agent.' }]);
       setLoading(false);
     }
   };
