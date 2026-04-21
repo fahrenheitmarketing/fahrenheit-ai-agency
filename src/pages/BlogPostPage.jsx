@@ -102,11 +102,11 @@ export default function BlogPostPage() {
             <article className="lg:col-span-2">
               {post.content ? (
                 <ReactMarkdown className="prose prose-lg max-w-none font-body
-                  [&_h1]:font-heading [&_h1]:font-normal [&_h1]:!text-accent [&_h1]:text-2xl md:[&_h1]:text-3xl [&_h1]:mt-0 [&_h1]:mb-8
-                  [&_h2]:font-heading [&_h2]:font-normal [&_h2]:!text-accent [&_h2]:text-2xl md:[&_h2]:text-3xl [&_h2]:mt-16 [&_h2]:mb-6
-                  [&_h3]:font-heading [&_h3]:font-normal [&_h3]:!text-accent [&_h3]:text-xl md:[&_h3]:text-2xl [&_h3]:mt-12 [&_h3]:mb-6
-                  [&_h4]:font-heading [&_h4]:font-normal [&_h4]:!text-accent [&_h4]:text-lg md:[&_h4]:text-xl [&_h4]:mt-10 [&_h4]:mb-5
-                  [&_p]:text-base [&_p]:leading-loose [&_p]:mb-6
+                  [&_h1]:font-heading [&_h1]:font-normal [&_h1]:!text-accent [&_h1]:text-xl md:[&_h1]:text-2xl [&_h1]:mt-0 [&_h1]:mb-6
+                  [&_h2]:font-heading [&_h2]:font-normal [&_h2]:!text-accent [&_h2]:text-xl md:[&_h2]:text-2xl [&_h2]:mt-12 [&_h2]:mb-5
+                  [&_h3]:font-heading [&_h3]:font-normal [&_h3]:!text-accent [&_h3]:text-lg md:[&_h3]:text-xl [&_h3]:mt-10 [&_h3]:mb-4
+                  [&_h4]:font-heading [&_h4]:font-normal [&_h4]:!text-accent [&_h4]:text-base md:[&_h4]:text-lg [&_h4]:mt-8 [&_h4]:mb-4
+                  [&_p]:text-base [&_p]:leading-relaxed [&_p]:mb-4
                   [&_a]:text-accent [&_a]:underline
                   [&_img]:rounded-sm [&_img]:my-12
                   [&_strong]:font-semibold
