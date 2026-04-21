@@ -87,53 +87,60 @@ export default function BlogPostPage() {
           </div>
         </header>
 
-        {/* Body */}
-        <article className="max-w-3xl mx-auto px-6 py-12">
-          {post.content ? (
-            <ReactMarkdown className="prose prose-lg max-w-none font-body [&_h3]:!text-accent [&_h3]:text-xl md:[&_h3]:text-2xl [&_h3]:mt-12 [&_h3]:mb-6 [&_h4]:!text-accent [&_h4]:text-lg md:[&_h4]:text-xl [&_h4]:mt-10 [&_h4]:mb-5
-              prose-headings:font-heading prose-headings:font-normal prose-headings:text-accent
-              prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-20 prose-h2:mb-10
-              prose-p:text-base prose-p:leading-loose prose-p:mb-9
-              prose-a:text-accent prose-a:underline
-              prose-img:rounded-sm prose-img:my-12
-              prose-strong:font-semibold
-              prose-em:italic
-              prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground prose-blockquote:my-12
-              prose-figcaption:text-xs prose-figcaption:uppercase prose-figcaption:tracking-widest prose-figcaption:text-muted-foreground prose-figcaption:mt-4
-              prose-li:mb-4">
-              {post.content}
-            </ReactMarkdown>
-          ) : (
-            <p className="text-muted-foreground font-body">No content available for this article.</p>
-          )}
-        </article>
+        {/* Body & Related */}
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+            {/* Article - Left Column */}
+            <article className="lg:col-span-2">
+              {post.content ? (
+                <ReactMarkdown className="prose prose-lg max-w-none font-body [&_h3]:!text-accent [&_h3]:text-xl md:[&_h3]:text-2xl [&_h3]:mt-12 [&_h3]:mb-6 [&_h4]:!text-accent [&_h4]:text-lg md:[&_h4]:text-xl [&_h4]:mt-10 [&_h4]:mb-5
+                  prose-headings:font-heading prose-headings:font-normal prose-headings:text-accent
+                  prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-20 prose-h2:mb-10
+                  prose-p:text-base prose-p:leading-loose prose-p:mb-9
+                  prose-a:text-accent prose-a:underline
+                  prose-img:rounded-sm prose-img:my-12
+                  prose-strong:font-semibold
+                  prose-em:italic
+                  prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground prose-blockquote:my-12
+                  prose-figcaption:text-xs prose-figcaption:uppercase prose-figcaption:tracking-widest prose-figcaption:text-muted-foreground prose-figcaption:mt-4
+                  prose-li:mb-4">
+                  {post.content}
+                </ReactMarkdown>
+              ) : (
+                <p className="text-muted-foreground font-body">No content available for this article.</p>
+              )}
+            </article>
 
-        {/* Related Articles */}
-        {relatedPosts.length > 0 && (
-          <section className="max-w-3xl mx-auto px-6 py-24 border-t border-border">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-12 font-body flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-accent inline-block" />
-              Related Reading
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {relatedPosts.map((relatedPost) => (
-                <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="group">
-                  <div className="mb-4">
-                    <span className={`text-xs font-body font-medium px-2.5 py-1 rounded-sm ${categoryColors[relatedPost.category] || 'bg-muted text-muted-foreground'}`}>
-                      {relatedPost.category}
-                    </span>
-                  </div>
-                  <h3 className="font-heading text-xl font-normal leading-snug mb-3 group-hover:text-accent transition-colors">
-                    {relatedPost.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground font-body leading-relaxed line-clamp-2">
-                    {relatedPost.excerpt}
+            {/* Related Articles - Right Sidebar */}
+            {relatedPosts.length > 0 && (
+              <aside className="lg:col-span-1">
+                <div className="sticky top-32 border border-border rounded-sm p-8 bg-secondary/30">
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground mb-8 font-body flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-accent inline-block" />
+                    Related Reading
                   </p>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
+                  <div className="space-y-8">
+                    {relatedPosts.map((relatedPost) => (
+                      <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="group block">
+                        <div className="mb-3">
+                          <span className={`text-xs font-body font-medium px-2.5 py-1 rounded-sm ${categoryColors[relatedPost.category] || 'bg-muted text-muted-foreground'}`}>
+                            {relatedPost.category}
+                          </span>
+                        </div>
+                        <h3 className="font-heading text-sm font-normal leading-snug mb-2 group-hover:text-accent transition-colors">
+                          {relatedPost.title}
+                        </h3>
+                        <p className="text-xs text-muted-foreground font-body leading-relaxed line-clamp-2">
+                          {relatedPost.excerpt}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </aside>
+            )}
+          </div>
+        </div>
       </div>
 
       <CTASection />
