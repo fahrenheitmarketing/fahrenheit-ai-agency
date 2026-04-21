@@ -72,9 +72,11 @@ export default function ChatPanel() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
+    const scrollPos = window.scrollY;
     let convId = conversationId;
     if (!convId) convId = await initConversation();
     await sendMessage(input, convId);
+    window.scrollTo(0, scrollPos);
   };
 
   return (
