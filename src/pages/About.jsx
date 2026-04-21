@@ -80,7 +80,7 @@ export default function About() {
             <div>
               <div className="aspect-[4/3] bg-foreground rounded-sm overflow-hidden mb-8 relative">
                 <img
-                  src="https://cdn.voyageaustin.com/wp-content/uploads/2025/09/c-1758728460089-personal_1758728460298_1758728460298_ricardo_casas_20240517_175951.jpg"
+                  src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/ee7b2888d_Ricardoprofile.jpg"
                   alt="Ricardo Casas"
                   className="w-full h-full object-cover object-top opacity-90"
                 />
