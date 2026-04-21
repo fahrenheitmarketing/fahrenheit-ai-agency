@@ -90,11 +90,9 @@ export default function BlogPostPage() {
         {/* Body */}
         <article className="max-w-3xl mx-auto px-6 py-12">
           {post.content ? (
-            <ReactMarkdown className="prose prose-lg max-w-none font-body
+            <ReactMarkdown className="prose prose-lg max-w-none font-body [&_h3]:!text-accent [&_h3]:text-xl md:[&_h3]:text-2xl [&_h3]:mt-12 [&_h3]:mb-6 [&_h4]:!text-accent [&_h4]:text-lg md:[&_h4]:text-xl [&_h4]:mt-10 [&_h4]:mb-5
               prose-headings:font-heading prose-headings:font-normal prose-headings:text-accent
               prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-20 prose-h2:mb-10
-              prose-h3:text-xl md:prose-h3:text-2xl prose-h3:mt-16 prose-h3:mb-7 prose-h3:!text-accent
-              prose-h4:text-lg md:prose-h4:text-xl prose-h4:mt-12 prose-h4:mb-6 prose-h4:!text-accent
               prose-p:text-base prose-p:leading-loose prose-p:mb-9
               prose-a:text-accent prose-a:underline
               prose-img:rounded-sm prose-img:my-12
