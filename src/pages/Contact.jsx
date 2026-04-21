@@ -68,13 +68,14 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left - Info */}
           <div>
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-8 font-body flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-accent inline-block" />
               Get In Touch
-            </span>
-            <h1 className="font-heading text-4xl md:text-5xl font-normal leading-[1.1] mb-6">
-              Let's Discuss Your <span className="text-primary">Growth</span>
+            </p>
+            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] mb-8">
+              Let's Discuss Your <span className="italic text-accent">Growth</span>
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-10">
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10 max-w-xl font-body">
               No sales pitch. No pressure. Just an honest conversation about your business goals and how AI-powered marketing can help you achieve them. Month-to-month, starting at $1,500.
             </p>
             <div className="space-y-6">
