@@ -1,0 +1,48 @@
+{
+  "name": "BlogPost",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Data & Analytics",
+        "Heat Mapping & UX",
+        "Conversion Rate Optimization",
+        "AI-Assisted PPC",
+        "AI-Enabled Development",
+        "Strategy & Growth"
+      ]
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "read_time": {
+      "type": "string"
+    },
+    "published_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "category",
+    "excerpt"
+  ]
+}
