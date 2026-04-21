@@ -8,12 +8,7 @@ export default function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
-          {/* Left — Chat Panel */}
-          <div className="h-full">
-            <ChatPanel />
-          </div>
-
-          {/* Right */}
+          {/* Left */}
           <div>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -60,7 +55,10 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-
+          {/* Right — Chat Panel */}
+          <div className="h-full">
+            <ChatPanel />
+          </div>
         </div>
       </div>
     </section>
