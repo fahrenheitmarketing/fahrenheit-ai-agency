@@ -28,9 +28,7 @@ export default function Footer() {
               <Link to="/about" className="text-sm text-background/60 hover:text-background transition-colors font-body">About</Link>
               <Link to="/pricing" className="text-sm text-background/60 hover:text-background transition-colors font-body">Pricing</Link>
               <Link to="/contact" className="text-sm text-background/60 hover:text-background transition-colors font-body">Contact</Link>
-              <a href="mailto:rcasas@fahrenheitmarketing.com" className="text-sm text-background/60 hover:text-background transition-colors font-body">
-                rcasas@fahrenheitmarketing.com
-              </a>
+
             </div>
           </div>
         </div>
