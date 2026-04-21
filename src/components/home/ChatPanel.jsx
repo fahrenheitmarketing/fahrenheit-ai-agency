@@ -95,7 +95,7 @@ export default function ChatPanel() {
               <h3 className="font-heading text-lg font-normal mb-2 leading-snug">
                 Ready to grow like the brands we work with?
               </h3>
-              <p className="text-sm text-muted-foreground font-body mb-4 leading-relaxed">
+              <p className="text-xs text-muted-foreground font-body mb-4 leading-relaxed">
                 Ask about our AI-first approach, proven results with brands like PepsiCo, RJ Reynolds, and QuikTrip, or how we measure success.
               </p>
               <div className="space-y-2">
@@ -116,7 +116,7 @@ export default function ChatPanel() {
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-[90%] text-xs rounded-sm px-3 py-2 leading-relaxed font-body ${
                     msg.role === 'user' ? 'bg-foreground text-background' : 'bg-muted text-foreground'
-                  }`}>
+                  }`} style={{ fontFamily: 'var(--font-body)' }}>
                     <ReactMarkdown className="prose prose-sm max-w-none [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 text-xs">
                       {msg.content}
                     </ReactMarkdown>
