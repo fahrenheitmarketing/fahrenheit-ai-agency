@@ -18,6 +18,7 @@ const services = [
   { label: 'CRO', path: '/services/cro' },
   { label: 'Strategy', path: '/services/strategy' },
   { label: 'Marketing Automation', path: '/services/marketing-automation' },
+  { label: 'Software Development', path: '/services/software-development' },
 ];
 
 export default function Navbar() {
