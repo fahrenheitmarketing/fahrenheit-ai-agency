@@ -32,6 +32,11 @@ export default function Navbar() {
 
   useEffect(() => { setMobileOpen(false); }, [location]);
 
+  const isActive = (path) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${scrolled ? 'bg-background/95 backdrop-blur-sm border-b border-border' : 'bg-transparent'}`}>
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
@@ -43,7 +48,7 @@ export default function Navbar() {
         {/* Center Nav */}
         <div className="hidden lg:flex items-center gap-8">
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-foreground/70 hover:text-foreground transition-colors outline-none font-body tracking-wide">
+            <DropdownMenuTrigger className={`flex items-center gap-1 text-sm transition-colors outline-none font-body tracking-wide ${isActive('/services') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
               SERVICES <ChevronDown className="w-3.5 h-3.5" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-48 bg-background border-border">
@@ -54,13 +59,13 @@ export default function Navbar() {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Link to="/pricing" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-body tracking-wide">
+          <Link to="/pricing" className={`text-sm transition-colors font-body tracking-wide ${isActive('/pricing') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
             PRICING
           </Link>
-          <Link to="/about" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-body tracking-wide">
+          <Link to="/about" className={`text-sm transition-colors font-body tracking-wide ${isActive('/about') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
             ABOUT
           </Link>
-          <Link to="/blog" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-body tracking-wide">
+          <Link to="/blog" className={`text-sm transition-colors font-body tracking-wide ${isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
             JOURNAL
           </Link>
         </div>
@@ -93,12 +98,12 @@ export default function Navbar() {
               <div className="border-b border-border pb-4">
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Services</p>
                 {services.map((s) => (
-                  <Link key={s.path} to={s.path} className="block text-sm py-1.5 text-foreground/70 hover:text-foreground font-body">{s.label}</Link>
+                  <Link key={s.path} to={s.path} className={`block text-sm py-1.5 font-body ${isActive(s.path) ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>{s.label}</Link>
                 ))}
               </div>
-              <Link to="/pricing" className="text-sm text-foreground/70 hover:text-foreground font-body">PRICING</Link>
-              <Link to="/about" className="text-sm text-foreground/70 hover:text-foreground font-body">ABOUT</Link>
-              <Link to="/blog" className="text-sm text-foreground/70 hover:text-foreground font-body">JOURNAL</Link>
+              <Link to="/pricing" className={`text-sm font-body ${isActive('/pricing') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>PRICING</Link>
+              <Link to="/about" className={`text-sm font-body ${isActive('/about') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>ABOUT</Link>
+              <Link to="/blog" className={`text-sm font-body ${isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>JOURNAL</Link>
               <Link to="/contact" className="inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2.5 rounded-sm w-fit font-body">
                 BOOK A STRATEGY CALL ↗
               </Link>
