@@ -40,22 +40,31 @@ export default function ChatPanel() {
     setStarted(true);
 
     try {
+      // Add message and get updated conversation
       const updated = await base44.agents.addMessage(activeConv, { role: 'user', content: text });
-      
-      // Update conversation reference
       setConversation(updated);
       
-      // Subscribe to updates and show all messages
+      // Immediately show user message
+      setMessages(prev => [...prev, { role: 'user', content: text }]);
+      
+      // Subscribe to get agent response
       const unsubscribe = base44.agents.subscribeToConversation(activeConv.id, (data) => {
-        if (data.messages) {
-          setMessages(data.messages.filter(m => m.role === 'user' || m.role === 'assistant'));
+        if (data.messages && data.messages.length > 0) {
+          const filtered = data.messages.filter(m => m.role === 'user' || m.role === 'assistant');
+          setMessages(filtered);
         }
       });
       
-      // Unsubscribe after a reasonable timeout
-      setTimeout(() => { unsubscribe(); setLoading(false); }, 15000);
+      // Clean up after timeout
+      const timer = setTimeout(() => {
+        unsubscribe();
+        setLoading(false);
+      }, 20000);
+      
+      return () => clearTimeout(timer);
     } catch (error) {
       console.error('Error sending message:', error);
+      setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, something went wrong. Please try again.' }]);
       setLoading(false);
     }
   };
