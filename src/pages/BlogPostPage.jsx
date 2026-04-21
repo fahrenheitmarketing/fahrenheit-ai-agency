@@ -91,16 +91,17 @@ export default function BlogPostPage() {
         <article className="max-w-3xl mx-auto px-6 py-24">
           {post.content ? (
             <ReactMarkdown className="prose prose-lg max-w-none font-body
-              prose-headings:font-heading prose-headings:font-normal
-              prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-              prose-h3:text-lg md:prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4
-              prose-p:text-base prose-p:leading-relaxed prose-p:mb-6
+              prose-headings:font-heading prose-headings:font-normal prose-headings:text-accent
+              prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-8
+              prose-h3:text-lg md:prose-h3:text-xl prose-h3:mt-14 prose-h3:mb-6
+              prose-p:text-base prose-p:leading-relaxed prose-p:mb-8
               prose-a:text-accent prose-a:underline
-              prose-img:rounded-sm prose-img:my-8
+              prose-img:rounded-sm prose-img:my-10
               prose-strong:font-semibold
               prose-em:italic
-              prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground prose-blockquote:my-8
-              prose-figcaption:text-xs prose-figcaption:uppercase prose-figcaption:tracking-widest prose-figcaption:text-muted-foreground prose-figcaption:mt-2">
+              prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground prose-blockquote:my-10
+              prose-figcaption:text-xs prose-figcaption:uppercase prose-figcaption:tracking-widest prose-figcaption:text-muted-foreground prose-figcaption:mt-3
+              prose-li:mb-3">
               {post.content}
             </ReactMarkdown>
           ) : (
