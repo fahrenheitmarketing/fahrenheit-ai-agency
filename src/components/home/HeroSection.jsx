@@ -76,17 +76,13 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[72px]">
-      {/* Geometric grid watermark */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.06]" aria-hidden="true">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
+      {/* Cubes pattern — bottom right */}
+      <img
+        src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute bottom-0 right-0 w-[480px] pointer-events-none opacity-40 select-none"
+      />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">

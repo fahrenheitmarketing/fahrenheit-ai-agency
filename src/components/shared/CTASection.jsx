@@ -10,8 +10,15 @@ export default function CTASection({
   secondaryLink = "/pricing",
 }) {
   return (
-    <section className="py-24 px-6 lg:px-10 bg-foreground text-background">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 px-6 lg:px-10 bg-foreground text-background overflow-hidden">
+      {/* Cubes pattern — top right */}
+      <img
+        src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-10 select-none rotate-180"
+      />
+      <div className="relative max-w-7xl mx-auto">
         <p className="text-xs uppercase tracking-widest text-background/40 mb-6 font-body">Ready when you are</p>
         <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-8 max-w-3xl">
           {headline}
@@ -34,4 +41,5 @@ export default function CTASection({
       </div>
     </section>
   );
+
 }
