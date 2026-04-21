@@ -115,14 +115,14 @@ export default function About() {
               <p className="text-muted-foreground leading-relaxed font-body">
                 A Forbes Agency Council member and longtime Austin resident, Ricardo is a vocal champion of data-first strategy — long before AI made it fashionable. He is a proud father of six, a passionate home cook, and someone who defines success not by the size of the deal, but by the depth of the relationship.
               </p>
-              <div className="grid grid-cols-2 gap-6 pt-4 border-t border-border">
-                <div>
+              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border">
+                <div className="bg-foreground text-background p-6 rounded-sm">
                   <p className="font-heading text-3xl font-normal">25+</p>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-body mt-1">Years in Digital Marketing</p>
+                  <p className="text-xs uppercase tracking-widest text-background/60 font-body mt-1">Years in Digital Marketing</p>
                 </div>
-                <div>
+                <div className="bg-accent text-white p-6 rounded-sm">
                   <p className="font-heading text-3xl font-normal">11 yrs</p>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-body mt-1">Avg. Employee Tenure</p>
+                  <p className="text-xs uppercase tracking-widest text-white/70 font-body mt-1">Avg. Employee Tenure</p>
                 </div>
               </div>
             </div>
