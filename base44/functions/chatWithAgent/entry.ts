@@ -3,25 +3,31 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
+    const user = await base44.auth.me();
+    
+    if (!user) {
+      return Response.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+    
     const { conversationId, message } = await req.json();
     
     if (!conversationId || !message) {
       return Response.json({ error: 'Missing conversationId or message' }, { status: 400 });
     }
     
-    // Get the conversation
-    const conversation = await base44.asServiceRole.agents.getConversation(conversationId);
+    // Get the conversation using user auth (not service role)
+    const conversation = await base44.agents.getConversation(conversationId);
     
     // Add user message
-    const updated = await base44.asServiceRole.agents.addMessage(conversation, {
+    const updated = await base44.agents.addMessage(conversation, {
       role: 'user',
       content: message,
     });
     
-    // Subscribe to get response with timeout
+    // Subscribe to get response - use user context for subscription
     return new Promise((resolve) => {
       let response = null;
-      const unsubscribe = base44.asServiceRole.agents.subscribeToConversation(conversationId, (data) => {
+      const unsubscribe = base44.agents.subscribeToConversation(conversationId, (data) => {
         if (data.messages && data.messages.length > 0) {
           const assistantMsg = data.messages.find(m => m.role === 'assistant');
           if (assistantMsg && !response) {
