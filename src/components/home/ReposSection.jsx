@@ -22,12 +22,12 @@ export default function ReposSection() {
             <p className="text-muted-foreground text-base leading-relaxed font-body mb-10">
               Marketing spend has never been higher. Attention has never been lower. The difference between companies that win the next decade and ones that fade won't be creative — it'll be intelligence, deployed.
             </p>
-            <div className="space-y-0">
+            <div className="space-y-3">
               {retirements.map((r, i) => (
-                <div key={i} className="grid grid-cols-2 gap-4 py-5 border-t border-border">
+                <div key={i} className="bg-card border border-border rounded-sm shadow-sm grid grid-cols-2 gap-4 px-6 py-5">
                   <div>
                     <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1 font-body">We retired</p>
-                    <p className="font-heading text-lg text-foreground/50 line-through">{r.retired}</p>
+                    <p className="font-heading text-lg text-foreground/40 line-through">{r.retired}</p>
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-widest text-accent mb-1 font-body">In favor of</p>

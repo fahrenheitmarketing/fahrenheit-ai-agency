@@ -14,9 +14,9 @@ export default function ProcessSection() {
         <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15] mb-16 max-w-2xl">
           A short engagement. A long runway.
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {steps.map((s, i) => (
-            <div key={i} className="py-8 pr-8 border-t border-border md:border-l first:md:border-l-0 md:pl-8 first:md:pl-0">
+            <div key={i} className="bg-card border border-border rounded-sm shadow-sm p-8">
               <p className="text-xs text-muted-foreground font-body mb-6">{s.num}</p>
               <h3 className="font-heading text-2xl font-normal mb-3">{s.title}</h3>
               <p className="text-sm text-muted-foreground font-body leading-relaxed">{s.description}</p>

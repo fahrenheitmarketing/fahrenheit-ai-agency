@@ -29,9 +29,9 @@ export default function OutcomesSection() {
         <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15] mb-16 max-w-2xl">
           What it looks like when intelligence shows up in the numbers.
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {outcomes.map((o, i) => (
-            <div key={i} className="py-8 pr-8 border-t border-border md:border-l first:md:border-l-0 md:pl-8 first:md:pl-0">
+            <div key={i} className="bg-card border border-border rounded-sm shadow-sm p-8">
               <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">{o.category}</p>
               <p className="font-heading text-5xl md:text-6xl font-normal text-accent mb-2">{o.metric}</p>
               <p className="text-sm font-body text-foreground mb-3">{o.label}</p>
