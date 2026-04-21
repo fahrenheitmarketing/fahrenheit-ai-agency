@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import AIChatWidget from '../chat/AIChatWidget';
 
 const pageNames = {
   '/': 'Homepage',
@@ -31,7 +30,6 @@ export default function SiteLayout() {
         <Outlet />
       </main>
       <Footer />
-      <AIChatWidget pageSource={pageName} />
     </div>
   );
 }
