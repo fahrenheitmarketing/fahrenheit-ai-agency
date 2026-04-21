@@ -61,7 +61,7 @@ export default function About() {
             </div>
             <div className="grid grid-cols-2 gap-px bg-border border border-border">
               {stats.map((s) => (
-                <div key={s.label} className="bg-background p-8">
+                <div key={s.label} className="bg-secondary p-8">
                   <p className="font-heading text-4xl font-normal text-foreground mb-1">{s.value}</p>
                   <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">{s.label}</p>
                 </div>
