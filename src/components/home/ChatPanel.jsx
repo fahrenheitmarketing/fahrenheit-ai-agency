@@ -35,22 +35,27 @@ export default function ChatPanel() {
     const activeConv = conv || conversation;
     if (!text.trim() || loading) return;
 
-    const userMsg = { role: 'user', content: text };
-    setMessages(prev => [...prev, userMsg]);
     setInput('');
     setLoading(true);
     setStarted(true);
 
     try {
-      await base44.agents.addMessage(activeConv, { role: 'user', content: text });
-
+      const updated = await base44.agents.addMessage(activeConv, { role: 'user', content: text });
+      
+      // Update conversation reference
+      setConversation(updated);
+      
+      // Subscribe to updates and show all messages
       const unsubscribe = base44.agents.subscribeToConversation(activeConv.id, (data) => {
         if (data.messages) {
           setMessages(data.messages.filter(m => m.role === 'user' || m.role === 'assistant'));
         }
       });
+      
+      // Unsubscribe after a reasonable timeout
       setTimeout(() => { unsubscribe(); setLoading(false); }, 15000);
-    } catch {
+    } catch (error) {
+      console.error('Error sending message:', error);
       setLoading(false);
     }
   };
