@@ -84,6 +84,7 @@ export default function ChatPanel() {
         <div className="flex items-center gap-2 mb-1">
           <span className="w-2 h-2 rounded-full bg-accent" />
           <span className="text-xs uppercase tracking-widest font-body text-foreground/70">Fahrenheit Concierge</span>
+          <span className="text-xs uppercase tracking-widest font-body text-accent font-semibold animate-pulse">Live</span>
         </div>
         <p className="text-xs text-muted-foreground font-body">Trusted by powerhouse brands</p>
       </div>
