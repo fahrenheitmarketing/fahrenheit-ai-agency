@@ -56,18 +56,24 @@ export default function AIChatWidget({ pageSource = 'Unknown' }) {
     if (emailMatch && !visitorEmail) setVisitorEmail(emailMatch[0]);
 
     try {
-      const res = await base44.functions.invoke('chatWithAgent', {
+      await base44.functions.invoke('chatWithAgent', {
         action: 'addMessage',
         conversationId: conversation.id,
         message: text,
       });
-      const updated = res.data.conversation;
-      setConversation(updated);
 
+      // Subscribe to get streaming agent response
       const unsubscribe = base44.agents.subscribeToConversation(conversation.id, (data) => {
-        if (data.messages) setMessages(data.messages.filter(m => m.role === 'user' || m.role === 'assistant'));
+        if (data.messages) {
+          setMessages(data.messages.filter(m => m.role === 'user' || m.role === 'assistant'));
+        }
       });
-      setTimeout(() => { unsubscribe(); setLoading(false); }, 15000);
+      
+      // Wait for response and then unsubscribe
+      setTimeout(() => { 
+        unsubscribe();
+        setLoading(false); 
+      }, 10000);
     } catch (error) {
       console.error('Failed to send message:', error);
       setMessages(prev => [...prev, { role: 'assistant', content: 'Something went wrong. Try again or email rcasas@fahrenheitmarketing.com.' }]);
