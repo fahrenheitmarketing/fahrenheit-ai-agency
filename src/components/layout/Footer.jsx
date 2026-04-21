@@ -6,46 +6,37 @@ const LOGO_URL = 'https://media.base44.com/images/public/user_696032597527e77c90
 export default function Footer() {
   return (
     <footer className="bg-foreground text-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div>
-            <img src={LOGO_URL} alt="Fahrenheit Marketing" className="h-8 brightness-0 invert mb-4" />
-            <p className="text-background/60 text-sm leading-relaxed">
-              AI-first digital marketing agency. We combine intelligent technology with experienced professionals to deliver measurable growth.
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-background/10">
+          <div className="lg:col-span-2">
+            <img src={LOGO_URL} alt="Fahrenheit Marketing" className="h-7 brightness-0 invert mb-5" />
+            <p className="text-background/50 text-sm leading-relaxed max-w-sm font-body">
+              AI-first digital marketing. We design the systems, deploy the models, and operate the stack — measured in outcomes, not deliverables.
             </p>
           </div>
           <div>
-            <h4 className="font-heading text-lg mb-4">Services</h4>
-            <div className="flex flex-col gap-2.5">
-              <Link to="/services/seo" className="text-sm text-background/60 hover:text-background transition-colors">Search Engine Optimization</Link>
-              <Link to="/services/sem" className="text-sm text-background/60 hover:text-background transition-colors">Search Engine Marketing</Link>
-              <Link to="/services/smm" className="text-sm text-background/60 hover:text-background transition-colors">Social Media Marketing</Link>
-              <Link to="/services/cro" className="text-sm text-background/60 hover:text-background transition-colors">Conversion Rate Optimization</Link>
-              <Link to="/services/strategy" className="text-sm text-background/60 hover:text-background transition-colors">Strategic Planning</Link>
+            <h4 className="text-xs uppercase tracking-widest text-background/40 mb-5 font-body">Services</h4>
+            <div className="flex flex-col gap-3">
+              {[['SEO', '/services/seo'], ['SEM / PPC', '/services/sem'], ['Social Media', '/services/smm'], ['CRO', '/services/cro'], ['Strategy', '/services/strategy']].map(([label, path]) => (
+                <Link key={path} to={path} className="text-sm text-background/60 hover:text-background transition-colors font-body">{label}</Link>
+              ))}
             </div>
           </div>
           <div>
-            <h4 className="font-heading text-lg mb-4">Company</h4>
-            <div className="flex flex-col gap-2.5">
-              <Link to="/about" className="text-sm text-background/60 hover:text-background transition-colors">About Us</Link>
-              <Link to="/pricing" className="text-sm text-background/60 hover:text-background transition-colors">Pricing</Link>
-              <Link to="/contact" className="text-sm text-background/60 hover:text-background transition-colors">Contact</Link>
+            <h4 className="text-xs uppercase tracking-widest text-background/40 mb-5 font-body">Company</h4>
+            <div className="flex flex-col gap-3">
+              <Link to="/about" className="text-sm text-background/60 hover:text-background transition-colors font-body">About</Link>
+              <Link to="/pricing" className="text-sm text-background/60 hover:text-background transition-colors font-body">Pricing</Link>
+              <Link to="/contact" className="text-sm text-background/60 hover:text-background transition-colors font-body">Contact</Link>
+              <a href="mailto:rcasas@fahrenheitmarketing.com" className="text-sm text-background/60 hover:text-background transition-colors font-body">
+                rcasas@fahrenheitmarketing.com
+              </a>
             </div>
-          </div>
-          <div>
-            <h4 className="font-heading text-lg mb-4">Get In Touch</h4>
-            <p className="text-sm text-background/60 leading-relaxed">Austin, Texas</p>
-            <a href="mailto:rcasas@fahrenheitmarketing.com" className="text-sm text-background/60 hover:text-background transition-colors block mt-2">
-              rcasas@fahrenheitmarketing.com
-            </a>
-            <Link to="/contact" className="inline-block mt-4 text-sm font-medium text-primary hover:underline">
-              Schedule a Consultation →
-            </Link>
           </div>
         </div>
-        <div className="border-t border-background/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-background/40">© {new Date().getFullYear()} Fahrenheit Marketing. All rights reserved.</p>
-          <p className="text-xs text-background/40">AI-Powered Growth Since 2008</p>
+        <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <p className="text-xs text-background/30 font-body">© {new Date().getFullYear()} Fahrenheit Marketing. All rights reserved.</p>
+          <p className="text-xs text-background/30 font-body">AI Enablement · Since 2008 · Austin, Texas</p>
         </div>
       </div>
     </footer>

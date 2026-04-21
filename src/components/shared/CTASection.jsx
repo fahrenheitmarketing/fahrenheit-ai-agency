@@ -1,28 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 
 export default function CTASection({
-  headline = "Ready to Grow Smarter?",
-  subtext = "No long-term contracts. No guesswork. Just AI-powered results, month after month.",
-  buttonText = "Start Your Growth",
+  headline = "Bring us a business problem. We'll bring the AI.",
+  subtext = "Month-to-month retainers starting at $1,500. A 30-minute strategy call is free — you'll leave with a working hypothesis even if we never work together.",
+  buttonText = "Book a strategy call",
   buttonLink = "/contact",
+  secondaryText = "See our work",
+  secondaryLink = "/pricing",
 }) {
   return (
-    <section className="py-24 px-6 bg-primary text-primary-foreground relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white rounded-full blur-3xl" />
-      </div>
-      <div className="max-w-3xl mx-auto text-center relative z-10">
-        <h2 className="font-heading text-4xl md:text-5xl font-semibold mb-6">{headline}</h2>
-        <p className="text-lg md:text-xl opacity-90 mb-10 leading-relaxed font-body">{subtext}</p>
-        <Link to={buttonLink}>
-          <Button size="lg" variant="secondary" className="rounded-full px-8 text-base font-body gap-2">
-            {buttonText} <ArrowRight className="w-4 h-4" />
-          </Button>
-        </Link>
+    <section className="py-24 px-6 lg:px-10 bg-foreground text-background">
+      <div className="max-w-7xl mx-auto">
+        <p className="text-xs uppercase tracking-widest text-background/40 mb-6 font-body">Ready when you are</p>
+        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-8 max-w-3xl">
+          {headline}
+        </h2>
+        <p className="text-background/60 text-base md:text-lg max-w-2xl mb-10 font-body leading-relaxed">{subtext}</p>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link
+            to={buttonLink}
+            className="inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-6 py-3 rounded-sm hover:bg-accent/90 transition-colors font-body"
+          >
+            {buttonText} <span className="text-base">↗</span>
+          </Link>
+          <Link
+            to={secondaryLink}
+            className="inline-flex items-center gap-2 border border-background/20 text-background/70 text-sm font-medium px-6 py-3 rounded-sm hover:border-background/40 hover:text-background transition-colors font-body"
+          >
+            {secondaryText}
+          </Link>
+        </div>
       </div>
     </section>
   );

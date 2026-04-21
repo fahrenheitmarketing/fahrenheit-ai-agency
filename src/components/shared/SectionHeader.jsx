@@ -1,18 +1,19 @@
 import React from 'react';
 
-export default function SectionHeader({ label, title, description, align = 'center' }) {
+export default function SectionHeader({ label, number, title, description, align = 'left' }) {
   return (
     <div className={`max-w-3xl mb-16 ${align === 'center' ? 'mx-auto text-center' : ''}`}>
-      {label && (
-        <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-3 font-body">
+      {(label || number) && (
+        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-5 font-body">
+          {number && <span className="mr-2">{number}</span>}
           {label}
-        </span>
+        </p>
       )}
-      <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 leading-tight">
+      <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-normal mb-4 leading-[1.15]">
         {title}
       </h2>
       {description && (
-        <p className="text-muted-foreground text-lg leading-relaxed font-body">{description}</p>
+        <p className="text-muted-foreground text-base md:text-lg leading-relaxed font-body mt-4">{description}</p>
       )}
     </div>
   );

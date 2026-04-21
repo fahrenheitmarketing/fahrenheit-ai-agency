@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -26,66 +25,59 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [location]);
+  useEffect(() => { setMobileOpen(false); }, [location]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/95 backdrop-blur-md shadow-sm border-b border-border' : 'bg-transparent'
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
-        <Link to="/" className="flex items-center">
-          <img src={LOGO_URL} alt="Fahrenheit Marketing" className="h-8 md:h-10" />
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${scrolled ? 'bg-background/95 backdrop-blur-sm border-b border-border' : 'bg-transparent'}`}>
+      <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
+        {/* Logo */}
+        <Link to="/" className="flex items-center flex-shrink-0">
+          <img src={LOGO_URL} alt="Fahrenheit Marketing" className="h-8" />
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Center Nav */}
         <div className="hidden lg:flex items-center gap-8">
-          <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-            Home
-          </Link>
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors outline-none">
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-foreground/70 hover:text-foreground transition-colors outline-none font-body tracking-wide">
               Services <ChevronDown className="w-3.5 h-3.5" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="center" className="w-48">
+            <DropdownMenuContent align="center" className="w-48 bg-background border-border">
               {services.map((s) => (
                 <DropdownMenuItem key={s.path} asChild>
-                  <Link to={s.path} className="cursor-pointer">{s.label}</Link>
+                  <Link to={s.path} className="cursor-pointer text-sm">{s.label}</Link>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Link to="/pricing" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+          <Link to="/pricing" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-body tracking-wide">
             Pricing
           </Link>
-          <Link to="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+          <Link to="/about" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-body tracking-wide">
             About
           </Link>
-          <Link to="/contact">
-            <Button size="sm" className="rounded-full px-6 font-body">
-              Get Started
-            </Button>
+        </div>
+
+        {/* CTA */}
+        <div className="hidden lg:block">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-foreground text-background text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-foreground/90 transition-colors font-body tracking-wide"
+          >
+            Book a strategy call <span className="text-base">↗</span>
           </Link>
         </div>
 
         {/* Mobile Toggle */}
-        <button
-          className="lg:hidden p-2 text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        <button className="lg:hidden p-2 text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -95,19 +87,16 @@ export default function Navbar() {
             className="lg:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
-              <Link to="/" className="text-base font-medium py-2">Home</Link>
-              <div className="border-t border-border pt-2">
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Services</p>
+              <div className="border-b border-border pb-4">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Services</p>
                 {services.map((s) => (
-                  <Link key={s.path} to={s.path} className="block text-base font-medium py-2 pl-3">
-                    {s.label}
-                  </Link>
+                  <Link key={s.path} to={s.path} className="block text-sm py-1.5 text-foreground/70 hover:text-foreground font-body">{s.label}</Link>
                 ))}
               </div>
-              <Link to="/pricing" className="text-base font-medium py-2">Pricing</Link>
-              <Link to="/about" className="text-base font-medium py-2">About</Link>
-              <Link to="/contact">
-                <Button className="w-full rounded-full font-body mt-2">Get Started</Button>
+              <Link to="/pricing" className="text-sm text-foreground/70 hover:text-foreground font-body">Pricing</Link>
+              <Link to="/about" className="text-sm text-foreground/70 hover:text-foreground font-body">About</Link>
+              <Link to="/contact" className="inline-flex items-center gap-2 bg-foreground text-background text-sm font-medium px-5 py-2.5 rounded-sm w-fit font-body">
+                Book a strategy call ↗
               </Link>
             </div>
           </motion.div>

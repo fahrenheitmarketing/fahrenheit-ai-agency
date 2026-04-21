@@ -1,44 +1,25 @@
 import React from 'react';
-import SectionHeader from '../shared/SectionHeader';
 
 const steps = [
-  {
-    number: '01',
-    title: 'Discovery & Audit',
-    description: 'We analyze your digital footprint, competitive landscape, and market position using AI-powered tools that surface insights traditional audits miss.',
-  },
-  {
-    number: '02',
-    title: 'Strategy & Architecture',
-    description: 'We build a data-driven strategy tailored to your goals — from keyword maps and content calendars to paid media plans and conversion frameworks.',
-  },
-  {
-    number: '03',
-    title: 'Execute & Optimize',
-    description: 'Our team deploys campaigns while AI monitors performance in real-time, making micro-adjustments that compound into significant gains.',
-  },
-  {
-    number: '04',
-    title: 'Report & Evolve',
-    description: 'Transparent monthly reporting with clear ROI metrics. We continuously refine the strategy as data reveals new opportunities.',
-  },
+  { num: '01', title: 'Diagnose', description: 'Map the P&L to the workflows. Identify where AI creates leverage — and where it doesn\'t.' },
+  { num: '02', title: 'Deploy', description: 'Ship working systems in weeks, not quarters. Models, integrations, strategy — production-grade from day one.' },
+  { num: '03', title: 'Scale', description: 'Operate, measure, and compound. Outcomes reviewed monthly against revenue and efficiency targets.' },
 ];
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 lg:px-10 border-t border-border">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader
-          label="How We Work"
-          title="A Smarter Process, Powered by AI"
-          description="From audit to optimization, artificial intelligence enhances every stage of our engagement."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step) => (
-            <div key={step.number} className="relative">
-              <span className="text-6xl font-heading font-bold text-primary/10">{step.number}</span>
-              <h3 className="font-heading text-xl font-semibold mb-2 -mt-2">{step.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-16 font-body">05 · How we work</p>
+        <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15] mb-16 max-w-2xl">
+          A short engagement. A long runway.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+          {steps.map((s, i) => (
+            <div key={i} className="py-8 pr-8 border-t border-border md:border-l first:md:border-l-0 md:pl-8 first:md:pl-0">
+              <p className="text-xs text-muted-foreground font-body mb-6">{s.num}</p>
+              <h3 className="font-heading text-2xl font-normal mb-3">{s.title}</h3>
+              <p className="text-sm text-muted-foreground font-body leading-relaxed">{s.description}</p>
             </div>
           ))}
         </div>
