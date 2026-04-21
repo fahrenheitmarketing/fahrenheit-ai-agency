@@ -5,9 +5,15 @@ import ChatPanel from './ChatPanel';
 export default function HeroSection() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[72px] scroll-m-0">
+      <img
+        src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/8291c1e9f_generated_image.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
+        aria-hidden="true"
+      />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 w-full py-16">
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
           {/* Left */}
           <div>
             <motion.p
