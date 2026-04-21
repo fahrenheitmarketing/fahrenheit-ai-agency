@@ -103,6 +103,7 @@ export default function BlogPostPage() {
               {post.content ? (
                 <ReactMarkdown className="prose prose-lg max-w-none font-body
                   prose-headings:font-heading prose-headings:font-normal prose-headings:!text-accent
+                  prose-h1:text-2xl md:prose-h1:text-3xl prose-h1:mt-0 prose-h1:mb-8
                   prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6
                   [&_h3]:!text-accent [&_h3]:text-xl md:[&_h3]:text-2xl [&_h3]:mt-12 [&_h3]:mb-6
                   [&_h4]:!text-accent [&_h4]:text-lg md:[&_h4]:text-xl [&_h4]:mt-10 [&_h4]:mb-5
