@@ -104,7 +104,7 @@ export default function Contact() {
                 src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
                 alt=""
                 aria-hidden="true"
-                className="w-72 opacity-60 select-none pointer-events-none"
+                className="w-72 opacity-90 select-none pointer-events-none"
               />
             </div>
           </div>
