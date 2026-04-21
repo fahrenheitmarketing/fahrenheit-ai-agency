@@ -54,21 +54,22 @@ export default function BlogPostPage() {
         </div>
 
         {/* Header */}
-        <header className="max-w-3xl mx-auto px-6 pb-12 border-b border-border">
-          <div className="flex items-center gap-3 mb-6">
+        <header className="max-w-3xl mx-auto px-6 pb-20 border-b border-border">
+          <div className="flex items-center gap-3 mb-8">
             <span className={`text-xs font-body font-medium px-2.5 py-1 rounded-sm ${categoryColors[post.category] || 'bg-muted text-muted-foreground'}`}>
               {post.category}
             </span>
             {post.read_time && <span className="text-xs text-muted-foreground font-body">{post.read_time} read</span>}
           </div>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
+          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] mb-8">
             {post.title}
           </h1>
           {post.excerpt && (
-            <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">{post.excerpt}</p>
+            <p className="text-base md:text-lg text-muted-foreground font-body leading-relaxed mb-8 max-w-2xl">{post.excerpt}</p>
           )}
-          <div className="flex items-center gap-4 text-xs text-muted-foreground font-body">
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-xs uppercase tracking-widest text-muted-foreground font-body">
             {post.author && <span>{post.author}</span>}
+            {post.author && post.published_date && <span className="hidden md:inline">•</span>}
             {post.published_date && (
               <span>{new Date(post.published_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
             )}
@@ -76,9 +77,19 @@ export default function BlogPostPage() {
         </header>
 
         {/* Body */}
-        <article className="max-w-3xl mx-auto px-6 py-16">
+        <article className="max-w-3xl mx-auto px-6 py-24">
           {post.content ? (
-            <ReactMarkdown className="prose prose-lg max-w-none font-body prose-headings:font-heading prose-headings:font-normal prose-a:text-accent">
+            <ReactMarkdown className="prose prose-lg max-w-none font-body
+              prose-headings:font-heading prose-headings:font-normal
+              prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+              prose-h3:text-lg md:prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4
+              prose-p:text-base prose-p:leading-relaxed prose-p:mb-6
+              prose-a:text-accent prose-a:underline
+              prose-img:rounded-sm prose-img:my-8
+              prose-strong:font-semibold
+              prose-em:italic
+              prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground prose-blockquote:my-8
+              prose-figcaption:text-xs prose-figcaption:uppercase prose-figcaption:tracking-widest prose-figcaption:text-muted-foreground prose-figcaption:mt-2">
               {post.content}
             </ReactMarkdown>
           ) : (
