@@ -18,6 +18,8 @@ export default function ChatPanel() {
     'How do we get started?',
   ];
 
+  const CALENDAR_URL = 'https://app.logicsuite.io/fahrenheit-marketing/meeting/discovery-call-ricardo-brandon';
+
   useEffect(() => {
     if (started && loading && messagesContainerRef.current) {
       setTimeout(() => {
@@ -118,7 +120,7 @@ export default function ChatPanel() {
           ) : (
             <div className="space-y-4">
               {messages.map((msg, i) => (
-                <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div key={i} className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
                   <div className={`max-w-[90%] text-xs rounded-sm px-3 py-2 leading-relaxed font-body ${
                     msg.role === 'user' ? 'bg-foreground text-background' : 'bg-muted text-foreground'
                   }`} style={{ fontFamily: 'var(--font-body)' }}>
@@ -126,6 +128,16 @@ export default function ChatPanel() {
                       {msg.content}
                     </ReactMarkdown>
                   </div>
+                  {msg.role === 'assistant' && (msg.content.toLowerCase().includes('book') || msg.content.toLowerCase().includes('schedule') || msg.content.toLowerCase().includes('meeting')) && (
+                    <a
+                      href={CALENDAR_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 text-xs px-3 py-1.5 bg-accent text-white rounded-sm hover:bg-accent/90 transition-colors font-body"
+                    >
+                      Book a Call
+                    </a>
+                  )}
                 </div>
               ))}
               {loading && (
