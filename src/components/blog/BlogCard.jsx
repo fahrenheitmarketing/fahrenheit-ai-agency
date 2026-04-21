@@ -12,7 +12,7 @@ const categoryColors = {
 
 export default function BlogCard({ post }) {
   return (
-    <div className="border-t border-border pt-8 group">
+    <Link to={`/blog/${post.id}`} className="border-t border-border pt-8 group block">
       <div className="flex items-center gap-3 mb-4">
         <span className={`text-xs font-body font-medium px-2.5 py-1 rounded-sm ${categoryColors[post.category] || 'bg-muted text-muted-foreground'}`}>
           {post.category}
@@ -33,6 +33,6 @@ export default function BlogCard({ post }) {
           Read article <span>→</span>
         </span>
       </div>
-    </div>
+    </Link>
   );
 }
