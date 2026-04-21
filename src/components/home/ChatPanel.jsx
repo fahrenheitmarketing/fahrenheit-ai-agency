@@ -76,7 +76,7 @@ export default function ChatPanel() {
     let convId = conversationId;
     if (!convId) convId = await initConversation();
     await sendMessage(input, convId);
-    window.scrollTo(0, scrollPos);
+    setTimeout(() => window.scrollTo(0, scrollPos), 0);
   };
 
   return (
@@ -150,6 +150,7 @@ export default function ChatPanel() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask anything..."
               className="flex-1 bg-transparent text-xs outline-none font-body text-foreground placeholder:text-muted-foreground"
+              onFocus={(e) => e.target.scrollIntoView({ block: 'nearest', behavior: 'auto' })}
             />
             <button
               type="submit"
