@@ -78,17 +78,7 @@ export default function Contact() {
               No sales pitch. No pressure. Just an honest conversation about your business goals and how AI-powered marketing can help you achieve them. Month-to-month, starting at $1,500.
             </p>
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="font-medium text-sm mb-1">Email Us</p>
-                  <a href="mailto:rcasas@fahrenheitmarketing.com" className="text-muted-foreground text-sm hover:text-primary transition-colors">
-                    rcasas@fahrenheitmarketing.com
-                  </a>
-                </div>
-              </div>
+
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5 text-primary" />
