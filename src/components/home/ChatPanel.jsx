@@ -9,7 +9,7 @@ export default function ChatPanel() {
   const [loading, setLoading] = useState(false);
   const [conversationId, setConversationId] = useState(null);
   const [started, setStarted] = useState(false);
-  const messagesEndRef = useRef(null);
+  const messagesContainerRef = useRef(null);
 
   const SUGGESTED_QUESTIONS = [
     'What brands have you worked with?',
@@ -19,8 +19,10 @@ export default function ChatPanel() {
   ];
 
   useEffect(() => {
-    if (started && loading) {
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (started && loading && messagesContainerRef.current) {
+      setTimeout(() => {
+        messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+      }, 100);
     }
   }, [loading, started]);
 
@@ -74,11 +76,9 @@ export default function ChatPanel() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
-    const scrollPos = window.scrollY;
     let convId = conversationId;
     if (!convId) convId = await initConversation();
     await sendMessage(input, convId);
-    setTimeout(() => window.scrollTo(0, scrollPos), 0);
   };
 
   return (
@@ -94,7 +94,7 @@ export default function ChatPanel() {
       </div>
 
       <div className="flex-1 flex flex-col overflow-hidden">
-        <div className="flex-1 overflow-y-auto p-5 space-y-4 overflow-anchor-none">
+        <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-5 space-y-4 overflow-anchor-none">
           {!started ? (
             <>
               <h3 className="font-heading text-lg font-normal mb-2 leading-snug">
@@ -139,7 +139,6 @@ export default function ChatPanel() {
                   </div>
                 </div>
               )}
-              <div ref={messagesEndRef} />
             </div>
           )}
         </div>
