@@ -63,7 +63,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right — Chat Panel */}
-          <div className="h-full">
+          <div className="h-full max-h-[600px]">
             <ChatPanel />
           </div>
         </div>
