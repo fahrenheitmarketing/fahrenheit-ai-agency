@@ -35,7 +35,7 @@ const clients = [
   },
   {
     name: 'Lammes',
-    logo: null,
+    logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/e049fe666_image.png',
   },
   {
     name: 'Solnexus',
