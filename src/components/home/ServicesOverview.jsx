@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const services = [
   {
-    num: '01 / 04',
+    num: '01 / 05',
     subtitle: 'SEO · SEM · Social',
     title: 'AI Growth Systems',
     tagline: 'Compound revenue from owned channels',
@@ -11,7 +11,7 @@ const services = [
     link: '/services/seo',
   },
   {
-    num: '02 / 04',
+    num: '02 / 05',
     subtitle: 'CRO · Analytics',
     title: 'AI-Powered Conversion',
     tagline: 'Higher conversion, bigger return',
@@ -19,7 +19,7 @@ const services = [
     link: '/services/cro',
   },
   {
-    num: '03 / 04',
+    num: '03 / 05',
     subtitle: 'SEM · Automation',
     title: 'Paid Media Intelligence',
     tagline: 'Zero waste. Maximum ROAS.',
@@ -27,12 +27,20 @@ const services = [
     link: '/services/sem',
   },
   {
-    num: '04 / 04',
+    num: '04 / 05',
     subtitle: 'Strategy · Planning',
     title: 'Strategic Intelligence',
     tagline: 'Intelligence, not instinct',
     description: "Data-driven roadmaps built from competitive analysis, market signals, and AI modeling. Your growth strategy shouldn't rely on gut feel.",
     link: '/services/strategy',
+  },
+  {
+    num: '05 / 05',
+    subtitle: 'AI · Development',
+    title: 'Software Development',
+    tagline: 'Enterprise software. Startup budget.',
+    description: "Custom software that once required million-dollar budgets is now within reach. AI-powered development stacks let us build, ship, and scale platforms at a fraction of the traditional cost — so every business can own its tech.",
+    link: '/services/software-development',
   },
 ];
 
@@ -56,7 +64,7 @@ export default function ServicesOverview() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
           <div className="lg:col-span-1 pr-0 lg:pr-16 mb-12 lg:mb-0">
             <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15]">
-              Four systems. One mandate: turn AI into P&L.
+              Five systems. One mandate: turn AI into P&L.
             </h2>
           </div>
           <div className="lg:col-span-2">
