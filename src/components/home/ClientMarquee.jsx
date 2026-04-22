@@ -64,7 +64,7 @@ export default function ClientMarquee() {
                 key={i}
                 src={client.logo}
                 alt={client.name}
-                className="h-7 w-auto flex-shrink-0 object-contain"
+                className="h-14 w-auto flex-shrink-0 object-contain"
                 style={{ filter: 'grayscale(100%) opacity(0.45)' }}
               />
             ) : (
