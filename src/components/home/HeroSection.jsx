@@ -53,7 +53,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="grid grid-cols-3 gap-0 border-t border-border"
             >
-              {[['18+', 'Years Building'], ['350+', 'Global Clients'], ['∞', 'Models Deployed']].map(([val, label]) => (
+              {[['18+', 'Years Building'], ['350+', 'Global Clients'], ['1000+', 'Campaigns Managed']].map(([val, label]) => (
                 <div key={label} className="pr-8 pt-6">
                   <p className="font-heading text-3xl md:text-4xl font-normal text-foreground">{val}</p>
                   <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1 font-body">{label}</p>
