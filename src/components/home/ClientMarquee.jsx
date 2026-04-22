@@ -1,24 +1,84 @@
 import React from 'react';
 
 const clients = [
-  'PepsiCo', 'Transcore', 'CITGO', 'Northern Reflections', 'Sentech',
-  'Cactus Life Sciences', 'Lammes', 'Portacool', 'Solnexus', 'BLINK',
-  'EliteCEU', 'Baker James',
+  {
+    name: 'PepsiCo',
+    logo: 'https://companieslogo.com/img/orig/PEP_BIG-f38ffafd.png?t=1776347712',
+  },
+  {
+    name: 'Transcore',
+    logo: 'https://images.seeklogo.com/logo-png/54/1/transcore-logo-png_seeklogo-540564.png',
+  },
+  {
+    name: 'CITGO',
+    logo: 'https://images.seeklogo.com/logo-png/3/1/citgo-logo-png_seeklogo-30721.png',
+  },
+  {
+    name: 'Portacool',
+    logo: 'https://images.seeklogo.com/logo-png/26/1/portacool-logo-png_seeklogo-266894.png',
+  },
+  {
+    name: 'Blink',
+    logo: 'https://companieslogo.com/img/orig/BLNK_BIG-e55db701.png?t=1720244491',
+  },
+  {
+    name: 'Northern Reflections',
+    logo: null,
+  },
+  {
+    name: 'Sentech',
+    logo: 'https://images.seeklogo.com/logo-png/47/1/sentech-logo-png_seeklogo-477363.png',
+  },
+  {
+    name: 'Cactus Life Sciences',
+    logo: null,
+  },
+  {
+    name: 'Lammes',
+    logo: null,
+  },
+  {
+    name: 'Solnexus',
+    logo: null,
+  },
+  {
+    name: 'EliteCEU',
+    logo: null,
+  },
+  {
+    name: 'Baker James',
+    logo: null,
+  },
 ];
 
 export default function ClientMarquee() {
+  const doubled = [...clients, ...clients];
+
   return (
     <div className="border-t border-b border-border py-6 overflow-hidden bg-secondary/30">
       <p className="text-xs uppercase tracking-widest text-center text-muted-foreground mb-6 font-body px-6">
         Trusted where performance is measured
       </p>
       <div className="relative overflow-hidden">
-        <div className="flex gap-12 animate-marquee whitespace-nowrap">
-          {[...clients, ...clients].map((name, i) => (
-            <span key={i} className="font-heading text-xl font-normal text-foreground/50 hover:text-foreground transition-colors cursor-default flex-shrink-0">
-              {name}
-            </span>
-          ))}
+        <div className="flex items-center gap-16 animate-marquee whitespace-nowrap">
+          {doubled.map((client, i) =>
+            client.logo ? (
+              <img
+                key={i}
+                src={client.logo}
+                alt={client.name}
+                className="h-7 w-auto flex-shrink-0 object-contain"
+                style={{ filter: 'grayscale(100%) opacity(0.45)' }}
+              />
+            ) : (
+              <span
+                key={i}
+                className="font-heading text-xl font-normal text-foreground/40 hover:text-foreground/60 transition-colors cursor-default flex-shrink-0"
+              >
+                {client.name}
+              </span>
+            )
+          )}
         </div>
       </div>
     </div>
