@@ -93,8 +93,8 @@ export default function ChatPanel() {
         <p className="text-xs text-muted-foreground font-body">Trusted by powerhouse brands</p>
       </div>
 
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-5 space-y-4 overflow-anchor-auto">
+      <div className="flex-1 flex flex-col overflow-hidden min-h-0">
+        <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-5 space-y-4 overflow-anchor-auto min-h-0">
           {!started ? (
             <>
               <h3 className="font-heading text-lg font-normal mb-2 leading-snug">
