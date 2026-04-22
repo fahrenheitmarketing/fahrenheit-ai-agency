@@ -39,7 +39,7 @@ const clients = [
   },
   {
     name: 'Solnexus',
-    logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/18a37ef34_generated_image.png',
+    logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/876f14635_image.png',
   },
   {
     name: 'EliteCEU',
