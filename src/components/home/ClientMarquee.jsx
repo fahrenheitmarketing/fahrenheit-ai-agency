@@ -76,7 +76,7 @@ const LogoItem = ({ client, i }) =>
 
 export default function ClientMarquee() {
   return (
-    <div className="border-t border-b border-border py-6 overflow-hidden bg-secondary/30">
+    <div className="border-t border-b border-border py-6 overflow-hidden bg-white">
       <p className="text-xs uppercase tracking-widest text-center text-muted-foreground mb-6 font-body px-6">
         Trusted where performance is measured
       </p>
