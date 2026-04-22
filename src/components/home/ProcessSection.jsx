@@ -8,8 +8,14 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 px-6 lg:px-10 border-t border-border">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 px-6 lg:px-10 border-t border-border overflow-hidden">
+      <img
+        src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute bottom-0 right-0 w-[420px] pointer-events-none opacity-60 select-none"
+      />
+      <div className="relative max-w-7xl mx-auto">
         <p className="text-xs uppercase tracking-widest text-muted-foreground mb-16 font-body">05 · How we work</p>
         <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15] mb-16 max-w-2xl">
           A short engagement. A long runway.
@@ -25,5 +31,6 @@ export default function ProcessSection() {
         </div>
       </div>
     </section>
+
   );
 }
