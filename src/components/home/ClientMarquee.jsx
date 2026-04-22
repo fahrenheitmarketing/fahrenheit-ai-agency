@@ -47,6 +47,10 @@ const clients = [
     name: 'EliteCEU',
     logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/afc229c76_image.png',
   },
+  {
+    name: 'Barbara Bush Foundation for Family Literacy',
+    logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/73ae57c73_image.png',
+  },
 
 ];
 
