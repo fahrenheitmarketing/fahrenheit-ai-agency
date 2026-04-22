@@ -136,13 +136,13 @@ export default function Pricing() {
       <section className="pb-24 px-6">
         <div className="max-w-3xl mx-auto">
           <div className="bg-muted rounded-2xl p-8">
-            <h3 className="font-heading text-xl font-normal mb-4">What's Not Included (and Why)</h3>
+            <h3 className="font-heading text-xl font-normal mb-4">What's Included — and What Isn't</h3>
             <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
               <p>
-                <strong className="text-foreground">Ad Spend:</strong> Your advertising budget is paid directly to platforms (Google, Meta, LinkedIn, etc.). You control exactly how much you spend, and we optimize every dollar of it.
+                <strong className="text-foreground">AI Stack:</strong> Included. The AI tools we deploy to power your campaigns, reporting, and automation are part of your retainer — no separate bills, no surprise costs.
               </p>
               <p>
-                <strong className="text-foreground">AI Stack Costs:</strong> The AI tools deployed for your business are billed separately. This keeps pricing transparent — you own your tools and data, and we provide the expertise to maximize their value.
+                <strong className="text-foreground">Ad Spend:</strong> Your advertising budget is paid directly to the platforms (Google, Meta, LinkedIn, etc.). You control exactly how much you spend, and we optimize every dollar of it.
               </p>
               <p>
                 <strong className="text-foreground">Why Month-to-Month:</strong> We believe in earning your business, not locking you in. Every month, we deliver results that justify your investment. If we don't, you're free to leave. That accountability makes us better.

@@ -84,12 +84,12 @@ export default function Strategy() {
               </div>
             </div>
             <div className="bg-foreground text-background rounded-2xl p-10">
-              <h3 className="font-heading text-2xl font-normal mb-4">Your AI Stack, Your Competitive Edge</h3>
+              <h3 className="font-heading text-2xl font-normal mb-4">Your AI Stack, Included</h3>
               <p className="text-background/70 leading-relaxed mb-4">
-                As part of your strategy engagement, we recommend and help deploy AI tools specifically chosen for your business — from predictive analytics to automated reporting.
+                As part of your strategy engagement, we recommend and deploy AI tools specifically chosen for your business — from predictive analytics to automated reporting.
               </p>
               <p className="text-background/70 leading-relaxed">
-                You own the AI stack. You control the data. We provide the expertise to make it all work together. The cost of the AI tools is separate from your retainer, keeping everything transparent.
+                The AI stack is included in your retainer. No separate tool invoices, no hidden costs — just intelligence deployed and working for your business from day one.
               </p>
             </div>
           </div>
