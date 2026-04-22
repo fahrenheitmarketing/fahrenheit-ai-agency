@@ -46,9 +46,15 @@ export default function MarketingAutomation() {
           src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
           alt=""
           aria-hidden="true"
-          className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-25 select-none"
+          className="absolute bottom-0 right-0 w-[420px] pointer-events-none opacity-60 select-none"
         />
-        <div className="max-w-7xl mx-auto">
+        <img
+          src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-60 select-none rotate-180"
+        />
+        <div className="relative max-w-7xl mx-auto">
           <p className="text-xs uppercase tracking-widest text-accent mb-6 font-body">Marketing Automation</p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
