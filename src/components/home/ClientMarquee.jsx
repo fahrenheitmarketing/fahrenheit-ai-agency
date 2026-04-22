@@ -15,7 +15,7 @@ const clients = [
   },
   {
     name: 'Portacool',
-    logo: 'https://images.seeklogo.com/logo-png/26/1/portacool-logo-png_seeklogo-266894.png',
+    logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/fbf5fe2d2_image.png',
   },
   {
     name: 'Blink',
