@@ -4,7 +4,7 @@ const clients = [
   {
     name: 'PepsiCo',
     logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/2652d4820_image.png',
-    scale: 1,
+    scale: 2,
   },
   {
     name: 'Transcore',
