@@ -50,36 +50,48 @@ const clients = [
 
 ];
 
-export default function ClientMarquee() {
-  const doubled = [...clients, ...clients];
+const LogoItem = ({ client, i }) =>
+  client.logo ? (
+    <img
+      key={i}
+      src={client.logo}
+      alt={client.name}
+      className="w-auto flex-shrink-0 object-contain"
+      style={{ filter: 'grayscale(100%) opacity(0.45)', height: client.scale ? `${3.5 * client.scale}rem` : '3.5rem' }}
+    />
+  ) : (
+    <span
+      key={i}
+      className="font-heading text-xl font-normal text-foreground/40 flex-shrink-0"
+    >
+      {client.name}
+    </span>
+  );
 
+export default function ClientMarquee() {
   return (
     <div className="border-t border-b border-border py-6 overflow-hidden bg-secondary/30">
       <p className="text-xs uppercase tracking-widest text-center text-muted-foreground mb-6 font-body px-6">
         Trusted where performance is measured
       </p>
       <div className="relative overflow-hidden">
-        <div className="flex items-center gap-16 animate-marquee whitespace-nowrap">
-          {doubled.map((client, i) =>
-            client.logo ? (
-              <img
-                key={i}
-                src={client.logo}
-                alt={client.name}
-                className="w-auto flex-shrink-0 object-contain"
-                style={{ filter: 'grayscale(100%) opacity(0.45)', height: client.scale ? `${3.5 * client.scale}rem` : '3.5rem' }}
-              />
-            ) : (
-              <span
-                key={i}
-                className="font-heading text-xl font-normal text-foreground/40 hover:text-foreground/60 transition-colors cursor-default flex-shrink-0"
-              >
-                {client.name}
-              </span>
-            )
-          )}
+        <div className="flex items-center w-max" style={{ animation: 'marquee-seamless 30s linear infinite' }}>
+          {/* First set */}
+          <div className="flex items-center gap-16 pr-16">
+            {clients.map((client, i) => <LogoItem key={`a-${i}`} client={client} i={i} />)}
+          </div>
+          {/* Exact duplicate — creates seamless loop */}
+          <div className="flex items-center gap-16 pr-16">
+            {clients.map((client, i) => <LogoItem key={`b-${i}`} client={client} i={i} />)}
+          </div>
         </div>
       </div>
+      <style>{`
+        @keyframes marquee-seamless {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
     </div>
   );
 }
