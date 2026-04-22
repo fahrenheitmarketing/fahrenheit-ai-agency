@@ -27,7 +27,7 @@ const clients = [
   },
   {
     name: 'Sentech',
-    logo: 'https://images.seeklogo.com/logo-png/47/1/sentech-logo-png_seeklogo-477363.png',
+    logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/91cfda926_image.png',
   },
   {
     name: 'Cactus Life Sciences',
