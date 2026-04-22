@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Send, Mail, MapPin, CheckCircle } from 'lucide-react';
+import { Send, Mail, MapPin, Phone, CheckCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { motion } from 'framer-motion';
 
@@ -87,6 +87,16 @@ export default function Contact() {
                 <div>
                   <p className="font-medium text-sm mb-1">Based In</p>
                   <p className="text-muted-foreground text-sm">Austin, Texas — Serving Clients Globally</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-medium text-sm mb-1">Call Us</p>
+                  <a href="tel:512-206-4220" className="text-muted-foreground text-sm hover:text-foreground transition-colors">512-206-4220</a>
                 </div>
               </div>
             </div>
