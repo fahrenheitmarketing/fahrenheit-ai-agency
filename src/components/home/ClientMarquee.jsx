@@ -16,6 +16,7 @@ const clients = [
   {
     name: 'Portacool',
     logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5ceeef5bf_image.png',
+    scale: 1.5,
   },
   {
     name: 'Blink',
@@ -28,6 +29,7 @@ const clients = [
   {
     name: 'Sentech',
     logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/91cfda926_image.png',
+    scale: 1.5,
   },
   {
     name: 'Cactus Life Sciences',
@@ -64,8 +66,8 @@ export default function ClientMarquee() {
                 key={i}
                 src={client.logo}
                 alt={client.name}
-                className="h-14 w-auto flex-shrink-0 object-contain"
-                style={{ filter: 'grayscale(100%) opacity(0.45)' }}
+                className="w-auto flex-shrink-0 object-contain"
+                style={{ filter: 'grayscale(100%) opacity(0.45)', height: client.scale ? `${3.5 * client.scale}rem` : '3.5rem' }}
               />
             ) : (
               <span
