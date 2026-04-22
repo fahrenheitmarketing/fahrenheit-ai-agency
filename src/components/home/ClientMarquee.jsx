@@ -3,7 +3,7 @@ import React from 'react';
 const clients = [
   {
     name: 'PepsiCo',
-    logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/6bebf590e_image.png',
+    logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/bca8fcf11_image.png',
     scale: 2,
   },
   {
