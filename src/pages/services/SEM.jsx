@@ -22,13 +22,13 @@ export default function SEM() {
           src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
           alt=""
           aria-hidden="true"
-          className="absolute bottom-0 left-0 w-[420px] pointer-events-none opacity-60 select-none"
+          className="absolute bottom-0 left-0 w-[420px] pointer-events-none opacity-60 select-none -z-10"
         />
         <img
           src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
           alt=""
           aria-hidden="true"
-          className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-60 select-none rotate-180"
+          className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-60 select-none rotate-180 -z-10"
         />
         <div className="relative max-w-7xl mx-auto">
           <div className="max-w-3xl">
