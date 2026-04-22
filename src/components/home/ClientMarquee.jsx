@@ -11,7 +11,7 @@ const clients = [
   },
   {
     name: 'CITGO',
-    logo: 'https://images.seeklogo.com/logo-png/3/1/citgo-logo-png_seeklogo-30721.png',
+    logo: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/205fec2dc_image.png',
   },
   {
     name: 'Portacool',
