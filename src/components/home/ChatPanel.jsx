@@ -21,12 +21,10 @@ export default function ChatPanel() {
   const CALENDAR_URL = 'https://app.logicsuite.io/fahrenheit-marketing/meeting/discovery-call-ricardo-brandon';
 
   useEffect(() => {
-    if (started && loading && messagesContainerRef.current) {
-      setTimeout(() => {
-        messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
-      }, 100);
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }
-  }, [loading, started]);
+  }, [messages, loading]);
 
   const initConversation = async () => {
     try {
@@ -96,7 +94,7 @@ export default function ChatPanel() {
       </div>
 
       <div className="flex-1 flex flex-col overflow-hidden">
-        <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-5 space-y-4 overflow-anchor-none">
+        <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-5 space-y-4 overflow-anchor-auto">
           {!started ? (
             <>
               <h3 className="font-heading text-lg font-normal mb-2 leading-snug">
