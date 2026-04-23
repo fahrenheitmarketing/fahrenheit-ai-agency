@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import CTASection from '../components/shared/CTASection';
+import RequestCaseStudyModal from '../components/case-studies/RequestCaseStudyModal';
 
 const allCaseStudies = [
   {
@@ -92,9 +92,13 @@ const allCaseStudies = [
 ];
 
 export default function CaseStudies() {
+  const [selectedStudy, setSelectedStudy] = useState(null);
 
   return (
     <>
+      {selectedStudy && (
+        <RequestCaseStudyModal study={selectedStudy} onClose={() => setSelectedStudy(null)} />
+      )}
       {/* Hero */}
       <section className="relative py-24 lg:py-32 px-6 overflow-hidden">
         <img
@@ -151,15 +155,14 @@ export default function CaseStudies() {
                     </div>
                   ))}
                 </div>
-                <Link to="/contact">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full gap-2 font-body"
-                  >
-                    Request Details <ArrowRight className="w-3.5 h-3.5" />
-                  </Button>
-                </Link>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full gap-2 font-body"
+                  onClick={() => setSelectedStudy(study)}
+                >
+                  Request Details <ArrowRight className="w-3.5 h-3.5" />
+                </Button>
               </div>
             ))}
           </div>
