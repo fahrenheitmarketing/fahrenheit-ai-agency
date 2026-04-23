@@ -173,18 +173,18 @@ export default function About() {
             </div>
             <div className="bg-foreground text-background rounded-sm p-10 space-y-8">
               {[
-                { label: 'Campaign Optimization', detail: '24/7 AI monitoring & adjustment' },
-                { label: 'Data Interpretation', detail: 'Real-time insights, not monthly reports' },
-                { label: 'Budget Efficiency', detail: 'AI eliminates waste before it happens' },
-                { label: 'Competitive Intelligence', detail: 'Continuous market signal analysis' },
+                { label: 'Campaign Optimization', detail: '24/7 AI monitoring & adjustment', to: '/services/sem' },
+                { label: 'Data Interpretation', detail: 'Real-time insights, not monthly reports', to: '/services/strategy' },
+                { label: 'Budget Efficiency', detail: 'AI eliminates waste before it happens', to: '/services/cro' },
+                { label: 'Competitive Intelligence', detail: 'Continuous market signal analysis', to: '/services/seo' },
               ].map((item) => (
-                <div key={item.label} className="flex items-start justify-between gap-4 border-b border-background/10 pb-6 last:border-0 last:pb-0">
+                <Link key={item.label} to={item.to} className="flex items-start justify-between gap-4 border-b border-background/10 pb-6 last:border-0 last:pb-0 group">
                   <div>
                     <p className="text-sm font-medium text-background font-body">{item.label}</p>
                     <p className="text-xs text-background/50 font-body mt-0.5">{item.detail}</p>
                   </div>
-                  <span className="text-accent text-lg flex-shrink-0">→</span>
-                </div>
+                  <span className="text-accent text-lg flex-shrink-0 group-hover:translate-x-1 transition-transform">→</span>
+                </Link>
               ))}
             </div>
           </div>
