@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom';
 const services = [
   {
     num: '01 / 05',
+    subtitle: 'AI · Development',
+    title: 'Software Development',
+    tagline: 'Enterprise software. Startup budget.',
+    description: "Custom software that once required million-dollar budgets is now within reach. AI-powered development stacks let us build, ship, and scale platforms at a fraction of the traditional cost — so every business can own its tech.",
+    link: '/services/software-development',
+  },
+  {
+    num: '02 / 05',
     subtitle: 'SEO · SEM · Social',
     title: 'AI Growth Systems',
     tagline: 'Compound revenue from owned channels',
@@ -11,7 +19,7 @@ const services = [
     link: '/services/seo',
   },
   {
-    num: '02 / 05',
+    num: '03 / 05',
     subtitle: 'CRO · Analytics',
     title: 'AI-Powered Conversion',
     tagline: 'Higher conversion, bigger return',
@@ -19,7 +27,7 @@ const services = [
     link: '/services/cro',
   },
   {
-    num: '03 / 05',
+    num: '04 / 05',
     subtitle: 'SEM · Automation',
     title: 'Paid Media Intelligence',
     tagline: 'Zero waste. Maximum ROAS.',
@@ -27,20 +35,12 @@ const services = [
     link: '/services/sem',
   },
   {
-    num: '04 / 05',
+    num: '05 / 05',
     subtitle: 'Strategy · Planning',
     title: 'Strategic Intelligence',
     tagline: 'Intelligence, not instinct',
     description: "Data-driven roadmaps built from competitive analysis, market signals, and AI modeling. Your growth strategy shouldn't rely on gut feel.",
     link: '/services/strategy',
-  },
-  {
-    num: '05 / 05',
-    subtitle: 'AI · Development',
-    title: 'Software Development',
-    tagline: 'Enterprise software. Startup budget.',
-    description: "Custom software that once required million-dollar budgets is now within reach. AI-powered development stacks let us build, ship, and scale platforms at a fraction of the traditional cost — so every business can own its tech.",
-    link: '/services/software-development',
   },
 ];
 
