@@ -6,6 +6,15 @@ import CTASection from '../components/shared/CTASection';
 const services = [
   {
     num: '01',
+    subtitle: 'AI · Development',
+    title: 'Software Development',
+    tagline: 'Enterprise software. Startup budget.',
+    description: "Custom software that once required million-dollar budgets is now within reach. AI-powered development stacks let us build, ship, and scale at a fraction of the traditional cost.",
+    link: '/services/software-development',
+    highlights: ['Custom web applications', 'AI integration', 'Data architecture', 'Real-time platforms'],
+  },
+  {
+    num: '02',
     subtitle: 'SEO · SEM · Social',
     title: 'AI Growth Systems',
     tagline: 'Compound revenue from owned channels',
@@ -14,7 +23,7 @@ const services = [
     highlights: ['AI-powered keyword research', 'Content strategy & creation', 'Technical SEO optimization', 'Link authority building'],
   },
   {
-    num: '02',
+    num: '03',
     subtitle: 'CRO · Analytics',
     title: 'AI-Powered Conversion',
     tagline: 'Higher conversion, bigger return',
@@ -23,7 +32,7 @@ const services = [
     highlights: ['AI behavioral analysis', 'Intelligent A/B testing', 'Landing page optimization', 'Heatmap & session analysis'],
   },
   {
-    num: '03',
+    num: '04',
     subtitle: 'SEM · PPC',
     title: 'Paid Media Intelligence',
     tagline: 'Zero waste. Maximum ROAS.',
@@ -32,7 +41,7 @@ const services = [
     highlights: ['AI bid optimization', 'Precision audience targeting', 'Ad creative intelligence', 'Full-funnel attribution'],
   },
   {
-    num: '04',
+    num: '05',
     subtitle: 'Social Media',
     title: 'Social Media Marketing',
     tagline: 'Social that actually converts',
@@ -41,7 +50,7 @@ const services = [
     highlights: ['AI content intelligence', 'Audience identification', 'Paid social amplification', 'Community management'],
   },
   {
-    num: '05',
+    num: '06',
     subtitle: 'Strategy · Planning',
     title: 'Strategic Intelligence',
     tagline: 'Intelligence, not instinct',
@@ -50,22 +59,13 @@ const services = [
     highlights: ['Market intelligence', 'Channel mix strategy', 'Predictive growth modeling', 'Quarterly planning reviews'],
   },
   {
-    num: '06',
+    num: '07',
     subtitle: 'HubSpot · Automation',
     title: 'Marketing Automation',
     tagline: 'Stop doing manual marketing',
     description: 'AI-driven workflows, lead scoring, and nurturing sequences that react in real-time — so your pipeline never sleeps.',
     link: '/services/marketing-automation',
     highlights: ['Workflow automation', 'Lead intelligence', 'Email optimization', 'Revenue operations'],
-  },
-  {
-    num: '07',
-    subtitle: 'AI · Development',
-    title: 'Software Development',
-    tagline: 'Enterprise software. Startup budget.',
-    description: "Custom software that once required million-dollar budgets is now within reach. AI-powered development stacks let us build, ship, and scale at a fraction of the traditional cost.",
-    link: '/services/software-development',
-    highlights: ['Custom web applications', 'AI integration', 'Data architecture', 'Real-time platforms'],
   },
 ];
 
