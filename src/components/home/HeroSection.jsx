@@ -46,9 +46,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-muted-foreground text-base md:text-lg leading-relaxed mb-12 max-w-xl font-body"
             >
-              Fahrenheit is an AI enablement and custom software partner for companies operating in complex environments. For over a decade, we've built bespoke platforms, data systems, and digital infrastructure for enterprise clients—designed to perform under real-world conditions.
-              <br /><br />
-              We design the systems, develop the software, deploy the models, and operate the stack—measured in outcomes, not deliverables.
+              Fahrenheit is an AI enablement partner and trusted software developer for companies ready to turn intelligence into revenue. We design the systems, deploy the models, and operate the stack — measured in outcomes, not deliverables.
             </motion.p>
 
             <motion.div
