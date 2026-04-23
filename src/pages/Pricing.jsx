@@ -90,12 +90,12 @@ export default function Pricing() {
                 key={tier.name}
                 className={`rounded-2xl p-8 flex flex-col ${
                   tier.popular
-                    ? 'bg-foreground text-background border-2 border-primary relative'
+                    ? 'bg-accent text-white border-2 border-accent relative'
                     : 'bg-card border border-border'
                 }`}
               >
                 {tier.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold px-4 py-1 rounded-full font-body">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-foreground text-background text-xs font-semibold px-4 py-1 rounded-full font-body">
                     Most Popular
                   </span>
                 )}
@@ -103,24 +103,24 @@ export default function Pricing() {
                   <h3 className="font-heading text-xl font-normal mb-2">{tier.name}</h3>
                   <div className="flex items-baseline gap-1 mb-3">
                     <span className="text-4xl font-heading font-normal">{tier.price}</span>
-                    {tier.price !== 'Custom' && <span className={`text-sm ${tier.popular ? 'text-background/60' : 'text-muted-foreground'}`}>/month</span>}
+                    {tier.price !== 'Custom' && <span className={`text-sm ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>/month</span>}
                   </div>
-                  <p className={`text-sm leading-relaxed ${tier.popular ? 'text-background/70' : 'text-muted-foreground'}`}>
+                  <p className={`text-sm leading-relaxed ${tier.popular ? 'text-white/80' : 'text-muted-foreground'}`}>
                     {tier.description}
                   </p>
                 </div>
                 <div className="space-y-3 flex-1 mb-8">
                   {tier.features.map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
-                      <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-primary' : 'text-primary'}`} />
-                      <span className={`text-sm ${tier.popular ? 'text-background/80' : ''}`}>{feature}</span>
+                      <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-white' : 'text-primary'}`} />
+                      <span className={`text-sm ${tier.popular ? 'text-white/90' : ''}`}>{feature}</span>
                     </div>
                   ))}
                 </div>
                 <Link to="/contact">
                   <Button
                     className={`w-full rounded-full font-body ${tier.popular ? '' : 'variant-outline'}`}
-                    variant={tier.popular ? 'default' : 'outline'}
+                    variant={tier.popular ? 'secondary' : 'outline'}
                     size="lg"
                   >
                     Get Started <ArrowRight className="w-4 h-4 ml-2" />
