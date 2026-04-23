@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import CTASection from '../components/shared/CTASection';
+import ParticleBackground from '../components/home/ParticleBackground';
 
 const services = [
   {
@@ -74,6 +75,7 @@ export default function Services() {
     <>
       {/* Hero */}
       <section className="relative py-24 lg:py-32 px-6 overflow-hidden border-b border-border">
+        <ParticleBackground />
         <img
           src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
           alt=""
