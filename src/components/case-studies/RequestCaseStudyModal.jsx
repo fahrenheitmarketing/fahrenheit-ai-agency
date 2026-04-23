@@ -6,6 +6,7 @@ import { base44 } from '@/api/base44Client';
 
 export default function RequestCaseStudyModal({ study, onClose }) {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -14,6 +15,7 @@ export default function RequestCaseStudyModal({ study, onClose }) {
     setLoading(true);
     await base44.functions.invoke('sendCaseStudy', {
       email,
+      name,
       caseStudyId: study.id,
       caseStudyTitle: study.title,
     });
@@ -50,6 +52,12 @@ export default function RequestCaseStudyModal({ study, onClose }) {
               Enter your email and we'll send you the full PDF case study instantly.
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
+              <Input
+                type="text"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
               <Input
                 type="email"
                 required
