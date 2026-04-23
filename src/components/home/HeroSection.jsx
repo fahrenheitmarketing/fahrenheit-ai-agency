@@ -35,9 +35,9 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] mb-8"
             >
-              We don't sell hours. We sell{' '}
+              We don't sell hours. We deliver{' '}
               <span className="text-accent italic">profit</span>
-              {' '}& growth.
+              {' '}and growth.
             </motion.h1>
 
             <motion.p
@@ -46,7 +46,9 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-muted-foreground text-base md:text-lg leading-relaxed mb-12 max-w-xl font-body"
             >
-              Fahrenheit is an AI enablement partner for companies ready to turn intelligence into revenue. We design the systems, deploy the models, and operate the stack — measured in outcomes, not deliverables.
+              Fahrenheit is an AI enablement and custom software partner for companies operating in complex environments. For over a decade, we've built bespoke platforms, data systems, and digital infrastructure for enterprise clients—designed to perform under real-world conditions.
+              <br /><br />
+              We design the systems, develop the software, deploy the models, and operate the stack—measured in outcomes, not deliverables.
             </motion.p>
 
             <motion.div
