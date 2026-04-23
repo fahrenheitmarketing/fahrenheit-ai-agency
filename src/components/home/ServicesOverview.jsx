@@ -84,7 +84,7 @@ export default function ServicesOverview() {
               </Link>
             ))}
             <div className="pt-8 border-t border-border">
-              <Link to="/services/seo" className="text-sm font-body text-foreground/60 hover:text-foreground transition-colors flex items-center gap-2">
+              <Link to="/services" className="text-sm font-body text-foreground/60 hover:text-foreground transition-colors flex items-center gap-2">
                 Explore all services <span>→</span>
               </Link>
             </div>

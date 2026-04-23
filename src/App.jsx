@@ -21,6 +21,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPostPage from './pages/BlogPostPage';
 import CaseStudies from './pages/CaseStudies';
+import Services from './pages/Services';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -57,6 +58,7 @@ const AuthenticatedApp = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPostPage />} />
       </Route>
