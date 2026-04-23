@@ -100,7 +100,7 @@ export default function CaseStudies() {
         <RequestCaseStudyModal study={selectedStudy} onClose={() => setSelectedStudy(null)} />
       )}
       {/* Hero */}
-      <section className="relative py-24 lg:py-32 px-6 overflow-hidden">
+      <section className="relative py-24 lg:py-16 px-6 overflow-hidden">
         <img
           src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
           alt=""
@@ -129,7 +129,7 @@ export default function CaseStudies() {
       </section>
 
       {/* Case Studies Grid */}
-      <section className="py-24 px-6">
+      <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {allCaseStudies.map((study) => (
