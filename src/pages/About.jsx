@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import CTASection from '../components/shared/CTASection';
+import FloatingParticles from '../components/about/FloatingParticles';
 
 const stats = [
   { value: '2008', label: 'Founded in Austin, TX' },
@@ -38,38 +39,33 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-24 lg:py-32 px-6 overflow-hidden border-b border-border">
-        <img
-          src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-60 select-none"
-        />
-        <div className="max-w-7xl mx-auto">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">About Fahrenheit</p>
+      <section className="relative py-24 lg:py-32 px-6 overflow-hidden border-b border-border" style={{ backgroundColor: '#021027' }}>
+        <FloatingParticles />
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <p className="text-xs uppercase tracking-widest text-white/50 mb-6 font-body">About Fahrenheit</p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
             <div>
-              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] mb-8">
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] mb-8 text-white">
                 The Agency That<br />
                 <span className="italic">Bets on Itself</span>
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-4 font-body">
+              <p className="text-lg text-white/60 leading-relaxed mb-4 font-body">
                 Since 2008, Fahrenheit Marketing has been at the forefront of digital innovation. Today, we're an AI-first agency — combining intelligent technology with seasoned professionals to deliver marketing that actually works.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-10 font-body">
+              <p className="text-lg text-white/60 leading-relaxed mb-10 font-body">
                 We don't ask for long-term contracts because we don't need them. Our work speaks for itself, month after month.
               </p>
               <Link to="/contact">
-                <Button size="lg" className="rounded-sm px-8 gap-2 font-body">
+                <Button size="lg" className="rounded-sm px-8 gap-2 font-body bg-accent hover:bg-accent/90 text-white border-0">
                   Let's Talk <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-px bg-border border border-border">
+            <div className="grid grid-cols-2 gap-px bg-white/10 border border-white/10">
               {stats.map((s) => (
-                <div key={s.label} className="bg-secondary hover:bg-white transition-colors duration-200 p-8">
-                  <p className="font-heading text-4xl font-normal text-foreground mb-1">{s.value}</p>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">{s.label}</p>
+                <div key={s.label} className="bg-white/5 hover:bg-white/10 transition-colors duration-200 p-8">
+                  <p className="font-heading text-4xl font-normal text-white mb-1">{s.value}</p>
+                  <p className="text-xs uppercase tracking-widest text-white/40 font-body">{s.label}</p>
                 </div>
               ))}
             </div>
