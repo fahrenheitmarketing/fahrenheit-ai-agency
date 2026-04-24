@@ -6,7 +6,7 @@ const LOGO_URL = 'https://media.base44.com/images/public/user_696032597527e77c90
 
 export default function Footer() {
   return (
-    <footer className="relative text-background overflow-hidden" style={{ backgroundColor: '#000000' }}>
+    <footer className="relative bg-foreground text-background overflow-hidden">
       <FloatingParticles />
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-background/10">
