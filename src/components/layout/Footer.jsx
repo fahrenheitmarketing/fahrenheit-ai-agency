@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FloatingParticles from '../about/FloatingParticles';
 
 const LOGO_URL = 'https://media.base44.com/images/public/user_696032597527e77c90fca3ba/9a7da2942_FahrenheitMarketingLogo.png';
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
+    <footer className="relative text-background overflow-hidden" style={{ backgroundColor: '#021027' }}>
+      <FloatingParticles />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-background/10">
           <div className="lg:col-span-2">
             <img src={LOGO_URL} alt="Fahrenheit Marketing" className="h-7 brightness-0 invert mb-5" />
