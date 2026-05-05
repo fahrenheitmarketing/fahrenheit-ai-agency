@@ -19,7 +19,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs uppercase tracking-widest text-background/40 mb-5 font-body">Services</h4>
             <div className="flex flex-col gap-3">
-              {[['SEO', '/services/seo'], ['SEM / PPC', '/services/sem'], ['Social Media', '/services/smm'], ['CRO', '/services/cro'], ['Strategy', '/services/strategy']].map(([label, path]) => (
+              {[['SEO', '/services/seo'], ['SEM / PPC', '/services/sem'], ['Social Media', '/services/smm'], ['CRO', '/services/cro'], ['Strategy', '/services/strategy'], ['Marketing Automation', '/services/marketing-automation'], ['Software Development', '/services/software-development']].map(([label, path]) => (
                 <Link key={path} to={path} className="text-sm text-background/60 hover:text-background transition-colors font-body">{label}</Link>
               ))}
             </div>
