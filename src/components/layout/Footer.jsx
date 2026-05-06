@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="relative bg-foreground text-background overflow-hidden">
       <FloatingParticles />
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-background/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12 border-b border-background/10">
           <div className="lg:col-span-2">
             <img src={LOGO_URL} alt="Fahrenheit Marketing" className="h-7 brightness-0 invert mb-5" />
             <p className="text-background/50 text-sm leading-relaxed max-w-sm font-body">
@@ -22,6 +22,13 @@ export default function Footer() {
               {[['SEO', '/services/seo'], ['SEM / PPC', '/services/sem'], ['Social Media', '/services/smm'], ['CRO', '/services/cro'], ['Strategy', '/services/strategy'], ['Marketing Automation', '/services/marketing-automation'], ['Software Development', '/services/software-development']].map(([label, path]) => (
                 <Link key={path} to={path} className="text-sm text-background/60 hover:text-background transition-colors font-body">{label}</Link>
               ))}
+            </div>
+          </div>
+          <div>
+            <h4 className="text-xs uppercase tracking-widest text-background/40 mb-5 font-body">Resources</h4>
+            <div className="flex flex-col gap-3">
+              <Link to="/blog" className="text-sm text-background/60 hover:text-background transition-colors font-body">Journal</Link>
+              <Link to="/case-studies" className="text-sm text-background/60 hover:text-background transition-colors font-body">Case Studies</Link>
             </div>
           </div>
           <div>
