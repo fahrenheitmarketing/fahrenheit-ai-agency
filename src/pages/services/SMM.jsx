@@ -3,6 +3,34 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Share2, Brain, Users, Eye, MessageCircle, Calendar, CheckCircle } from 'lucide-react';
 import CTASection from '../../components/shared/CTASection';
+import FAQSection from '../../components/shared/FAQSection';
+
+const faqs = [
+  {
+    question: 'Which social media platforms do you manage?',
+    answer: 'We manage LinkedIn, Instagram, Facebook, TikTok, X/Twitter, and YouTube. We don\'t spread thin across every platform — AI helps us identify where your specific audience engages and converts, then we go deep on those channels.',
+  },
+  {
+    question: 'Do you create content or just manage posting?',
+    answer: 'Both. We develop the strategy, create the content (copy, creative direction, captions, hashtags), schedule and publish, manage community engagement, and report on performance. It\'s a fully managed service.',
+  },
+  {
+    question: 'How do you measure social media ROI?',
+    answer: 'We track the full journey from social impression to qualified lead to closed deal. Metrics include reach and engagement, but the ones we optimize for are click-through rate, lead generation, and attributable revenue — not vanity metrics.',
+  },
+  {
+    question: 'How does AI improve social media marketing?',
+    answer: 'AI analyzes top-performing content in your industry, identifies optimal posting times, segments audiences for paid amplification, and surfaces influencer opportunities based on engagement quality and audience overlap — removing guesswork from every decision.',
+  },
+  {
+    question: 'Is paid social included in the retainer?',
+    answer: 'Paid social strategy and management is included. The ad spend itself is paid directly to the platforms and is separate from our retainer fee — the same model we use for PPC.',
+  },
+  {
+    question: 'Is there a minimum contract length?',
+    answer: 'No. All engagements are month-to-month. Social media results compound over time, and we\'d rather earn your loyalty through performance than lock you into a contract.',
+  },
+];
 import SectionHeader from '../../components/shared/SectionHeader';
 
 const capabilities = [
@@ -107,6 +135,8 @@ export default function SMM() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={faqs} title="Common Questions About Social Media Marketing" />
 
       <CTASection
         headline="Ready to Turn Social Into Revenue?"

@@ -3,6 +3,34 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MousePointerClick, Brain, Target, BarChart3, Layers, RefreshCw, CheckCircle } from 'lucide-react';
 import CTASection from '../../components/shared/CTASection';
+import FAQSection from '../../components/shared/FAQSection';
+
+const faqs = [
+  {
+    question: 'How is your management fee structured?',
+    answer: 'Our retainer covers all strategy, campaign management, optimization, and reporting. Ad spend is paid directly to the platforms — it\'s separate from our fee. This keeps our incentives aligned with your performance, not your spend.',
+  },
+  {
+    question: 'What PPC platforms do you manage?',
+    answer: 'We manage Google Ads (Search, Display, Shopping, YouTube, Performance Max), Microsoft/Bing Ads, remarketing and retargeting campaigns, and programmatic display. We recommend the right mix based on where your audience actually converts.',
+  },
+  {
+    question: 'How does AI improve PPC performance?',
+    answer: 'AI monitors and adjusts bids across thousands of keywords 24/7, identifies audience segments with the highest conversion probability, tests ad creative variations at scale, and reallocates budget in real-time — all faster and more accurately than manual management allows.',
+  },
+  {
+    question: 'How quickly can you launch a campaign?',
+    answer: 'For new accounts, we can typically launch within 10–14 business days after onboarding. For existing accounts we\'re taking over, we audit first and begin optimizations within the first week.',
+  },
+  {
+    question: 'What minimum ad spend do you require?',
+    answer: 'We generally recommend a minimum of $3,000/month in ad spend to allow the AI optimization algorithms to gather sufficient data and make meaningful improvements. Larger budgets unlock more advanced strategies.',
+  },
+  {
+    question: 'Is there a long-term contract?',
+    answer: 'No. All engagements are month-to-month. PPC management should produce clear, measurable ROI — and we believe you should stay because the results justify it, not because a contract forces you to.',
+  },
+];
 import SectionHeader from '../../components/shared/SectionHeader';
 
 const capabilities = [
@@ -103,6 +131,8 @@ export default function SEM() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={faqs} title="Common Questions About PPC" />
 
       <CTASection
         headline="Stop Wasting Ad Spend"

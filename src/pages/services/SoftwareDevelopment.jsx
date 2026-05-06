@@ -3,6 +3,34 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Code, Brain, Zap, Database, Lock, BarChart3, CheckCircle } from 'lucide-react';
 import CTASection from '../../components/shared/CTASection';
+import FAQSection from '../../components/shared/FAQSection';
+
+const faqs = [
+  {
+    question: 'What types of applications do you build?',
+    answer: 'We build custom web applications, operational management platforms, AI-integrated business tools, customer portals, data and analytics systems, and third-party integrations. If it runs in a browser and solves a real business problem, we can build it.',
+  },
+  {
+    question: 'How is a custom software project priced?',
+    answer: 'Custom software is scoped and priced based on requirements gathered during our discovery process. We provide a detailed project estimate before any work begins. Ongoing maintenance, support, and feature development after launch are available as a separate retainer.',
+  },
+  {
+    question: 'How do you incorporate AI into custom applications?',
+    answer: 'We integrate AI at the workflow level — predictive analytics, intelligent automation triggers, natural language processing, anomaly detection, and AI-assisted decision support. We build AI-native from the start rather than bolting it on later.',
+  },
+  {
+    question: 'What is your development process?',
+    answer: 'We follow an agile development approach: strategic discovery, architecture design, iterative development with regular demos, QA and testing, deployment, and ongoing optimization. You have full visibility at every stage — no black box development.',
+  },
+  {
+    question: 'Do you offer ongoing support after launch?',
+    answer: 'Yes. Most clients engage us on a post-launch retainer covering bug fixes, performance monitoring, feature additions, and infrastructure management. We treat launched applications as long-term partnerships, not one-time projects.',
+  },
+  {
+    question: 'How long does a custom application take to build?',
+    answer: 'Timelines vary significantly by scope. Simple internal tools can be delivered in 6–8 weeks. More complex platforms with integrations, AI features, and custom data architecture typically take 3–6 months. We\'ll define a realistic timeline during the discovery phase.',
+  },
+];
 import SectionHeader from '../../components/shared/SectionHeader';
 
 const capabilities = [
@@ -216,6 +244,8 @@ export default function SoftwareDevelopment() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={faqs} title="Common Questions About Custom Software" />
 
       <CTASection
         headline="Ready to Build Your Next Application?"

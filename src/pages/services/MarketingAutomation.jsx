@@ -3,6 +3,34 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Zap, BarChart3, Users, Workflow, Settings, TrendingUp } from 'lucide-react';
 import CTASection from '../../components/shared/CTASection';
+import FAQSection from '../../components/shared/FAQSection';
+
+const faqs = [
+  {
+    question: 'What platforms do you work with?',
+    answer: 'We\'re HubSpot certified partners, but we work across the major platforms — Marketo, Klaviyo, ActiveCampaign, Pardot, and custom-built stacks. We recommend HubSpot when clients are starting fresh because of its unified CRM, automation, and reporting. But we work with whatever you already have.',
+  },
+  {
+    question: 'What\'s the difference between marketing automation and email marketing?',
+    answer: 'Email marketing is one channel. Marketing automation is the system — behavioral triggers, lead scoring, lifecycle stage management, CRM syncing, and multi-channel nurture — that orchestrates the full customer journey from first touch to closed deal.',
+  },
+  {
+    question: 'How long does it take to implement a new automation system?',
+    answer: 'A full implementation — audit, architecture, workflow build-out, testing, and launch — typically takes 6–10 weeks depending on complexity. Optimization of an existing system can begin producing results within the first 30 days.',
+  },
+  {
+    question: 'Do you manage ongoing automation or just set it up?',
+    answer: 'Both models are available, but most clients retain us on an ongoing basis. Automation needs continuous optimization — workflows evolve, new sequences are built, lead scoring models are refined. Ongoing management ensures the system stays effective as your business changes.',
+  },
+  {
+    question: 'Is platform licensing included in the retainer?',
+    answer: 'No — platform licensing (e.g., HubSpot subscription) is separate. Our retainer covers strategy, implementation, optimization, and management. We\'ll help you choose the right tier and negotiate licensing where possible.',
+  },
+  {
+    question: 'What results can we expect from marketing automation?',
+    answer: 'Clients typically see a 45% improvement in lead response time and a 3x increase in qualified leads within 6 months of proper implementation. The compounding benefit is that the system keeps working around the clock — without additional headcount.',
+  },
+];
 
 const capabilities = [
   {
@@ -188,6 +216,8 @@ export default function MarketingAutomation() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={faqs} title="Common Questions About Marketing Automation" />
 
       <CTASection
         headline="Ready to Automate Your Growth?"

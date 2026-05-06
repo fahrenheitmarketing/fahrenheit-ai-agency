@@ -3,6 +3,34 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Compass, Brain, BarChart3, Target, Lightbulb, Map, CheckCircle } from 'lucide-react';
 import CTASection from '../../components/shared/CTASection';
+import FAQSection from '../../components/shared/FAQSection';
+
+const faqs = [
+  {
+    question: 'What does a digital strategy engagement include?',
+    answer: 'It includes market and competitive intelligence, customer journey mapping, channel strategy and budget allocation, content strategy, KPI framework, AI tool stack recommendations, and quarterly business reviews. Everything is built around your specific growth objectives.',
+  },
+  {
+    question: 'How is AI used in your strategy work?',
+    answer: 'AI powers our market research, competitive analysis, and predictive modeling — surfacing insights that traditional research methods would miss or take weeks to surface. It also helps us forecast outcomes before you invest, reducing risk on every major strategic decision.',
+  },
+  {
+    question: 'We already have a marketing team. Can you work alongside them?',
+    answer: 'Yes — and it\'s one of our most common engagements. We often function as an AI-enhanced strategic layer that informs and supports internal teams, rather than replacing them. We embed alongside your team, share insights, and upskill where needed.',
+  },
+  {
+    question: 'How long does it take to develop a strategy?',
+    answer: 'Initial strategy development takes 3–4 weeks from onboarding. That includes the audit, research, competitive analysis, and presentation of the strategic roadmap. From there, the strategy becomes a living document refined monthly.',
+  },
+  {
+    question: 'Is the AI tool stack included in the retainer?',
+    answer: 'Yes. AI tools deployed as part of your strategy engagement are included in the retainer — no separate tool invoices or hidden platform costs. You get the benefits of a curated AI stack without the overhead of managing subscriptions yourself.',
+  },
+  {
+    question: 'Is there a long-term contract?',
+    answer: 'No. All strategy engagements are month-to-month. Strategy is only valuable if it\'s producing results — we believe in earning your continued partnership every single month.',
+  },
+];
 import SectionHeader from '../../components/shared/SectionHeader';
 
 const capabilities = [
@@ -107,6 +135,8 @@ export default function Strategy() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={faqs} title="Common Questions About Digital Strategy" />
 
       <CTASection
         headline="Stop Guessing. Start Growing."

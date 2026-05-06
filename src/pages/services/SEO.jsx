@@ -3,6 +3,34 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, Globe, Search, FileText, Brain, TrendingUp, BarChart3, MapPin, Link2 } from 'lucide-react';
 import CTASection from '../../components/shared/CTASection';
+import FAQSection from '../../components/shared/FAQSection';
+
+const faqs = [
+  {
+    question: 'How long does it take to see SEO results?',
+    answer: 'Most clients see measurable organic traffic improvements within 3–6 months. Technical fixes and quick-win content can produce early signals within 30–60 days. AI Overview and generative engine visibility can come faster when the authority foundation is already in place.',
+  },
+  {
+    question: 'What is AI Overview Optimization (AIO) and why does it matter?',
+    answer: 'Google\'s AI Overviews appear above traditional search results and directly answer user queries. Brands that don\'t appear in these summaries are invisible to a growing share of searchers — even if they rank on page one. We reverse-engineer what it takes to earn placement in those AI-generated summaries.',
+  },
+  {
+    question: 'What is Generative Engine Optimization (GIO or GEO)?',
+    answer: 'GIO is the practice of structuring and positioning your content so that AI tools like ChatGPT, Perplexity, and Gemini cite your brand as a trusted source. It requires a different approach than traditional SEO — focusing on topical authority, structured data, and citation-worthy content.',
+  },
+  {
+    question: 'Do you handle both technical SEO and content?',
+    answer: 'Yes. Our retainer covers the full stack — technical audit and remediation, keyword research, content creation, link building, and ongoing reporting. Everything is managed under one roof with a dedicated SEO strategist.',
+  },
+  {
+    question: 'Is there a long-term contract?',
+    answer: 'No. All engagements are month-to-month. SEO is a long-term investment, and we believe in earning your continued business through results — not locking you into a contract.',
+  },
+  {
+    question: 'What does SEO cost at Fahrenheit?',
+    answer: 'SEO retainers start at $1,500/month. Scope and investment scale based on the competitiveness of your market, the number of target keywords, content volume, and whether AIO/GIO work is included. We\'ll walk you through the options during your free audit.',
+  },
+];
 
 const capabilities = [
   {
@@ -222,6 +250,8 @@ export default function SEO() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={faqs} title="Common Questions About SEO" />
 
       <CTASection
         headline="Ready to Appear Everywhere Your Buyers Search?"

@@ -3,6 +3,34 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, LineChart, Brain, TestTubes, MousePointerClick, Eye, Layers, CheckCircle } from 'lucide-react';
 import CTASection from '../../components/shared/CTASection';
+import FAQSection from '../../components/shared/FAQSection';
+
+const faqs = [
+  {
+    question: 'What is Conversion Rate Optimization (CRO)?',
+    answer: 'CRO is the systematic process of increasing the percentage of website visitors who take a desired action — making a purchase, filling out a form, booking a call. Instead of spending more to get more traffic, you make better use of the traffic you already have.',
+  },
+  {
+    question: 'How long before we see results?',
+    answer: 'Most clients see measurable improvements within 30–60 days. We start with a comprehensive audit to identify high-impact, quick-win opportunities and prioritize those first. Larger structural changes take longer but deliver compounding returns.',
+  },
+  {
+    question: 'How does AI improve CRO?',
+    answer: 'AI analyzes thousands of user sessions to identify drop-off points, friction, and behavioral patterns that manual review would miss. It also accelerates A/B test analysis, helping us reach statistical significance faster and with cleaner insights.',
+  },
+  {
+    question: 'Do we need to rebuild our website?',
+    answer: 'Rarely. Most CRO work happens at the level of page elements, copy, layout, CTAs, and user flow — not full redesigns. We find the highest-leverage opportunities and make targeted, measurable changes.',
+  },
+  {
+    question: 'What tools do you use for heatmapping and session analysis?',
+    answer: 'We work with tools like Hotjar, Microsoft Clarity, and FullStory for behavioral analysis, combined with Google Analytics and custom event tracking to build a complete picture of how your visitors behave.',
+  },
+  {
+    question: 'Is CRO included with other services like SEO or PPC?',
+    answer: 'Landing page and conversion guidance is incorporated into all our service engagements. Dedicated CRO — with full behavioral analysis, A/B testing programs, and systematic funnel optimization — is a separate retainer.',
+  },
+];
 import SectionHeader from '../../components/shared/SectionHeader';
 
 const capabilities = [
@@ -100,6 +128,8 @@ export default function CRO() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={faqs} title="Common Questions About CRO" />
 
       <CTASection
         headline="Your Traffic Deserves Better Conversions"
