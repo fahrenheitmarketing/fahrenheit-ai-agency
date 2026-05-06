@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: 'How does AI improve paid advertising performance?',
-    answer: 'AI monitors and adjusts bids 24/7, identifies audience segments with the highest conversion probability, tests ad creative variations at scale, and reallocates budget across platforms in real-time — all faster and more accurately than manual management.',
+    answer: 'AI surfaces patterns, flags underperforming segments, and identifies budget inefficiencies faster than manual analysis. Our strategists review these insights regularly and make optimization decisions — so you get the speed of AI analysis with human judgment on every meaningful change.',
   },
   {
     question: 'Do you handle ad creative — copy, images, video?',
@@ -34,11 +34,11 @@ const faqs = [
 ];
 
 const capabilities = [
-  { icon: Brain, title: 'AI Bid & Budget Optimization', description: 'Machine learning adjusts bids and reallocates budget across platforms in real-time, maximizing ROAS while eliminating wasted spend.' },
+  { icon: Brain, title: 'AI-Assisted Bid & Budget Management', description: 'AI surfaces opportunities and flags inefficiencies — our strategists review and action optimizations regularly, so every budget decision has human judgment behind it.' },
   { icon: Target, title: 'Precision Audience Targeting', description: 'AI-powered segmentation finds your highest-value prospects across search intent, social behavior, lookalike audiences, and retargeting pools.' },
   { icon: Layers, title: 'Ad Creative Intelligence', description: 'Data-driven copy, image, and video creative tested across platforms. AI identifies winning combinations faster so more budget flows to what works.' },
   { icon: BarChart3, title: 'Cross-Platform Attribution', description: 'Full-funnel attribution modeling that connects every impression and click — across all platforms — to pipeline and revenue.' },
-  { icon: RefreshCw, title: 'Continuous Optimization', description: 'Automated A/B testing, audience pruning, creative rotation, and budget reallocation — running 24/7 across every active platform.' },
+  { icon: RefreshCw, title: 'Ongoing Optimization', description: 'Regular A/B testing, audience pruning, creative rotation, and budget reallocation — driven by AI analysis and executed by our team on a structured, ongoing cadence.' },
   { icon: MousePointerClick, title: 'Landing Page Optimization', description: 'We don\'t just drive traffic — we ensure the destination converts. AI-tested landing pages built to maximize return on every platform\'s spend.' },
 ];
 
