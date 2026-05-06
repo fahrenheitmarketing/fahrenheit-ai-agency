@@ -89,8 +89,8 @@ export default function SEO() {
         <div className="relative max-w-7xl mx-auto">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">Search Engine Optimization</p>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] mb-8 max-w-4xl">
-            Rank on Google. Appear in AI.<br />
-            <span className="italic">Win Everywhere Search Happens.</span>
+            SEO That Ranks on Google, Appears in AI,<br />
+            <span className="italic">and Wins Everywhere Search Happens.</span>
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl font-body">
             SEO used to mean one thing: rank on page one. Today, your buyers are finding answers through Google's AI Overviews, ChatGPT, Perplexity, and Gemini — surfaces that pull from the web but play by different rules. We build SEO programs that win the traditional SERP and earn your brand a place in every AI-generated answer that matters to your business.
