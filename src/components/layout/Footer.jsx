@@ -27,7 +27,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs uppercase tracking-widest text-background/40 mb-5 font-body">Resources</h4>
             <div className="flex flex-col gap-3">
-              <Link to="/blog" className="text-sm text-background/60 hover:text-background transition-colors font-body">Journal</Link>
+              <Link to="/blog" className="text-sm text-background/60 hover:text-background transition-colors font-body">Blog</Link>
               <Link to="/case-studies" className="text-sm text-background/60 hover:text-background transition-colors font-body">Case Studies</Link>
             </div>
           </div>

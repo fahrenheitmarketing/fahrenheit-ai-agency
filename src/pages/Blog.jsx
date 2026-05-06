@@ -41,7 +41,7 @@ export default function Blog() {
           className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-60 select-none"
         />
         <div className="relative max-w-7xl mx-auto">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">Fahrenheit Journal</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">Fahrenheit Blog</p>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] max-w-3xl mb-6">
             Intelligence,<br /> applied.
           </h1>

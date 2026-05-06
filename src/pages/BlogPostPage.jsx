@@ -49,7 +49,7 @@ export default function BlogPostPage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4">
         <p className="text-muted-foreground font-body">Article not found.</p>
-        <Link to="/blog" className="text-sm font-body text-accent hover:underline">← Back to Journal</Link>
+        <Link to="/blog" className="text-sm font-body text-accent hover:underline">← Back to Blog</Link>
       </div>
     );
   }

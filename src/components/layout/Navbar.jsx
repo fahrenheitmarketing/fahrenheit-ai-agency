@@ -68,7 +68,7 @@ export default function Navbar() {
             ABOUT
           </Link>
           <Link to="/blog" className={`text-sm transition-colors font-body tracking-wide ${isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
-            JOURNAL
+            BLOG
           </Link>
           <Link to="/case-studies" className={`text-sm transition-colors font-body tracking-wide ${isActive('/case-studies') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
             CASE STUDIES
@@ -109,7 +109,7 @@ export default function Navbar() {
               </div>
               <Link to="/pricing" className={`text-sm font-body ${isActive('/pricing') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>PRICING</Link>
               <Link to="/about" className={`text-sm font-body ${isActive('/about') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>ABOUT</Link>
-              <Link to="/blog" className={`text-sm font-body ${isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>JOURNAL</Link>
+              <Link to="/blog" className={`text-sm font-body ${isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>BLOG</Link>
               <Link to="/case-studies" className={`text-sm font-body ${isActive('/case-studies') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>CASE STUDIES</Link>
 
               <Link to="/contact" className="inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2.5 rounded-sm w-fit font-body">
