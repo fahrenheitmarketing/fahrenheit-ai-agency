@@ -61,7 +61,7 @@ const AuthenticatedApp = () => {
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/services" element={<Services />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogPostPage />} />
+        <Route path="/services/:serviceSlug/:postSlug" element={<BlogPostPage />} />
         <Route path="/services/marketing/top-10-marketing-agencies-usa" element={<TopMarketingAgenciesUSA />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />

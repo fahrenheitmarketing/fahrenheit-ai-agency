@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { getBlogPostUrl } from '@/lib/blogUtils';
 import { base44 } from '@/api/base44Client';
 import ReactMarkdown from 'react-markdown';
 import { ArrowLeft } from 'lucide-react';
@@ -15,27 +16,26 @@ const categoryColors = {
 };
 
 export default function BlogPostPage() {
-  const { id } = useParams();
+  const { postSlug } = useParams();
   const [post, setPost] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    base44.entities.BlogPost.filter({ id }).then((data) => {
-      const currentPost = data[0] || null;
+    // Try matching by slug first, then fall back to id
+    base44.entities.BlogPost.list().then((allPosts) => {
+      const currentPost = allPosts.find(p => p.slug === postSlug || p.id === postSlug) || null;
       setPost(currentPost);
-      
+
       if (currentPost) {
-        base44.entities.BlogPost.list().then((allPosts) => {
-          const related = allPosts
-            .filter(p => p.category === currentPost.category && p.id !== currentPost.id)
-            .slice(0, 3);
-          setRelatedPosts(related);
-        });
+        const related = allPosts
+          .filter(p => p.category === currentPost.category && p.id !== currentPost.id)
+          .slice(0, 3);
+        setRelatedPosts(related);
       }
       setLoading(false);
     });
-  }, [id]);
+  }, [postSlug]);
 
   if (loading) {
     return (
@@ -137,7 +137,7 @@ export default function BlogPostPage() {
                   </p>
                   <div className="space-y-8">
                     {relatedPosts.map((relatedPost) => (
-                      <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="group block">
+                      <Link key={relatedPost.id} to={getBlogPostUrl(relatedPost)} className="group block">
                         <div className="mb-3">
                           <span className={`text-xs font-body font-medium px-2.5 py-1 rounded-sm ${categoryColors[relatedPost.category] || 'bg-muted text-muted-foreground'}`}>
                             {relatedPost.category}
