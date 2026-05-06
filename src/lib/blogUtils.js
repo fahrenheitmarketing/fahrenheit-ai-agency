@@ -6,6 +6,7 @@ export const categoryToServiceSlug = {
   'AI-Assisted PPC': 'sem',
   'AI-Enabled Development': 'software-development',
   'Strategy & Growth': 'strategy',
+  'Social Media & Influencer': 'smm',
 };
 
 // Returns the canonical URL for a blog post
