@@ -137,6 +137,38 @@ export default function SMM() {
         </div>
       </section>
 
+      {/* Organic Social */}
+      <section className="py-24 px-6 border-b border-border">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
+            <div className="lg:col-span-1 pr-0 lg:pr-16 mb-10 lg:mb-0">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">Organic Social</p>
+              <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15]">
+                Owned Presence, Built to Last
+              </h2>
+              <p className="text-muted-foreground text-sm leading-relaxed font-body mt-6">
+                Paid social amplifies reach. Organic social builds trust. We help brands show up consistently with content that earns attention — not just buys it.
+              </p>
+            </div>
+            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border">
+              {[
+                { title: 'Content Strategy & Calendar', desc: "A structured monthly content plan aligned to your brand voice, audience, and business objectives — so posting isn't an afterthought." },
+                { title: 'Copy & Creative Direction', desc: 'Platform-native copy and creative briefs for every post. We write for the scroll — short, purposeful, and on-brand.' },
+                { title: 'Community Management', desc: 'Timely responses to comments, DMs, and mentions. We help brands stay present and build relationships at scale.' },
+                { title: 'Profile & Bio Optimisation', desc: 'First impressions matter. We audit and optimise your social profiles to reflect your positioning and convert visitors into followers.' },
+                { title: 'Performance Reporting', desc: 'Monthly organic reporting covering reach, engagement, follower growth, and content performance — with clear recommendations.' },
+                { title: 'Influencer & Creator Coordination', desc: 'We identify and manage relationships with creators and micro-influencers whose audiences align with your ideal customer.' },
+              ].map((item) => (
+                <div key={item.title} className="bg-background hover:bg-secondary/40 transition-colors duration-200 p-8">
+                  <h3 className="font-heading text-base font-normal mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed font-body">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Cross-link to Search */}
       <section className="py-16 px-6 border-t border-b border-border bg-background">
         <div className="max-w-7xl mx-auto">
