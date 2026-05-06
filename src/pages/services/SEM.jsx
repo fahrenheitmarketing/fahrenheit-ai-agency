@@ -12,50 +12,40 @@ const faqs = [
     answer: 'Our retainer covers all strategy, campaign management, optimization, and reporting. Ad spend is paid directly to the platforms — it\'s separate from our fee. This keeps our incentives aligned with your performance, not your spend.',
   },
   {
-    question: 'Which platforms do you manage paid advertising on?',
-    answer: 'We manage Google Ads (Search, Display, Shopping, YouTube, Performance Max), Microsoft/Bing Ads, Meta (Facebook & Instagram), LinkedIn Ads, TikTok Ads, and programmatic display. We recommend the right mix based on where your audience actually converts.',
+    question: 'Which search platforms do you manage?',
+    answer: 'We manage Google Ads (Search, Display, Shopping, YouTube, Performance Max) and Microsoft/Bing Ads. If you\'re also looking to advertise on Meta, LinkedIn, or TikTok, our Paid Social service runs those channels.',
   },
   {
-    question: 'How does AI improve paid advertising performance?',
-    answer: 'AI surfaces patterns, flags underperforming segments, and identifies budget inefficiencies faster than manual analysis. Our strategists review these insights regularly and make optimization decisions — so you get the speed of AI analysis with human judgment on every meaningful change.',
+    question: 'How does AI assist with search campaign performance?',
+    answer: 'AI surfaces patterns, flags underperforming keywords and segments, and identifies budget inefficiencies faster than manual analysis. Our strategists review these insights regularly and make optimization decisions — so you get the speed of AI analysis with human judgment on every meaningful change.',
   },
   {
-    question: 'Do you handle ad creative — copy, images, video?',
-    answer: 'Yes. We develop and test ad creative across all formats — search copy, display banners, social image and video ads, and carousel units. Our AI-driven creative testing identifies winning combinations faster so your budget goes further.',
+    question: 'Do you handle ad creative — copy and extensions?',
+    answer: 'Yes. We develop and test search ad copy, headlines, descriptions, and ad extensions. Our structured testing process identifies winning combinations faster so your budget goes further.',
   },
   {
     question: 'What minimum ad spend do you require?',
-    answer: 'We generally recommend a minimum of $3,000/month in total ad spend across platforms to allow optimization algorithms to gather sufficient data. Larger budgets unlock more advanced multi-platform strategies.',
+    answer: 'We generally recommend a minimum of $3,000/month in ad spend to allow optimization algorithms to gather sufficient data. Larger budgets unlock more advanced strategies.',
+  },
+  {
+    question: 'Do you also manage paid social advertising?',
+    answer: 'Yes — as a separate engagement. Our Paid Social service covers Meta, LinkedIn, TikTok, and Pinterest. Many clients run both search and social together for full-funnel coverage.',
   },
   {
     question: 'Is there a long-term contract?',
-    answer: 'No. All engagements are month-to-month. Paid media management should produce clear, measurable ROI — you should stay because the results justify it, not because a contract forces you to.',
+    answer: 'No. All engagements are month-to-month. Search advertising should produce clear, measurable ROI — you should stay because the results justify it, not because a contract forces you to.',
   },
 ];
 
 const capabilities = [
-  { icon: Brain, title: 'AI-Assisted Bid & Budget Management', description: 'AI surfaces opportunities and flags inefficiencies — our strategists review and action optimizations regularly, so every budget decision has human judgment behind it.' },
-  { icon: Target, title: 'Precision Audience Targeting', description: 'AI-powered segmentation finds your highest-value prospects across search intent, social behavior, lookalike audiences, and retargeting pools.' },
-  { icon: Layers, title: 'Ad Creative Intelligence', description: 'Data-driven copy, image, and video creative tested across platforms. AI identifies winning combinations faster so more budget flows to what works.' },
-  { icon: BarChart3, title: 'Cross-Platform Attribution', description: 'Full-funnel attribution modeling that connects every impression and click — across all platforms — to pipeline and revenue.' },
-  { icon: RefreshCw, title: 'Ongoing Optimization', description: 'Regular A/B testing, audience pruning, creative rotation, and budget reallocation — driven by AI analysis and executed by our team on a structured, ongoing cadence.' },
-  { icon: MousePointerClick, title: 'Landing Page Optimization', description: 'We don\'t just drive traffic — we ensure the destination converts. AI-tested landing pages built to maximize return on every platform\'s spend.' },
+  { icon: Brain, title: 'AI-Assisted Bid Management', description: 'AI surfaces keyword-level opportunities and flags inefficiencies — our strategists review and act on these insights regularly, so every bid decision has human judgment behind it.' },
+  { icon: Target, title: 'Keyword Strategy & Search Intent', description: 'We research and map keywords by search intent — not just volume — ensuring your ads reach people who are ready to act, not just browse.' },
+  { icon: Layers, title: 'Search Ad Creative & Testing', description: 'Data-driven headlines, descriptions, and extensions tested systematically. We identify the messaging that converts and scale it.' },
+  { icon: BarChart3, title: 'Conversion Tracking & Attribution', description: 'Full-funnel attribution that connects every click to revenue. You always know exactly what your search spend is producing.' },
+  { icon: RefreshCw, title: 'Ongoing Campaign Optimization', description: 'Regular negative keyword mining, match type refinement, Quality Score improvement, and budget reallocation — executed on a structured cadence by our team.' },
+  { icon: MousePointerClick, title: 'Landing Page Optimization', description: 'We don\'t just drive traffic — we ensure the destination converts. Targeted landing page recommendations and testing are included.' },
 ];
 
-const platforms = [
-  {
-    category: 'Search',
-    items: ['Google Ads (Search, Shopping, Display)', 'Microsoft / Bing Ads', 'YouTube Advertising', 'Performance Max Campaigns'],
-  },
-  {
-    category: 'Social',
-    items: ['Meta (Facebook & Instagram)', 'LinkedIn Ads', 'TikTok Ads', 'Pinterest Ads'],
-  },
-  {
-    category: 'Programmatic & Retargeting',
-    items: ['Programmatic Display & Video', 'Remarketing & Retargeting', 'Connected TV (CTV)', 'Native Advertising'],
-  },
-];
 
 export default function SEM() {
   return (
@@ -69,13 +59,13 @@ export default function SEM() {
           className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-60 select-none rotate-180 -z-10"
         />
         <div className="relative max-w-7xl mx-auto">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">Paid Media & Advertising</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">Search Engine Marketing / PPC</p>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] mb-8 max-w-4xl">
-            AI-Managed Paid Media That<br />
-            <span className="italic">Eliminates Waste Across Every Platform.</span>
+            Search Advertising That<br />
+            <span className="italic">Turns Intent Into Revenue.</span>
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl font-body">
-            Google. Meta. LinkedIn. TikTok. Your buyers are on all of them — and so is your competition. We manage paid advertising across the full platform landscape, using AI to optimize every dollar of spend in real-time so you're not guessing where your budget is going.
+            When someone searches for what you sell, you need to be there. We manage Google and Microsoft search campaigns with rigorous strategy and AI-assisted optimisation — connecting your brand to high-intent buyers at the exact moment they're ready to act.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">
@@ -99,10 +89,10 @@ export default function SEM() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 mb-16">
             <div className="lg:col-span-1 pr-0 lg:pr-16 mb-10 lg:mb-0">
               <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15]">
-                Paid Advertising, Supercharged by AI
+                Search Advertising, Managed with Precision
               </h2>
               <p className="text-xs uppercase tracking-widest text-muted-foreground mt-4 font-body leading-relaxed">
-                Search · Social · Programmatic
+                Google · Microsoft · YouTube
               </p>
             </div>
             <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border">
@@ -121,31 +111,56 @@ export default function SEM() {
       {/* Platforms */}
       <section className="py-24 px-6 bg-secondary/30 border-b border-border">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
             <div className="lg:col-span-1 pr-0 lg:pr-16 mb-10 lg:mb-0">
               <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">Platforms</p>
               <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15]">
-                Every Channel. One Strategy.
+                Where We Run Your Search Ads
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed font-body mt-6">
-                We don't pick a favourite platform — we follow your audience. AI tells us where your buyers spend time and how they respond to ads, then we allocate accordingly.
+                We focus on the platforms where search intent is highest — capturing buyers who are actively looking for what you offer.
               </p>
             </div>
-            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border">
-              {platforms.map((group) => (
-                <div key={group.category} className="bg-background p-8">
-                  <p className="text-xs uppercase tracking-widest text-accent font-body mb-6">{group.category}</p>
-                  <ul className="space-y-3">
-                    {group.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-sm font-body">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border">
+              {[
+                { label: 'Google Search', desc: "Capture high-intent queries across Google's search network — the largest search engine in the world." },
+                { label: 'Google Shopping', desc: 'Product listing ads that show your inventory directly in search results, with price and image.' },
+                { label: 'Google Display & YouTube', desc: "Visual and video placements across Google's network — ideal for retargeting and upper-funnel reach." },
+                { label: 'Microsoft / Bing Ads', desc: 'Often overlooked, consistently lower CPCs. We manage Bing alongside Google to maximise coverage.' },
+                { label: 'Performance Max', desc: 'Google's AI-driven campaign type across all channels — managed with strategic oversight to keep performance accountable.' },
+                { label: 'Remarketing & Retargeting', desc: 'Re-engage visitors who've already shown interest but haven't converted — often the highest-ROI campaigns.' },
+              ].map((item) => (
+                <div key={item.label} className="bg-background hover:bg-secondary/40 transition-colors duration-200 p-8">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="font-heading text-base font-normal mb-1">{item.label}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed font-body">{item.desc}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cross-link to Paid Social */}
+      <section className="py-16 px-6 border-b border-border bg-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="border border-border rounded-sm p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-accent font-body mb-3">Also available</p>
+              <h3 className="font-heading text-2xl md:text-3xl font-normal mb-2">Need to Advertise on Meta, LinkedIn, or TikTok?</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed font-body max-w-xl">
+                Our Paid Social service covers the full social advertising landscape — reaching your audience based on who they are, not just what they searched. Many clients run both for complete funnel coverage.
+              </p>
+            </div>
+            <Link to="/services/smm" className="flex-shrink-0">
+              <Button variant="outline" className="rounded-sm px-6 gap-2 font-body whitespace-nowrap">
+                View Paid Social <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -193,11 +208,11 @@ export default function SEM() {
         </div>
       </section>
 
-      <FAQSection faqs={faqs} title="Common Questions About Paid Media" />
+      <FAQSection faqs={faqs} title="Common Questions About Search Advertising" />
 
       <CTASection
         headline="Stop Wasting Ad Spend"
-        subtext="Let AI optimize every dollar across every platform. Get a free paid media audit and see where your budget could work harder."
+        subtext="Let's put your brand in front of buyers who are actively searching for what you offer. Get a free search audit and see where your campaigns could work harder."
         buttonText="Get Your Free Audit"
       />
     </>
