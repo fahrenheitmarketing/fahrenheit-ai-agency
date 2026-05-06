@@ -110,6 +110,33 @@ export default function SEO() {
         </div>
       </section>
 
+      {/* The AI Advantage */}
+      <section className="py-24 px-6 border-b border-border bg-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">The AI Advantage</p>
+              <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15]">
+                Why SEO Without AIO and GIO Is Already Incomplete
+              </h2>
+            </div>
+            <div className="space-y-6 pt-2">
+              <p className="text-muted-foreground leading-relaxed font-body">
+                Traditional agencies are still optimizing for a version of search that's rapidly shrinking. Ranking #3 on a keyword where Google's AI Overview occupies the full above-the-fold view means most users never scroll to your result.
+              </p>
+              <p className="text-muted-foreground leading-relaxed font-body">
+                We use AI internally to accelerate our research, prioritize opportunities, and predict content performance before you invest in creating it. But more importantly, we build your program for the surfaces where your buyers are actually searching — which increasingly means AI-generated answers, not just blue links.
+              </p>
+              <div className="border-l-4 border-accent pl-6 py-1">
+                <p className="text-foreground font-body leading-relaxed">
+                  The result: faster time to visibility, broader coverage across search surfaces, and a compounding authority that makes your brand harder to displace everywhere that matters.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* The New Search Reality */}
       <section className="py-24 px-6 bg-secondary/30 border-b border-border">
         <div className="max-w-7xl mx-auto">
@@ -191,33 +218,6 @@ export default function SEO() {
                   <span className="text-sm font-body">{item}</span>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The AI Advantage */}
-      <section className="py-24 px-6 border-b border-border bg-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">The AI Advantage</p>
-              <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15]">
-                Why SEO Without AIO and GIO Is Already Incomplete
-              </h2>
-            </div>
-            <div className="space-y-6 pt-2">
-              <p className="text-muted-foreground leading-relaxed font-body">
-                Traditional agencies are still optimizing for a version of search that's rapidly shrinking. Ranking #3 on a keyword where Google's AI Overview occupies the full above-the-fold view means most users never scroll to your result.
-              </p>
-              <p className="text-muted-foreground leading-relaxed font-body">
-                We use AI internally to accelerate our research, prioritize opportunities, and predict content performance before you invest in creating it. But more importantly, we build your program for the surfaces where your buyers are actually searching — which increasingly means AI-generated answers, not just blue links.
-              </p>
-              <div className="border-l-4 border-accent pl-6 py-1">
-                <p className="text-foreground font-body leading-relaxed">
-                  The result: faster time to visibility, broader coverage across search surfaces, and a compounding authority that makes your brand harder to displace everywhere that matters.
-                </p>
-              </div>
             </div>
           </div>
         </div>
