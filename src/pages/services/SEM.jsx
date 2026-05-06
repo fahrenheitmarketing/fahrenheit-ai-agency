@@ -127,8 +127,8 @@ export default function SEM() {
                 { label: 'Google Shopping', desc: 'Product listing ads that show your inventory directly in search results, with price and image.' },
                 { label: 'Google Display & YouTube', desc: "Visual and video placements across Google's network — ideal for retargeting and upper-funnel reach." },
                 { label: 'Microsoft / Bing Ads', desc: 'Often overlooked, consistently lower CPCs. We manage Bing alongside Google to maximise coverage.' },
-                { label: 'Performance Max', desc: 'Google's AI-driven campaign type across all channels — managed with strategic oversight to keep performance accountable.' },
-                { label: 'Remarketing & Retargeting', desc: 'Re-engage visitors who've already shown interest but haven't converted — often the highest-ROI campaigns.' },
+                { label: 'Performance Max', desc: "Google's AI-driven campaign type across all channels — managed with strategic oversight to keep performance accountable." },
+                { label: 'Remarketing & Retargeting', desc: "Re-engage visitors who've already shown interest but haven't converted — often the highest-ROI campaigns." },
               ].map((item) => (
                 <div key={item.label} className="bg-background hover:bg-secondary/40 transition-colors duration-200 p-8">
                   <div className="flex items-start gap-3">
