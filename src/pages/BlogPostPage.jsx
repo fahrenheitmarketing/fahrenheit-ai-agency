@@ -107,7 +107,8 @@ export default function BlogPostPage() {
             {/* Article - Left Column */}
             <article className="lg:col-span-2">
               {post.content ? (
-                <ReactMarkdown className="prose prose-lg max-w-none font-body
+                <ReactMarkdown
+                  className="prose prose-lg max-w-none font-body
                   [&_h1]:font-heading [&_h1]:font-normal [&_h1]:!text-accent [&_h1]:text-xl md:[&_h1]:text-2xl [&_h1]:mt-0 [&_h1]:mb-6
                   [&_h2]:font-heading [&_h2]:font-normal [&_h2]:!text-accent [&_h2]:text-xl md:[&_h2]:text-2xl [&_h2]:mt-12 [&_h2]:mb-5
                   [&_h3]:font-heading [&_h3]:font-normal [&_h3]:!text-accent [&_h3]:text-lg md:[&_h3]:text-xl [&_h3]:mt-10 [&_h3]:mb-4
@@ -119,7 +120,16 @@ export default function BlogPostPage() {
                   [&_em]:italic
                   [&_blockquote]:border-l-4 [&_blockquote]:border-accent [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-muted-foreground [&_blockquote]:my-12
                   [&_figcaption]:text-xs [&_figcaption]:uppercase [&_figcaption]:tracking-widest [&_figcaption]:text-muted-foreground [&_figcaption]:mt-4
-                  [&_li]:mb-4">
+                  [&_li]:mb-4"
+                  components={{
+                    a: ({ href, children }) => {
+                      const isInternal = href && href.startsWith('/');
+                      return isInternal
+                        ? <Link to={href} className="text-accent underline hover:text-accent/80 transition-colors">{children}</Link>
+                        : <a href={href} target="_blank" rel="noopener noreferrer" className="text-accent underline hover:text-accent/80 transition-colors">{children}</a>;
+                    }
+                  }}
+                >
                   {post.content}
                 </ReactMarkdown>
               ) : (
