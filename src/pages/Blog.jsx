@@ -10,6 +10,7 @@ const CATEGORIES = [
   'AI-Assisted PPC',
   'AI-Enabled Development',
   'Strategy & Growth',
+  'Social Media & Influencer',
 ];
 
 export default function Blog() {
