@@ -23,6 +23,7 @@ import BlogPostPage from './pages/BlogPostPage';
 import CaseStudies from './pages/CaseStudies';
 import Services from './pages/Services';
 import TopMarketingAgenciesUSA from './pages/TopMarketingAgenciesUSA';
+import AustinTX from './pages/locations/AustinTX';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -63,6 +64,7 @@ const AuthenticatedApp = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/services/:serviceSlug/:postSlug" element={<BlogPostPage />} />
         <Route path="/services/marketing/top-10-marketing-agencies-usa" element={<TopMarketingAgenciesUSA />} />
+        <Route path="/digital-marketing-agency-austin-tx" element={<AustinTX />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
