@@ -120,7 +120,9 @@ export default function BlogPostPage() {
                   [&_em]:italic
                   [&_blockquote]:border-l-4 [&_blockquote]:border-accent [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-muted-foreground [&_blockquote]:my-12
                   [&_figcaption]:text-xs [&_figcaption]:uppercase [&_figcaption]:tracking-widest [&_figcaption]:text-muted-foreground [&_figcaption]:mt-4
-                  [&_li]:mb-4"
+                  [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-4
+                  [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-4
+                  [&_li]:mb-2 [&_li]:text-base [&_li]:leading-relaxed"
                   components={{
                     a: ({ href, children }) => {
                       const isInternal = href && href.startsWith('/');
