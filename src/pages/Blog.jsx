@@ -4,15 +4,15 @@ import BlogCard from '../components/blog/BlogCard';
 
 const CATEGORIES = [
   'All Topics',
+  'Strategy & Growth',
   'SEO',
   'Data & Analytics',
-  'Heat Mapping & UX',
-  'Conversion Rate Optimization',
   'AI-Assisted PPC',
-  'AI-Enabled Development',
-  'Strategy & Growth',
   'Social Media & Influencer',
+  'Conversion Rate Optimization',
+  'Heat Mapping & UX',
   'UX & Accessibility',
+  'AI-Enabled Development',
 ];
 
 export default function Blog() {
