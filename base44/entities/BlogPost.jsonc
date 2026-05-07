@@ -11,6 +11,7 @@
     "category": {
       "type": "string",
       "enum": [
+        "SEO",
         "Data & Analytics",
         "Heat Mapping & UX",
         "Conversion Rate Optimization",

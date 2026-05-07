@@ -4,6 +4,7 @@ import BlogCard from '../components/blog/BlogCard';
 
 const CATEGORIES = [
   'All Topics',
+  'SEO',
   'Data & Analytics',
   'Heat Mapping & UX',
   'Conversion Rate Optimization',
