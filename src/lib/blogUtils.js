@@ -8,6 +8,7 @@ export const categoryToServiceSlug = {
   'AI-Enabled Development': 'software-development',
   'Strategy & Growth': 'strategy',
   'Social Media & Influencer': 'smm',
+  'UX & Accessibility': 'software-development',
 };
 
 // Returns the canonical URL for a blog post

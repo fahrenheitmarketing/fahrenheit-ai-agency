@@ -12,6 +12,7 @@ const CATEGORIES = [
   'AI-Enabled Development',
   'Strategy & Growth',
   'Social Media & Influencer',
+  'UX & Accessibility',
 ];
 
 export default function Blog() {

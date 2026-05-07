@@ -13,6 +13,7 @@ const categoryColors = {
   'AI-Assisted PPC': 'bg-orange-100 text-orange-700',
   'AI-Enabled Development': 'bg-rose-100 text-rose-700',
   'Strategy & Growth': 'bg-amber-100 text-amber-700',
+  'UX & Accessibility': 'bg-teal-100 text-teal-700',
 };
 
 export default function BlogPostPage() {
