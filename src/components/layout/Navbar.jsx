@@ -12,11 +12,11 @@ import {
 const LOGO_URL = 'https://media.base44.com/images/public/user_696032597527e77c90fca3ba/9a7da2942_FahrenheitMarketingLogo.png';
 
 const services = [
+  { label: 'Strategy', path: '/services/strategy' },
   { label: 'SEO', path: '/services/seo' },
   { label: 'SEM / PPC', path: '/services/sem' },
   { label: 'Social Media', path: '/services/smm' },
   { label: 'CRO', path: '/services/cro' },
-  { label: 'Strategy', path: '/services/strategy' },
   { label: 'Marketing Automation', path: '/services/marketing-automation' },
   { label: 'Software Development', path: '/services/software-development' },
 ];
