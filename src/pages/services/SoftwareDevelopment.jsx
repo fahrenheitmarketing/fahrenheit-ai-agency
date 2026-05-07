@@ -245,6 +245,87 @@ export default function SoftwareDevelopment() {
         </div>
       </section>
 
+      {/* eCommerce Platforms */}
+      <section className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            label="eCommerce Development"
+            title="BigCommerce & Shopify Development"
+            description="As a Certified BigCommerce Partner, we build and optimize high-performance storefronts engineered for revenue — not just launch day."
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
+            {/* BigCommerce */}
+            <div className="bg-card border border-border rounded-2xl p-10">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Code className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-xl font-normal">BigCommerce Development</h3>
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground font-body">Certified Partner</span>
+                </div>
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                BigCommerce is built for mid-market and enterprise brands that need platform flexibility, API-first integrations, and multi-storefront capability — without transaction fees or the overhead of a fully custom build.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground mb-8">
+                {['Custom Stencil theme development', 'ERP, CRM & fulfillment integrations', 'B2B functionality & account hierarchies', 'Multi-storefront & multi-currency setup', 'Core Web Vitals & performance optimization', 'Headless commerce architecture'].map(item => (
+                  <li key={item} className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline font-body">
+                Start a BigCommerce project <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Shopify */}
+            <div className="bg-card border border-border rounded-2xl p-10">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Zap className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-xl font-normal">Shopify Development</h3>
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground font-body">DTC & Growth Brands</span>
+                </div>
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Shopify is the platform of choice for DTC brands focused on speed to market, a broad app ecosystem, and native marketing tools. We build custom Shopify storefronts designed for conversion and scale.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground mb-8">
+                {['Custom Liquid theme development', 'Shopify Plus for enterprise brands', 'App integrations & custom app development', 'Checkout customization & optimization', 'Migration from other platforms', 'Ongoing CRO & performance management'].map(item => (
+                  <li key={item} className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline font-body">
+                Start a Shopify project <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Platform decision note */}
+          <div className="mt-10 bg-secondary/40 border border-border rounded-2xl p-8 flex flex-col md:flex-row items-start md:items-center gap-6">
+            <div className="flex-1">
+              <h4 className="font-heading text-lg font-normal mb-2">Not sure which platform is right for you?</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                We'll give you an honest recommendation based on your catalog complexity, integration needs, and growth goals — not based on which platform benefits us more.
+              </p>
+            </div>
+            <Link to="/contact">
+              <Button className="rounded-full px-6 font-body whitespace-nowrap">
+                Get a Platform Recommendation
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <FAQSection faqs={faqs} title="Common Questions About Custom Software" />
 
       <CTASection
