@@ -15,10 +15,18 @@ const CATEGORIES = [
   'AI-Enabled Development',
 ];
 
+const PAGE_SIZE = 12;
+
 export default function Blog() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState('All Topics');
+
+  const handleCategoryChange = (cat) => {
+    setActiveCategory(cat);
+    setVisibleCount(PAGE_SIZE);
+  };
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   useEffect(() => {
     base44.entities.BlogPost.list('-published_date', 100).then((data) => {
@@ -30,6 +38,9 @@ export default function Blog() {
   const filtered = activeCategory === 'All Topics'
     ? posts
     : posts.filter(p => p.category === activeCategory);
+
+  const visible = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
 
   const featured = posts.filter(p => p.featured).slice(0, 3);
 
@@ -72,7 +83,7 @@ export default function Blog() {
           <span className="text-xs uppercase tracking-widest text-muted-foreground font-body whitespace-nowrap">Filter by</span>
           <select
             value={activeCategory}
-            onChange={e => setActiveCategory(e.target.value)}
+            onChange={e => handleCategoryChange(e.target.value)}
             className="text-xs font-body font-medium px-3 py-2 rounded-sm border border-border bg-background text-foreground focus:outline-none focus:border-foreground/40 cursor-pointer"
           >
             {CATEGORIES.map(cat => (
@@ -106,8 +117,18 @@ export default function Blog() {
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-                {filtered.map(post => <BlogCard key={post.id} post={post} />)}
+                {visible.map(post => <BlogCard key={post.id} post={post} />)}
               </div>
+              {hasMore && (
+                <div className="flex justify-center mt-14">
+                  <button
+                    onClick={() => setVisibleCount(v => v + PAGE_SIZE)}
+                    className="text-sm font-medium font-body border border-foreground/20 px-8 py-3 rounded-sm hover:border-foreground/50 transition-colors"
+                  >
+                    Load more articles
+                  </button>
+                </div>
+              )}
             </>
           )}
         </div>
