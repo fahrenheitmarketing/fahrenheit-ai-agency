@@ -67,22 +67,17 @@ export default function Blog() {
 
       {/* Filter Bar */}
       <section className="sticky top-20 z-10 bg-background border-b border-border px-6 lg:px-10 py-4">
-        <div className="max-w-7xl mx-auto overflow-x-auto">
-          <div className="flex gap-2 min-w-max">
+        <div className="max-w-7xl mx-auto flex items-center gap-3">
+          <span className="text-xs uppercase tracking-widest text-muted-foreground font-body whitespace-nowrap">Filter by</span>
+          <select
+            value={activeCategory}
+            onChange={e => setActiveCategory(e.target.value)}
+            className="text-xs font-body font-medium px-3 py-2 rounded-sm border border-border bg-background text-foreground focus:outline-none focus:border-foreground/40 cursor-pointer"
+          >
             {CATEGORIES.map(cat => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`text-xs font-body font-medium px-4 py-2 rounded-sm border transition-colors whitespace-nowrap ${
-                  activeCategory === cat
-                    ? 'bg-foreground text-background border-foreground'
-                    : 'bg-transparent text-muted-foreground border-border hover:border-foreground/40 hover:text-foreground'
-                }`}
-              >
-                {cat}
-              </button>
+              <option key={cat} value={cat}>{cat}</option>
             ))}
-          </div>
+          </select>
         </div>
       </section>
 
