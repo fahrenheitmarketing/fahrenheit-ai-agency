@@ -78,7 +78,7 @@ export default function Blog() {
       )}
 
       {/* Filter Bar */}
-      <section className="sticky top-20 z-10 bg-background border-b border-border px-6 lg:px-10 py-4">
+      <section className="bg-background border-b border-border px-6 lg:px-10 py-4">
         <div className="max-w-7xl mx-auto flex items-center gap-3">
           <span className="text-xs uppercase tracking-widest text-muted-foreground font-body whitespace-nowrap">Filter by</span>
           <select
