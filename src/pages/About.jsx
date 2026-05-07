@@ -151,6 +151,53 @@ export default function About() {
         </div>
       </section>
 
+      {/* Built on Trust */}
+      <section className="py-24 px-6 bg-foreground text-background border-b border-border overflow-hidden relative">
+        <img
+          src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-0 right-0 w-[360px] pointer-events-none opacity-10 select-none"
+        />
+        <div className="max-w-7xl mx-auto relative">
+          <p className="text-xs uppercase tracking-widest text-background/40 mb-6 font-body">Account Management</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.1] mb-6">
+                Built on Trust,<br />
+                <span className="italic">Not Just Deliverables</span>
+              </h2>
+              <p className="text-background/60 font-body leading-relaxed">
+                Most agencies keep you at arm's length. We pull up a chair.
+              </p>
+            </div>
+            <div className="space-y-6">
+              <p className="text-background/70 font-body leading-relaxed">
+                At Fahrenheit, we're not the suit-and-tie type. We're an Austin-based team that believes the best client relationships are built on straight talk, shared goals, and genuine investment in each other's success. That's not a tagline — it's just how we work.
+              </p>
+              <p className="text-background/70 font-body leading-relaxed">
+                Every client gets a dedicated partner who communicates proactively, keeps you informed without you having to ask, and gives you direct access to the people actually doing the work. No gatekeeping, no runaround, no waiting three days for a reply to a simple question.
+              </p>
+              <p className="text-background/70 font-body leading-relaxed">
+                We've built long-term relationships with clients across healthcare, eCommerce, legal, and beyond — not because we lock anyone in, but because we show up consistently and make it easy to keep working together. When your business grows, changes direction, or hits a wall, we're already in the room.
+              </p>
+              <div className="grid grid-cols-3 gap-px bg-background/10 border border-background/10 mt-8">
+                {[
+                  { label: 'Transparent reporting' },
+                  { label: 'Honest conversations' },
+                  { label: 'Your budget, treated like our own' },
+                ].map((item) => (
+                  <div key={item.label} className="bg-background/5 px-6 py-5">
+                    <span className="block w-1.5 h-1.5 rounded-full bg-accent mb-3" />
+                    <p className="text-xs uppercase tracking-widest text-background/60 font-body">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why AI-First */}
       <section className="py-24 px-6 bg-secondary/30">
         <div className="max-w-7xl mx-auto">
