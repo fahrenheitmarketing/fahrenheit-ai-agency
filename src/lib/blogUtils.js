@@ -1,5 +1,6 @@
 // Maps BlogPost category to its service URL segment
 export const categoryToServiceSlug = {
+  'SEO': 'seo',
   'Data & Analytics': 'seo',
   'Heat Mapping & UX': 'cro',
   'Conversion Rate Optimization': 'cro',
