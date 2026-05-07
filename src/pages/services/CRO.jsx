@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, LineChart, Brain, TestTubes, MousePointerClick, Eye, Layers, CheckCircle } from 'lucide-react';
+import { ArrowRight, LineChart, Brain, TestTubes, MousePointerClick, Eye, Layers, CheckCircle, Paintbrush, Navigation, Smartphone, ScanEye } from 'lucide-react';
 import CTASection from '../../components/shared/CTASection';
 import FAQSection from '../../components/shared/FAQSection';
 
@@ -124,6 +124,74 @@ export default function CRO() {
             <div className="p-8 rounded-2xl bg-secondary/50 border border-border">
               <p className="text-4xl font-heading font-bold text-primary mb-2">30 Days</p>
               <p className="text-sm text-muted-foreground">Typical time to first measurable improvement</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* UX/UI Design for Conversion */}
+      <section className="py-24 px-6 bg-secondary/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4 font-body">UX/UI Design</span>
+              <h2 className="font-heading text-3xl md:text-4xl font-normal mb-6">
+                Design Is a Conversion Tool, Not a Decoration
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Most conversion problems aren't traffic problems — they're design problems. Confusing navigation, unclear CTAs, cluttered layouts, and poor mobile experiences silently drain revenue every day.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                We approach UX/UI design through a conversion lens. Every layout decision, visual hierarchy choice, and interaction pattern is evaluated against one question: does this move the user closer to converting?
+              </p>
+              <div className="space-y-3">
+                {[
+                  'Conversion-focused page layout & visual hierarchy',
+                  'CTA placement, contrast, and copy optimization',
+                  'Mobile UX design for high-intent mobile traffic',
+                  'Checkout & form flow simplification',
+                  'Trust signal placement and social proof design',
+                  'Navigation architecture & path-to-conversion mapping',
+                ].map(item => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: ScanEye,
+                  title: 'Visual Hierarchy',
+                  description: "We engineer what users see first, second, and third — guiding attention toward the actions that matter most.",
+                },
+                {
+                  icon: Navigation,
+                  title: 'Conversion Path Design',
+                  description: 'Every page has a job. We design clear, frictionless paths that guide users from intent to action without confusion.',
+                },
+                {
+                  icon: Smartphone,
+                  title: 'Mobile-First UX',
+                  description: 'With mobile traffic often exceeding 60% of sessions, mobile UX is not an afterthought — it\'s the primary design surface.',
+                },
+                {
+                  icon: Paintbrush,
+                  title: 'Brand-Aligned Design',
+                  description: 'Conversion design doesn\'t mean stripping out brand identity. We build conversion-optimized experiences that still feel distinctly yours.',
+                },
+              ].map(card => (
+                <div key={card.title} className="bg-card border border-border rounded-2xl p-6">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <card.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-heading text-base font-normal mb-2">{card.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{card.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
