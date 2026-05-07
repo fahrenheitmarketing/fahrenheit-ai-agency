@@ -102,6 +102,21 @@ export default function AustinTX() {
                 Fahrenheit Marketing has been doing this since 2008. We're a full-service digital agency headquartered in Austin, and we work with businesses across healthcare, B2B, eCommerce, manufacturing, and professional services — helping them get found, get clicks, and turn traffic into revenue.
               </p>
             </div>
+            <div className="flex flex-wrap gap-3 mt-8">
+              {[
+                { label: "SEO Services", to: "/services/seo" },
+                { label: "Paid Search (PPC)", to: "/services/sem" },
+                { label: "Social Media", to: "/services/smm" },
+                { label: "CRO", to: "/services/cro" },
+                { label: "Strategy", to: "/services/strategy" },
+                { label: "Marketing Automation", to: "/services/marketing-automation" },
+                { label: "Software Development", to: "/services/software-development" },
+              ].map(({ label, to }) => (
+                <Link key={to} to={to} className="text-xs font-body font-medium px-4 py-2 rounded-sm border border-accent/40 text-accent hover:bg-accent hover:text-white transition-colors">
+                  {label} →
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -181,6 +196,14 @@ export default function AustinTX() {
                 That means your campaigns benefit from AI-powered efficiency without sacrificing the strategic thinking and accountability that Austin businesses deserve.
               </p>
             </div>
+            <div className="flex flex-wrap gap-4 mt-8">
+              <Link to="/services/strategy" className="text-sm font-body text-accent hover:underline">
+                Our Strategy & Growth approach →
+              </Link>
+              <Link to="/services/marketing-automation" className="text-sm font-body text-accent hover:underline">
+                Marketing Automation services →
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -202,6 +225,33 @@ export default function AustinTX() {
                 >
                   {loc.name}
                 </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services Quick Links */}
+        <section className="py-16 px-6 lg:px-10 border-b border-border bg-foreground text-background">
+          <div className="max-w-7xl mx-auto">
+            <p className="text-xs uppercase tracking-widest text-background/40 mb-8 font-body">Explore Our Services</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+              {[
+                { label: "SEO", to: "/services/seo" },
+                { label: "Paid Search", to: "/services/sem" },
+                { label: "Social Media", to: "/services/smm" },
+                { label: "CRO", to: "/services/cro" },
+                { label: "Strategy", to: "/services/strategy" },
+                { label: "Automation", to: "/services/marketing-automation" },
+                { label: "Development", to: "/services/software-development" },
+              ].map(({ label, to }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className="group flex flex-col gap-2 border border-background/10 rounded-sm p-4 hover:border-accent hover:bg-accent/10 transition-colors"
+                >
+                  <span className="text-sm font-body font-medium text-background/80 group-hover:text-accent transition-colors">{label}</span>
+                  <span className="text-xs text-background/30 group-hover:text-accent/70 transition-colors">→</span>
+                </Link>
               ))}
             </div>
           </div>
