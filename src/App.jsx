@@ -68,7 +68,7 @@ const AuthenticatedApp = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/services/:serviceSlug/:postSlug" element={<BlogPostPage />} />
-        <Route path="/services/marketing/top-10-marketing-agencies-usa" element={<TopMarketingAgenciesUSA />} />
+        <Route path="/services/strategy/top-10-marketing-agencies-usa" element={<TopMarketingAgenciesUSA />} />
         <Route path="/digital-marketing-agency-austin-tx" element={<AustinTX />} />
         <Route path="/digital-marketing-agency-round-rock-tx" element={<RoundRockTX />} />
         <Route path="/digital-marketing-agency-cedar-park-tx" element={<CedarParkTX />} />
