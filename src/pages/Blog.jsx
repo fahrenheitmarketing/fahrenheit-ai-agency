@@ -78,18 +78,22 @@ export default function Blog() {
       )}
 
       {/* Filter Bar */}
-      <section className="bg-background border-b border-border px-6 lg:px-10 py-4">
-        <div className="max-w-7xl mx-auto flex items-center gap-3">
-          <span className="text-xs uppercase tracking-widest text-muted-foreground font-body whitespace-nowrap">Filter by</span>
-          <select
-            value={activeCategory}
-            onChange={e => handleCategoryChange(e.target.value)}
-            className="text-xs font-body font-medium px-3 py-2 rounded-sm border border-border bg-background text-foreground focus:outline-none focus:border-foreground/40 cursor-pointer"
-          >
-            {CATEGORIES.map(cat => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
-          </select>
+      <section className="bg-background border-b border-border px-6 lg:px-10 py-6">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-3">
+          <span className="text-xs uppercase tracking-widest text-muted-foreground font-body whitespace-nowrap mr-2">Filter by topic</span>
+          {CATEGORIES.map(cat => (
+            <button
+              key={cat}
+              onClick={() => handleCategoryChange(cat)}
+              className={`text-xs font-body font-medium px-4 py-2 rounded-sm border transition-colors whitespace-nowrap ${
+                activeCategory === cat
+                  ? 'bg-foreground text-background border-foreground'
+                  : 'bg-background text-foreground border-border hover:border-foreground/40'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
       </section>
 
