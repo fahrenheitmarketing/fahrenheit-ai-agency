@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import CTASection from '../../components/shared/CTASection';
+import LocationLayout from '../../components/locations/LocationLayout';
 
 const schema = {
   "@context": "https://schema.org",
@@ -53,30 +53,10 @@ const clientTypes = [
   "SaaS and tech businesses building authority and inbound demand in competitive national markets.",
 ];
 
-const nearbyLocations = [
-  { name: "Round Rock", slug: "round-rock-tx" },
-  { name: "Cedar Park", slug: "cedar-park-tx" },
-  { name: "Georgetown", slug: "georgetown-tx" },
-  { name: "Kyle", slug: "kyle-tx" },
-  { name: "Buda", slug: "buda-tx" },
-  { name: "Bastrop", slug: "bastrop-tx" },
-];
 
 export default function AustinTX() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'local-business-schema';
-    script.textContent = JSON.stringify(schema);
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('local-business-schema');
-      if (el) el.remove();
-    };
-  }, []);
-
   return (
-    <>
+    <LocationLayout schema={schema} currentPath="/digital-marketing-agency-austin-tx">
       <div className="min-h-screen bg-background">
 
         {/* Hero */}
@@ -207,56 +187,6 @@ export default function AustinTX() {
           </div>
         </section>
 
-        {/* Service Area */}
-        <section className="py-20 px-6 lg:px-10 border-b border-border bg-secondary/30">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-body">Coverage Area</p>
-            <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.1] mb-6">
-              We Work With Austin Businesses Across the Metro
-            </h2>
-            <p className="text-muted-foreground font-body text-base leading-relaxed max-w-2xl mb-10">
-              Austin is our home base, but we work with businesses across the greater metro — from Round Rock and Cedar Park in the north, to Georgetown, Kyle, Buda, and Bastrop to the south and east. If your customers are in Central Texas, we know how to reach them.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {nearbyLocations.map(loc => (
-                <span
-                  key={loc.slug}
-                  className="text-xs font-body font-medium px-4 py-2 rounded-sm border border-border bg-background text-foreground/70"
-                >
-                  {loc.name}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Services Quick Links */}
-        <section className="py-16 px-6 lg:px-10 border-b border-border bg-foreground text-background">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-xs uppercase tracking-widest text-background/40 mb-8 font-body">Explore Our Services</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-              {[
-                { label: "SEO", to: "/services/seo" },
-                { label: "Paid Search", to: "/services/sem" },
-                { label: "Social Media", to: "/services/smm" },
-                { label: "CRO", to: "/services/cro" },
-                { label: "Strategy", to: "/services/strategy" },
-                { label: "Automation", to: "/services/marketing-automation" },
-                { label: "Development", to: "/services/software-development" },
-              ].map(({ label, to }) => (
-                <Link
-                  key={to}
-                  to={to}
-                  className="group flex flex-col gap-2 border border-background/10 rounded-sm p-4 hover:border-accent hover:bg-accent/10 transition-colors"
-                >
-                  <span className="text-sm font-body font-medium text-background/80 group-hover:text-accent transition-colors">{label}</span>
-                  <span className="text-xs text-background/30 group-hover:text-accent/70 transition-colors">→</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Ready to Grow CTA inline */}
         <section className="py-20 px-6 lg:px-10 border-b border-border">
           <div className="max-w-7xl mx-auto max-w-2xl">
@@ -277,12 +207,6 @@ export default function AustinTX() {
         </section>
 
       </div>
-
-      <CTASection
-        headline="Bring us a business problem. We'll bring the AI."
-        subtext="Austin-based. Results-driven. Month-to-month retainers with no long-term contracts."
-        buttonText="Book a strategy call"
-      />
-    </>
+    </LocationLayout>
   );
 }

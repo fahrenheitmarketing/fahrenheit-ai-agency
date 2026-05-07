@@ -24,6 +24,11 @@ import CaseStudies from './pages/CaseStudies';
 import Services from './pages/Services';
 import TopMarketingAgenciesUSA from './pages/TopMarketingAgenciesUSA';
 import AustinTX from './pages/locations/AustinTX';
+import RoundRockTX from './pages/locations/RoundRockTX';
+import CedarParkTX from './pages/locations/CedarParkTX';
+import GeorgetownTX from './pages/locations/GeorgetownTX';
+import KyleBudaTX from './pages/locations/KyleBudaTX';
+import BastropTX from './pages/locations/BastropTX';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -65,6 +70,11 @@ const AuthenticatedApp = () => {
         <Route path="/services/:serviceSlug/:postSlug" element={<BlogPostPage />} />
         <Route path="/services/marketing/top-10-marketing-agencies-usa" element={<TopMarketingAgenciesUSA />} />
         <Route path="/digital-marketing-agency-austin-tx" element={<AustinTX />} />
+        <Route path="/digital-marketing-agency-round-rock-tx" element={<RoundRockTX />} />
+        <Route path="/digital-marketing-agency-cedar-park-tx" element={<CedarParkTX />} />
+        <Route path="/digital-marketing-agency-georgetown-tx" element={<GeorgetownTX />} />
+        <Route path="/digital-marketing-agency-kyle-buda-tx" element={<KyleBudaTX />} />
+        <Route path="/digital-marketing-agency-bastrop-tx" element={<BastropTX />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
