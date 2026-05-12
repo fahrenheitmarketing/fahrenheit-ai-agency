@@ -29,6 +29,7 @@ import CedarParkTX from './pages/locations/CedarParkTX';
 import GeorgetownTX from './pages/locations/GeorgetownTX';
 import KyleBudaTX from './pages/locations/KyleBudaTX';
 import BastropTX from './pages/locations/BastropTX';
+import Promo from './pages/Promo';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -75,6 +76,7 @@ const AuthenticatedApp = () => {
         <Route path="/digital-marketing-agency-georgetown-tx" element={<GeorgetownTX />} />
         <Route path="/digital-marketing-agency-kyle-buda-tx" element={<KyleBudaTX />} />
         <Route path="/digital-marketing-agency-bastrop-tx" element={<BastropTX />} />
+        <Route path="/promo" element={<Promo />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
