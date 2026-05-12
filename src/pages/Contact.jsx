@@ -170,6 +170,7 @@ export default function Contact() {
                     <SelectValue placeholder="What are you interested in?" />
                   </SelectTrigger>
                   <SelectContent>
+                    <SelectItem value="software-development">Software Development</SelectItem>
                     <SelectItem value="seo">SEO</SelectItem>
                     <SelectItem value="sem">SEM / PPC</SelectItem>
                     <SelectItem value="smm">Social Media Marketing</SelectItem>
