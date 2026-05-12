@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 import { CheckCircle, Zap, Shield, Calendar, ArrowRight, Star } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import { Button } from '@/components/ui/button';
+import RequestCaseStudyModal from '../components/case-studies/RequestCaseStudyModal';
+
+const allCaseStudies = [
+  { id: 1, category: 'Local SEO', title: 'Professional Cleaning Services', tagline: '1,874% increase in local search visibility', description: 'Commercial cleaning company transforms from sparse digital presence to top local rankings through GBP optimization and content strategy.', metrics: [{ label: 'Maps Impressions', value: '+2,179%' }, { label: 'Search Impressions', value: '+207%' }, { label: 'Business Contacts', value: '+205%' }] },
+  { id: 2, category: 'Local SEO', title: 'Single Practitioner Dental Office', tagline: '40+ new patients per month through local SEO', description: 'Urban dental practice facing post-pandemic decline rebuilds patient acquisition with AI-driven Local SEO and GBP strategy.', metrics: [{ label: 'Maps Visibility', value: '+76%' }, { label: 'Search Visibility', value: '+53.5%' }, { label: 'New Patients/Month', value: '40+' }] },
+  { id: 3, category: 'Local SEO', title: 'Multi-Location Acute Care Network', tagline: '+833% organic query growth across 9 locations', description: 'Texas healthcare provider transforms from invisible to in-demand through systematic location optimization and health content strategy.', metrics: [{ label: 'Non-Branded Impressions', value: '+273%' }, { label: 'Query Footprint', value: '+833%' }, { label: 'Non-Branded Clicks', value: '+270%' }] },
+  { id: 4, category: 'Paid Advertising', title: 'Done-In-One Dental Implants', tagline: '175 TikTok leads in 90 days, 48% monthly growth', description: 'High-ticket dental implant center generates qualified leads through targeted TikTok creative, significantly outperforming Meta.', metrics: [{ label: 'TikTok Leads (90 days)', value: '175' }, { label: 'Peak Month Conversion', value: '$40.36 CPC' }, { label: 'Monthly Growth', value: '48%' }] },
+  { id: 5, category: 'Paid Advertising', title: 'Temecula Facial & Oral Surgery', tagline: '59 leads, 24 appointments from TikTok ads', description: 'Targeted TikTok campaign reaches older demographic with testimonial-based creative, delivering qualified appointments efficiently.', metrics: [{ label: 'TikTok Impressions', value: '200k' }, { label: 'Cost per Appointment', value: '$172' }, { label: 'Campaign Leads', value: '59' }] },
+  { id: 6, category: 'Paid Advertising', title: 'Healthy Pet - Pet Supply Store', tagline: '568% ROAS on Google Shopping in 90 days', description: 'Local pet supply chain drives online sales with optimized Google Shopping and Meta campaigns, dramatically improving conversion efficiency.', metrics: [{ label: 'ROAS', value: '568%' }, { label: 'Cost per Conversion', value: '$1.38' }, { label: 'Conversion Value', value: '$28,200' }] },
+  { id: 7, category: 'Web Development', title: 'Northern Reflections - BigCommerce Redesign', tagline: 'Enterprise-grade responsive eCommerce platform for 133-location fashion retailer', description: 'Complete BigCommerce platform overhaul with responsive design, accessibility compliance (WCAG 2.1), and seamless integrations.', metrics: [{ label: 'Store Locations', value: '133' }, { label: 'Accessibility', value: 'WCAG 2.1' }, { label: 'Theme', value: 'Custom Built' }] },
+];
 
 const tiers = [
   {
@@ -78,6 +90,7 @@ export default function Promo() {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', phone: '', interest: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [selectedStudy, setSelectedStudy] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -97,6 +110,8 @@ export default function Promo() {
   };
 
   return (
+    <>
+      {selectedStudy && <RequestCaseStudyModal study={selectedStudy} onClose={() => setSelectedStudy(null)} />}
     <div className="min-h-screen bg-background">
 
       {/* Hero */}
@@ -227,6 +242,40 @@ export default function Promo() {
         </div>
       </section>
 
+      {/* Case Studies */}
+      <section className="py-24 px-6 lg:px-10 border-b border-border">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-body">Proof of Work</p>
+            <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.1] mb-4">Real Results. Real Clients.</h2>
+            <p className="text-muted-foreground font-body text-base max-w-xl">
+              From local service businesses to enterprise retail — measurable growth across industries and platforms.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {allCaseStudies.map((study) => (
+              <div key={study.id} className="border border-border bg-card rounded-sm p-8 flex flex-col hover:shadow-md transition-shadow">
+                <span className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">{study.category}</span>
+                <h3 className="font-heading text-xl font-normal mb-2">{study.title}</h3>
+                <p className="text-sm font-semibold text-accent mb-4">{study.tagline}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">{study.description}</p>
+                <div className="space-y-3 mb-8 pb-8 border-b border-border">
+                  {study.metrics.map((metric, i) => (
+                    <div key={i} className="flex items-center justify-between">
+                      <span className="text-xs text-muted-foreground font-body">{metric.label}</span>
+                      <span className="font-heading text-lg font-normal text-foreground">{metric.value}</span>
+                    </div>
+                  ))}
+                </div>
+                <Button variant="outline" size="sm" className="w-full gap-2 font-body" onClick={() => setSelectedStudy(study)}>
+                  Request Details <ArrowRight className="w-3.5 h-3.5" />
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form */}
       <section id="contact-form" className="py-24 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
@@ -353,5 +402,6 @@ export default function Promo() {
       </section>
 
     </div>
+    </>
   );
 }
