@@ -30,6 +30,7 @@ import GeorgetownTX from './pages/locations/GeorgetownTX';
 import KyleBudaTX from './pages/locations/KyleBudaTX';
 import BastropTX from './pages/locations/BastropTX';
 import Promo from './pages/Promo';
+import Portfolio from './pages/Portfolio';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -77,6 +78,7 @@ const AuthenticatedApp = () => {
         <Route path="/digital-marketing-agency-kyle-buda-tx" element={<KyleBudaTX />} />
         <Route path="/digital-marketing-agency-bastrop-tx" element={<BastropTX />} />
         <Route path="/promo" element={<Promo />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
