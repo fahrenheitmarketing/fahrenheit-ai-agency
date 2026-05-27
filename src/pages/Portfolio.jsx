@@ -6,7 +6,7 @@ import { ExternalLink } from 'lucide-react';
 const projects = [
   {
     name: "Briaud Financial Advisors",
-    url: "https://www.briaud.fmkt.agency",
+    url: "https://briaudfinal.fmkt.agency",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f32b50479_briaud.png",
     industry: "Financial Advisory",
     snippet: "A timeless, trust-first design for a fee-only fiduciary that has managed generational wealth since 1986. Cinematic full-bleed landscape imagery communicates permanence and calm — exactly what high-net-worth families want from an advisor.",
@@ -14,7 +14,7 @@ const projects = [
   },
   {
     name: "Blackridge Government Affairs",
-    url: "https://www.blackrdige.fmkt.agency",
+    url: "https://blackridge.fmkt.agency",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/b666f575b_blackridge.png",
     industry: "Government Affairs",
     snippet: "Power meets polish. A dark, authoritative design built for one of Texas's most formidable lobbying practices. Gold accents and Capitol imagery signal influence at the highest level — because their clients demand nothing less.",
@@ -22,7 +22,7 @@ const projects = [
   },
   {
     name: "Concierge Pediatrics",
-    url: "https://www.concierge.fmkt.agency",
+    url: "https://conciergecare.fmkt.agency",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f760fc864_concierge.png",
     industry: "Healthcare",
     snippet: "Warm, reassuring, and conversion-ready. We designed this Miami Beach pediatric practice site to immediately communicate care and accessibility — turning anxious parents into confident members from the first scroll.",
@@ -30,7 +30,7 @@ const projects = [
   },
   {
     name: "Greenspoint Dental",
-    url: "https://www.greenspoint.fmkt.agency",
+    url: "https://greenspoint.fmkt.agency",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/fd14ca806_greens.png",
     industry: "Dental",
     snippet: "No judgment. No jargon. Just a website that books appointments. We built Greenspoint Dental a bilingual, SEO-optimized site that speaks fluent Houston — complete with a $99 new patient special front and center where it matters most.",
@@ -38,7 +38,7 @@ const projects = [
   },
   {
     name: "ZOMMA Group CPAs",
-    url: "https://www.Zomma.fmkt.agency",
+    url: "https://zomma-group.fmkt.agency",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/30f79e425_zomma.png",
     industry: "Accounting",
     snippet: "Forbes-recognized and built to look like it. ZOMMA's site pairs a dramatic Miami skyline with bold, confident typography — positioning this award-winning CPA firm as the strategic partner serious businesses actually need.",
@@ -46,7 +46,7 @@ const projects = [
   },
   {
     name: "Brent Coon & Associates",
-    url: "https://www.bcoon.fmkt.agency",
+    url: "https://bcoon.fmkt.agency",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5a8f48e31_bcoon.png",
     industry: "Legal",
     snippet: "Over $1 billion recovered. The site had to match the mission. We built a commanding, dark-themed presence for this national trial law firm that radiates authority and turns visitors into clients — fast.",
@@ -54,7 +54,7 @@ const projects = [
   },
   {
     name: "MacLeod & Co. Commercial Real Estate",
-    url: "https://www.macleod.fmkt.agency",
+    url: "https://mcleod.fmkt.agency",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/d29162b19_macleod.png",
     industry: "Commercial Real Estate",
     snippet: "Close to $800M in closed deals — and a website that owns it. MacLeod's bold, high-contrast design communicates transactional gravity and institutional credibility in the first five seconds. Because in commercial real estate, perception is everything.",
@@ -62,7 +62,7 @@ const projects = [
   },
   {
     name: "Austin Wealth Management",
-    url: "https://www.Austinwealth.fmkt.agency",
+    url: "https://austinwealth.fmkt.agency",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/73368fac8_Austinwealth.png",
     industry: "Wealth Management",
     snippet: "Clarity over complexity. We built Austin Wealth Management a site that speaks directly to young professionals and equity-compensated executives — turning financial anxiety into confidence with warm city imagery and zero sales pressure.",
@@ -70,7 +70,7 @@ const projects = [
   },
   {
     name: "Spring Systems EDI",
-    url: "https://www.springstream.fmkt.agency",
+    url: "https://springstream.fmkt.agency",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c6634d67c_Springstream.png",
     industry: "B2B SaaS",
     snippet: "EDI integration doesn't have to look boring. Spring Systems gets a clean, product-led design that shows — not just tells — how their platform simplifies retail compliance. The UI mockup hero section does the selling before a single word is read.",
@@ -78,7 +78,7 @@ const projects = [
   },
   {
     name: "Golden Hour Café & Wine Bar",
-    url: "https://www.goldenhour.fmkt.agency",
+    url: "https://goldenhour.fmkt.agency",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/78d382475_Goldenhour.png",
     industry: "Hospitality",
     snippet: "South Austin's best-kept secret deserves a website that feels as good as that first sip. Lush sunset photography, warm earth tones, and editorial typography make Golden Hour's site as inviting as the patio itself.",
