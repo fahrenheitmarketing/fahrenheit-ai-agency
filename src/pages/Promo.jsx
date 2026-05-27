@@ -86,6 +86,19 @@ const websiteOffer = {
   disclaimer: '* Special features and custom functionality (e.g., integrations, custom web applications, e-commerce, membership portals) may require additional investment. Scope and pricing for any additions will be agreed upon in writing before work begins.',
 };
 
+const projects = [
+  { name: 'Briaud', url: 'https://briaudfinal.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f32b50479_briaud.png' },
+  { name: 'Blackridge', url: 'https://blackridge.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/b666f575b_blackridge.png' },
+  { name: 'Concierge', url: 'https://conciergecare.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f760fc864_concierge.png' },
+  { name: 'Greenspoint', url: 'https://greenspoint.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/fd14ca806_greens.png' },
+  { name: 'ZOMMA', url: 'https://zomma-group.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/30f79e425_zomma.png' },
+  { name: 'Brent Coon', url: 'https://bcoon.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5a8f48e31_bcoon.png' },
+  { name: 'MacLeod', url: 'https://mcleod.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/d29162b19_macleod.png' },
+  { name: 'Austin Wealth', url: 'https://austinwealth.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/73368fac8_Austinwealth.png' },
+  { name: 'Spring', url: 'https://springstream.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c6634d67c_Springstream.png' },
+  { name: 'Golden Hour', url: 'https://goldenhour.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/78d382475_Goldenhour.png' },
+];
+
 export default function Promo() {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', phone: '', interest: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
@@ -238,6 +251,50 @@ export default function Promo() {
                 Claim This Offer <ArrowRight className="w-4 h-4" />
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Work Samples */}
+      <section className="py-24 px-6 lg:px-10 border-b border-border bg-secondary/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-body">Our Portfolio</p>
+            <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.1] mb-4">Sites We've Built</h2>
+            <p className="text-muted-foreground font-body text-base max-w-xl">
+              From financial advisors to restaurants. Each site engineered to convert.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {[
+              { name: 'Briaud', url: 'https://briaudfinal.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f32b50479_briaud.png' },
+              { name: 'Blackridge', url: 'https://blackridge.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/b666f575b_blackridge.png' },
+              { name: 'Concierge', url: 'https://conciergecare.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f760fc864_concierge.png' },
+              { name: 'Greenspoint', url: 'https://greenspoint.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/fd14ca806_greens.png' },
+              { name: 'ZOMMA', url: 'https://zomma-group.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/30f79e425_zomma.png' },
+              { name: 'Brent Coon', url: 'https://bcoon.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5a8f48e31_bcoon.png' },
+              { name: 'MacLeod', url: 'https://mcleod.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/d29162b19_macleod.png' },
+              { name: 'Austin Wealth', url: 'https://austinwealth.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/73368fac8_Austinwealth.png' },
+              { name: 'Spring', url: 'https://springstream.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c6634d67c_Springstream.png' },
+              { name: 'Golden Hour', url: 'https://goldenhour.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/78d382475_Goldenhour.png' },
+            ].map((project) => (
+              <a
+                key={project.name}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative border border-border rounded-sm overflow-hidden hover:border-accent transition-colors"
+              >
+                <img
+                  src={project.img}
+                  alt={project.name}
+                  className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors flex items-center justify-center">
+                  <span className="text-xs font-body font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity">View Site</span>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
