@@ -288,7 +288,7 @@ export default function Promo() {
                 <img
                   src={project.img}
                   alt={project.name}
-                  className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-32 object-cover object-top group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors flex items-center justify-center">
                   <span className="text-xs font-body font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity">View Site</span>
