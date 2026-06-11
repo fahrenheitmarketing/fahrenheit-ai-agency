@@ -84,6 +84,46 @@ const projects = [
     snippet: "South Austin's best-kept secret deserves a website that feels as good as that first sip. Lush sunset photography, warm earth tones, and editorial typography make Golden Hour's site as inviting as the patio itself.",
     tags: ["Hospitality", "Restaurant", "Austin"],
   },
+  {
+    name: "Cuono Engineering",
+    url: "https://cuono.fmkt.agency/",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/3d026b4a4_cuono.png",
+    industry: "Structural Engineering",
+    snippet: "Heritage and precision in one frame. We built Cuono Engineering a commanding, image-driven site that communicates 25+ years of structural expertise — from historic New York restorations to modern high-rises — without saying a word more than necessary.",
+    tags: ["Engineering", "Construction", "New York"],
+  },
+  {
+    name: "TeamLogic IT",
+    url: "https://teamlogic.fmkt.agency/",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/560e50224_teamlogic.png",
+    industry: "Managed IT Services",
+    snippet: "350+ locations. 140,000+ devices managed. The site had to scale to match the brand. We built a clean, stats-forward design for TeamLogic IT that leads with proof — turning skeptical IT buyers into consultation requests before they reach the fold.",
+    tags: ["B2B", "Technology", "National"],
+  },
+  {
+    name: "Route to Market Imports",
+    url: "https://rtm-imports.fmkt.agency/",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c5f258ac2_rtm.png",
+    industry: "Beverage Imports",
+    snippet: "Thirty years and a national wholesale network, distilled into one bold statement: America's specialist beverage importer. We gave Route to Market Imports a rich, editorial design that positions them exactly where they belong — at the top of the category.",
+    tags: ["Beverage", "Imports", "National"],
+  },
+  {
+    name: "WestLoop Law",
+    url: "https://westlaw.fmkt.agency/",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/2b8320c61_westlaw.png",
+    industry: "Personal Injury Law",
+    snippet: "Your lawyer is also a medical doctor. That's a story worth telling — loudly. We built WestLoop Law a conversion-first site that puts the attorney's unique dual credential front and center, turning injured Houstonians into booked case reviews.",
+    tags: ["Legal", "Personal Injury", "Houston"],
+  },
+  {
+    name: "Molzahn, Reed & Rouse",
+    url: "https://mr2.fmkt.agency/",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c7a70a59d_m2rlaw.png",
+    industry: "Civil Litigation",
+    snippet: "Reputation. Relationships. Results. M2R is a Chicago firm built for complexity — civil disputes, business counsel, real estate conflict, appellate strategy. We built them a site as serious as their practice: dark, cinematic, and impossible to ignore.",
+    tags: ["Legal", "Civil Litigation", "Chicago"],
+  },
 ];
 
 export default function Portfolio() {
