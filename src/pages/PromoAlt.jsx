@@ -179,17 +179,18 @@ export default function PromoAlt() {
                 </div>
               </div>
               {/* Stat block */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 {[
                   { icon: TrendingUp, stat: 'Starting @ $1,500', label: 'Month-to-month retainer programs that drive real growth', target: 'retainer-tiers' },
                   { icon: Users, stat: 'Real Clients', label: 'Real results for real clients — see the proof', target: 'proof-of-work' },
                   { icon: DollarSign, stat: '$5,000 sites. Be Impressed', label: 'Complete website redesign — up to 50 pages, one flat price', target: 'website-redesign' },
                   { icon: Star, stat: '18+ yrs', label: 'Tell us about your business and get started today', target: 'contact-form' },
                 ].map(({ icon: Icon, stat, label, target }) => (
-                  <a key={stat} href={`#${target}`} onClick={(e) => { e.preventDefault(); document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' }); }} className="block bg-background/10 border border-background/10 rounded-sm p-5 cursor-pointer hover:bg-background/20 hover:border-accent transition-colors">
-                    <Icon className="w-4 h-4 text-accent mb-3" />
-                    <div className="font-heading text-2xl md:text-3xl font-normal text-background mb-1 leading-tight">{stat}</div>
-                    <p className="text-xs font-body text-background/50 leading-snug">{label}</p>
+                  <a key={stat} href={`#${target}`} onClick={(e) => { e.preventDefault(); document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' }); }} className="group flex flex-col items-center text-center bg-accent text-white rounded-sm px-4 py-4 cursor-pointer shadow-sm hover:bg-accent/90 hover:shadow-md active:scale-[0.98] transition-all">
+                    <Icon className="w-5 h-5 text-white mb-2" />
+                    <div className="font-heading text-xl md:text-2xl font-normal leading-tight mb-1">{stat}</div>
+                    <p className="text-xs font-body text-white/80 leading-snug">{label}</p>
+                    <span className="mt-2 inline-flex items-center gap-1 text-xs font-body font-semibold text-white uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">Learn More <ArrowRight className="w-3 h-3" /></span>
                   </a>
                 ))}
               </div>
