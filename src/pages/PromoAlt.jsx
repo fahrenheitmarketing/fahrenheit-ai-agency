@@ -197,46 +197,6 @@ export default function PromoAlt() {
           </div>
         </section>
 
-        {/* Work Samples — immediately after hero */}
-        <section id="our-work" className="py-20 px-6 lg:px-10 border-b border-border">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-              <div>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Our Portfolio</p>
-                <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.1]">Sites We've Built</h2>
-              </div>
-              <p className="text-muted-foreground font-body text-sm max-w-sm leading-relaxed">
-                From financial advisors to trial law firms and restaurants — each site engineered to convert visitors into clients.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-              {projects.map((project) => (
-                <a
-                  key={project.name}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative border border-border rounded-sm overflow-hidden hover:border-accent transition-all hover:shadow-md"
-                >
-                  <img
-                    src={project.img}
-                    alt={project.name}
-                    className="w-full h-36 object-cover object-top group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/60 transition-all flex flex-col items-center justify-center gap-1 p-2">
-                    <ExternalLink className="w-4 h-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span className="text-xs font-body font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity text-center leading-tight">{project.name}</span>
-                    <span className="text-xs font-body text-white/70 opacity-0 group-hover:opacity-100 transition-opacity text-center">{project.industry}</span>
-                  </div>
-                </a>
-              ))}
-            </div>
-            <p className="mt-6 text-xs text-muted-foreground font-body text-center">
-              Click any thumbnail to view the live site →
-            </p>
-          </div>
-        </section>
-
         {/* Why us — three core proof points */}
         <section className="py-20 px-6 lg:px-10 border-b border-border bg-card/40">
           <div className="max-w-7xl mx-auto">
@@ -364,6 +324,46 @@ export default function PromoAlt() {
                 </a>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Work Samples — immediately after website redesign */}
+        <section id="our-work" className="py-20 px-6 lg:px-10 border-b border-border">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+              <div>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Our Portfolio</p>
+                <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.1]">Sites We've Built</h2>
+              </div>
+              <p className="text-muted-foreground font-body text-sm max-w-sm leading-relaxed">
+                From financial advisors to trial law firms and restaurants — each site engineered to convert visitors into clients.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {projects.map((project) => (
+                <a
+                  key={project.name}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative border border-border rounded-sm overflow-hidden hover:border-accent transition-all hover:shadow-md"
+                >
+                  <img
+                    src={project.img}
+                    alt={project.name}
+                    className="w-full h-36 object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/60 transition-all flex flex-col items-center justify-center gap-1 p-2">
+                    <ExternalLink className="w-4 h-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="text-xs font-body font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity text-center leading-tight">{project.name}</span>
+                    <span className="text-xs font-body text-white/70 opacity-0 group-hover:opacity-100 transition-opacity text-center">{project.industry}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <p className="mt-6 text-xs text-muted-foreground font-body text-center">
+              Click any thumbnail to view the live site →
+            </p>
           </div>
         </section>
 
