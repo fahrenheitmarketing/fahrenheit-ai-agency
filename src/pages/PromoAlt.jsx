@@ -181,12 +181,12 @@ export default function PromoAlt() {
               {/* Stat block */}
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: TrendingUp, stat: '+1,874%', label: 'Local search visibility for a cleaning company' },
-                  { icon: Users, stat: '40+', label: 'New dental patients per month from SEO alone' },
-                  { icon: DollarSign, stat: '568%', label: 'ROAS on Google Shopping in 90 days' },
-                  { icon: Star, stat: '16+ yrs', label: 'Running campaigns for businesses like yours' },
-                ].map(({ icon: Icon, stat, label }) => (
-                  <a key={stat} href="#contact-form" onClick={scrollToForm} className="block bg-background/10 border border-background/10 rounded-sm p-5 cursor-pointer hover:bg-background/20 hover:border-accent transition-colors">
+                  { icon: TrendingUp, stat: '+1,874%', label: 'Local search visibility for a cleaning company', target: 'retainer-tiers' },
+                  { icon: Users, stat: '40+', label: 'New dental patients per month from SEO alone', target: 'proof-of-work' },
+                  { icon: DollarSign, stat: '568%', label: 'ROAS on Google Shopping in 90 days', target: 'website-redesign' },
+                  { icon: Star, stat: '18+ yrs', label: 'Running campaigns for businesses like yours', target: 'contact-form' },
+                ].map(({ icon: Icon, stat, label, target }) => (
+                  <a key={stat} href={`#${target}`} onClick={(e) => { e.preventDefault(); document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' }); }} className="block bg-background/10 border border-background/10 rounded-sm p-5 cursor-pointer hover:bg-background/20 hover:border-accent transition-colors">
                     <Icon className="w-4 h-4 text-accent mb-3" />
                     <div className="font-heading text-3xl font-normal text-background mb-1">{stat}</div>
                     <p className="text-xs font-body text-background/50 leading-snug">{label}</p>
@@ -273,7 +273,7 @@ export default function PromoAlt() {
         </section>
 
         {/* Retainer Tiers */}
-        <section className="py-20 px-6 lg:px-10 border-b border-border">
+        <section id="retainer-tiers" className="py-20 px-6 lg:px-10 border-b border-border">
           <div className="max-w-7xl mx-auto">
             <div className="mb-12">
               <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Monthly Retainer Programs</p>
@@ -324,7 +324,7 @@ export default function PromoAlt() {
         </section>
 
         {/* Website Redesign Offer */}
-        <section className="py-20 px-6 lg:px-10 border-b border-border bg-card/40">
+        <section id="website-redesign" className="py-20 px-6 lg:px-10 border-b border-border bg-card/40">
           <div className="max-w-7xl mx-auto">
             <div className="mb-10">
               <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Special Offer</p>
@@ -368,7 +368,7 @@ export default function PromoAlt() {
         </section>
 
         {/* Case Studies */}
-        <section className="py-20 px-6 lg:px-10 border-b border-border">
+        <section id="proof-of-work" className="py-20 px-6 lg:px-10 border-b border-border">
           <div className="max-w-7xl mx-auto">
             <div className="mb-12">
               <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Proof of Work</p>
