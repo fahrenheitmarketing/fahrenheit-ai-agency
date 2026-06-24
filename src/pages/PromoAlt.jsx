@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CheckCircle, Zap, Shield, Calendar, ArrowRight, Star, ExternalLink, TrendingUp, Users, DollarSign } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
@@ -109,6 +109,17 @@ export default function PromoAlt() {
   const [submitting, setSubmitting] = useState(false);
   const [selectedStudy, setSelectedStudy] = useState(null);
 
+  // Smooth-scroll anchor links for the hero "click traps"
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return () => { document.documentElement.style.scrollBehavior = ''; };
+  }, []);
+
+  const scrollToForm = (e) => {
+    e.preventDefault();
+    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
@@ -144,9 +155,11 @@ export default function PromoAlt() {
                 <div className="inline-flex items-center gap-2 bg-accent text-white text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-sm mb-8">
                   <Zap className="w-3.5 h-3.5" /> Limited-Time Offer · Austin, TX · Since 2008
                 </div>
-                <h1 className="font-heading text-5xl md:text-6xl font-normal leading-[1.05] mb-6 text-background">
-                  Agentic Marketing. Real Results.
-                </h1>
+                <a href="#contact-form" onClick={scrollToForm} className="block cursor-pointer group">
+                  <h1 className="font-heading text-5xl md:text-6xl font-normal leading-[1.05] mb-6 text-background group-hover:text-accent transition-colors">
+                    Agentic Marketing. Real Results.
+                  </h1>
+                </a>
                 <p className="text-background/70 font-body text-lg leading-relaxed mb-8">
                   AI-powered marketing programs and a complete website redesign — transparent pricing, no long-term contracts. Month-to-month retainers from <strong className="text-background">$1,500</strong>. Full website redesign for a flat <strong className="text-background">$5,000</strong>.
                 </p>
@@ -173,11 +186,11 @@ export default function PromoAlt() {
                   { icon: DollarSign, stat: '568%', label: 'ROAS on Google Shopping in 90 days' },
                   { icon: Star, stat: '16+ yrs', label: 'Running campaigns for businesses like yours' },
                 ].map(({ icon: Icon, stat, label }) => (
-                  <div key={stat} className="bg-background/10 border border-background/10 rounded-sm p-5">
+                  <a key={stat} href="#contact-form" onClick={scrollToForm} className="block bg-background/10 border border-background/10 rounded-sm p-5 cursor-pointer hover:bg-background/20 hover:border-accent transition-colors">
                     <Icon className="w-4 h-4 text-accent mb-3" />
                     <div className="font-heading text-3xl font-normal text-background mb-1">{stat}</div>
                     <p className="text-xs font-body text-background/50 leading-snug">{label}</p>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
@@ -495,8 +508,12 @@ export default function PromoAlt() {
                     <textarea
                       rows={4}
                       value={formData.message}
-                      onChange={e => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full border border-border bg-background rounded-sm px-4 py-3 text-sm font-body focus:outline-none focus:border-accent transition-colors resize-none"
+                      onChange={e => {
+                        setFormData({ ...formData, message: e.target.value });
+                        e.target.style.height = 'auto';
+                        e.target.style.height = Math.max(e.target.scrollHeight, 120) + 'px';
+                      }}
+                      className="w-full border border-border bg-background rounded-sm px-4 py-3 text-sm font-body focus:outline-none focus:border-accent transition-colors resize-none min-h-[120px] overflow-hidden"
                       placeholder="What are your current marketing goals, and where are you seeing the biggest challenges?"
                     />
                   </div>
@@ -517,6 +534,17 @@ export default function PromoAlt() {
         </section>
 
       </div>
+
+      {/* Sticky mobile CTA — always one thumb-tap away from the form */}
+      <a
+        href="#contact-form"
+        onClick={scrollToForm}
+        className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-background/95 backdrop-blur-sm border-t border-border px-4 py-3"
+      >
+        <span className="flex items-center justify-center gap-2 bg-accent text-white text-sm font-body font-medium px-6 py-3.5 rounded-sm w-full">
+          Get a Free Consultation <ArrowRight className="w-4 h-4" />
+        </span>
+      </a>
     </>
   );
 }

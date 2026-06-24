@@ -106,9 +106,11 @@ export default function Navbar() {
             <div className="px-6 py-6 flex flex-col gap-4">
               <div className="border-b border-border pb-4">
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Services</p>
-                {services.map((s) => (
-                  <Link key={s.path} to={s.path} className={`block text-sm py-1.5 font-body ${isActive(s.path) ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>{s.label}</Link>
-                ))}
+                <div className="flex flex-wrap gap-2">
+                  {services.map((s) => (
+                    <Link key={s.path} to={s.path} className={`inline-flex items-center text-xs font-body font-medium px-3 py-1.5 rounded-full border transition-colors ${isActive(s.path) ? 'bg-accent text-white border-accent' : 'bg-secondary text-foreground/80 border-border hover:border-accent hover:text-accent'}`}>{s.label}</Link>
+                  ))}
+                </div>
               </div>
               <Link to="/pricing" className={`text-sm font-body ${isActive('/pricing') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>PRICING</Link>
               <Link to="/about" className={`text-sm font-body ${isActive('/about') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>ABOUT</Link>
