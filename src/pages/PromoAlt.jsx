@@ -181,10 +181,10 @@ export default function PromoAlt() {
               {/* Stat block */}
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: TrendingUp, stat: '+1,874%', label: 'Local search visibility for a cleaning company', target: 'retainer-tiers' },
-                  { icon: Users, stat: '40+', label: 'New dental patients per month from SEO alone', target: 'proof-of-work' },
-                  { icon: DollarSign, stat: '568%', label: 'ROAS on Google Shopping in 90 days', target: 'website-redesign' },
-                  { icon: Star, stat: '18+ yrs', label: 'Running campaigns for businesses like yours', target: 'contact-form' },
+                  { icon: TrendingUp, stat: '+1,874%', label: 'Month-to-month retainer programs that drive real growth', target: 'retainer-tiers' },
+                  { icon: Users, stat: '40+', label: 'Real results for real clients — see the proof', target: 'proof-of-work' },
+                  { icon: DollarSign, stat: '568%', label: 'Complete website redesign — up to 50 pages, one flat price', target: 'website-redesign' },
+                  { icon: Star, stat: '18+ yrs', label: 'Tell us about your business and get started today', target: 'contact-form' },
                 ].map(({ icon: Icon, stat, label, target }) => (
                   <a key={stat} href={`#${target}`} onClick={(e) => { e.preventDefault(); document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' }); }} className="block bg-background/10 border border-background/10 rounded-sm p-5 cursor-pointer hover:bg-background/20 hover:border-accent transition-colors">
                     <Icon className="w-4 h-4 text-accent mb-3" />
