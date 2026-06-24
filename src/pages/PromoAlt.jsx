@@ -152,9 +152,9 @@ export default function PromoAlt() {
           <div className="relative max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-flex items-center gap-2 bg-accent text-white text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-sm mb-8">
+                <a href="#contact-form" onClick={scrollToForm} className="inline-flex items-center gap-2 bg-accent text-white text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-sm mb-8 cursor-pointer hover:bg-accent/90 transition-colors">
                   <Zap className="w-3.5 h-3.5" /> Limited-Time Offer · Austin, TX · Since 2008
-                </div>
+                </a>
                 <a href="#contact-form" onClick={scrollToForm} className="block cursor-pointer group">
                   <h1 className="font-heading text-5xl md:text-6xl font-normal leading-[1.05] mb-6 text-background group-hover:text-accent transition-colors">
                     Agentic Marketing. Real Results.
