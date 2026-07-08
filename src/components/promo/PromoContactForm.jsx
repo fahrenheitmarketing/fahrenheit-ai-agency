@@ -89,7 +89,8 @@ export default function PromoContactForm() {
         <select
           value={formData.interest}
           onChange={e => setFormData({ ...formData, interest: e.target.value })}
-          className="w-full border border-border bg-background rounded-sm px-4 py-3 text-sm font-body focus:outline-none focus:border-accent transition-colors"
+          className="w-full border border-border bg-background rounded-sm px-4 py-3 text-sm font-body text-foreground focus:outline-none focus:border-accent transition-colors"
+          style={{ color: 'hsl(18 12% 11%)' }}
         >
           <option value="">Select an option…</option>
           <option value="Growth Retainer ($1,500/mo)">Growth Retainer — $1,500/mo</option>
