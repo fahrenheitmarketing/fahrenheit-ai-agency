@@ -213,8 +213,8 @@ export default function PromoAlt() {
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row lg:items-center gap-6">
               <div className="lg:flex-shrink-0 lg:max-w-xs">
-                <h2 className="font-heading text-2xl font-normal leading-tight mb-1">Just want a quick call?</h2>
-                <p className="text-sm text-muted-foreground font-body leading-relaxed">Leave your name and number — we'll call you back within one business day. No forms, no pressure.</p>
+                <h2 className="font-heading text-2xl font-normal leading-tight mb-1">Get in touch now</h2>
+                <p className="text-sm text-muted-foreground font-body leading-relaxed">Leave your name, email, and website — we'll reach out within one business day. No pressure.</p>
               </div>
               <div className="flex-1 lg:max-w-2xl">
                 <QuickLeadForm />
