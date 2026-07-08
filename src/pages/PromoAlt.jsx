@@ -176,21 +176,6 @@ export default function PromoAlt() {
           </div>
         </section>
 
-        {/* Quick Lead — short conversion path for mobile */}
-        <section className="py-10 px-6 lg:px-10 border-b border-border bg-secondary/30">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col lg:flex-row lg:items-center gap-6">
-              <div className="lg:flex-shrink-0 lg:max-w-xs">
-                <h2 className="font-heading text-2xl font-normal leading-tight mb-1">Get in touch now</h2>
-                <p className="text-sm text-muted-foreground font-body leading-relaxed">Leave your name, email, and website — we'll reach out within one business day. No pressure.</p>
-              </div>
-              <div className="flex-1 lg:max-w-2xl">
-                <QuickLeadForm />
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Why us — three core proof points */}
         <section className="py-20 px-6 lg:px-10 border-b border-border bg-card/40">
           <div className="max-w-7xl mx-auto">
@@ -273,6 +258,21 @@ export default function PromoAlt() {
                   </a>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Lead — short conversion path for mobile */}
+        <section className="py-10 px-6 lg:px-10 border-b border-border bg-secondary/30">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-6">
+              <div className="lg:flex-shrink-0 lg:max-w-xs">
+                <h2 className="font-heading text-2xl font-normal leading-tight mb-1">Get in touch now</h2>
+                <p className="text-sm text-muted-foreground font-body leading-relaxed">Leave your name, email, and website — we'll reach out within one business day. No pressure.</p>
+              </div>
+              <div className="flex-1 lg:max-w-2xl">
+                <QuickLeadForm />
+              </div>
             </div>
           </div>
         </section>
