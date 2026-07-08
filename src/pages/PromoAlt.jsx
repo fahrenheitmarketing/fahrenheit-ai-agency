@@ -3,6 +3,7 @@ import { CheckCircle, Zap, Shield, Calendar, ArrowRight, Star, ExternalLink, Tre
 import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
 import RequestCaseStudyModal from '../components/case-studies/RequestCaseStudyModal';
+import QuickLeadForm from '../components/promo/QuickLeadForm';
 
 const allCaseStudies = [
   { id: 1, category: 'Local SEO', title: 'Professional Cleaning Services', tagline: '1,874% increase in local search visibility', description: 'Commercial cleaning company transforms from sparse digital presence to top local rankings through GBP optimization and content strategy.', metrics: [{ label: 'Maps Impressions', value: '+2,179%' }, { label: 'Search Impressions', value: '+207%' }, { label: 'Business Contacts', value: '+205%' }] },
@@ -166,17 +167,26 @@ export default function PromoAlt() {
                 <div className="flex flex-wrap gap-4">
                   <a
                     href="#contact-form"
-                    className="inline-flex items-center gap-2 bg-accent text-white text-sm font-body font-medium px-6 py-3 rounded-sm hover:bg-accent/90 transition-colors"
+                    onClick={scrollToForm}
+                    className="inline-flex items-center gap-2 bg-accent text-white text-sm font-body font-medium px-6 py-3 rounded-sm hover:bg-accent/90 active:scale-[0.97] transition-all shadow-sm"
                   >
                     Get a Free Consultation <ArrowRight className="w-4 h-4" />
                   </a>
                   <a
                     href="#our-work"
-                    className="inline-flex items-center gap-2 border border-background/20 text-background/70 text-sm font-body font-medium px-6 py-3 rounded-sm hover:border-background/50 hover:text-background transition-colors"
+                    onClick={(e) => { e.preventDefault(); document.getElementById('our-work')?.scrollIntoView({ behavior: 'smooth' }); }}
+                    className="inline-flex items-center gap-2 border border-background/20 text-background/70 text-sm font-body font-medium px-6 py-3 rounded-sm hover:border-background/50 hover:text-background active:scale-[0.97] transition-all"
                   >
                     See Our Work ↓
                   </a>
                 </div>
+                <a
+                  href="#retainer-tiers"
+                  onClick={(e) => { e.preventDefault(); document.getElementById('retainer-tiers')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="inline-flex items-center gap-1 text-sm font-body text-background/60 hover:text-accent transition-colors mt-3"
+                >
+                  See pricing from $1,500/mo <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
               {/* Stat block */}
               <div className="grid grid-cols-2 gap-3">
@@ -193,6 +203,21 @@ export default function PromoAlt() {
                     <span className="mt-2 inline-flex items-center gap-1 text-xs font-body font-semibold text-white uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">Learn More <ArrowRight className="w-3 h-3" /></span>
                   </a>
                 ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Lead — short conversion path for mobile */}
+        <section className="py-10 px-6 lg:px-10 border-b border-border bg-secondary/30">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-6">
+              <div className="lg:flex-shrink-0 lg:max-w-xs">
+                <h2 className="font-heading text-2xl font-normal leading-tight mb-1">Just want a quick call?</h2>
+                <p className="text-sm text-muted-foreground font-body leading-relaxed">Leave your name and number — we'll call you back within one business day. No forms, no pressure.</p>
+              </div>
+              <div className="flex-1 lg:max-w-2xl">
+                <QuickLeadForm />
               </div>
             </div>
           </div>
@@ -255,10 +280,10 @@ export default function PromoAlt() {
                     </span>
                   )}
                   <p className={`text-xs uppercase tracking-widest mb-3 font-body ${tier.popular ? 'text-background/40' : 'text-muted-foreground'}`}>{tier.name}</p>
-                  <div className="mb-2">
-                    <span className={`font-heading text-5xl font-normal ${tier.popular ? 'text-background' : 'text-foreground'}`}>{tier.price}</span>
+                  <a href="#contact-form" onClick={scrollToForm} className="block mb-2 cursor-pointer group/price">
+                    <span className={`font-heading text-5xl font-normal transition-colors ${tier.popular ? 'text-background group-hover/price:text-accent' : 'text-foreground group-hover/price:text-accent'}`}>{tier.price}</span>
                     {tier.period && <span className={`text-sm font-body ml-1 ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>{tier.period}</span>}
-                  </div>
+                  </a>
                   <p className={`text-sm font-body leading-relaxed mb-6 ${tier.popular ? 'text-background/70' : 'text-muted-foreground'}`}>{tier.description}</p>
                   <div className={`text-sm font-body leading-relaxed p-4 rounded-sm mb-8 ${tier.popular ? 'bg-background/10 text-background/80' : 'bg-secondary/60 text-foreground/70'}`}>
                     <strong className={`block mb-1 text-xs uppercase tracking-widest ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>Why it matters</strong>
@@ -540,7 +565,7 @@ export default function PromoAlt() {
       <a
         href="#contact-form"
         onClick={scrollToForm}
-        className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-background/95 backdrop-blur-sm border-t border-border px-4 py-3"
+        className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-background/95 backdrop-blur-sm border-t border-border px-4 py-3 active:scale-[0.98] transition-transform"
       >
         <span className="flex items-center justify-center gap-2 bg-accent text-white text-sm font-body font-medium px-6 py-3.5 rounded-sm w-full">
           Get a Free Consultation <ArrowRight className="w-4 h-4" />
