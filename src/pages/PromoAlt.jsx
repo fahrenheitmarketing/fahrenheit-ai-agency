@@ -396,7 +396,7 @@ export default function PromoAlt() {
         </section>
 
         {/* Contact Form */}
-        <section id="contact-form" className="py-20 px-6 lg:px-10 bg-foreground text-background">
+        <section className="py-20 px-6 lg:px-10 bg-foreground text-background">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <p className="text-xs uppercase tracking-widest text-background/40 mb-4 font-body">Get Started Today</p>
@@ -424,7 +424,7 @@ export default function PromoAlt() {
               </div>
             </div>
 
-            <div className="bg-background rounded-sm p-10">
+            <div id="contact-form" className="bg-background rounded-sm p-10">
               <PromoContactForm />
             </div>
           </div>
