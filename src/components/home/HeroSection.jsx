@@ -35,9 +35,8 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] mb-8"
             >
-              We don't sell hours. We deliver{' '}
-              <span className="text-accent italic">profit</span>
-              {' '}and growth.
+              Choose the model that's right{' '}
+              <span className="text-accent italic">for your business</span>.
             </motion.h1>
 
             <motion.p
@@ -46,7 +45,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-muted-foreground text-base md:text-lg leading-relaxed mb-12 max-w-xl font-body"
             >
-              Fahrenheit is an AI enablement partner and trusted software developer for companies ready to turn intelligence into revenue. We design the systems, deploy the models, and operate the stack — measured in outcomes, not deliverables.
+              Whether it's an agentic AI package, managed hosting, an ongoing retainer that leverages AI wherever possible to maximize your ROI, or a one-time fixed-bid project — every solution is tailored to your specific needs.
             </motion.p>
 
             <motion.div
