@@ -1,7 +1,6 @@
 import React from 'react';
 
 const retirements = [
-  { retired: 'Billable hours', favor: 'Outcome pricing' },
   { retired: 'Campaign theater', favor: 'Compounding systems' },
   { retired: 'AI pilots that die', favor: 'Shipped, owned, measured' },
   { retired: 'Reports you ignore', favor: 'Dashboards your CFO reads' },
