@@ -36,7 +36,7 @@ export default function BoldCards() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 + i * 0.12 }}
-            className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-6 flex flex-col justify-between hover:border-accent transition-colors group"
+            className="bg-card/30 backdrop-blur-md border border-border/40 rounded-lg p-6 flex flex-col justify-between hover:border-accent/60 transition-colors group"
           >
             <Icon className="w-7 h-7 text-accent mb-4 group-hover:scale-110 transition-transform" strokeWidth={2} />
             <div>
