@@ -18,13 +18,14 @@ const pageNames = {
 export default function SiteLayout() {
   const location = useLocation();
   const pageName = pageNames[location.pathname] || 'Unknown Page';
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className={`min-h-screen flex flex-col ${isHome ? 'home-dark bg-background text-foreground' : ''}`}>
       <Navbar />
       <main className="flex-1 pt-20">
         <Outlet />

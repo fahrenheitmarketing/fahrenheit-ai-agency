@@ -8,9 +8,10 @@ export default function CTASection({
   buttonLink = "/contact",
   secondaryText = "See our work",
   secondaryLink = "/pricing",
+  className = "bg-foreground text-background",
 }) {
   return (
-    <section className="relative py-24 px-6 lg:px-10 bg-foreground text-background overflow-hidden">
+    <section className={`relative py-24 px-6 lg:px-10 ${className} overflow-hidden`}>
       {/* Cubes pattern — top right */}
       <img
         src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
@@ -19,11 +20,11 @@ export default function CTASection({
         className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-25 select-none rotate-180"
       />
       <div className="relative max-w-7xl mx-auto">
-        <p className="text-xs uppercase tracking-widest text-background/40 mb-6 font-body">Ready when you are</p>
+        <p className="text-xs uppercase tracking-widest text-foreground/40 mb-6 font-body">Ready when you are</p>
         <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-8 max-w-3xl">
           {headline}
         </h2>
-        <p className="text-background/60 text-base md:text-lg max-w-2xl mb-10 font-body leading-relaxed">{subtext}</p>
+        <p className="text-foreground/60 text-base md:text-lg max-w-2xl mb-10 font-body leading-relaxed">{subtext}</p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             to={buttonLink}
@@ -33,7 +34,7 @@ export default function CTASection({
           </Link>
           <Link
             to={secondaryLink}
-            className="inline-flex items-center gap-2 border border-background/20 text-background/70 text-sm font-medium px-6 py-3 rounded-sm hover:border-background/40 hover:text-background transition-colors font-body"
+            className="inline-flex items-center gap-2 border border-foreground/20 text-foreground/70 text-sm font-medium px-6 py-3 rounded-sm hover:border-foreground/40 hover:text-foreground transition-colors font-body"
           >
             {secondaryText}
           </Link>
