@@ -64,7 +64,7 @@ export default function BoldCards() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 + i * 0.12 }}
-            className={`relative overflow-hidden bg-card/30 backdrop-blur-md border border-border/40 rounded-lg p-6 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 ${card.glow} ${card.ring}`}
+            className={`relative overflow-hidden bg-transparent backdrop-blur-md border border-border/40 rounded-lg p-6 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 ${card.glow} ${card.ring}`}
           >
             {/* Gradient wash */}
             <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`} />
