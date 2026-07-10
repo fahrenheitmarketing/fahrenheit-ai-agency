@@ -44,7 +44,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link to="/" className="flex items-center flex-shrink-0">
-          <img src={LOGO_URL} alt="Fahrenheit Marketing" className="h-8" />
+          <img src={LOGO_URL} alt="Fahrenheit Marketing" className="h-8 brightness-0 invert" />
         </Link>
 
         {/* Center Nav */}
