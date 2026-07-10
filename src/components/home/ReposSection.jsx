@@ -21,7 +21,7 @@ export default function ReposSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div>
             <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15]">
-              The agency model is burned out. We rebuilt it around AI — and your P&L.
+              The agency model is evolving. We rebuilt ours around AI — and your P&L.
             </h2>
           </div>
           <div>
