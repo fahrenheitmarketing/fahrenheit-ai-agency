@@ -5,7 +5,7 @@ import WaveBackground from './WaveBackground';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[72px] scroll-m-0">
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[88px] scroll-m-0">
       <WaveBackground />
       {/* Cubes pattern — top right */}
       <img
