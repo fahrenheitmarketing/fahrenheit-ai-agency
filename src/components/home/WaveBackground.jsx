@@ -27,12 +27,13 @@ export default function WaveBackground() {
     window.addEventListener('resize', resize);
 
     const waves = [
-      { amp: 38, len: 0.0042, speed: 0.018, y: 0.18, opacity: 0.10, lw: 1.2, phase: 0 },
-      { amp: 52, len: 0.0032, speed: 0.014, y: 0.30, opacity: 0.08, lw: 1.4, phase: 1.2 },
-      { amp: 64, len: 0.0026, speed: 0.011, y: 0.45, opacity: 0.12, lw: 1.6, phase: 2.4 },
-      { amp: 48, len: 0.0036, speed: 0.016, y: 0.58, opacity: 0.07, lw: 1.3, phase: 3.6 },
-      { amp: 70, len: 0.0022, speed: 0.009, y: 0.72, opacity: 0.11, lw: 1.8, phase: 4.8 },
-      { amp: 42, len: 0.0040, speed: 0.020, y: 0.85, opacity: 0.09, lw: 1.2, phase: 6.0 },
+      { amp: 90, len: 0.0042, speed: 0.030, y: 0.12, opacity: 0.22, lw: 2.0, phase: 0 },
+      { amp: 120, len: 0.0032, speed: 0.024, y: 0.26, opacity: 0.18, lw: 2.4, phase: 1.2 },
+      { amp: 150, len: 0.0026, speed: 0.020, y: 0.43, opacity: 0.28, lw: 2.8, phase: 2.4 },
+      { amp: 110, len: 0.0036, speed: 0.028, y: 0.56, opacity: 0.16, lw: 2.2, phase: 3.6 },
+      { amp: 170, len: 0.0022, speed: 0.016, y: 0.70, opacity: 0.26, lw: 3.0, phase: 4.8 },
+      { amp: 95, len: 0.0040, speed: 0.034, y: 0.84, opacity: 0.20, lw: 2.0, phase: 6.0 },
+      { amp: 130, len: 0.0028, speed: 0.022, y: 0.95, opacity: 0.24, lw: 2.6, phase: 7.2 },
     ];
 
     const draw = () => {
@@ -54,7 +55,7 @@ export default function WaveBackground() {
         const grad = ctx.createLinearGradient(0, 0, width, 0);
         grad.addColorStop(0, `rgba(211, 99, 54, 0)`);
         grad.addColorStop(0.3, `rgba(211, 99, 54, ${w.opacity})`);
-        grad.addColorStop(0.7, `rgba(211, 99, 54, ${w.opacity * 0.8})`);
+        grad.addColorStop(0.7, `rgba(211, 99, 54, ${w.opacity})`);
         grad.addColorStop(1, `rgba(211, 99, 54, 0)`);
         ctx.strokeStyle = grad;
         ctx.lineWidth = w.lw;
