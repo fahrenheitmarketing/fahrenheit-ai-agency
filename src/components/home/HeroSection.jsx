@@ -5,7 +5,7 @@ import WaveBackground from './WaveBackground';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[88px] scroll-m-0">
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[76px] scroll-m-0">
       <WaveBackground />
       {/* Cubes pattern — top right */}
       <img
@@ -15,7 +15,7 @@ export default function HeroSection() {
         className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-70 select-none"
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full py-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full py-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
           {/* Left */}
           <div>
