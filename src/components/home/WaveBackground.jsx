@@ -1,73 +1,67 @@
 import React, { useEffect, useRef } from 'react';
 
-/**
- * Flowing wave background — animated burnt-orange sine waves sweeping across
- * a dark canvas, matching the reference homepage aesthetic.
- */
 export default function WaveBackground() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    let animationId;
-    let width = 0;
-    let height = 0;
-    let dpr = window.devicePixelRatio || 1;
+    let frame;
+    let t = 0;
 
     const resize = () => {
-      dpr = window.devicePixelRatio || 1;
-      width = canvas.offsetWidth;
-      height = canvas.offsetHeight;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
     };
     resize();
     window.addEventListener('resize', resize);
 
-    const waves = [
-      { amp: 60, len: 0.0042, speed: 0.022, y: 0.15, opacity: 0.15, lw: 1.6, phase: 0 },
-      { amp: 80, len: 0.0032, speed: 0.018, y: 0.28, opacity: 0.12, lw: 1.8, phase: 1.2 },
-      { amp: 100, len: 0.0026, speed: 0.015, y: 0.44, opacity: 0.18, lw: 2.0, phase: 2.4 },
-      { amp: 75, len: 0.0036, speed: 0.020, y: 0.57, opacity: 0.11, lw: 1.7, phase: 3.6 },
-      { amp: 110, len: 0.0022, speed: 0.012, y: 0.71, opacity: 0.16, lw: 2.2, phase: 4.8 },
-      { amp: 65, len: 0.0040, speed: 0.024, y: 0.85, opacity: 0.13, lw: 1.6, phase: 6.0 },
-    ];
-
     const draw = () => {
-      ctx.clearRect(0, 0, width, height);
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      ctx.clearRect(0, 0, w, h);
 
-      for (const w of waves) {
-        w.phase += w.speed;
+      // Soft ambient light behind the waves
+      const light = ctx.createRadialGradient(w * 0.7, h * 0.65, 0, w * 0.7, h * 0.65, w * 0.6);
+      light.addColorStop(0, 'hsla(14, 80%, 51%, 0.10)');
+      light.addColorStop(0.5, 'hsla(36, 33%, 96%, 0.04)');
+      light.addColorStop(1, 'transparent');
+      ctx.fillStyle = light;
+      ctx.fillRect(0, 0, w, h);
+
+      const lines = 14;
+      for (let i = 0; i < lines; i++) {
+        const progress = i / (lines - 1);
+        const baseY = h * 0.35 + progress * h * 0.55;
+        const amplitude = 28 + progress * 50;
+        const isAccent = i % 4 === 0;
+
         ctx.beginPath();
-        const baseY = height * w.y;
-        for (let x = 0; x <= width; x += 4) {
+        for (let x = 0; x <= w; x += 6) {
           const y =
             baseY +
-            Math.sin(x * w.len + w.phase) * w.amp +
-            Math.sin(x * w.len * 2.3 + w.phase * 1.4) * (w.amp * 0.3);
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
+            Math.sin(x * 0.004 + t * 0.8 + i * 0.45) * amplitude +
+            Math.sin(x * 0.0015 - t * 0.5 + i * 0.3) * amplitude * 0.6;
+          x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         }
-        // Gradient stroke fading left → right
-        const grad = ctx.createLinearGradient(0, 0, width, 0);
-        grad.addColorStop(0, `rgba(211, 99, 54, 0)`);
-        grad.addColorStop(0.3, `rgba(211, 99, 54, ${w.opacity})`);
-        grad.addColorStop(0.7, `rgba(211, 99, 54, ${w.opacity})`);
-        grad.addColorStop(1, `rgba(211, 99, 54, 0)`);
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = w.lw;
-        ctx.lineCap = 'round';
+        ctx.strokeStyle = isAccent
+          ? `hsla(14, 85%, 55%, ${0.3 + progress * 0.4})`
+          : `hsla(36, 33%, 96%, ${0.1 + progress * 0.18})`;
+        ctx.lineWidth = isAccent ? 1.8 : 1.2;
+        ctx.shadowBlur = isAccent ? 14 : 6;
+        ctx.shadowColor = isAccent ? 'hsla(14, 85%, 55%, 0.6)' : 'hsla(36, 33%, 96%, 0.25)';
         ctx.stroke();
+        ctx.shadowBlur = 0;
       }
 
-      animationId = requestAnimationFrame(draw);
+      t += 0.012;
+      frame = requestAnimationFrame(draw);
     };
     draw();
 
     return () => {
-      cancelAnimationFrame(animationId);
+      cancelAnimationFrame(frame);
       window.removeEventListener('resize', resize);
     };
   }, []);
@@ -76,7 +70,6 @@ export default function WaveBackground() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 0 }}
       aria-hidden="true"
     />
   );
