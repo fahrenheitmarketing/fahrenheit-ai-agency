@@ -25,6 +25,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -44,7 +45,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link to="/" className="flex items-center flex-shrink-0">
-          <img src={LOGO_URL} alt="Fahrenheit Marketing" className="h-8 brightness-0 invert" />
+          <img src={LOGO_URL} alt="Fahrenheit Marketing" className={`h-8 ${isHome ? 'brightness-0 invert' : 'brightness-0'}`} />
         </Link>
 
         {/* Center Nav */}
