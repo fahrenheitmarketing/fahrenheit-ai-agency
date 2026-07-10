@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ChatPanel from './ChatPanel';
+import BoldCards from './BoldCards';
 import WaveBackground from './WaveBackground';
 
 export default function HeroSection() {
@@ -63,9 +63,9 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right — Chat Panel */}
-          <div className="h-full max-h-[600px]">
-            <ChatPanel />
+          {/* Right — Bold Cards */}
+          <div className="h-full">
+            <BoldCards />
           </div>
         </div>
       </div>
