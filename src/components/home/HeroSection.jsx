@@ -61,6 +61,21 @@ export default function HeroSection() {
                 </div>
               ))}
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="mt-8 inline-flex items-center gap-4 bg-accent/10 border border-accent/30 rounded-lg px-5 py-4"
+            >
+              <div>
+                <p className="text-xs uppercase tracking-widest text-accent font-body mb-1">Agentic Retainers</p>
+                <p className="text-sm text-muted-foreground font-body">Starting at only</p>
+              </div>
+              <p className="font-heading text-3xl font-normal text-foreground">
+                $1,500<span className="text-base text-muted-foreground font-body">/mo</span>
+              </p>
+            </motion.div>
           </div>
 
           {/* Right — Bold Cards */}
