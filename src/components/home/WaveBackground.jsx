@@ -27,13 +27,12 @@ export default function WaveBackground() {
     window.addEventListener('resize', resize);
 
     const waves = [
-      { amp: 90, len: 0.0042, speed: 0.030, y: 0.12, opacity: 0.22, lw: 2.0, phase: 0 },
-      { amp: 120, len: 0.0032, speed: 0.024, y: 0.26, opacity: 0.18, lw: 2.4, phase: 1.2 },
-      { amp: 150, len: 0.0026, speed: 0.020, y: 0.43, opacity: 0.28, lw: 2.8, phase: 2.4 },
-      { amp: 110, len: 0.0036, speed: 0.028, y: 0.56, opacity: 0.16, lw: 2.2, phase: 3.6 },
-      { amp: 170, len: 0.0022, speed: 0.016, y: 0.70, opacity: 0.26, lw: 3.0, phase: 4.8 },
-      { amp: 95, len: 0.0040, speed: 0.034, y: 0.84, opacity: 0.20, lw: 2.0, phase: 6.0 },
-      { amp: 130, len: 0.0028, speed: 0.022, y: 0.95, opacity: 0.24, lw: 2.6, phase: 7.2 },
+      { amp: 60, len: 0.0042, speed: 0.022, y: 0.15, opacity: 0.15, lw: 1.6, phase: 0 },
+      { amp: 80, len: 0.0032, speed: 0.018, y: 0.28, opacity: 0.12, lw: 1.8, phase: 1.2 },
+      { amp: 100, len: 0.0026, speed: 0.015, y: 0.44, opacity: 0.18, lw: 2.0, phase: 2.4 },
+      { amp: 75, len: 0.0036, speed: 0.020, y: 0.57, opacity: 0.11, lw: 1.7, phase: 3.6 },
+      { amp: 110, len: 0.0022, speed: 0.012, y: 0.71, opacity: 0.16, lw: 2.2, phase: 4.8 },
+      { amp: 65, len: 0.0040, speed: 0.024, y: 0.85, opacity: 0.13, lw: 1.6, phase: 6.0 },
     ];
 
     const draw = () => {
