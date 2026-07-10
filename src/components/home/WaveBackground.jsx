@@ -1,0 +1,83 @@
+import React, { useEffect, useRef } from 'react';
+
+/**
+ * Flowing wave background — animated burnt-orange sine waves sweeping across
+ * a dark canvas, matching the reference homepage aesthetic.
+ */
+export default function WaveBackground() {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    let animationId;
+    let width = 0;
+    let height = 0;
+    let dpr = window.devicePixelRatio || 1;
+
+    const resize = () => {
+      dpr = window.devicePixelRatio || 1;
+      width = canvas.offsetWidth;
+      height = canvas.offsetHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    const waves = [
+      { amp: 38, len: 0.0042, speed: 0.018, y: 0.18, opacity: 0.10, lw: 1.2, phase: 0 },
+      { amp: 52, len: 0.0032, speed: 0.014, y: 0.30, opacity: 0.08, lw: 1.4, phase: 1.2 },
+      { amp: 64, len: 0.0026, speed: 0.011, y: 0.45, opacity: 0.12, lw: 1.6, phase: 2.4 },
+      { amp: 48, len: 0.0036, speed: 0.016, y: 0.58, opacity: 0.07, lw: 1.3, phase: 3.6 },
+      { amp: 70, len: 0.0022, speed: 0.009, y: 0.72, opacity: 0.11, lw: 1.8, phase: 4.8 },
+      { amp: 42, len: 0.0040, speed: 0.020, y: 0.85, opacity: 0.09, lw: 1.2, phase: 6.0 },
+    ];
+
+    const draw = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      for (const w of waves) {
+        w.phase += w.speed;
+        ctx.beginPath();
+        const baseY = height * w.y;
+        for (let x = 0; x <= width; x += 4) {
+          const y =
+            baseY +
+            Math.sin(x * w.len + w.phase) * w.amp +
+            Math.sin(x * w.len * 2.3 + w.phase * 1.4) * (w.amp * 0.3);
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        // Gradient stroke fading left → right
+        const grad = ctx.createLinearGradient(0, 0, width, 0);
+        grad.addColorStop(0, `rgba(211, 99, 54, 0)`);
+        grad.addColorStop(0.3, `rgba(211, 99, 54, ${w.opacity})`);
+        grad.addColorStop(0.7, `rgba(211, 99, 54, ${w.opacity * 0.8})`);
+        grad.addColorStop(1, `rgba(211, 99, 54, 0)`);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = w.lw;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+      }
+
+      animationId = requestAnimationFrame(draw);
+    };
+    draw();
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', resize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ zIndex: 0 }}
+      aria-hidden="true"
+    />
+  );
+}

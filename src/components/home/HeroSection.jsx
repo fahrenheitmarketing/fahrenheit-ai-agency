@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ChatPanel from './ChatPanel';
-import ParticleBackground from './ParticleBackground';
+import WaveBackground from './WaveBackground';
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[72px] scroll-m-0">
-      <ParticleBackground />
+      <WaveBackground />
       {/* Cubes pattern — top right */}
       <img
         src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
