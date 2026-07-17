@@ -8,54 +8,46 @@ const tiers = [
   {
     name: 'Growth',
     price: '$1,500',
-    billing: 'monthly',
     description: 'Ideal for startups and small businesses ready to build a strong digital foundation with AI-powered marketing.',
     features: [
-      'AI Content Strategy – Data-driven content that attracts and converts.',
-      'Online Presence – Blogs, social, and content that build authority.',
-      'Monthly Insights – Actionable data and performance reporting.',
-      'AI Competitive Analysis – Stay ahead with market intelligence.',
-      'Dedicated Account Manager – One trusted partner for every initiative.',
-      'Monthly Performance Reviews – Optimize strategy with measurable results.',
+      'AI-powered content strategy',
+      'One primary channel focus (SEO, SEM, or Social)',
+      'PPC campaign management',
+      'Monthly data mining & insights report',
+      'AI competitive analysis',
+      'Dedicated account manager',
+      'Monthly performance review',
     ],
   },
   {
-    name: 'Bespoke Marketing',
+    name: 'Scale',
     price: '$3,500',
-    billing: 'monthly',
-    description: 'Comprehensive digital transformation and dedicated AI infrastructure.',
+    description: 'For growing companies that need a multi-channel approach with deeper strategic oversight and AI optimization.',
     popular: true,
     features: [
-      'Choose the Right Retainer – Support or strategy, built for your business.',
-      'Flexible Support – On-demand marketing, design, and development.',
-      'Strategic Growth – Proactive planning with measurable results.',
-      'AI Audience Targeting – Reach your ideal customers with precision.',
-      'Conversion Optimization – Heatmapping, data mining and interpretation for optimal conversion.',
-      'SEO Content – Content that ranks, engages, and converts.',
-      'AI-Powered Reporting – Real-time insights from click to conversion.',
-      'Executive Marketing Team – Senior experts across every marketing discipline.',
-      'Predictable Growth – Scalable marketing with measurable results.',
-      'Custom AI Stack – AI solutions built for your business.',
-      'Enterprise Reporting – Executive dashboards with actionable insights.',
-      'Priority Support – Fast response times with SLA-backed service.',
-      'Multi-Location Marketing – Consistent growth across every location.',
+      'Everything in Growth, plus:',
+      'Multi-channel strategy (SEO + SEM + Social)',
+      'Advanced AI audience segmentation',
+      'Conversion rate optimization',
+      'Content creation & optimization',
+      'Full-funnel attribution modeling',
+      'Bi-weekly strategy calls',
+      'Custom AI reporting dashboard',
     ],
   },
   {
-    name: 'Custom Website',
-    price: '$5,000',
-    billing: 'one-time',
-    description: 'A complete website redesign, built to launch and built to grow.',
+    name: 'Enterprise',
+    price: 'Custom',
+    description: 'For established organizations requiring comprehensive digital transformation and dedicated AI infrastructure.',
     features: [
-      'Complete Website Redesign – Up to 50 custom-designed pages.',
-      'Tailored Brand Experience – Designed around your brand and business goals.',
-      'SEO Copywriting – Content that ranks, engages, and converts.',
-      'Conversion-Focused Design – Every page built to generate leads.',
-      'Mobile-First Performance – Fast, responsive, and accessible.',
-      'On-Page SEO – Optimized for search from day one.',
-      'Secure WordPress + Elementor Build – Modern, secure, and easy to manage.',
-      'QA-Tested Launch – Thoroughly tested across devices and browsers.',
-      'Built to Grow – Scalable technology that grows with your business.',
+      'Everything in Scale, plus:',
+      'Dedicated strategy team',
+      'Custom AI stack deployment',
+      'Enterprise-level reporting',
+      'Quarterly business reviews',
+      'Priority support & SLA',
+      'Multi-market / multi-location support',
+      'Executive-level insights & board reporting',
     ],
   },
 ];
@@ -111,9 +103,7 @@ export default function Pricing() {
                   <h3 className="font-heading text-xl font-normal mb-2">{tier.name}</h3>
                   <div className="flex items-baseline gap-1 mb-3">
                     <span className="text-4xl font-heading font-normal">{tier.price}</span>
-                    <span className={`text-sm ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>
-                      {tier.billing === 'one-time' ? 'one-time' : '/month'}
-                    </span>
+                    {tier.price !== 'Custom' && <span className={`text-sm ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>/month</span>}
                   </div>
                   <p className={`text-sm leading-relaxed ${tier.popular ? 'text-white/80' : 'text-muted-foreground'}`}>
                     {tier.description}
