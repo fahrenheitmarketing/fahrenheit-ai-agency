@@ -24,7 +24,7 @@ const tiers = [
     price: '$3,500',
     hasFrom: true,
     popular: true,
-    description: 'Comprehensive digital transformation and dedicated AI infrastructure. Two retainer paths — support or strategy — both backed by our senior multidisciplinary team.',
+    description: 'Comprehensive digital transformation and dedicated AI infrastructure. Two retainer paths — strategy or support — both backed by our senior multidisciplinary team.',
     subBlocks: [
       {
         title: 'Strategic Marketing Retainer',
