@@ -17,36 +17,35 @@ const allCaseStudies = [
 const tiers = [
   {
     name: 'Growth',
-    price: '$1,500',
+    price: 'From $1,500',
     period: '/month',
-    description: 'Built for startups and small businesses that need a real digital presence — fast. Powered by AI from day one.',
+    description: 'Ideal for startups and small businesses ready to build a strong digital foundation with AI-powered marketing.',
     value: 'Get enterprise-grade AI tooling and strategy without the enterprise price tag. We do the heavy lifting so you can focus on running your business.',
     features: [
-      'AI-powered content strategy — we plan, brief, and produce content aligned to what your customers are actually searching for',
-      'One primary channel focus (SEO, SEM, or Social) — deep expertise where it counts most, not shallow coverage everywhere',
-      'PPC campaign management — Google and Microsoft Ads built around revenue, not clicks',
-      'Monthly data mining & insights report — clear, actionable intelligence from your analytics stack',
-      "AI competitive analysis — know exactly where your competitors are winning and where they're vulnerable",
-      'Dedicated account manager — one point of contact who knows your business',
-      "Monthly performance review — honest reporting on what's working and what we're adjusting",
+      'AI Content Strategy – Data-driven content that attracts and converts.',
+      'Online Presence – Blogs, social, and content that build authority.',
+      'Monthly Insights – Actionable data and performance reporting.',
+      'AI Competitive Analysis – Stay ahead with market intelligence.',
+      'Dedicated Account Manager – One trusted partner for every initiative.',
+      'Monthly Performance Reviews – Optimize strategy with measurable results.',
     ],
   },
   {
-    name: 'Scale',
-    price: '$3,500',
+    name: 'Bespoke Marketing',
+    price: 'From $3,500',
     period: '/month',
     popular: true,
-    description: 'For growing companies ready to dominate multiple channels. Full-funnel coverage with advanced AI optimization.',
-    value: 'This is where growth compounds. When SEO, paid search, and social are synchronized — and all three are AI-optimized — the combined impact exceeds what any single channel can deliver alone.',
+    description: 'Comprehensive digital transformation and dedicated AI infrastructure.',
+    value: 'A flexible retainer, not a fixed checklist. We allocate hours to whatever moves your business forward, and adjust as priorities change.',
     features: [
-      'Everything in Growth, plus:',
-      'Multi-channel strategy (SEO + SEM + Social) — coordinated campaigns that reinforce each other across every touchpoint',
-      'Advanced AI audience segmentation — smarter targeting that finds your best customers and scales what works',
-      'Conversion rate optimization — systematic testing to increase the revenue your existing traffic generates',
-      'Content creation & optimization — from blog posts to landing pages, built for both humans and search engines',
-      'Full-funnel attribution modeling — finally know which channels and campaigns are actually driving revenue',
-      'Bi-weekly strategy calls — more frequent check-ins to move faster and course-correct sooner',
-      'Custom AI reporting dashboard — your KPIs, your data, built the way you want to see it',
+      'Choose the Right Retainer – Support or strategy, built for your business.',
+      'Flexible Support – On-demand marketing, design, and development.',
+      'Strategic Growth – Proactive planning with measurable results.',
+      'AI Audience Targeting – Reach your ideal customers with precision.',
+      'Conversion Optimization – Heatmapping, data mining and interpretation for optimal conversion.',
+      'SEO Content – Content that ranks, engages, and converts.',
+      'AI-Powered Reporting – Real-time insights from click to conversion.',
+      'Predictable Growth – Scalable marketing with measurable results.',
     ],
   },
   {
@@ -56,21 +55,21 @@ const tiers = [
     description: 'For organizations that need a fully dedicated team, custom AI infrastructure, and board-level strategic oversight.',
     value: 'We become a fully embedded extension of your marketing organization — deploying custom AI systems, managing complex multi-market campaigns, and delivering insights at the executive level.',
     features: [
-      'Everything in Scale, plus:',
-      'Dedicated strategy team — senior-level strategists assigned exclusively to your account',
-      'Custom AI stack deployment — purpose-built AI systems integrated into your existing tech infrastructure',
-      'Enterprise-level reporting — cross-market, cross-channel data aggregation and executive dashboards',
-      'Quarterly business reviews — deep-dive sessions with your executive team on strategy and trajectory',
-      'Priority support & SLA — guaranteed response times and escalation paths',
-      'Multi-market / multi-location support — consistent strategy and execution across every market you operate in',
-      'Executive-level insights & board reporting — the data and narrative your leadership team needs',
+      'Everything in Bespoke Marketing, plus:',
+      'Dedicated strategy team – senior-level strategists assigned exclusively to your account',
+      'Custom AI stack deployment – purpose-built AI systems integrated into your existing tech infrastructure',
+      'Enterprise-level reporting – cross-market, cross-channel data aggregation and executive dashboards',
+      'Quarterly business reviews – deep-dive sessions with your executive team on strategy and trajectory',
+      'Priority support & SLA – guaranteed response times and escalation paths',
+      'Multi-market / multi-location support – consistent strategy and execution across every market you operate in',
+      'Executive-level insights & board reporting – the data and narrative your leadership team needs',
     ],
   },
 ];
 
 const websiteOffer = {
   name: 'Complete Website Redesign',
-  price: '$5,000',
+  price: 'From $5,000',
   period: 'flat rate',
   description: 'A fully redesigned website — up to 50 pages — including all content, copywriting, and SEO optimization. One fixed price, no surprises.',
   value: 'Most agencies charge $10,000–$50,000 for a project of this scope. We leverage AI-assisted content production and our proven design process to deliver a professionally redesigned site at a fraction of the typical cost — without cutting corners on strategy or quality.',
@@ -144,7 +143,7 @@ export default function Promo() {
             <Zap className="w-3.5 h-3.5" /> Limited-Time Offer
           </div>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] max-w-4xl mb-8">
-            Agentic Marketing. Real Results. Full Website: $5,000. Month-to-month Retainer: $1,500. Read on.
+            Agentic Marketing. Real Results. Full Website: From $5,000. Month-to-month Retainer: From $1,500. Read on.
           </h1>
           <p className="text-muted-foreground font-body text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
             AI-powered marketing programs and a complete website redesign offer — all with transparent pricing, no long-term contracts, and a team that's been doing this since 2008.
@@ -430,10 +429,10 @@ export default function Promo() {
                     className="w-full border border-border bg-background rounded-sm px-4 py-3 text-sm font-body focus:outline-none focus:border-accent transition-colors"
                   >
                     <option value="">Select an option…</option>
-                    <option value="Growth Retainer ($1,500/mo)">Growth Retainer — $1,500/mo</option>
-                    <option value="Scale Retainer ($3,500/mo)">Scale Retainer — $3,500/mo</option>
+                    <option value="Growth Retainer ($1,500/mo)">Growth Retainer — From $1,500/mo</option>
+                    <option value="Bespoke Marketing Retainer ($3,500/mo)">Bespoke Marketing Retainer — From $3,500/mo</option>
                     <option value="Enterprise Retainer">Enterprise Retainer — Custom</option>
-                    <option value="Website Redesign ($5,000)">Website Redesign — $5,000 flat</option>
+                    <option value="Website Redesign ($5,000)">Website Redesign — From $5,000</option>
                     <option value="Software Development">Software Development</option>
                     <option value="Multiple / Not Sure">Multiple / Not Sure Yet</option>
                   </select>
