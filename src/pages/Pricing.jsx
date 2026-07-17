@@ -27,21 +27,21 @@ const tiers = [
     description: 'Comprehensive digital transformation and dedicated AI infrastructure. Two retainer paths — support or strategy — both backed by our senior multidisciplinary team.',
     subBlocks: [
       {
-        title: 'Support Retainer',
-        description: 'For businesses that already have a strategy in place and need a trusted partner to execute ongoing requests.',
-        features: [
-          'Website Updates & Design – Ongoing site enhancements, landing pages, and creative requests.',
-          'Technical & Development Support – Troubleshooting, WordPress maintenance, and fixes.',
-          'SEO & Reporting – Ongoing improvements with analytics and reporting.',
-        ],
-      },
-      {
         title: 'Strategic Marketing Retainer',
         description: 'An outsourced marketing department — not just added production capacity.',
         features: [
           'Strategic Roadmap – A comprehensive marketing strategy built around your goals.',
           'Full Execution – Your plan run and optimized across every channel.',
           'Quarterly Reviews – Performance measured and strategy refined every quarter.',
+        ],
+      },
+      {
+        title: 'Support Retainer',
+        description: 'For businesses that already have a strategy in place and need a trusted partner to execute ongoing requests.',
+        features: [
+          'Website Updates & Design – Ongoing site enhancements, landing pages, and creative requests.',
+          'Technical & Development Support – Troubleshooting, WordPress maintenance, and fixes.',
+          'SEO & Reporting – Ongoing improvements with analytics and reporting.',
         ],
       },
     ],
