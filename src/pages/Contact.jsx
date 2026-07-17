@@ -76,7 +76,7 @@ export default function Contact() {
               Let's Discuss Your <span className="italic text-accent">Growth</span>
             </h1>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10 max-w-xl font-body">
-              No sales pitch. No pressure. Just an honest conversation about your business goals and how AI-powered marketing can help you achieve them. Month-to-month, starting at $1,500.
+              No sales pitch. No pressure. Just an honest conversation about your business goals and how AI-powered marketing can help you achieve them. Month-to-month, starting from $1,500.
             </p>
             <div className="space-y-6">
 
