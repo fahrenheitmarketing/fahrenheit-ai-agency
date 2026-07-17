@@ -195,6 +195,9 @@ export default function Pricing() {
                 <strong className="text-foreground">AI Stack:</strong> Included. The AI tools we deploy to power your campaigns, reporting, and automation are part of your retainer — no separate bills, no surprise costs.
               </p>
               <p>
+                <strong className="text-foreground">How We Scope Work:</strong> Every retainer includes an allocated block of hours each month. We do what we must within that time to further the reach of your brand — directed toward strategy, execution, or both, wherever it matters most.
+              </p>
+              <p>
                 <strong className="text-foreground">Ad Spend:</strong> Your advertising budget is paid directly to the platforms (Google, Meta, LinkedIn, etc.). You control exactly how much you spend, and we optimize every dollar of it.
               </p>
               <p>
