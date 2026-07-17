@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { CheckCircle, Zap, Shield, Calendar, ArrowRight, Star, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import RequestCaseStudyModal from '../components/case-studies/RequestCaseStudyModal';
@@ -296,6 +297,9 @@ export default function PromoAlt() {
                 </div>
               ))}
             </div>
+            <p className="text-sm font-body text-muted-foreground text-center mt-8">
+              Need something bigger? We also offer custom Enterprise packages for organizations with multi-market, multi-location, or board-level reporting needs. <Link to="/pricing" className="text-accent hover:underline">See full pricing for details →</Link>
+            </p>
           </div>
         </section>
 
