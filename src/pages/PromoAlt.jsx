@@ -19,58 +19,56 @@ const tiers = [
   {
     name: 'Growth',
     price: '$1,500',
+    hasFrom: true,
     period: '/month',
-    description: 'Built for startups and small businesses that need a real digital presence — fast. Powered by AI from day one.',
+    description: 'Ideal for startups and small businesses ready to build a strong digital foundation with AI-powered marketing.',
     value: 'Get enterprise-grade AI tooling and strategy without the enterprise price tag. We do the heavy lifting so you can focus on running your business.',
     features: [
-      'AI-powered content strategy — we plan, brief, and produce content aligned to what your customers are actually searching for',
-      'One primary channel focus (SEO, SEM, or Social) — deep expertise where it counts most, not shallow coverage everywhere',
-      'PPC campaign management — Google and Microsoft Ads built around revenue, not clicks',
-      'Monthly data mining & insights report — clear, actionable intelligence from your analytics stack',
-      "AI competitive analysis — know exactly where your competitors are winning and where they're vulnerable",
-      'Dedicated account manager — one point of contact who knows your business',
-      "Monthly performance review — honest reporting on what's working and what we're adjusting",
+      'AI Content Strategy – Data-driven content that attracts and converts.',
+      'Online Presence – Blogs, social, and content that build authority.',
+      'Monthly Insights – Actionable data and performance reporting.',
+      'AI Competitive Analysis – Stay ahead with market intelligence.',
+      'Dedicated Account Manager – One trusted partner for every initiative.',
+      'Monthly Performance Reviews – Optimize strategy with measurable results.',
     ],
   },
   {
     name: 'Scale',
     price: '$3,500',
+    hasFrom: true,
     period: '/month',
     popular: true,
-    description: 'For growing companies ready to dominate multiple channels. Full-funnel coverage with advanced AI optimization.',
-    value: 'This is where growth compounds. When SEO, paid search, and social are synchronized — and all three are AI-optimized — the combined impact exceeds what any single channel can deliver alone.',
-    features: [
-      'Everything in Growth, plus:',
-      'Multi-channel strategy (SEO + SEM + Social) — coordinated campaigns that reinforce each other across every touchpoint',
-      'Advanced AI audience segmentation — smarter targeting that finds your best customers and scales what works',
-      'Conversion rate optimization — systematic testing to increase the revenue your existing traffic generates',
-      'Content creation & optimization — from blog posts to landing pages, built for both humans and search engines',
-      'Full-funnel attribution modeling — finally know which channels and campaigns are actually driving revenue',
-      'Bi-weekly strategy calls — more frequent check-ins to move faster and course-correct sooner',
-      'Custom AI reporting dashboard — your KPIs, your data, built the way you want to see it',
+    description: 'Comprehensive digital transformation and dedicated AI infrastructure. Two retainer paths — support or strategy — both backed by our senior multidisciplinary team.',
+    value: 'One price, two ways to work with us. Some businesses need a trusted partner to execute ongoing requests. Others need an outsourced marketing department building and running the plan. Both paths get the same senior team.',
+    subBlocks: [
+      {
+        title: 'Support Retainer',
+        description: 'For businesses that already have a strategy in place and need a trusted partner to execute ongoing requests.',
+        features: [
+          'Website Updates & Design – Ongoing site enhancements, landing pages, and creative requests.',
+          'Technical & Development Support – Troubleshooting, WordPress maintenance, and fixes.',
+          'SEO & Reporting – Ongoing improvements with analytics and reporting.',
+        ],
+      },
+      {
+        title: 'Strategic Marketing Retainer',
+        description: 'An outsourced marketing department — not just added production capacity.',
+        features: [
+          'Strategic Roadmap – A comprehensive marketing strategy built around your goals.',
+          'Full Execution – Your plan run and optimized across every channel.',
+          'Quarterly Reviews – Performance measured and strategy refined every quarter.',
+        ],
+      },
     ],
-  },
-  {
-    name: 'Enterprise',
-    price: 'Custom',
-    period: '',
-    description: 'For organizations that need a fully dedicated team, custom AI infrastructure, and board-level strategic oversight.',
-    value: 'We become a fully embedded extension of your marketing organization — deploying custom AI systems, managing complex multi-market campaigns, and delivering insights at the executive level.',
-    features: [
-      'Everything in Scale, plus:',
-      'Dedicated strategy team — senior-level strategists assigned exclusively to your account',
-      'Custom AI stack deployment — purpose-built AI systems integrated into your existing tech infrastructure',
-      'Enterprise-level reporting — cross-market, cross-channel data aggregation and executive dashboards',
-      'Quarterly business reviews — deep-dive sessions with your executive team on strategy and trajectory',
-      'Priority support & SLA — guaranteed response times and escalation paths',
-      'Multi-market / multi-location support — consistent strategy and execution across every market you operate in',
-      'Executive-level insights & board reporting — the data and narrative your leadership team needs',
+    sharedFeatures: [
+      'Dedicated Account Manager – One trusted partner for every initiative.',
+      'Predictable Growth – Scalable marketing with measurable results.',
     ],
   },
 ];
 
 const websiteOffer = {
-  price: '$5,000',
+  price: 'From $5,000',
   period: 'flat rate',
   description: 'A fully redesigned website — up to 50 pages — including all content, copywriting, and SEO optimization. One fixed price, no surprises.',
   value: 'Most agencies charge $10,000–$50,000 for a project of this scope. We leverage AI-assisted content production and our proven design process to deliver a professionally redesigned site at a fraction of the typical cost — without cutting corners on strategy or quality.',
@@ -142,7 +140,7 @@ export default function PromoAlt() {
                   </h1>
                 </a>
                 <p className="text-background/70 font-body text-lg leading-relaxed mb-8">
-                  AI-powered marketing programs and a complete website redesign — transparent pricing, no long-term contracts. Month-to-month retainers from <strong className="text-background">$1,500</strong>. Full website redesign for a flat <strong className="text-background">$5,000</strong>.
+                  AI-powered marketing programs and a complete website redesign — transparent pricing, no long-term contracts. Month-to-month retainers from <strong className="text-background">$1,500</strong>. Full website redesign from <strong className="text-background">$5,000</strong>.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a
@@ -198,7 +196,7 @@ export default function PromoAlt() {
                 {
                   number: '03',
                   title: 'Fixed-Price Website Redesigns',
-                  body: 'Most agencies quote $10,000–$50,000 for a full redesign. We deliver the same quality — up to 50 pages, content included — for a flat $5,000. No scope creep. No surprises.',
+                  body: 'Most agencies quote $10,000–$50,000 for a full redesign. We deliver the same quality — up to 50 pages, content included — from $5,000. No scope creep. No surprises.',
                 },
               ].map((item, i) => (
                 <div key={item.number} className={`p-10 bg-background ${i < 2 ? 'border-b md:border-b-0 md:border-r border-border' : ''}`}>
@@ -221,7 +219,7 @@ export default function PromoAlt() {
                 All plans include AI-powered tools, a dedicated account manager, and the flexibility to cancel anytime.
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-border rounded-sm overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-border rounded-sm overflow-hidden">
               {tiers.map((tier, i) => (
                 <div
                   key={tier.name}
@@ -234,21 +232,60 @@ export default function PromoAlt() {
                   )}
                   <p className={`text-xs uppercase tracking-widest mb-3 font-body ${tier.popular ? 'text-background/40' : 'text-muted-foreground'}`}>{tier.name}</p>
                   <a href="#contact-form" onClick={scrollToForm} className="block mb-2 cursor-pointer group/price">
-                    <span className={`font-heading text-5xl font-normal transition-colors ${tier.popular ? 'text-background group-hover/price:text-accent' : 'text-foreground group-hover/price:text-accent'}`}>{tier.price}</span>
-                    {tier.period && <span className={`text-sm font-body ml-1 ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>{tier.period}</span>}
+                    <span className="flex items-baseline gap-1.5">
+                      {tier.hasFrom && (
+                        <span className={`text-sm font-body transition-colors ${tier.popular ? 'text-background/50 group-hover/price:text-accent' : 'text-muted-foreground group-hover/price:text-accent'}`}>From</span>
+                      )}
+                      <span className={`font-heading text-5xl font-normal transition-colors ${tier.popular ? 'text-background group-hover/price:text-accent' : 'text-foreground group-hover/price:text-accent'}`}>{tier.price}</span>
+                      {tier.period && <span className={`text-sm font-body ml-1 ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>{tier.period}</span>}
+                    </span>
                   </a>
                   <p className={`text-sm font-body leading-relaxed mb-6 ${tier.popular ? 'text-background/70' : 'text-muted-foreground'}`}>{tier.description}</p>
                   <div className={`text-sm font-body leading-relaxed p-4 rounded-sm mb-8 ${tier.popular ? 'bg-background/10 text-background/80' : 'bg-secondary/60 text-foreground/70'}`}>
                     <strong className={`block mb-1 text-xs uppercase tracking-widest ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>Why it matters</strong>
                     {tier.value}
                   </div>
-                  <div className="space-y-3 flex-1">
-                    {tier.features.map((f, fi) => (
-                      <div key={fi} className="flex items-start gap-3">
-                        <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
-                        <span className={`text-sm font-body leading-snug ${tier.popular ? 'text-background/80' : 'text-foreground/80'}`}>{f}</span>
+                  <div className="flex-1">
+                    {tier.subBlocks ? (
+                      <div className="space-y-6">
+                        {tier.subBlocks.map((block) => (
+                          <div key={block.title}>
+                            <h4 className={`text-sm font-body font-semibold mb-1 ${tier.popular ? 'text-background' : 'text-foreground'}`}>{block.title}</h4>
+                            <p className={`text-xs font-body mb-3 ${tier.popular ? 'text-background/60' : 'text-muted-foreground'}`}>{block.description}</p>
+                            <div className="space-y-2">
+                              {block.features.map((f, fi) => (
+                                <div key={fi} className="flex items-start gap-3">
+                                  <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
+                                  <span className={`text-sm font-body leading-snug ${tier.popular ? 'text-background/80' : 'text-foreground/80'}`}>{f}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                        {tier.sharedFeatures && (
+                          <div className={`pt-4 border-t ${tier.popular ? 'border-background/20' : 'border-border'}`}>
+                            <p className={`text-xs font-body uppercase tracking-widest mb-3 ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>Included with either path</p>
+                            <div className="space-y-2">
+                              {tier.sharedFeatures.map((f, fi) => (
+                                <div key={fi} className="flex items-start gap-3">
+                                  <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
+                                  <span className={`text-sm font-body leading-snug ${tier.popular ? 'text-background/80' : 'text-foreground/80'}`}>{f}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    ))}
+                    ) : (
+                      <div className="space-y-3">
+                        {tier.features.map((f, fi) => (
+                          <div key={fi} className="flex items-start gap-3">
+                            <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
+                            <span className={`text-sm font-body leading-snug ${tier.popular ? 'text-background/80' : 'text-foreground/80'}`}>{f}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                   <a
                     href="#contact-form"

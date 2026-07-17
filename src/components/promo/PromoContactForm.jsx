@@ -93,10 +93,10 @@ export default function PromoContactForm() {
           style={{ color: 'hsl(18 12% 11%)' }}
         >
           <option value="">Select an option…</option>
-          <option value="Growth Retainer ($1,500/mo)">Growth Retainer — $1,500/mo</option>
-          <option value="Scale Retainer ($3,500/mo)">Scale Retainer — $3,500/mo</option>
+          <option value="Growth Retainer ($1,500/mo)">Growth Retainer — From $1,500/mo</option>
+          <option value="Scale Retainer ($3,500/mo)">Scale Retainer — From $3,500/mo</option>
           <option value="Enterprise Retainer">Enterprise Retainer — Custom</option>
-          <option value="Website Redesign ($5,000)">Website Redesign — $5,000 flat</option>
+          <option value="Website Redesign ($5,000)">Website Redesign — From $5,000</option>
           <option value="Software Development">Software Development</option>
           <option value="Multiple / Not Sure">Multiple / Not Sure Yet</option>
         </select>
