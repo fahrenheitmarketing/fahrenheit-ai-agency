@@ -17,7 +17,8 @@ const allCaseStudies = [
 const tiers = [
   {
     name: 'Growth',
-    price: 'From $1,500',
+    price: '$1,500',
+    hasFrom: true,
     period: '/month',
     description: 'Ideal for startups and small businesses ready to build a strong digital foundation with AI-powered marketing.',
     value: 'Get enterprise-grade AI tooling and strategy without the enterprise price tag. We do the heavy lifting so you can focus on running your business.',
@@ -31,45 +32,43 @@ const tiers = [
     ],
   },
   {
-    name: 'Bespoke Marketing',
-    price: 'From $3,500',
+    name: 'Scale',
+    price: '$3,500',
+    hasFrom: true,
     period: '/month',
     popular: true,
-    description: 'Comprehensive digital transformation and dedicated AI infrastructure.',
-    value: 'A flexible retainer, not a fixed checklist. We allocate hours to whatever moves your business forward, and adjust as priorities change.',
-    features: [
-      'Choose the Right Retainer – Support or strategy, built for your business.',
-      'Flexible Support – On-demand marketing, design, and development.',
-      'Strategic Growth – Proactive planning with measurable results.',
-      'AI Audience Targeting – Reach your ideal customers with precision.',
-      'Conversion Optimization – Heatmapping, data mining and interpretation for optimal conversion.',
-      'SEO Content – Content that ranks, engages, and converts.',
-      'AI-Powered Reporting – Real-time insights from click to conversion.',
-      'Predictable Growth – Scalable marketing with measurable results.',
+    description: 'Comprehensive digital transformation and dedicated AI infrastructure. Two retainer paths — support or strategy — both backed by our senior multidisciplinary team.',
+    value: 'One price, two ways to work with us. Some businesses need a trusted partner to execute ongoing requests. Others need an outsourced marketing department building and running the plan. Both paths get the same senior team.',
+    subBlocks: [
+      {
+        title: 'Support Retainer',
+        description: 'For businesses that already have a strategy in place and need a trusted partner to execute ongoing requests.',
+        features: [
+          'Website Updates & Design – Ongoing site enhancements, landing pages, and creative requests.',
+          'Technical & Development Support – Troubleshooting, WordPress maintenance, and fixes.',
+          'SEO & Reporting – Ongoing improvements with analytics and reporting.',
+        ],
+      },
+      {
+        title: 'Strategic Marketing Retainer',
+        description: 'An outsourced marketing department — not just added production capacity.',
+        features: [
+          'Strategic Roadmap – A comprehensive marketing strategy built around your goals.',
+          'Full Execution – Your plan run and optimized across every channel.',
+          'Quarterly Reviews – Performance measured and strategy refined every quarter.',
+        ],
+      },
     ],
-  },
-  {
-    name: 'Enterprise',
-    price: 'Custom',
-    period: '',
-    description: 'For organizations that need a fully dedicated team, custom AI infrastructure, and board-level strategic oversight.',
-    value: 'We become a fully embedded extension of your marketing organization — deploying custom AI systems, managing complex multi-market campaigns, and delivering insights at the executive level.',
-    features: [
-      'Everything in Bespoke Marketing, plus:',
-      'Dedicated strategy team – senior-level strategists assigned exclusively to your account',
-      'Custom AI stack deployment – purpose-built AI systems integrated into your existing tech infrastructure',
-      'Enterprise-level reporting – cross-market, cross-channel data aggregation and executive dashboards',
-      'Quarterly business reviews – deep-dive sessions with your executive team on strategy and trajectory',
-      'Priority support & SLA – guaranteed response times and escalation paths',
-      'Multi-market / multi-location support – consistent strategy and execution across every market you operate in',
-      'Executive-level insights & board reporting – the data and narrative your leadership team needs',
+    sharedFeatures: [
+      'Dedicated Account Manager – One trusted partner for every initiative.',
+      'Predictable Growth – Scalable marketing with measurable results.',
     ],
   },
 ];
 
 const websiteOffer = {
   name: 'Complete Website Redesign',
-  price: '$5,000',
+  price: 'From $5,000',
   period: 'flat rate',
   description: 'A fully redesigned website — up to 50 pages — including all content, copywriting, and SEO optimization. One fixed price, no surprises.',
   value: 'Most agencies charge $10,000–$50,000 for a project of this scope. We leverage AI-assisted content production and our proven design process to deliver a professionally redesigned site at a fraction of the typical cost — without cutting corners on strategy or quality.',
@@ -143,7 +142,7 @@ export default function Promo() {
             <Zap className="w-3.5 h-3.5" /> Limited-Time Offer
           </div>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] max-w-4xl mb-8">
-            Agentic Marketing. Real Results. Full Website: $5,000. Month-to-month Retainer: From $1,500. Read on.
+            Agentic Marketing. Real Results. Full Website: From $5,000. Month-to-month Retainer: From $1,500. Read on.
           </h1>
           <p className="text-muted-foreground font-body text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
             AI-powered marketing programs and a complete website redesign offer — all with transparent pricing, no long-term contracts, and a team that's been doing this since 2008.
@@ -167,7 +166,7 @@ export default function Promo() {
               All plans include AI-powered tools, a dedicated account manager, and the flexibility to cancel anytime.
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-border rounded-sm overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-border rounded-sm overflow-hidden">
             {tiers.map((tier, i) => (
               <div
                 key={tier.name}
@@ -179,15 +178,11 @@ export default function Promo() {
                   </span>
                 )}
                 <p className={`text-xs uppercase tracking-widest mb-3 font-body ${tier.popular ? 'text-background/40' : 'text-muted-foreground'}`}>{tier.name}</p>
-                <div className="mb-2">
-                  {tier.price.startsWith('From ') ? (
-                    <>
-                      <span className={`font-heading text-2xl font-normal align-top mr-1.5 ${tier.popular ? 'text-background/70' : 'text-muted-foreground'}`}>From</span>
-                      <span className={`font-heading text-5xl font-normal ${tier.popular ? 'text-background' : 'text-foreground'}`}>{tier.price.slice(5)}</span>
-                    </>
-                  ) : (
-                    <span className={`font-heading text-5xl font-normal ${tier.popular ? 'text-background' : 'text-foreground'}`}>{tier.price}</span>
+                <div className="mb-2 flex items-baseline gap-1.5">
+                  {tier.hasFrom && (
+                    <span className={`text-sm font-body ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>From</span>
                   )}
+                  <span className={`font-heading text-5xl font-normal ${tier.popular ? 'text-background' : 'text-foreground'}`}>{tier.price}</span>
                   {tier.period && <span className={`text-sm font-body ml-1 ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>{tier.period}</span>}
                 </div>
                 <p className={`text-sm font-body leading-relaxed mb-6 ${tier.popular ? 'text-background/70' : 'text-muted-foreground'}`}>{tier.description}</p>
@@ -197,13 +192,47 @@ export default function Promo() {
                   {tier.value}
                 </div>
 
-                <div className="space-y-3 flex-1">
-                  {tier.features.map((f, fi) => (
-                    <div key={fi} className="flex items-start gap-3">
-                      <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-accent' : 'text-accent'}`} />
-                      <span className={`text-sm font-body leading-snug ${tier.popular ? 'text-background/80' : 'text-foreground/80'}`}>{f}</span>
+                <div className="flex-1">
+                  {tier.subBlocks ? (
+                    <div className="space-y-6">
+                      {tier.subBlocks.map((block) => (
+                        <div key={block.title}>
+                          <h4 className={`text-sm font-body font-semibold mb-1 ${tier.popular ? 'text-background' : 'text-foreground'}`}>{block.title}</h4>
+                          <p className={`text-xs font-body mb-3 ${tier.popular ? 'text-background/60' : 'text-muted-foreground'}`}>{block.description}</p>
+                          <div className="space-y-2">
+                            {block.features.map((f, fi) => (
+                              <div key={fi} className="flex items-start gap-3">
+                                <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
+                                <span className={`text-sm font-body leading-snug ${tier.popular ? 'text-background/80' : 'text-foreground/80'}`}>{f}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                      {tier.sharedFeatures && (
+                        <div className={`pt-4 border-t ${tier.popular ? 'border-background/20' : 'border-border'}`}>
+                          <p className={`text-xs font-body uppercase tracking-widest mb-3 ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>Included with either path</p>
+                          <div className="space-y-2">
+                            {tier.sharedFeatures.map((f, fi) => (
+                              <div key={fi} className="flex items-start gap-3">
+                                <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
+                                <span className={`text-sm font-body leading-snug ${tier.popular ? 'text-background/80' : 'text-foreground/80'}`}>{f}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  ))}
+                  ) : (
+                    <div className="space-y-3">
+                      {tier.features.map((f, fi) => (
+                        <div key={fi} className="flex items-start gap-3">
+                          <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
+                          <span className={`text-sm font-body leading-snug ${tier.popular ? 'text-background/80' : 'text-foreground/80'}`}>{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <a
@@ -437,9 +466,9 @@ export default function Promo() {
                   >
                     <option value="">Select an option…</option>
                     <option value="Growth Retainer ($1,500/mo)">Growth Retainer — From $1,500/mo</option>
-                    <option value="Bespoke Marketing Retainer ($3,500/mo)">Bespoke Marketing Retainer — From $3,500/mo</option>
+                    <option value="Scale Retainer ($3,500/mo)">Scale Retainer — From $3,500/mo</option>
                     <option value="Enterprise Retainer">Enterprise Retainer — Custom</option>
-                    <option value="Website Redesign ($5,000)">Website Redesign — $5,000</option>
+                    <option value="Website Redesign ($5,000)">Website Redesign — From $5,000</option>
                     <option value="Software Development">Software Development</option>
                     <option value="Multiple / Not Sure">Multiple / Not Sure Yet</option>
                   </select>
