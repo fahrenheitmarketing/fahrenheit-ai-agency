@@ -55,7 +55,7 @@ const tiers = [
   {
     name: 'Custom Website',
     price: '$5,000',
-    hasFrom: false,
+    hasFrom: true,
     suffix: 'one-time',
     description: 'A complete website redesign, built to launch and built to grow.',
     features: [
@@ -126,7 +126,7 @@ export default function Pricing() {
                       <span className={`text-sm font-body ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>From</span>
                     )}
                     <span className="text-4xl font-heading font-normal">{tier.price}</span>
-                    {tier.suffix && <span className={`text-sm ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>{tier.suffix}</span>}
+                    {tier.suffix && <span className={`text-sm ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}> {tier.suffix}</span>}
                   </div>
                   <p className={`text-sm leading-relaxed ${tier.popular ? 'text-white/80' : 'text-muted-foreground'}`}>
                     {tier.description}
