@@ -8,39 +8,41 @@ const tiers = [
   {
     name: 'Growth',
     price: '$1,500',
+    hasFrom: true,
     description: 'Ideal for startups and small businesses ready to build a strong digital foundation with AI-powered marketing.',
     features: [
-      'AI-powered content strategy',
-      'One primary channel focus (SEO, SEM, or Social)',
-      'PPC campaign management',
-      'Monthly data mining & insights report',
-      'AI competitive analysis',
-      'Dedicated account manager',
-      'Monthly performance review',
+      'AI Content Strategy – Data-driven content that attracts and converts.',
+      'Online Presence – Blogs, social, and content that build authority.',
+      'Monthly Insights – Actionable data and performance reporting.',
+      'AI Competitive Analysis – Stay ahead with market intelligence.',
+      'Dedicated Account Manager – One trusted partner for every initiative.',
+      'Monthly Performance Reviews – Optimize strategy with measurable results.',
     ],
   },
   {
-    name: 'Scale',
+    name: 'Bespoke Marketing',
     price: '$3,500',
-    description: 'For growing companies that need a multi-channel approach with deeper strategic oversight and AI optimization.',
+    hasFrom: true,
+    description: 'Comprehensive digital transformation and dedicated AI infrastructure.',
     popular: true,
     features: [
-      'Everything in Growth, plus:',
-      'Multi-channel strategy (SEO + SEM + Social)',
-      'Advanced AI audience segmentation',
-      'Conversion rate optimization',
-      'Content creation & optimization',
-      'Full-funnel attribution modeling',
-      'Bi-weekly strategy calls',
-      'Custom AI reporting dashboard',
+      'Choose the Right Retainer – Support or strategy, built for your business.',
+      'Flexible Support – On-demand marketing, design, and development.',
+      'Strategic Growth – Proactive planning with measurable results.',
+      'AI Audience Targeting – Reach your ideal customers with precision.',
+      'Conversion Optimization – Heatmapping, data mining and interpretation for optimal conversion.',
+      'SEO Content – Content that ranks, engages, and converts.',
+      'AI-Powered Reporting – Real-time insights from click to conversion.',
+      'Predictable Growth – Scalable marketing with measurable results.',
     ],
   },
   {
     name: 'Enterprise',
     price: 'Custom',
+    hasFrom: false,
     description: 'For established organizations requiring comprehensive digital transformation and dedicated AI infrastructure.',
     features: [
-      'Everything in Scale, plus:',
+      'Everything in Bespoke Marketing, plus:',
       'Dedicated strategy team',
       'Custom AI stack deployment',
       'Enterprise-level reporting',
@@ -71,7 +73,7 @@ export default function Pricing() {
             Month-to-Month. <span className="text-primary">No Contracts.</span>
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
-            We must earn your trust every single month. If we don't deliver results, you walk. It's that simple. Our retainers start at $1,500/month.
+            We must earn your trust every single month. If we don't deliver results, you walk. It's that simple. Our retainers start from $1,500/month.
           </p>
           <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-primary" /> Month-to-month</div>
@@ -101,7 +103,10 @@ export default function Pricing() {
                 )}
                 <div className="mb-6">
                   <h3 className="font-heading text-xl font-normal mb-2">{tier.name}</h3>
-                  <div className="flex items-baseline gap-1 mb-3">
+                  <div className="flex items-baseline gap-1.5 mb-3">
+                    {tier.hasFrom && (
+                      <span className={`text-sm font-body ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>From</span>
+                    )}
                     <span className="text-4xl font-heading font-normal">{tier.price}</span>
                     {tier.price !== 'Custom' && <span className={`text-sm ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>/month</span>}
                   </div>
