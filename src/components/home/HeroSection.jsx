@@ -26,7 +26,7 @@ export default function HeroSection() {
               className="text-xs uppercase tracking-widest text-muted-foreground mb-8 font-body flex items-center gap-2"
             >
               <span className="w-2 h-2 rounded-full bg-accent inline-block" />
-              AI Enablement · Since 2008
+              Since 2008 · AI-First Today
             </motion.p>
 
             <motion.h1
