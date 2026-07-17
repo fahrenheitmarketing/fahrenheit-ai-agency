@@ -207,6 +207,9 @@ export default function Pricing() {
               <p>
                 <strong className="text-foreground">Why Month-to-Month:</strong> We believe in earning your business, not locking you in. Every month, we deliver results that justify your investment. If we don't, you're free to leave. That accountability makes us better.
               </p>
+              <p>
+                <strong className="text-foreground">Enterprise Needs:</strong> Organizations requiring a dedicated team, custom AI infrastructure, multi-market support, or board-level reporting can reach out for a custom Enterprise proposal built around their scope.
+              </p>
             </div>
           </div>
         </div>
