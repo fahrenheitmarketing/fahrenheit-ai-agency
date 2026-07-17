@@ -69,7 +69,7 @@ const tiers = [
 
 const websiteOffer = {
   name: 'Complete Website Redesign',
-  price: 'From $5,000',
+  price: '$5,000',
   period: 'flat rate',
   description: 'A fully redesigned website — up to 50 pages — including all content, copywriting, and SEO optimization. One fixed price, no surprises.',
   value: 'Most agencies charge $10,000–$50,000 for a project of this scope. We leverage AI-assisted content production and our proven design process to deliver a professionally redesigned site at a fraction of the typical cost — without cutting corners on strategy or quality.',
@@ -143,7 +143,7 @@ export default function Promo() {
             <Zap className="w-3.5 h-3.5" /> Limited-Time Offer
           </div>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] max-w-4xl mb-8">
-            Agentic Marketing. Real Results. Full Website: From $5,000. Month-to-month Retainer: From $1,500. Read on.
+            Agentic Marketing. Real Results. Full Website: $5,000. Month-to-month Retainer: <span className="text-2xl md:text-3xl">From</span> $1,500. Read on.
           </h1>
           <p className="text-muted-foreground font-body text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
             AI-powered marketing programs and a complete website redesign offer — all with transparent pricing, no long-term contracts, and a team that's been doing this since 2008.
@@ -180,7 +180,14 @@ export default function Promo() {
                 )}
                 <p className={`text-xs uppercase tracking-widest mb-3 font-body ${tier.popular ? 'text-background/40' : 'text-muted-foreground'}`}>{tier.name}</p>
                 <div className="mb-2">
-                  <span className={`font-heading text-5xl font-normal ${tier.popular ? 'text-background' : 'text-foreground'}`}>{tier.price}</span>
+                  {tier.price.startsWith('From ') ? (
+                    <>
+                      <span className={`font-heading text-2xl font-normal align-top mr-1.5 ${tier.popular ? 'text-background/70' : 'text-muted-foreground'}`}>From</span>
+                      <span className={`font-heading text-5xl font-normal ${tier.popular ? 'text-background' : 'text-foreground'}`}>{tier.price.slice(5)}</span>
+                    </>
+                  ) : (
+                    <span className={`font-heading text-5xl font-normal ${tier.popular ? 'text-background' : 'text-foreground'}`}>{tier.price}</span>
+                  )}
                   {tier.period && <span className={`text-sm font-body ml-1 ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>{tier.period}</span>}
                 </div>
                 <p className={`text-sm font-body leading-relaxed mb-6 ${tier.popular ? 'text-background/70' : 'text-muted-foreground'}`}>{tier.description}</p>
@@ -432,7 +439,7 @@ export default function Promo() {
                     <option value="Growth Retainer ($1,500/mo)">Growth Retainer — From $1,500/mo</option>
                     <option value="Bespoke Marketing Retainer ($3,500/mo)">Bespoke Marketing Retainer — From $3,500/mo</option>
                     <option value="Enterprise Retainer">Enterprise Retainer — Custom</option>
-                    <option value="Website Redesign ($5,000)">Website Redesign — From $5,000</option>
+                    <option value="Website Redesign ($5,000)">Website Redesign — $5,000</option>
                     <option value="Software Development">Software Development</option>
                     <option value="Multiple / Not Sure">Multiple / Not Sure Yet</option>
                   </select>
