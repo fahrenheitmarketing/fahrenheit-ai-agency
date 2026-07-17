@@ -9,6 +9,7 @@ const tiers = [
     name: 'Growth',
     price: '$1,500',
     hasFrom: true,
+    suffix: '/month',
     description: 'Ideal for startups and small businesses ready to build a strong digital foundation with AI-powered marketing.',
     features: [
       'AI Content Strategy – Data-driven content that attracts and converts.',
@@ -23,18 +24,10 @@ const tiers = [
     name: 'Scale',
     price: '$3,500',
     hasFrom: true,
+    suffix: '/month',
     popular: true,
-    description: 'Comprehensive digital transformation and dedicated AI infrastructure. Two retainer paths — strategy or support — both backed by our senior multidisciplinary team.',
+    description: 'Comprehensive digital transformation and dedicated AI infrastructure. Two retainer paths — support or strategy — both backed by our senior multidisciplinary team.',
     subBlocks: [
-      {
-        title: 'Strategic Marketing Retainer',
-        description: 'An outsourced marketing department — not just added production capacity.',
-        features: [
-          'Strategic Roadmap – A comprehensive marketing strategy built around your goals.',
-          'Full Execution – Your plan run and optimized across every channel.',
-          'Quarterly Reviews – Performance measured and strategy refined every quarter.',
-        ],
-      },
       {
         title: 'Support Retainer',
         description: 'For businesses that already have a strategy in place and need a trusted partner to execute ongoing requests.',
@@ -44,6 +37,15 @@ const tiers = [
           'SEO & Reporting – Ongoing improvements with analytics and reporting.',
         ],
       },
+      {
+        title: 'Strategic Marketing Retainer',
+        description: 'An outsourced marketing department — not just added production capacity.',
+        features: [
+          'Strategic Roadmap – A comprehensive marketing strategy built around your goals.',
+          'Full Execution – Your plan run and optimized across every channel.',
+          'Quarterly Reviews – Performance measured and strategy refined every quarter.',
+        ],
+      },
     ],
     sharedFeatures: [
       'Dedicated Account Manager – One trusted partner for every initiative.',
@@ -51,19 +53,21 @@ const tiers = [
     ],
   },
   {
-    name: 'Enterprise',
-    price: 'Custom',
+    name: 'Custom Website',
+    price: '$5,000',
     hasFrom: false,
-    description: 'For established organizations requiring comprehensive digital transformation and dedicated AI infrastructure.',
+    suffix: 'one-time',
+    description: 'A complete website redesign, built to launch and built to grow.',
     features: [
-      'Dedicated strategy team',
-      'Custom AI stack deployment',
-      'Enterprise-level reporting',
-      'Quarterly business reviews',
-      'Priority support & SLA',
-      'Multi-market / multi-location support',
-      'Executive-level insights & board reporting',
-      'Full-service execution and strategy – the combined capability of both Scale paths, tailored to your organization',
+      'Complete Website Redesign – Up to 50 custom-designed pages.',
+      'Tailored Brand Experience – Designed around your brand and business goals.',
+      'SEO Copywriting – Content that ranks, engages, and converts.',
+      'Conversion-Focused Design – Every page built to generate leads.',
+      'Mobile-First Performance – Fast, responsive, and accessible.',
+      'On-Page SEO – Optimized for search from day one.',
+      'Secure WordPress + Elementor Build – Modern, secure, and easy to manage.',
+      'QA-Tested Launch – Thoroughly tested across devices and browsers.',
+      'Built to Grow – Scalable technology that grows with your business.',
     ],
   },
 ];
@@ -122,7 +126,7 @@ export default function Pricing() {
                       <span className={`text-sm font-body ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>From</span>
                     )}
                     <span className="text-4xl font-heading font-normal">{tier.price}</span>
-                    {tier.price !== 'Custom' && <span className={`text-sm ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>/month</span>}
+                    {tier.suffix && <span className={`text-sm ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>{tier.suffix}</span>}
                   </div>
                   <p className={`text-sm leading-relaxed ${tier.popular ? 'text-white/80' : 'text-muted-foreground'}`}>
                     {tier.description}
