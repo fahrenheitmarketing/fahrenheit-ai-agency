@@ -8,39 +8,54 @@ const tiers = [
   {
     name: 'Growth',
     price: '$1,500',
+    hasFrom: true,
     description: 'Ideal for startups and small businesses ready to build a strong digital foundation with AI-powered marketing.',
     features: [
-      'AI-powered content strategy',
-      'One primary channel focus (SEO, SEM, or Social)',
-      'PPC campaign management',
-      'Monthly data mining & insights report',
-      'AI competitive analysis',
-      'Dedicated account manager',
-      'Monthly performance review',
+      'AI Content Strategy – Data-driven content that attracts and converts.',
+      'Online Presence – Blogs, social, and content that build authority.',
+      'Monthly Insights – Actionable data and performance reporting.',
+      'AI Competitive Analysis – Stay ahead with market intelligence.',
+      'Dedicated Account Manager – One trusted partner for every initiative.',
+      'Monthly Performance Reviews – Optimize strategy with measurable results.',
     ],
   },
   {
     name: 'Scale',
     price: '$3,500',
-    description: 'For growing companies that need a multi-channel approach with deeper strategic oversight and AI optimization.',
+    hasFrom: true,
     popular: true,
-    features: [
-      'Everything in Growth, plus:',
-      'Multi-channel strategy (SEO + SEM + Social)',
-      'Advanced AI audience segmentation',
-      'Conversion rate optimization',
-      'Content creation & optimization',
-      'Full-funnel attribution modeling',
-      'Bi-weekly strategy calls',
-      'Custom AI reporting dashboard',
+    description: 'Comprehensive digital transformation and dedicated AI infrastructure. Choose the right retainer — support or strategy, built for your business.',
+    subBlocks: [
+      {
+        title: 'General Support',
+        description: 'On-demand execution across marketing, design, and development.',
+        features: [
+          'Flexible Support – On-demand marketing, design, and development.',
+          'Conversion Optimization – Heatmapping, data mining and interpretation for optimal conversion.',
+          'AI-Powered Reporting – Real-time insights from click to conversion.',
+        ],
+      },
+      {
+        title: 'Bespoke Marketing',
+        description: 'Proactive strategy, led by dedicated AI infrastructure.',
+        features: [
+          'Strategic Growth – Proactive planning with measurable results.',
+          'AI Audience Targeting – Reach your ideal customers with precision.',
+          'SEO Content – Content that ranks, engages, and converts.',
+        ],
+      },
+    ],
+    sharedFeatures: [
+      'Dedicated Account Manager – One trusted partner for every initiative.',
+      'Predictable Growth – Scalable marketing with measurable results.',
     ],
   },
   {
     name: 'Enterprise',
     price: 'Custom',
+    hasFrom: false,
     description: 'For established organizations requiring comprehensive digital transformation and dedicated AI infrastructure.',
     features: [
-      'Everything in Scale, plus:',
       'Dedicated strategy team',
       'Custom AI stack deployment',
       'Enterprise-level reporting',
@@ -48,6 +63,7 @@ const tiers = [
       'Priority support & SLA',
       'Multi-market / multi-location support',
       'Executive-level insights & board reporting',
+      'Full-service execution and strategy – the combined capability of both Scale paths, tailored to your organization',
     ],
   },
 ];
@@ -71,7 +87,7 @@ export default function Pricing() {
             Month-to-Month. <span className="text-primary">No Contracts.</span>
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
-            We must earn your trust every single month. If we don't deliver results, you walk. It's that simple. Our retainers start at $1,500/month.
+            We must earn your trust every single month. If we don't deliver results, you walk. It's that simple. Our retainers start from $1,500/month.
           </p>
           <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-primary" /> Month-to-month</div>
@@ -101,7 +117,10 @@ export default function Pricing() {
                 )}
                 <div className="mb-6">
                   <h3 className="font-heading text-xl font-normal mb-2">{tier.name}</h3>
-                  <div className="flex items-baseline gap-1 mb-3">
+                  <div className="flex items-baseline gap-1.5 mb-3">
+                    {tier.hasFrom && (
+                      <span className={`text-sm font-body ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>From</span>
+                    )}
                     <span className="text-4xl font-heading font-normal">{tier.price}</span>
                     {tier.price !== 'Custom' && <span className={`text-sm ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>/month</span>}
                   </div>
@@ -109,13 +128,47 @@ export default function Pricing() {
                     {tier.description}
                   </p>
                 </div>
-                <div className="space-y-3 flex-1 mb-8">
-                  {tier.features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-3">
-                      <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-white' : 'text-primary'}`} />
-                      <span className={`text-sm ${tier.popular ? 'text-white/90' : ''}`}>{feature}</span>
+                <div className="flex-1 mb-8">
+                  {tier.subBlocks ? (
+                    <div className="space-y-6">
+                      {tier.subBlocks.map((block) => (
+                        <div key={block.title}>
+                          <h4 className={`text-sm font-heading font-semibold mb-1 ${tier.popular ? 'text-white' : 'text-foreground'}`}>{block.title}</h4>
+                          <p className={`text-xs mb-3 ${tier.popular ? 'text-white/60' : 'text-muted-foreground'}`}>{block.description}</p>
+                          <div className="space-y-2">
+                            {block.features.map((feature) => (
+                              <div key={feature} className="flex items-start gap-3">
+                                <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-white' : 'text-primary'}`} />
+                                <span className={`text-sm ${tier.popular ? 'text-white/90' : ''}`}>{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                      {tier.sharedFeatures && (
+                        <div className={`pt-4 border-t ${tier.popular ? 'border-white/20' : 'border-border'}`}>
+                          <p className={`text-xs uppercase tracking-widest mb-3 ${tier.popular ? 'text-white/50' : 'text-muted-foreground'}`}>Included with either path</p>
+                          <div className="space-y-2">
+                            {tier.sharedFeatures.map((feature) => (
+                              <div key={feature} className="flex items-start gap-3">
+                                <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-white' : 'text-primary'}`} />
+                                <span className={`text-sm ${tier.popular ? 'text-white/90' : ''}`}>{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  ))}
+                  ) : (
+                    <div className="space-y-3">
+                      {tier.features.map((feature) => (
+                        <div key={feature} className="flex items-start gap-3">
+                          <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-white' : 'text-primary'}`} />
+                          <span className={`text-sm ${tier.popular ? 'text-white/90' : ''}`}>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <Link to="/contact">
                   <Button
