@@ -1,0 +1,45 @@
+{
+  "name": "Weekly Blog Article Publisher",
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "weekly_blog_publisher",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "generate_article": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "generateBlogArticle",
+            "args": {}
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Generate & Publish Article",
+            "description": "Research, write, image, and publish a new blog article"
+          }
+        }
+      }
+    ]
+  },
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "0 9 * * 2,4",
+      "one_time_date": null,
+      "timezone": "America/Chicago",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "description": "Researches industry trends and publishes SEO-optimized blog articles with FAQs and featured images every Tuesday and Thursday at 9am CT."
+}
