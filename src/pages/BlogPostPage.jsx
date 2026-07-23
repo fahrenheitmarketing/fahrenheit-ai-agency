@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getBlogPostUrl } from '@/lib/blogUtils';
 import { base44 } from '@/api/base44Client';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { ArrowLeft } from 'lucide-react';
 import CTASection from '../components/shared/CTASection';
 
@@ -109,6 +110,7 @@ export default function BlogPostPage() {
             <article className="lg:col-span-2">
               {post.content ? (
                 <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
                   className="prose prose-lg max-w-none font-body
                   [&_h1]:font-heading [&_h1]:font-normal [&_h1]:!text-accent [&_h1]:text-xl md:[&_h1]:text-2xl [&_h1]:mt-0 [&_h1]:mb-6
                   [&_h2]:font-heading [&_h2]:font-normal [&_h2]:!text-accent [&_h2]:text-xl md:[&_h2]:text-2xl [&_h2]:mt-12 [&_h2]:mb-5
@@ -123,7 +125,12 @@ export default function BlogPostPage() {
                   [&_figcaption]:text-xs [&_figcaption]:uppercase [&_figcaption]:tracking-widest [&_figcaption]:text-muted-foreground [&_figcaption]:mt-4
                   [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-4
                   [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-4
-                  [&_li]:mb-2 [&_li]:text-base [&_li]:leading-relaxed"
+                  [&_li]:mb-2 [&_li]:text-base [&_li]:leading-relaxed
+                  [&_table]:w-full [&_table]:border-collapse [&_table]:my-8 [&_table]:text-sm
+                  [&_thead]:border-b [&_thead]:border-border
+                  [&_th]:text-left [&_th]:font-semibold [&_th]:text-foreground [&_th]:py-3 [&_th]:pr-4
+                  [&_td]:py-3 [&_td]:pr-4 [&_td]:border-b [&_td]:border-border [&_td]:text-muted-foreground
+                  [&_tr:last-child_td]:border-b-0"
                   components={{
                     a: ({ href, children }) => {
                       const isInternal = href && href.startsWith('/');
