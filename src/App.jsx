@@ -32,6 +32,7 @@ import BastropTX from './pages/locations/BastropTX';
 import Promo from './pages/Promo';
 import PromoAlt from './pages/PromoAlt';
 import Portfolio from './pages/Portfolio';
+import ContentStudio from './pages/ContentStudio';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -81,6 +82,7 @@ const AuthenticatedApp = () => {
         <Route path="/promo" element={<Promo />} />
         <Route path="/promo2" element={<PromoAlt />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/content-studio" element={<ContentStudio />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
