@@ -1,0 +1,76 @@
+{
+  "name": "SocialMediaPost",
+  "type": "object",
+  "properties": {
+    "platform": {
+      "type": "string",
+      "enum": [
+        "facebook",
+        "instagram",
+        "linkedin"
+      ]
+    },
+    "content": {
+      "type": "string",
+      "description": "The social media post copy/text"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL of the AI-generated image for this post"
+    },
+    "topic": {
+      "type": "string",
+      "description": "The specific topic/angle of this post, used for deduplication"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "pending_approval",
+        "approved",
+        "rejected",
+        "published"
+      ],
+      "default": "draft"
+    },
+    "batch_id": {
+      "type": "string",
+      "description": "ID linking posts from the same generation run"
+    },
+    "clickup_task_id": {
+      "type": "string",
+      "description": "ClickUp task ID for approval tracking"
+    },
+    "research_summary": {
+      "type": "string",
+      "description": "Summary of trends research that informed this batch"
+    }
+  },
+  "required": [
+    "platform",
+    "content",
+    "topic"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

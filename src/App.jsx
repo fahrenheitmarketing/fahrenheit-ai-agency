@@ -33,6 +33,7 @@ import Promo from './pages/Promo';
 import PromoAlt from './pages/PromoAlt';
 import Portfolio from './pages/Portfolio';
 import ContentStudio from './pages/ContentStudio';
+import SocialMediaStudio from './pages/SocialMediaStudio';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -83,6 +84,7 @@ const AuthenticatedApp = () => {
         <Route path="/promo2" element={<PromoAlt />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/content-studio" element={<ContentStudio />} />
+        <Route path="/social-media-studio" element={<SocialMediaStudio />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
