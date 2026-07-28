@@ -41,6 +41,11 @@ export function getMonthlyTaskDates() {
 // 1 hour in milliseconds
 export const ONE_HOUR_MS = 3600000;
 
+// Social media publishing targets
+export const FACEBOOK_PAGE_ID = '121996364508916'; // Fahrenheit Marketing Facebook page
+export const LINKEDIN_ORG_ID = '1042077'; // Fahrenheit Marketing LinkedIn company page
+export const INSTAGRAM_IG_USER_ID = null; // Fetched dynamically from Instagram API
+
 // Platform-specific shortlinks — only include when relevant to post content
 // Instagram NEVER has links in the copy
 export const SHORTLINKS: Record<string, { label: string; url: string }[]> = {

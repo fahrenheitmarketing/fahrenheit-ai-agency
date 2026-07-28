@@ -1,4 +1,5 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
+import { FACEBOOK_PAGE_ID, LINKEDIN_ORG_ID } from '../../shared/platformConfig.ts';
 
 export default async function(req) {
   try {
@@ -45,14 +46,8 @@ async function publishToLinkedIn(base44, post) {
   const { accessToken } = await base44.asServiceRole.connectors.getConnection('linkedin');
   if (!accessToken) throw new Error('LinkedIn not connected');
 
-  // Get organization ID
-  const orgResp = await fetch('https://api.linkedin.com/v2/organizations?q=role&role=ADMINISTRATOR&projection=(elements*(id,name))', {
-    headers: { 'Authorization': `Bearer ${accessToken}` },
-  });
-  const orgData = await orgResp.json();
-  const orgId = orgData.elements?.[0]?.id;
-  if (!orgId) throw new Error('No LinkedIn organization found. Are you an admin of a Company Page?');
-  const authorUrn = `urn:li:organization:${orgId}`;
+  // Use the configured Fahrenheit Marketing LinkedIn organization ID
+  const authorUrn = `urn:li:organization:${LINKEDIN_ORG_ID}`;
 
   let mediaAsset = null;
   if (post.image_url) {
@@ -114,11 +109,14 @@ async function publishToFacebook(base44, post) {
   const { accessToken } = await base44.asServiceRole.connectors.getConnection('facebook_pages');
   if (!accessToken) throw new Error('Facebook not connected');
 
-  // Get page ID and page access token
+  // Get page access token for the Fahrenheit Marketing page
   const accountsResp = await fetch(`https://graph.facebook.com/v25.0/me/accounts?fields=id,name,access_token&access_token=${accessToken}`);
   const accountsData = await accountsResp.json();
-  const page = accountsData.data?.[0];
-  if (!page) throw new Error('No Facebook Pages found');
+  const page = (accountsData.data || []).find(p => p.id === FACEBOOK_PAGE_ID);
+  if (!page) {
+    const available = (accountsData.data || []).map(p => `${p.name} (${p.id})`).join(', ');
+    throw new Error(`Fahrenheit Marketing Facebook page (${FACEBOOK_PAGE_ID}) not found. Available pages: ${available}`);
+  }
   const pageToken = page.access_token;
   const pageId = page.id;
 
