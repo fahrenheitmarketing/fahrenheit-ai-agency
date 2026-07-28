@@ -11,6 +11,7 @@ export const NICK_ERASMUS_ID = 43160121; // Head of Design — can approve Desig
 
 // ClickUp configuration
 export const CLICKUP_TEAM_ID = '30952573';
+export const CLICKUP_LIST_ID = '162976350'; // Fahrenheit Marketing > Tasks list
 export const PARENT_TASK_ID = '86ajr7570'; // "FM - Agentic Social Posts [Parent]"
 export const BRAND_DOC_ID = 'xgk3x-20813'; // "FM Brand Identity Document" on ClickUp
 
@@ -72,34 +73,41 @@ export const SHORTLINKS: Record<string, { label: string; url: string }[]> = {
   instagram: [],
 };
 
-// Helper: calculate next month's Mon/Wed/Fri dates (3 per week, 4 weeks = 12 dates)
-export function getNextMonthPublishDates(): string[] {
+// Helper: calculate next month's publish dates per platform
+// LinkedIn: Mon-Fri (5 days/week = 20 dates), Facebook & Instagram: Tue & Thu (2 days/week = 8 dates each)
+export function getPublishDatesByPlatform(): { linkedin: string[]; facebook: string[]; instagram: string[] } {
   const now = new Date();
   const year = now.getFullYear();
   const month = now.getMonth(); // 0-indexed
-  // Target next month
   const targetYear = month === 11 ? year + 1 : year;
   const targetMonth = month === 11 ? 0 : month + 1;
 
-  const dates: string[] = [];
+  const linkedin: string[] = [];
+  const facebook: string[] = [];
+  const instagram: string[] = [];
+
   const day = new Date(Date.UTC(targetYear, targetMonth, 1));
   // Find first Monday
   while (day.getUTCDay() !== 1) {
     day.setUTCDate(day.getUTCDate() + 1);
   }
-  // Collect 4 weeks of Mon/Wed/Fri
+  // Collect 4 weeks
   for (let week = 0; week < 4; week++) {
     const monday = new Date(day);
     monday.setUTCDate(day.getUTCDate() + week * 7);
-    const wednesday = new Date(monday);
-    wednesday.setUTCDate(monday.getUTCDate() + 2);
-    const friday = new Date(monday);
-    friday.setUTCDate(monday.getUTCDate() + 4);
-    dates.push(formatDate(monday));
-    dates.push(formatDate(wednesday));
-    dates.push(formatDate(friday));
+
+    const tue = new Date(monday); tue.setUTCDate(monday.getUTCDate() + 1);
+    const wed = new Date(monday); wed.setUTCDate(monday.getUTCDate() + 2);
+    const thu = new Date(monday); thu.setUTCDate(monday.getUTCDate() + 3);
+    const fri = new Date(monday); fri.setUTCDate(monday.getUTCDate() + 4);
+
+    // LinkedIn: Mon, Tue, Wed, Thu, Fri
+    linkedin.push(formatDate(monday), formatDate(tue), formatDate(wed), formatDate(thu), formatDate(fri));
+    // Facebook & Instagram: Tue, Thu
+    facebook.push(formatDate(tue), formatDate(thu));
+    instagram.push(formatDate(tue), formatDate(thu));
   }
-  return dates;
+  return { linkedin, facebook, instagram };
 }
 
 function formatDate(d: Date): string {

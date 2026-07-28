@@ -4,11 +4,12 @@ import {
   STEVEN_BOSCH_ID,
   NICK_ERASMUS_ID,
   CLICKUP_TEAM_ID,
+  CLICKUP_LIST_ID,
   PARENT_TASK_ID,
   BRAND_DOC_ID,
   CLICKUP_TAGS,
   SHORTLINKS,
-  getNextMonthPublishDates,
+  getPublishDatesByPlatform,
   ONE_HOUR_MS,
 } from '../../shared/platformConfig.ts';
 
@@ -44,8 +45,8 @@ Deno.serve(async (req) => {
     const existingPosts = await base44.asServiceRole.entities.SocialMediaPost.list('-created_date', 200);
     const usedTopics = existingPosts.map((p: any) => p.topic).filter(Boolean);
 
-    // 2. Calculate next month's Mon/Wed/Fri publish dates (12 dates)
-    const publishDates = getNextMonthPublishDates();
+    // 2. Calculate next month's publish dates per platform
+    const platformDates = getPublishDatesByPlatform();
 
     // 3. Build shortlink reference string for the prompt
     const shortlinkRef = Object.entries(SHORTLINKS)
@@ -56,21 +57,27 @@ Deno.serve(async (req) => {
       })
       .join('\n');
 
-    // 4. Research trends + generate 36 posts in one LLM call (web search enabled)
+    // 4. Research trends + generate posts in one LLM call (web search enabled)
     const llmResult = await base44.asServiceRole.integrations.Core.InvokeLLM({
       prompt: `You are an expert social media manager for Fahrenheit Marketing, a digital marketing agency specializing in AI-first marketing.
 
 Research the latest trends in AI-first digital marketing, SEO best practices, PPC advertising, and general AI technology.
 
-Then create a FULL MONTH of social media content: 12 posts for EACH of these 3 platforms (36 posts total), spread across the upcoming month.
+Then create a FULL MONTH of social media content with the following schedule:
 
-PUBLISH SCHEDULE (use these exact dates — 3 posts per week per platform):
-${publishDates.map((d, i) => `Date ${i + 1}: ${d}`).join('\n')}
+**LinkedIn** — Posts Monday through Friday (5 days/week). Use these exact ${platformDates.linkedin.length} dates:
+${platformDates.linkedin.map((d, i) => `Date ${i + 1}: ${d}`).join('\n')}
 
-Each of the 3 platforms posts on ALL 12 dates. That means on each date, there are 3 posts (one per platform).
+**Facebook** — Posts Tuesdays and Thursdays (2 days/week). Use these exact ${platformDates.facebook.length} dates:
+${platformDates.facebook.map((d, i) => `Date ${i + 1}: ${d}`).join('\n')}
+
+**Instagram** — Posts Tuesdays and Thursdays (2 days/week). Use these exact ${platformDates.instagram.length} dates:
+${platformDates.instagram.map((d, i) => `Date ${i + 1}: ${d}`).join('\n')}
+
+Total: ${platformDates.linkedin.length + platformDates.facebook.length + platformDates.instagram.length} posts.
 
 CRITICAL RULES:
-- On any given date, ALL 3 platforms must cover DIFFERENT topics — a user following all 3 platforms should never see the same topic 3 times in one day
+- On any given date where multiple platforms post (Tuesdays and Thursdays), ALL platforms must cover DIFFERENT topics — a user following multiple platforms should never see the same topic twice in one day
 - Never repeat topics across platforms or within a platform
 - Every post must include a clear CTA
 - Facebook: 1-2 sentences, conversational, community-focused, 1-2 emojis max, encourage discussion
@@ -86,7 +93,7 @@ ${shortlinkRef}
 ${usedTopics.length > 0 ? `\nPreviously used topics (DO NOT repeat these or similar angles): ${usedTopics.join(', ')}\n` : ''}
 ${brandGuidelines ? `\nBRAND GUIDELINES (from the FM Brand Identity Document on ClickUp — follow these strictly for tone, style, messaging, and visual direction):\n${brandGuidelines}\n` : ''}
 
-Return the research summary and all 36 posts. Each post must include: platform, topic, content, image_prompt, proposed_publish_date (one of the dates listed above), and shortlink (the short link URL used, or null if none).`,
+Return the research summary and all ${platformDates.linkedin.length + platformDates.facebook.length + platformDates.instagram.length} posts. Each post must include: platform, topic, content, image_prompt, proposed_publish_date (one of the dates listed above for that platform), and shortlink (the short link URL used, or null if none).`,
       add_context_from_internet: true,
       model: 'gemini_3_flash',
       response_json_schema: {
@@ -147,7 +154,7 @@ Return the research summary and all 36 posts. Each post must include: platform, 
     let clickupTaskUrl = null;
     try {
       const { accessToken } = await base44.asServiceRole.connectors.getConnection('clickup');
-      const listId = Deno.env.get('CLICKUP_LIST_ID');
+      const listId = CLICKUP_LIST_ID;
 
       if (accessToken && listId) {
         const platforms = ['facebook', 'instagram', 'linkedin'];
@@ -234,7 +241,7 @@ Return the research summary and all 36 posts. Each post must include: platform, 
       posts_created: createdPosts.length,
       clickup_task_url: clickupTaskUrl,
       research_summary: research_summary,
-      publish_dates: publishDates,
+      publish_dates: platformDates,
     });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
