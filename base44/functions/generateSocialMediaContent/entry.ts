@@ -113,7 +113,6 @@ Return the research summary and all 12 posts.`,
                 body: JSON.stringify({
                   name: `[${post.platform}] ${post.topic}`,
                   description: `${post.content}\n\n---\nImage: ${post.image_url || 'N/A'}\nStatus: Pending Approval`,
-                  status: 'Open',
                 }),
               });
               const data = await response.json();
