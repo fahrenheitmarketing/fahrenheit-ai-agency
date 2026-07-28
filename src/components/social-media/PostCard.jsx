@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
-import { Check, X, Loader2 } from 'lucide-react';
+import { Check, X, Loader2, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const PLATFORM_STYLES = {
@@ -19,6 +19,8 @@ const STATUS_STYLES = {
 
 export default function PostCard({ post, onStatusChange }) {
   const [updating, setUpdating] = useState(false);
+  const [publishing, setPublishing] = useState(false);
+  const [publishError, setPublishError] = useState(null);
 
   const updateStatus = async (status) => {
     setUpdating(true);
@@ -29,6 +31,19 @@ export default function PostCard({ post, onStatusChange }) {
       console.error(err);
     } finally {
       setUpdating(false);
+    }
+  };
+
+  const handlePublish = async () => {
+    setPublishing(true);
+    setPublishError(null);
+    try {
+      const res = await base44.functions.invoke('publishSocialMediaPost', { post_id: post.id });
+      onStatusChange(post.id, 'published');
+    } catch (err) {
+      setPublishError(err?.response?.data?.error || err?.message || 'Failed to publish');
+    } finally {
+      setPublishing(false);
     }
   };
 
@@ -48,8 +63,20 @@ export default function PostCard({ post, onStatusChange }) {
             {post.status?.replace('_', ' ')}
           </span>
         </div>
-        <p className="text-xs text-muted-foreground mb-2 font-body">{post.topic}</p>
+        <p className="text-xs text-muted-foreground mb-1 font-body">{post.topic}</p>
+        {post.proposed_publish_date && (
+          <p className="text-xs text-muted-foreground mb-2 font-body">📅 {post.proposed_publish_date}</p>
+        )}
         <p className="text-sm text-foreground leading-relaxed mb-4 line-clamp-4 whitespace-pre-wrap">{post.content}</p>
+        {post.status === 'approved' && (
+          <div className="flex flex-col gap-2 mt-auto">
+            {publishError && <p className="text-xs text-red-600">{publishError}</p>}
+            <Button size="sm" className="gap-1 w-full" onClick={handlePublish} disabled={publishing}>
+              {publishing ? <Loader2 className="w-3 h-3 animate-spin" /> : <Send className="w-3 h-3" />}
+              {publishing ? 'Publishing...' : `Publish to ${post.platform}`}
+            </Button>
+          </div>
+        )}
         {(post.status === 'draft' || post.status === 'pending_approval') && (
           <div className="flex gap-2 mt-auto">
             <Button size="sm" variant="outline" className="gap-1 flex-1" onClick={() => updateStatus('approved')} disabled={updating}>
