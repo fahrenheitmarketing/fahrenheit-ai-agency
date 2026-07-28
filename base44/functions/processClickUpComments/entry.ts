@@ -22,42 +22,55 @@ Deno.serve(async (req) => {
     );
     const postsWithTasks = pendingPosts.filter(p => p.clickup_task_id);
 
-    let postsProcessed = 0;
+    // Group posts by clickup_task_id (one task per batch)
+    const taskGroups = {};
+    for (const post of postsWithTasks) {
+      if (!taskGroups[post.clickup_task_id]) {
+        taskGroups[post.clickup_task_id] = [];
+      }
+      taskGroups[post.clickup_task_id].push(post);
+    }
+
+    let tasksProcessed = 0;
     let postsApproved = 0;
     let changesApplied = 0;
 
-    for (const post of postsWithTasks) {
+    for (const [taskId, posts] of Object.entries(taskGroups)) {
       try {
         // Fetch comments from ClickUp
         const commentsResp = await fetch(
-          `https://api.clickup.com/api/v2/task/${post.clickup_task_id}/comment`,
+          `https://api.clickup.com/api/v2/task/${taskId}/comment`,
           { headers: { 'Authorization': `Bearer ${accessToken}` } }
         );
         const commentsData = await commentsResp.json();
         const comments = commentsData.comments || [];
 
-        // Filter to only new comments since last check
-        const lastCheck = post.last_comment_check ? new Date(post.last_comment_check).getTime() : 0;
+        // Use the earliest post's last_comment_check as the baseline
+        let lastCheck = 0;
+        for (const post of posts) {
+          if (post.last_comment_check) {
+            const checkTime = new Date(post.last_comment_check).getTime();
+            if (checkTime > lastCheck) lastCheck = checkTime;
+          }
+        }
         const newComments = comments.filter(c => parseInt(c.date) > lastCheck);
-
         if (newComments.length === 0) continue;
 
-        let copyApproved = post.copy_approved || false;
-        let designApproved = post.design_approved || false;
+        let copyApproved = posts.every(p => p.copy_approved);
+        let designApproved = posts.every(p => p.design_approved);
         let latestCommentDate = lastCheck;
         let contentChanged = false;
-        let newContent = post.content;
-        let newImageUrl = post.image_url;
+        const updatedContents = {};
+        const updatedImageUrls = {};
 
         for (const comment of newComments) {
           const commentDate = parseInt(comment.date);
-          if (commentDate > latestCommentDate) {
-            latestCommentDate = commentDate;
-          }
+          if (commentDate > latestCommentDate) latestCommentDate = commentDate;
 
           const commenterId = comment.user?.id;
           const commentText = comment.comment?.[0]?.text || '';
-          const isApproved = commentText.toLowerCase().trim().includes('approved');
+          const lowerText = commentText.toLowerCase();
+          const isApproved = lowerText.includes('approved for publish') || lowerText.includes('approved for schedule');
 
           if (isApproved) {
             // Steven can approve both Copy and Design; Nick can only approve Design
@@ -68,118 +81,158 @@ Deno.serve(async (req) => {
               designApproved = true;
             }
           } else {
-            // Change request — use LLM to parse and apply only the relevant changes
+            // Change request — use LLM to parse and apply changes to relevant posts
             const reviewerRole = commenterId === STEVEN_BOSCH_ID
               ? 'Steven (Head of Marketing — can request copy and design changes)'
               : commenterId === NICK_ERASMUS_ID
-                ? 'Nick (Head of Design — can request design changes)'
+                ? 'Nick (Head of Design — primarily requests design/visual changes, but may request copy changes too)'
                 : 'a reviewer';
 
+            const postsContext = posts.map((p, i) => 
+              `[Post ${i + 1}] Platform: ${p.platform}\nTopic: ${p.topic}\nContent: ${p.content}\nImage URL: ${p.image_url || 'N/A'}`
+            ).join('\n\n');
+
             const llmResult = await base44.asServiceRole.integrations.Core.InvokeLLM({
-              prompt: `You are a social media content editor for Fahrenheit Marketing. A reviewer has commented on a social media post with requested changes.
+              prompt: `You are a social media content editor for Fahrenheit Marketing. A reviewer has commented on a batch of social media posts with requested changes.
 
-Current post content:
-${post.content}
+Here are the posts in this batch:
 
-Platform: ${post.platform}
+${postsContext}
+
 Reviewer: ${reviewerRole}
 Reviewer's comment: "${commentText}"
 
-Apply ONLY the specific changes the reviewer requested. Keep everything else identical. Do not rewrite the entire post unless the reviewer explicitly asks for a full rewrite.
+Apply ONLY the specific changes the reviewer requested. Keep everything else identical. Do not rewrite entire posts unless explicitly asked.
 
-If the reviewer is Nick (Head of Design), only apply changes related to the visual/image — do not change the copy unless he explicitly asks for text changes too.
+If the reviewer references a specific post by topic, platform, or number, only change that post.
+If the comment is general, apply the changes to all relevant posts.
 
-Return the updated content. If the comment requests image/visual changes, set needs_new_image=true and provide a detailed image_prompt for the new image. If no content changes are needed, return the original content unchanged with needs_new_image=false.`,
+Return an array of updated posts. Only include posts that have changes. If no content changes are needed, return an empty array.
+For each changed post, include the topic (to identify which post), the updated content, and whether a new image is needed (with a detailed image_prompt if so).`,
               response_json_schema: {
                 type: 'object',
                 properties: {
-                  content: { type: 'string', description: 'The updated post content' },
-                  image_prompt: { type: 'string', description: 'Detailed prompt for a new image if needed' },
-                  needs_new_image: { type: 'boolean' },
-                  summary: { type: 'string', description: 'Brief summary of what was changed' }
+                  changes: {
+                    type: 'array',
+                    items: {
+                      type: 'object',
+                      properties: {
+                        topic: { type: 'string', description: 'The topic of the post being changed' },
+                        content: { type: 'string', description: 'The updated post content' },
+                        needs_new_image: { type: 'boolean' },
+                        image_prompt: { type: 'string', description: 'Detailed prompt for the new image if needed' },
+                        summary: { type: 'string', description: 'Brief summary of what was changed' }
+                      },
+                      required: ['topic', 'content', 'needs_new_image']
+                    }
+                  }
                 },
-                required: ['content', 'needs_new_image']
+                required: ['changes']
               }
             });
 
-            if (llmResult.content && llmResult.content !== post.content) {
-              newContent = llmResult.content;
-              contentChanged = true;
-            }
+            for (const change of (llmResult.changes || [])) {
+              const post = posts.find(p => p.topic === change.topic);
+              if (!post) continue;
 
-            if (llmResult.needs_new_image && llmResult.image_prompt) {
-              const dims = PLATFORM_DIMENSIONS[post.platform] || 'square format';
-              const imgResult = await base44.asServiceRole.integrations.Core.GenerateImage({
-                prompt: `${llmResult.image_prompt}. Image dimensions: ${dims}. Professional, eye-catching, high-quality digital marketing visual.`
-              });
-              newImageUrl = imgResult.url;
-              contentChanged = true;
+              if (change.content && change.content !== post.content) {
+                updatedContents[post.id] = change.content;
+                contentChanged = true;
+              }
+
+              if (change.needs_new_image && change.image_prompt) {
+                const dims = PLATFORM_DIMENSIONS[post.platform] || 'square format';
+                const imgResult = await base44.asServiceRole.integrations.Core.GenerateImage({
+                  prompt: `${change.image_prompt}. Image dimensions: ${dims}. Professional, eye-catching, high-quality digital marketing visual.`
+                });
+                updatedImageUrls[post.id] = imgResult.url;
+                contentChanged = true;
+              }
             }
           }
         }
 
-        // Build update data
-        const updateData = {
-          copy_approved: copyApproved,
-          design_approved: designApproved,
-          last_comment_check: new Date(latestCommentDate).toISOString(),
-        };
+        // Update all posts in the batch
+        const checkDate = new Date(latestCommentDate).toISOString();
+        for (const post of posts) {
+          const updateData = {
+            copy_approved: copyApproved,
+            design_approved: designApproved,
+            last_comment_check: checkDate,
+          };
 
-        if (contentChanged) {
-          updateData.content = newContent;
-          updateData.image_url = newImageUrl;
-          changesApplied++;
+          if (updatedContents[post.id]) {
+            updateData.content = updatedContents[post.id];
+          }
+          if (updatedImageUrls[post.id]) {
+            updateData.image_url = updatedImageUrls[post.id];
+          }
+
+          // If both approved, set status to approved
+          if (copyApproved && designApproved) {
+            updateData.status = 'approved';
+          }
+
+          await base44.asServiceRole.entities.SocialMediaPost.update(post.id, updateData);
         }
 
-        // If both copy and design are approved, mark the post as approved
         if (copyApproved && designApproved) {
-          updateData.status = 'approved';
-          postsApproved++;
+          postsApproved += posts.length;
         }
-
-        await base44.asServiceRole.entities.SocialMediaPost.update(post.id, updateData);
-
-        // Update ClickUp task if content changed
         if (contentChanged) {
-          await fetch(`https://api.clickup.com/api/v2/task/${post.clickup_task_id}`, {
+          changesApplied++;
+          // Update ClickUp task description with updated content
+          const platforms = ['facebook', 'instagram', 'linkedin'];
+          let updatedDesc = `# Social Media Posts\n\n`;
+          for (const platform of platforms) {
+            const platformPosts = posts.filter(p => p.platform === platform);
+            if (platformPosts.length === 0) continue;
+            updatedDesc += `\n## ${platform.charAt(0).toUpperCase() + platform.slice(1)} Posts\n`;
+            for (const post of platformPosts) {
+              const content = updatedContents[post.id] || post.content;
+              const imageUrl = updatedImageUrls[post.id] || post.image_url;
+              updatedDesc += `\n### ${post.topic}\n${content}\nImage: ${imageUrl || 'N/A'}\n`;
+            }
+          }
+          updatedDesc += `\n---\nCopy Approved: ${copyApproved}\nDesign Approved: ${designApproved}`;
+
+          await fetch(`https://api.clickup.com/api/v2/task/${taskId}`, {
             method: 'PUT',
             headers: {
               'Authorization': `Bearer ${accessToken}`,
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-              description: `${newContent}\n\n---\nImage: ${newImageUrl || 'N/A'}\nCopy Approved: ${copyApproved}\nDesign Approved: ${designApproved}`,
-            }),
+            body: JSON.stringify({ description: updatedDesc }),
           });
 
-          // Attach the new image to the task
-          if (newImageUrl && newImageUrl !== post.image_url) {
+          // Attach any new images
+          for (const [postId, imageUrl] of Object.entries(updatedImageUrls)) {
             try {
-              const imageResp = await fetch(newImageUrl);
+              const imageResp = await fetch(imageUrl);
               const imageBlob = await imageResp.blob();
               const formData = new FormData();
-              formData.append('file', imageBlob, `image_${post.platform}_revised.png`);
-              await fetch(`https://api.clickup.com/api/v2/task/${post.clickup_task_id}/attachment`, {
+              formData.append('file', imageBlob, `image_revised_${postId}.png`);
+              await fetch(`https://api.clickup.com/api/v2/task/${taskId}/attachment`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${accessToken}` },
                 body: formData,
               });
             } catch (attachErr) {
-              console.error(`Image attachment failed for post ${post.id}:`, attachErr);
+              console.error(`Image attachment failed for post ${postId}:`, attachErr);
             }
           }
         }
 
-        postsProcessed++;
+        tasksProcessed++;
       } catch (err) {
-        console.error(`Comment processing failed for post ${post.id}:`, err);
+        console.error(`Comment processing failed for task ${taskId}:`, err);
       }
     }
 
     return Response.json({
       status: 'success',
-      posts_checked: postsWithTasks.length,
-      posts_with_new_comments: postsProcessed,
+      tasks_checked: Object.keys(taskGroups).length,
+      tasks_with_new_comments: tasksProcessed,
       posts_approved: postsApproved,
       changes_applied: changesApplied,
     });

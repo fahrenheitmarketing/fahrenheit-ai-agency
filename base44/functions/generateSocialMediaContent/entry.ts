@@ -1,5 +1,5 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
-import { PLATFORM_DIMENSIONS, STEVEN_BOSCH_ID, NICK_ERASMUS_ID } from '../../shared/platformConfig.ts';
+import { PLATFORM_DIMENSIONS, STEVEN_BOSCH_ID, NICK_ERASMUS_ID, CLICKUP_TEAM_ID, PARENT_TASK_ID, BRAND_DOC_ID } from '../../shared/platformConfig.ts';
 
 Deno.serve(async (req) => {
   try {
@@ -10,6 +10,23 @@ Deno.serve(async (req) => {
     }
 
     const batchId = `batch_${Date.now()}`;
+    const monthYear = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+    // 0. Fetch brand guidelines from ClickUp doc
+    let brandGuidelines = '';
+    try {
+      const { accessToken } = await base44.asServiceRole.connectors.getConnection('clickup');
+      const pagesResp = await fetch(
+        `https://api.clickup.com/api/v3/workspaces/${CLICKUP_TEAM_ID}/docs/${BRAND_DOC_ID}/pages`,
+        { headers: { 'Authorization': `Bearer ${accessToken}` } }
+      );
+      if (pagesResp.ok) {
+        const pages = await pagesResp.json();
+        brandGuidelines = (pages || []).map(p => p.content || '').join('\n\n');
+      }
+    } catch (err) {
+      console.error('Failed to fetch brand doc:', err);
+    }
 
     // 1. Fetch existing topics to avoid repetition
     const existingPosts = await base44.asServiceRole.entities.SocialMediaPost.list('-created_date', 200);
@@ -34,6 +51,7 @@ CRITICAL RULES:
 ${usedTopics.length > 0 ? `\nPreviously used topics (DO NOT repeat these or similar angles): ${usedTopics.join(', ')}` : ''}
 
 Also provide a detailed image_prompt for each post describing a visually striking image to accompany the content.
+${brandGuidelines ? `\nBRAND GUIDELINES (from the FM Brand Identity Document on ClickUp — follow these strictly for tone, style, messaging, and visual direction):\n${brandGuidelines}` : ''}
 
 Return the research summary and all 12 posts.`,
       add_context_from_internet: true,
@@ -89,67 +107,79 @@ Return the research summary and all 12 posts.`,
     }));
     const createdPosts = await base44.asServiceRole.entities.SocialMediaPost.bulkCreate(postsToCreate);
 
-    // 5. Create ClickUp tasks for each post
-    let clickupCreated = 0;
+    // 5. Create ONE ClickUp task for the entire batch
+    let clickupTaskUrl = null;
     try {
       const { accessToken } = await base44.asServiceRole.connectors.getConnection('clickup');
       const listId = Deno.env.get('CLICKUP_LIST_ID');
 
       if (accessToken && listId) {
-        const taskResults = await Promise.all(
-          createdPosts.map(async (post) => {
+        // Build task description with all posts grouped by platform
+        const platforms = ['facebook', 'instagram', 'linkedin'];
+        let description = `# Social Media Posts — ${monthYear}\n\n## Research Summary\n${research_summary}\n`;
+        for (const platform of platforms) {
+          const platformPosts = createdPosts.filter(p => p.platform === platform);
+          if (platformPosts.length === 0) continue;
+          description += `\n## ${platform.charAt(0).toUpperCase() + platform.slice(1)} Posts\n`;
+          for (const post of platformPosts) {
+            description += `\n### ${post.topic}\n${post.content}\nImage: ${post.image_url || 'N/A'}\n`;
+          }
+        }
+        description += `\n---\nStatus: Pending Approval\nAssignees: Steven (Copy + Design), Nick (Design)\nComment "Approved for Publish" or "Approved for Schedule" to approve. Comment with changes to request revisions.`;
+
+        // Create the task as a child of the parent task
+        const taskResp = await fetch(`https://api.clickup.com/api/v2/list/${listId}/task`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${accessToken}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: `FM - Social Posts ${monthYear}`,
+            description,
+            assignees: [STEVEN_BOSCH_ID, NICK_ERASMUS_ID],
+            parent: PARENT_TASK_ID,
+          }),
+        });
+        const taskData = await taskResp.json();
+
+        if (taskData.id) {
+          clickupTaskUrl = `https://app.clickup.com/t/${taskData.id}`;
+
+          // Attach all images to the task
+          await Promise.all(createdPosts.map(async (post) => {
+            if (!post.image_url) return;
             try {
-              const response = await fetch(`https://api.clickup.com/api/v2/list/${listId}/task`, {
+              const imageResp = await fetch(post.image_url);
+              const imageBlob = await imageResp.blob();
+              const formData = new FormData();
+              formData.append('file', imageBlob, `image_${post.platform}_${post.topic}.png`);
+              await fetch(`https://api.clickup.com/api/v2/task/${taskData.id}/attachment`, {
                 method: 'POST',
-                headers: {
-                  'Authorization': `Bearer ${accessToken}`,
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  name: `[${post.platform}] ${post.topic}`,
-                  description: `${post.content}\n\n---\nImage: ${post.image_url || 'N/A'}\nStatus: Pending Approval`,
-                  assignees: [STEVEN_BOSCH_ID, NICK_ERASMUS_ID],
-                }),
+                headers: { 'Authorization': `Bearer ${accessToken}` },
+                body: formData,
               });
-              const data = await response.json();
-              if (data.id) {
-                // Attach the generated image to the ClickUp task
-                if (post.image_url) {
-                  try {
-                    const imageResp = await fetch(post.image_url);
-                    const imageBlob = await imageResp.blob();
-                    const formData = new FormData();
-                    formData.append('file', imageBlob, `image_${post.platform}.png`);
-                    await fetch(`https://api.clickup.com/api/v2/task/${data.id}/attachment`, {
-                      method: 'POST',
-                      headers: { 'Authorization': `Bearer ${accessToken}` },
-                      body: formData,
-                    });
-                  } catch (attachErr) {
-                    console.error(`Image attachment failed for ${post.topic}:`, attachErr);
-                  }
-                }
-                await base44.asServiceRole.entities.SocialMediaPost.update(post.id, { clickup_task_id: data.id });
-                return data;
-              }
-              return null;
-            } catch (err) {
-              console.error(`ClickUp task creation failed for ${post.topic}:`, err);
-              return null;
+            } catch (attachErr) {
+              console.error(`Image attachment failed for ${post.topic}:`, attachErr);
             }
-          })
-        );
-        clickupCreated = taskResults.filter(t => t && t.id).length;
+          }));
+
+          // Update all posts with the same clickup_task_id
+          await base44.asServiceRole.entities.SocialMediaPost.updateMany(
+            { batch_id: batchId },
+            { $set: { clickup_task_id: taskData.id } }
+          );
+        }
       }
     } catch (err) {
-      console.error('ClickUp connection failed:', err);
+      console.error('ClickUp task creation failed:', err);
     }
 
     return Response.json({
       status: 'success',
       batch_id: batchId,
       posts_created: createdPosts.length,
-      clickup_tasks_created: clickupCreated,
+      clickup_task_url: clickupTaskUrl,
       research_summary: research_summary,
     });
   } catch (error) {
