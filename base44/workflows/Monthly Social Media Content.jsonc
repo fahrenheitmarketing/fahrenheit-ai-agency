@@ -1,0 +1,44 @@
+{
+  "description": "Automatically researches trends and generates 4 social media posts per platform (Facebook, Instagram, LinkedIn) with images, then creates ClickUp tasks with image attachments assigned to Steven (Marketing) and Nick (Design) for human approval. Runs on the 1st of every month at 8am Central Time.",
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "monthly_social_media_content",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "generate_posts": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "generateSocialMediaContent"
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Generate social media posts",
+            "description": "Research, draft, image, and ClickUp pipeline"
+          }
+        }
+      }
+    ]
+  },
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "0 8 1 * *",
+      "one_time_date": null,
+      "timezone": "America/Chicago",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "name": "Monthly Social Media Content"
+}

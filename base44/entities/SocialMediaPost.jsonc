@@ -44,6 +44,21 @@
     "research_summary": {
       "type": "string",
       "description": "Summary of trends research that informed this batch"
+    },
+    "copy_approved": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the copy/text has been approved"
+    },
+    "design_approved": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the image/design has been approved"
+    },
+    "last_comment_check": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the last processed ClickUp comment"
     }
   },
   "required": [

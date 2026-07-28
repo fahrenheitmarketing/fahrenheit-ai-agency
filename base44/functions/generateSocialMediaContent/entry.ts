@@ -1,10 +1,5 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
-
-const PLATFORM_DIMENSIONS = {
-  facebook: '1080x1350 pixels, vertical portrait 4:5 aspect ratio',
-  instagram: '1080x1350 pixels, vertical portrait 4:5 aspect ratio',
-  linkedin: '1200x627 pixels, wide horizontal landscape banner format',
-};
+import { PLATFORM_DIMENSIONS, STEVEN_BOSCH_ID, NICK_ERASMUS_ID } from '../../shared/platformConfig.ts';
 
 Deno.serve(async (req) => {
   try {
@@ -113,10 +108,27 @@ Return the research summary and all 12 posts.`,
                 body: JSON.stringify({
                   name: `[${post.platform}] ${post.topic}`,
                   description: `${post.content}\n\n---\nImage: ${post.image_url || 'N/A'}\nStatus: Pending Approval`,
+                  assignees: [STEVEN_BOSCH_ID, NICK_ERASMUS_ID],
                 }),
               });
               const data = await response.json();
               if (data.id) {
+                // Attach the generated image to the ClickUp task
+                if (post.image_url) {
+                  try {
+                    const imageResp = await fetch(post.image_url);
+                    const imageBlob = await imageResp.blob();
+                    const formData = new FormData();
+                    formData.append('file', imageBlob, `image_${post.platform}.png`);
+                    await fetch(`https://api.clickup.com/api/v2/task/${data.id}/attachment`, {
+                      method: 'POST',
+                      headers: { 'Authorization': `Bearer ${accessToken}` },
+                      body: formData,
+                    });
+                  } catch (attachErr) {
+                    console.error(`Image attachment failed for ${post.topic}:`, attachErr);
+                  }
+                }
                 await base44.asServiceRole.entities.SocialMediaPost.update(post.id, { clickup_task_id: data.id });
                 return data;
               }
