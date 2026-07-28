@@ -59,6 +59,11 @@
       "type": "string",
       "format": "date-time",
       "description": "Timestamp of the last processed ClickUp comment"
+    },
+    "proposed_publish_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Proposed date for publishing this post (YYYY-MM-DD)"
     }
   },
   "required": [

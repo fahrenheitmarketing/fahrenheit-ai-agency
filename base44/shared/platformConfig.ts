@@ -39,3 +39,72 @@ export function getMonthlyTaskDates() {
 
 // 1 hour in milliseconds
 export const ONE_HOUR_MS = 3600000;
+
+// Platform-specific shortlinks — only include when relevant to post content
+// Instagram NEVER has links in the copy
+export const SHORTLINKS: Record<string, { label: string; url: string }[]> = {
+  linkedin: [
+    { label: 'Promo2', url: 'b.link/LPR21-FM' },
+    { label: 'Software Development', url: 'b.link/LSD1-FM' },
+    { label: 'Marketing Automation', url: 'b.link/LMA1-FM' },
+    { label: 'CRO', url: 'b.link/LCRO1-FM' },
+    { label: 'Social Media', url: 'b.link/LSMM1-FM' },
+    { label: 'SEM/PPC', url: 'b.link/LSEM1-FM' },
+    { label: 'SEO', url: 'b.link/LSEO1-FM' },
+    { label: 'Strategy', url: 'b.link/LST1-FM' },
+    { label: 'Contact', url: 'b.link/LC1-FM' },
+    { label: 'Pricing', url: 'b.link/LP1-FM' },
+    { label: 'Home', url: 'b.link/LH1-FM' },
+  ],
+  facebook: [
+    { label: 'Promo2', url: 'b.link/FPR21-FM' },
+    { label: 'Software Development', url: 'b.link/FSD1-FM' },
+    { label: 'Marketing Automation', url: 'b.link/FMA1-FM' },
+    { label: 'CRO', url: 'b.link/FCRO1-FM' },
+    { label: 'Social Media', url: 'b.link/FSMM1-FM' },
+    { label: 'SEM/PPC', url: 'b.link/FSEM1-FM' },
+    { label: 'SEO', url: 'b.link/FSEO1-FM' },
+    { label: 'Strategy', url: 'b.link/FST1-FM' },
+    { label: 'Contact', url: 'b.link/FC1-FM' },
+    { label: 'Pricing', url: 'b.link/FP1-FM' },
+    { label: 'Home', url: 'b.link/FH1-FM' },
+  ],
+  instagram: [],
+};
+
+// Helper: calculate next month's Mon/Wed/Fri dates (3 per week, 4 weeks = 12 dates)
+export function getNextMonthPublishDates(): string[] {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth(); // 0-indexed
+  // Target next month
+  const targetYear = month === 11 ? year + 1 : year;
+  const targetMonth = month === 11 ? 0 : month + 1;
+
+  const dates: string[] = [];
+  const day = new Date(Date.UTC(targetYear, targetMonth, 1));
+  // Find first Monday
+  while (day.getUTCDay() !== 1) {
+    day.setUTCDate(day.getUTCDate() + 1);
+  }
+  // Collect 4 weeks of Mon/Wed/Fri
+  for (let week = 0; week < 4; week++) {
+    const monday = new Date(day);
+    monday.setUTCDate(day.getUTCDate() + week * 7);
+    const wednesday = new Date(monday);
+    wednesday.setUTCDate(monday.getUTCDate() + 2);
+    const friday = new Date(monday);
+    friday.setUTCDate(monday.getUTCDate() + 4);
+    dates.push(formatDate(monday));
+    dates.push(formatDate(wednesday));
+    dates.push(formatDate(friday));
+  }
+  return dates;
+}
+
+function formatDate(d: Date): string {
+  const y = d.getUTCFullYear();
+  const m = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(d.getUTCDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
