@@ -1,5 +1,5 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
-import { PLATFORM_DIMENSIONS, STEVEN_BOSCH_ID, NICK_ERASMUS_ID, CLICKUP_TEAM_ID, PARENT_TASK_ID, BRAND_DOC_ID } from '../../shared/platformConfig.ts';
+import { PLATFORM_DIMENSIONS, STEVEN_BOSCH_ID, NICK_ERASMUS_ID, CLICKUP_TEAM_ID, PARENT_TASK_ID, BRAND_DOC_ID, CLICKUP_TAGS, getMonthlyTaskDates, ONE_HOUR_MS } from '../../shared/platformConfig.ts';
 
 Deno.serve(async (req) => {
   try {
@@ -128,6 +128,7 @@ Return the research summary and all 12 posts.`,
         description += `\n---\nStatus: Pending Approval\nAssignees: Steven (Copy + Design), Nick (Design)\nComment "Approved for Publish" or "Approved for Schedule" to approve. Comment with changes to request revisions.`;
 
         // Create the task as a child of the parent task
+        const { startDate, dueDate } = getMonthlyTaskDates();
         const taskResp = await fetch(`https://api.clickup.com/api/v2/list/${listId}/task`, {
           method: 'POST',
           headers: {
@@ -135,16 +136,34 @@ Return the research summary and all 12 posts.`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            name: `FM - Social Posts ${monthYear}`,
+            name: `FM - Agentic Social Posts ${monthYear}`,
             description,
             assignees: [STEVEN_BOSCH_ID, NICK_ERASMUS_ID],
             parent: PARENT_TASK_ID,
+            tags: CLICKUP_TAGS,
+            start_date: String(startDate),
+            due_date: String(dueDate),
+            time_estimate: String(ONE_HOUR_MS),
           }),
         });
         const taskData = await taskResp.json();
 
         if (taskData.id) {
           clickupTaskUrl = `https://app.clickup.com/t/${taskData.id}`;
+
+          // Ensure tags are applied (fallback if create task body didn't accept them)
+          if (!taskData.tags || taskData.tags.length === 0) {
+            for (const tagName of CLICKUP_TAGS) {
+              try {
+                await fetch(
+                  `https://api.clickup.com/api/v2/task/${taskData.id}/tag/${encodeURIComponent(tagName)}`,
+                  { method: 'POST', headers: { 'Authorization': `Bearer ${accessToken}` } }
+                );
+              } catch (tagErr) {
+                console.error(`Tag add failed for "${tagName}":`, tagErr);
+              }
+            }
+          }
 
           // Attach all images to the task
           await Promise.all(createdPosts.map(async (post) => {

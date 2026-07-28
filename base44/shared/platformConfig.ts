@@ -11,5 +11,31 @@ export const NICK_ERASMUS_ID = 43160121; // Head of Design — can approve Desig
 
 // ClickUp configuration
 export const CLICKUP_TEAM_ID = '30952573';
-export const PARENT_TASK_ID = '86ajr6uxp'; // "FM - Agentic Social Posts [Parent]"
+export const PARENT_TASK_ID = '86ajr7570'; // "FM - Agentic Social Posts [Parent]"
 export const BRAND_DOC_ID = 'xgk3x-20813'; // "FM Brand Identity Document" on ClickUp
+
+// Tags applied to every social media child task
+export const CLICKUP_TAGS = [
+  'agentic content',
+  'content',
+  'collateral',
+  'design',
+  'fm',
+  'marketing',
+  'organic social',
+  'qa',
+  'social media',
+];
+
+// Helper: calculate start_date (1st) and due_date (5th) of the current month as Unix ms timestamps
+export function getMonthlyTaskDates() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const startDate = new Date(Date.UTC(year, month, 1)).getTime();
+  const dueDate = new Date(Date.UTC(year, month, 5, 23, 59, 59)).getTime();
+  return { startDate, dueDate };
+}
+
+// 1 hour in milliseconds
+export const ONE_HOUR_MS = 3600000;
