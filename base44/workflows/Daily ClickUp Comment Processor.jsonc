@@ -1,5 +1,5 @@
 {
-  "description": "Checks ClickUp tasks for new comments on pending social media posts. Applies requested changes via AI, and tracks approvals from Steven (Copy + Design) and Nick (Design only). Runs every 2 hours.",
+  "description": "Checks ClickUp tasks for new comments on pending social media posts. Applies requested changes via AI, and tracks approvals from Steven (Copy + Design) and Nick (Design only). Runs every 30 minutes.",
   "definition": {
     "document": {
       "dsl": "1.0.0",
@@ -29,7 +29,7 @@
       "trigger_type": "scheduled",
       "events": [],
       "schedule_mode": "recurring",
-      "cron_expression": "0 */2 * * *",
+      "cron_expression": "*/30 * * * *",
       "one_time_date": null,
       "timezone": "America/Chicago",
       "interval_value": null,

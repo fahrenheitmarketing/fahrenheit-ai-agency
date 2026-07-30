@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
-import { Loader2, Sparkles } from 'lucide-react';
+import { Loader2, Sparkles, MessageSquareReply } from 'lucide-react';
 import PostCard from '@/components/social-media/PostCard';
 import AgentChat from '@/components/social-media/AgentChat';
+import { useToast } from '@/components/ui/use-toast';
 
 const PLATFORMS = ['all', 'facebook', 'instagram', 'linkedin'];
 
 export default function SocialMediaStudio() {
+  const { toast } = useToast();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
+  const [processing, setProcessing] = useState(false);
   const [filter, setFilter] = useState('all');
 
   const loadPosts = useCallback(async () => {
@@ -43,6 +46,20 @@ export default function SocialMediaStudio() {
     setPosts(prev => prev.map(p => p.id === id ? { ...p, status } : p));
   };
 
+  const handleProcessFeedback = async () => {
+    setProcessing(true);
+    try {
+      const result = await base44.functions.invoke('processClickUpComments', {});
+      const summary = `${result.tasks_with_new_comments || 0} task(s) processed, ${result.changes_applied || 0} with changes, ${result.posts_approved || 0} approved.`;
+      toast({ title: 'Feedback processed', description: summary });
+      await loadPosts();
+    } catch (err) {
+      toast({ title: 'Processing failed', description: err.message, variant: 'destructive' });
+    } finally {
+      setProcessing(false);
+    }
+  };
+
   const filtered = filter === 'all' ? posts : posts.filter(p => p.platform === filter);
 
   return (
@@ -52,11 +69,20 @@ export default function SocialMediaStudio() {
           <div>
             <h1 className="font-heading text-3xl md:text-4xl font-normal mb-2">Social Media Studio</h1>
             <p className="text-muted-foreground text-sm">AI-generated social media content, ready for your review.</p>
+            <p className="text-muted-foreground text-xs mt-1">
+              Leave feedback on ClickUp tasks → click "Process Feedback Now" (or wait ~30 min for auto-pickup) → changes are applied and confirmed in the task.
+            </p>
           </div>
-          <Button onClick={handleGenerate} disabled={generating} className="gap-2">
-            {generating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
-            {generating ? 'Generating...' : 'Generate New Posts'}
-          </Button>
+          <div className="flex gap-3">
+            <Button onClick={handleProcessFeedback} disabled={processing} variant="outline" className="gap-2">
+              {processing ? <Loader2 className="w-4 h-4 animate-spin" /> : <MessageSquareReply className="w-4 h-4" />}
+              {processing ? 'Processing...' : 'Process Feedback Now'}
+            </Button>
+            <Button onClick={handleGenerate} disabled={generating} className="gap-2">
+              {generating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
+              {generating ? 'Generating...' : 'Generate New Posts'}
+            </Button>
+          </div>
         </div>
 
         <div className="flex gap-2 mb-6">
