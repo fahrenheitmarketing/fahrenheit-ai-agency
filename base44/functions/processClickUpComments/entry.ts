@@ -68,7 +68,7 @@ Deno.serve(async (req) => {
           if (commentDate > latestCommentDate) latestCommentDate = commentDate;
 
           const commenterId = comment.user?.id;
-          const commentText = comment.comment?.[0]?.text || '';
+          const commentText = (comment.comment || []).map(b => b.text || '').join('');
           const lowerText = commentText.toLowerCase();
           const isApproved = lowerText.includes('approved for publish') || lowerText.includes('approved for schedule');
 
