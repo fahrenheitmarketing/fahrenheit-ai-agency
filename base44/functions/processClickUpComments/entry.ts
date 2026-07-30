@@ -62,6 +62,7 @@ Deno.serve(async (req) => {
         let contentChanged = false;
         const updatedContents = {};
         const updatedImageUrls = {};
+        const changeResponses = []; // { commenterId, commenterName, summaries: [] }
 
         for (const comment of newComments) {
           const commentDate = parseInt(comment.date);
@@ -131,15 +132,19 @@ For each changed post, include the topic (to identify which post), the updated c
               }
             });
 
+            const commentChangeSummaries = [];
             for (const change of (llmResult.changes || [])) {
               const post = posts.find(p => p.topic === change.topic);
               if (!post) continue;
 
+              let contentUpdated = false;
               if (change.content && change.content !== post.content) {
                 updatedContents[post.id] = change.content;
                 contentChanged = true;
+                contentUpdated = true;
               }
 
+              let imageUpdated = false;
               if (change.needs_new_image && change.image_prompt) {
                 const dims = PLATFORM_DIMENSIONS[post.platform] || 'square format';
                 const imgResult = await base44.asServiceRole.integrations.Core.GenerateImage({
@@ -147,8 +152,24 @@ For each changed post, include the topic (to identify which post), the updated c
                 });
                 updatedImageUrls[post.id] = imgResult.url;
                 contentChanged = true;
+                imageUpdated = true;
               }
+
+              commentChangeSummaries.push({
+                topic: change.topic,
+                platform: post.platform,
+                summary: change.summary || 'Content updated',
+                content_updated: contentUpdated,
+                image_updated: imageUpdated,
+              });
             }
+
+            changeResponses.push({
+              commenterId,
+              commenterName: comment.user?.username || 'Reviewer',
+              comment_text: commentText,
+              summaries: commentChangeSummaries,
+            });
           }
         }
 
@@ -220,6 +241,51 @@ For each changed post, include the topic (to identify which post), the updated c
             } catch (attachErr) {
               console.error(`Image attachment failed for post ${postId}:`, attachErr);
             }
+          }
+        }
+
+        // Post summary comments back to ClickUp mentioning each reviewer who requested changes
+        for (const cr of changeResponses) {
+          const changedCount = cr.summaries.length;
+          let summaryText;
+          if (changedCount > 0) {
+            summaryText = `@${cr.commenterName} — ✅ Changes applied based on your feedback (${changedCount} post${changedCount > 1 ? 's' : ''} updated):\n`;
+            for (const s of cr.summaries) {
+              summaryText += `\n• [${s.platform}] "${s.topic}": ${s.summary}`;
+              const updates = [];
+              if (s.content_updated) updates.push('copy');
+              if (s.image_updated) updates.push('image');
+              if (updates.length) summaryText += ` (updated: ${updates.join(' + ')})`;
+            }
+            summaryText += `\n\nUpdated content and images are reflected in the task description above. Please review and confirm or provide further feedback.`;
+          } else {
+            summaryText = `@${cr.commenterName} — Your feedback was received and reviewed. No specific content changes were identified from your comment. If you'd like changes made, please specify which posts and what should be updated.`;
+          }
+
+          try {
+            await fetch(`https://api.clickup.com/api/v2/task/${taskId}/comment`, {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                comment: [{ text: summaryText }],
+                assignee: parseInt(cr.commenterId),
+                notify_all: false,
+              }),
+            });
+          } catch (commentErr) {
+            console.error(`Failed to post summary comment for ${cr.commenterName}:`, commentErr);
+          }
+        }
+
+        // After posting our own response comments, advance last_comment_check to now
+        // so we don't re-process our own comments on the next run
+        if (changeResponses.length > 0) {
+          const nowIso = new Date().toISOString();
+          for (const post of posts) {
+            await base44.asServiceRole.entities.SocialMediaPost.update(post.id, { last_comment_check: nowIso });
           }
         }
 
