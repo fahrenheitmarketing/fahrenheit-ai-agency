@@ -1,6 +1,6 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
 import {
-  PLATFORM_DIMENSIONS,
+  PLATFORM_IMAGE_COMPOSITION,
   STEVEN_BOSCH_ID,
   NICK_ERASMUS_ID,
   CLICKUP_TEAM_ID,
@@ -13,6 +13,7 @@ import {
   getMonthlyTaskDates,
   ONE_HOUR_MS,
 } from '../../shared/platformConfig.ts';
+import { resizeImageToPlatform } from '../../shared/imageResizer.ts';
 
 Deno.serve(async (req) => {
   try {
@@ -126,11 +127,20 @@ Return the research summary and all ${platformDates.linkedin.length + platformDa
     const images = await Promise.all(
       posts.map(async (post: any) => {
         try {
-          const dims = PLATFORM_DIMENSIONS[post.platform] || 'square format';
+          const composition = PLATFORM_IMAGE_COMPOSITION[post.platform] || '';
           const result = await base44.asServiceRole.integrations.Core.GenerateImage({
-            prompt: `${post.image_prompt}. Image dimensions: ${dims}. Professional, eye-catching, high-quality digital marketing visual.`
+            prompt: `${post.image_prompt}. ${composition}. Professional, eye-catching, high-quality digital marketing visual.`
           });
-          return result.url;
+          // Resize to platform-specific dimensions (cover crop)
+          const resizedUrl = await resizeImageToPlatform(
+            result.url,
+            post.platform,
+            async (file: Blob) => {
+              const uploadResult = await base44.asServiceRole.integrations.Core.UploadFile({ file });
+              return uploadResult.file_url;
+            }
+          );
+          return resizedUrl;
         } catch (err) {
           console.error(`Image generation failed for ${post.platform}/${post.topic}:`, err);
           return null;

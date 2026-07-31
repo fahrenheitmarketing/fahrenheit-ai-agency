@@ -41,6 +41,20 @@ export function getMonthlyTaskDates() {
 // 1 hour in milliseconds
 export const ONE_HOUR_MS = 3600000;
 
+// Target pixel dimensions for image resizing per platform
+export const PLATFORM_RESIZE_DIMENSIONS: Record<string, { width: number; height: number }> = {
+  facebook: { width: 1080, height: 1350 },
+  instagram: { width: 1080, height: 1350 },
+  linkedin: { width: 1200, height: 627 },
+};
+
+// Composition guidance for image generation prompts per platform
+export const PLATFORM_IMAGE_COMPOSITION: Record<string, string> = {
+  facebook: 'vertical portrait 4:5 composition, keep important elements centered, avoid critical detail at far left and right edges',
+  instagram: 'vertical portrait 4:5 composition, keep important elements centered, avoid critical detail at far left and right edges',
+  linkedin: 'wide horizontal landscape banner composition, keep all important visual elements in a central horizontal band, avoid critical detail at top and bottom edges',
+};
+
 // Social media publishing targets
 export const FACEBOOK_PAGE_ID = '121996364508916'; // Fahrenheit Marketing Facebook page
 export const LINKEDIN_ORG_ID = '1042077'; // Fahrenheit Marketing LinkedIn company page
