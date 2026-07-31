@@ -1,6 +1,8 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
 import {
   PLATFORM_IMAGE_COMPOSITION,
+  APPROVED_LOGOS,
+  LOGO_INSTRUCTION,
   STEVEN_BOSCH_ID,
   NICK_ERASMUS_ID,
   CLICKUP_TEAM_ID,
@@ -129,7 +131,13 @@ Return the research summary and all ${platformDates.linkedin.length + platformDa
         try {
           const composition = PLATFORM_IMAGE_COMPOSITION[post.platform] || '';
           const result = await base44.asServiceRole.integrations.Core.GenerateImage({
-            prompt: `${post.image_prompt}. ${composition}. Professional, eye-catching, high-quality digital marketing visual.`
+            prompt: `${post.image_prompt}. ${composition}. ${LOGO_INSTRUCTION} Professional, eye-catching, high-quality digital marketing visual.`,
+            existing_image_urls: [
+              APPROVED_LOGOS.fullLight,
+              APPROVED_LOGOS.fullDark,
+              APPROVED_LOGOS.iconLight,
+              APPROVED_LOGOS.iconDark,
+            ],
           });
           // Resize to platform-specific dimensions (cover crop)
           const resizedUrl = await resizeImageToPlatform(

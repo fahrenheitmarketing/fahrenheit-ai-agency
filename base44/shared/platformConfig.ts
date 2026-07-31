@@ -55,6 +55,17 @@ export const PLATFORM_IMAGE_COMPOSITION: Record<string, string> = {
   linkedin: 'wide horizontal landscape banner composition, keep all important visual elements in a central horizontal band, avoid critical detail at top and bottom edges',
 };
 
+// Approved Fahrenheit Marketing logos — the ONLY logos permitted in generated images
+export const APPROVED_LOGOS = {
+  fullLight: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c2210ac4a_FM-full-logo.svg',
+  fullDark: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/2a9e33410_FM-full-logo-dark.svg',
+  iconLight: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/a9f293e45_FM-icon.svg',
+  iconDark: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/a3b8021a0_FM-icon-dark.svg',
+};
+
+// Prompt instruction enforcing approved logo usage in generated images
+export const LOGO_INSTRUCTION = 'If the Fahrenheit Marketing logo appears in the image, you MUST use the provided reference logo exactly as shown — do not recreate, modify, or substitute it. Use the full logo for prominent placements and the icon-only version for small/badge placements. Choose the light or dark variant for best contrast against the background.';
+
 // Social media publishing targets
 export const FACEBOOK_PAGE_ID = '121996364508916'; // Fahrenheit Marketing Facebook page
 export const LINKEDIN_ORG_ID = '1042077'; // Fahrenheit Marketing LinkedIn company page

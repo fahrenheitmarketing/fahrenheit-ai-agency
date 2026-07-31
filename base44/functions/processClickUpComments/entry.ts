@@ -1,5 +1,5 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
-import { PLATFORM_IMAGE_COMPOSITION, STEVEN_BOSCH_ID, NICK_ERASMUS_ID } from '../../shared/platformConfig.ts';
+import { PLATFORM_IMAGE_COMPOSITION, APPROVED_LOGOS, LOGO_INSTRUCTION, STEVEN_BOSCH_ID, NICK_ERASMUS_ID } from '../../shared/platformConfig.ts';
 import { resizeImageToPlatform } from '../../shared/imageResizer.ts';
 
 Deno.serve(async (req) => {
@@ -149,7 +149,13 @@ For each changed post, include the topic (to identify which post), the updated c
               if (change.needs_new_image && change.image_prompt) {
                 const composition = PLATFORM_IMAGE_COMPOSITION[post.platform] || '';
                 const imgResult = await base44.asServiceRole.integrations.Core.GenerateImage({
-                  prompt: `${change.image_prompt}. ${composition}. Professional, eye-catching, high-quality digital marketing visual.`
+                  prompt: `${change.image_prompt}. ${composition}. ${LOGO_INSTRUCTION} Professional, eye-catching, high-quality digital marketing visual.`,
+                  existing_image_urls: [
+                    APPROVED_LOGOS.fullLight,
+                    APPROVED_LOGOS.fullDark,
+                    APPROVED_LOGOS.iconLight,
+                    APPROVED_LOGOS.iconDark,
+                  ],
                 });
                 // Resize to platform-specific dimensions (cover crop)
                 const resizedUrl = await resizeImageToPlatform(
