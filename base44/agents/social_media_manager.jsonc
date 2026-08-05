@@ -16,7 +16,14 @@
       "description": "Research trends, generate 4 platform-specific posts with images per platform, save to database, and create ClickUp tasks for approval"
     }
   ],
-  "context_files": [],
+  "context_files": [
+    {
+      "asset_id": "6a73739da142c73da1996d5a",
+      "file_name": "Fahrenheit_Brand_Reference_Guide_-_August_2026.pdf",
+      "file_url": "https://media.base44.com/files/public/69e6c4bd9bbd15c86a9a4b38/e7e30a7cc_Fahrenheit_Brand_Reference_Guide_-_August_2026.pdf",
+      "file_type": "pdf"
+    }
+  ],
   "app_user_connector_configs": [],
   "selected_skill_names": [],
   "selected_workspace_skill_ids": [],
