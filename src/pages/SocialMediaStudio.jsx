@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
-import { Loader2, Sparkles, MessageSquareReply } from 'lucide-react';
+import { Loader2, Sparkles, MessageSquareReply, RefreshCw } from 'lucide-react';
 import PostCard from '@/components/social-media/PostCard';
 import AgentChat from '@/components/social-media/AgentChat';
 import { useToast } from '@/components/ui/use-toast';
@@ -14,6 +14,7 @@ export default function SocialMediaStudio() {
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
   const [processing, setProcessing] = useState(false);
+  const [regenerating, setRegenerating] = useState(false);
   const [filter, setFilter] = useState('all');
 
   const loadPosts = useCallback(async () => {
@@ -39,6 +40,19 @@ export default function SocialMediaStudio() {
       console.error(err);
     } finally {
       setGenerating(false);
+    }
+  };
+
+  const handleRegenerateImages = async () => {
+    setRegenerating(true);
+    try {
+      const result = await base44.functions.invoke('regeneratePostImages', {});
+      toast({ title: 'Images regenerated', description: `${result.updated || 0} posts updated with brand-compliant visuals.` });
+      await loadPosts();
+    } catch (err) {
+      toast({ title: 'Regeneration failed', description: err.message, variant: 'destructive' });
+    } finally {
+      setRegenerating(false);
     }
   };
 
@@ -73,10 +87,14 @@ export default function SocialMediaStudio() {
               Leave feedback on ClickUp tasks → click "Process Feedback Now" (or wait ~30 min for auto-pickup) → changes are applied and confirmed in the task.
             </p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <Button onClick={handleProcessFeedback} disabled={processing} variant="outline" className="gap-2">
               {processing ? <Loader2 className="w-4 h-4 animate-spin" /> : <MessageSquareReply className="w-4 h-4" />}
               {processing ? 'Processing...' : 'Process Feedback Now'}
+            </Button>
+            <Button onClick={handleRegenerateImages} disabled={regenerating} variant="outline" className="gap-2">
+              {regenerating ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />}
+              {regenerating ? 'Regenerating...' : 'Redo All Creatives'}
             </Button>
             <Button onClick={handleGenerate} disabled={generating} className="gap-2">
               {generating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}

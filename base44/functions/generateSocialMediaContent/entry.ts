@@ -17,6 +17,23 @@ import {
 } from '../../shared/platformConfig.ts';
 import { resizeImageToPlatform } from '../../shared/imageResizer.ts';
 
+/**
+ * Builds a brand-compliant image prompt following the FM Brand Reference Guide (Edition 1.2).
+ * Uses the six-part photographic structure: shot type, casting, action, setting, mood & light, constraints.
+ * Colors: Ink #1C1917, Cream #F8F5F1, Ember #E64D1E, Stone #796D67.
+ * NEVER: upward-scaling arrows, generic stock clichés, warm/saturated grades, handshakes, celebrations,
+ * text or logos rendered into photographs, invented statistics, decorative screen content.
+ */
+function buildBrandImagePrompt(rawPrompt: string, platform: string, topic: string, composition: string): string {
+  const dimensionConstraint = {
+    facebook: 'Output dimensions: 1080x1350 pixels',
+    instagram: 'Output dimensions: 1080x1350 pixels',
+    linkedin: 'Output dimensions: 1200x627 pixels',
+  }[platform] || 'Output dimensions: 1080x1350 pixels';
+
+  return `A photorealistic shot of two named business professionals — a CMO in her 40s and a CFO in his 30s, with diverse ethnicity — reviewing ${topic.toLowerCase()} data on a large monitor or printed document in a modern glass-walled office with clean architectural lines, minimal furniture, and floor-to-ceiling windows. Data visualizations — cost curves, ROAS trend lines, or spend-by-channel breakdowns — appear softly blurred on a background screen. Their body language conveys focused scrutiny and deliberate assessment. The mood is analytically confident and deliberate. Soft natural daylight, slightly cool color grade. Color palette: deep near-black Ink (#1C1917) backgrounds with Cream (#F8F5F1) surfaces, single Ember (#E64D1E) accent element. No upward-scaling arrows, no generic stock photo clichés, no celebrations, no handshakes, no warm or saturated color grades. No text, logos, overlays, or written elements anywhere on the image. ${composition}. ${dimensionConstraint}.`;
+}
+
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
@@ -130,15 +147,11 @@ Return the research summary and all ${platformDates.linkedin.length + platformDa
       posts.map(async (post: any) => {
         try {
           const composition = PLATFORM_IMAGE_COMPOSITION[post.platform] || '';
-          const result = await base44.asServiceRole.integrations.Core.GenerateImage({
-            prompt: `${post.image_prompt}. ${composition}. ${LOGO_INSTRUCTION} Professional, eye-catching, high-quality digital marketing visual.`,
-            existing_image_urls: [
-              APPROVED_LOGOS.fullLight,
-              APPROVED_LOGOS.fullDark,
-              APPROVED_LOGOS.iconLight,
-              APPROVED_LOGOS.iconDark,
-            ],
-          });
+          // Build brand-compliant photographic prompt using the FM Brand Reference Guide six-part structure
+          const brandPrompt = buildBrandImagePrompt(post.image_prompt, post.platform, post.topic, composition);
+          // Brand guide: photographic images must contain no text, logos, or overlays.
+          // Logos are placed as real SVGs on typographic posts — never baked into AI-generated photos.
+          const result = await base44.asServiceRole.integrations.Core.GenerateImage({ prompt: brandPrompt });
           // Resize to platform-specific dimensions (cover crop)
           const resizedUrl = await resizeImageToPlatform(
             result.url,
