@@ -1,32 +1,7 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
-import { PLATFORM_IMAGE_COMPOSITION, APPROVED_LOGOS } from '../../shared/platformConfig.ts';
+import { PLATFORM_IMAGE_COMPOSITION } from '../../shared/platformConfig.ts';
+import { buildBrandImagePrompt } from '../../shared/brandImagePrompt.ts';
 import { resizeImageToPlatform } from '../../shared/imageResizer.ts';
-
-/**
- * Brand-compliant image prompt following FM Brand Reference Guide Edition 1.2.
- * Six-part photographic structure: shot type, casting, action, setting, mood & light, constraints.
- * NEVER: upward-scaling arrows, warm/saturated grades, handshakes, celebrations, text or logos in photos.
- * Colors: Ink #1C1917, Cream #F8F5F1, Ember #E64D1E accent.
- */
-function buildBrandImagePrompt(platform: string, topic: string): string {
-  const composition = PLATFORM_IMAGE_COMPOSITION[platform] || '';
-  const dimensionConstraint = platform === 'linkedin'
-    ? 'Output dimensions: 1200x627 pixels'
-    : 'Output dimensions: 1080x1350 pixels';
-
-  // Vary casting across topics for batch consistency (as per brand guide p.32)
-  const castings = [
-    'a CMO in her 40s (South Asian) and a CFO in his 30s (Black)',
-    'a marketing director in her 50s (Latina) and an engineering lead in his 30s (white)',
-    'a CEO in his 40s (East Asian) and a CMO in her 30s (Black)',
-    'a CFO in her 40s (white) and a marketing director in his 50s (Middle Eastern)',
-    'a strategy lead in her 30s (South Asian) and a CEO in his 50s (Latino)',
-  ];
-  // Use topic length as a stable but varied index
-  const casting = castings[topic.length % castings.length];
-
-  return `A photorealistic shot of ${casting} reviewing ${topic.toLowerCase()} analytics on a large monitor in a modern glass-walled office with clean architectural lines, minimal furniture, and floor-to-ceiling windows. Relevant data visualizations — cost curves, ROAS trend lines, or spend-by-channel breakdowns — appear softly blurred on a background screen. Their body language conveys focused scrutiny and deliberate assessment — pointing at data, taking notes, quiet realization. The mood is analytically confident and deliberate. Soft natural daylight, slightly cool color grade. Deep near-black backgrounds (#1C1917), clean surfaces (#F8F5F1), single accent detail (#E64D1E). Absolutely no upward-scaling arrows, no generic stock photo clichés, no celebrations, no handshakes, no high-fives, no warm or saturated color grades, no posed group shots facing camera. No text, logos, overlays, watermarks, or written elements anywhere on the image. ${composition}. ${dimensionConstraint}.`;
-}
 
 export default async function(req: Request): Promise<Response> {
   try {
@@ -42,12 +17,10 @@ export default async function(req: Request): Promise<Response> {
 
     let posts;
     if (post_ids && post_ids.length > 0) {
-      // Regenerate specific posts
       posts = await Promise.all(
         post_ids.map((id: string) => base44.asServiceRole.entities.SocialMediaPost.get(id))
       );
     } else {
-      // Regenerate all pending/draft posts
       const pending = await base44.asServiceRole.entities.SocialMediaPost.filter(
         { status: 'pending_approval' }, '-created_date', 100
       );
@@ -64,18 +37,65 @@ export default async function(req: Request): Promise<Response> {
     const batchSize = 5;
     for (let i = 0; i < posts.length; i += batchSize) {
       const batch = posts.slice(i, i + batchSize);
+
+      // For posts without a stored image_prompt, generate one via LLM
+      const postsNeedingPrompt = batch.filter((p: any) => !p.image_prompt);
+      if (postsNeedingPrompt.length > 0) {
+        try {
+          const contextStr = postsNeedingPrompt.map((p: any, idx: number) =>
+            `[Post ${idx + 1}] Topic: ${p.topic}\nPlatform: ${p.platform}\nContent: ${p.content}`
+          ).join('\n\n');
+
+          const promptResult = await base44.asServiceRole.integrations.Core.InvokeLLM({
+            prompt: `You are a creative director at a digital marketing agency. For each social media post below, write a concise, vivid visual scene description (1-2 sentences) that a photographer or AI image generator could use to create a compelling image that directly illustrates the post's topic.
+
+The image must be visually relevant to the specific topic — NOT a generic "people in an office" shot. Think about what visual would actually represent the subject matter. For example: if the topic is about voice search, show someone speaking to a smart speaker; if about email marketing, show a beautifully designed email on a phone screen; if about data analytics, show an abstract data visualization.
+
+Return one image_prompt per post, matching the order given.
+
+${contextStr}`,
+            response_json_schema: {
+              type: 'object',
+              properties: {
+                prompts: {
+                  type: 'array',
+                  items: {
+                    type: 'object',
+                    properties: {
+                      topic: { type: 'string' },
+                      image_prompt: { type: 'string' }
+                    },
+                    required: ['topic', 'image_prompt']
+                  }
+                }
+              },
+              required: ['prompts']
+            }
+          });
+
+          for (const item of (promptResult.prompts || [])) {
+            const post = postsNeedingPrompt.find((p: any) => p.topic === item.topic);
+            if (post && item.image_prompt) {
+              post.image_prompt = item.image_prompt;
+            }
+          }
+        } catch (llmErr) {
+          console.error('LLM prompt generation failed:', llmErr);
+        }
+      }
+
       await Promise.all(batch.map(async (post: any) => {
         try {
-          const prompt = buildBrandImagePrompt(post.platform, post.topic);
+          const subjectPrompt = post.image_prompt || `A visual representation of ${post.topic}`;
+          const composition = PLATFORM_IMAGE_COMPOSITION[post.platform] || '';
+          const prompt = buildBrandImagePrompt(subjectPrompt, post.platform, post.topic, composition);
           console.log(`Generating image for ${post.platform}/${post.topic}`);
-          // Generate photographic image — brand guide states no logos/text in photographic images
           const result = await base44.asServiceRole.integrations.Core.GenerateImage({ prompt });
 
           if (!result || !result.url) {
             throw new Error('No image URL returned from GenerateImage');
           }
 
-          // Attempt resize; fall back to original URL on canvas failure
           let finalUrl = result.url;
           try {
             finalUrl = await resizeImageToPlatform(
@@ -92,6 +112,7 @@ export default async function(req: Request): Promise<Response> {
 
           await base44.asServiceRole.entities.SocialMediaPost.update(post.id, {
             image_url: finalUrl,
+            image_prompt: post.image_prompt || subjectPrompt,
           });
           updated++;
         } catch (err) {

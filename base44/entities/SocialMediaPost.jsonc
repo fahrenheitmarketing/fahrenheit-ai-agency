@@ -18,6 +18,10 @@
       "type": "string",
       "description": "URL of the AI-generated image for this post"
     },
+    "image_prompt": {
+      "type": "string",
+      "description": "LLM-generated visual scene description used for image generation"
+    },
     "topic": {
       "type": "string",
       "description": "The specific topic/angle of this post, used for deduplication"

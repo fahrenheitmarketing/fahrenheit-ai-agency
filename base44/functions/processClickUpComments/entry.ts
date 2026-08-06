@@ -1,16 +1,7 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
 import { PLATFORM_IMAGE_COMPOSITION, APPROVED_LOGOS, LOGO_INSTRUCTION, STEVEN_BOSCH_ID, NICK_ERASMUS_ID } from '../../shared/platformConfig.ts';
 import { resizeImageToPlatform } from '../../shared/imageResizer.ts';
-
-function buildBrandImagePrompt(rawPrompt: string, platform: string, topic: string, composition: string): string {
-  const dimensionConstraint = {
-    facebook: 'Output dimensions: 1080x1350 pixels',
-    instagram: 'Output dimensions: 1080x1350 pixels',
-    linkedin: 'Output dimensions: 1200x627 pixels',
-  }[platform] || 'Output dimensions: 1080x1350 pixels';
-
-  return `A photorealistic shot of two named business professionals — a CMO in her 40s and a CFO in his 30s, with diverse ethnicity — reviewing ${topic.toLowerCase()} data on a large monitor or printed document in a modern glass-walled office with clean architectural lines, minimal furniture, and floor-to-ceiling windows. Data visualizations — cost curves, ROAS trend lines, or spend-by-channel breakdowns — appear softly blurred on a background screen. Their body language conveys focused scrutiny and deliberate assessment. The mood is analytically confident and deliberate. Soft natural daylight, slightly cool color grade. Color palette: deep near-black Ink (#1C1917) backgrounds with Cream (#F8F5F1) surfaces, single Ember (#E64D1E) accent element. No upward-scaling arrows, no generic stock photo clichés, no celebrations, no handshakes, no warm or saturated color grades. No text, logos, overlays, or written elements anywhere on the image. ${composition}. ${dimensionConstraint}.`;
-}
+import { buildBrandImagePrompt } from '../../shared/brandImagePrompt.ts';
 
 Deno.serve(async (req) => {
   try {
@@ -159,7 +150,6 @@ For each changed post, include the topic (to identify which post), the updated c
               if (change.needs_new_image && change.image_prompt) {
                 const composition = PLATFORM_IMAGE_COMPOSITION[post.platform] || '';
                 const brandPrompt = buildBrandImagePrompt(change.image_prompt, post.platform, post.topic, composition);
-                // Brand guide: photographic images must contain no text, logos, or overlays.
                 const imgResult = await base44.asServiceRole.integrations.Core.GenerateImage({ prompt: brandPrompt });
                 // Resize to platform-specific dimensions (cover crop)
                 const resizedUrl = await resizeImageToPlatform(
@@ -207,6 +197,11 @@ For each changed post, include the topic (to identify which post), the updated c
           }
           if (updatedImageUrls[post.id]) {
             updateData.image_url = updatedImageUrls[post.id];
+          }
+          // Store the image_prompt from the LLM change response
+          const changeForPost = (llmResult.changes || []).find((c: any) => c.topic === post.topic);
+          if (changeForPost && changeForPost.image_prompt) {
+            updateData.image_prompt = changeForPost.image_prompt;
           }
 
           // If both approved, set status to approved
