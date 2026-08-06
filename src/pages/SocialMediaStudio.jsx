@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
-import { Loader2, Sparkles, MessageSquareReply, RefreshCw } from 'lucide-react';
+import { Loader2, Sparkles, MessageSquareReply, RefreshCw, Trash2, Archive } from 'lucide-react';
 import PostCard from '@/components/social-media/PostCard';
 import AgentChat from '@/components/social-media/AgentChat';
 import { useToast } from '@/components/ui/use-toast';
@@ -16,6 +16,8 @@ export default function SocialMediaStudio() {
   const [processing, setProcessing] = useState(false);
   const [regenerating, setRegenerating] = useState(false);
   const [filter, setFilter] = useState('all');
+  const [activeTab, setActiveTab] = useState('studio');
+  const [clearing, setClearing] = useState(false);
 
   const loadPosts = useCallback(async () => {
     setLoading(true);
@@ -96,7 +98,25 @@ export default function SocialMediaStudio() {
     }
   };
 
-  const filtered = filter === 'all' ? posts : posts.filter(p => p.platform === filter);
+  const handleClearArchive = async () => {
+    if (!window.confirm('This will permanently delete all published posts. Are you sure?')) return;
+    setClearing(true);
+    try {
+      const result = await base44.functions.invoke('clearArchivedPosts', {});
+      toast({ title: 'Archive cleared', description: `${result.deleted || 0} published posts deleted.` });
+      await loadPosts();
+    } catch (err) {
+      toast({ title: 'Clear failed', description: err.message, variant: 'destructive' });
+    } finally {
+      setClearing(false);
+    }
+  };
+
+  const studioPosts = posts.filter(p => p.status !== 'published');
+  const archivedPosts = posts.filter(p => p.status === 'published');
+  const filtered = activeTab === 'studio'
+    ? (filter === 'all' ? studioPosts : studioPosts.filter(p => p.platform === filter))
+    : (filter === 'all' ? archivedPosts : archivedPosts.filter(p => p.platform === filter));
 
   return (
     <div className="min-h-screen bg-background">
@@ -125,6 +145,39 @@ export default function SocialMediaStudio() {
           </div>
         </div>
 
+        <div className="flex items-center justify-between gap-4 mb-6">
+          <div className="flex gap-2">
+            <button
+              onClick={() => setActiveTab('studio')}
+              className={`px-4 py-2 rounded-sm text-sm font-body capitalize transition-colors ${
+                activeTab === 'studio' ? 'bg-foreground text-background' : 'bg-secondary text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Active Studio
+            </button>
+            <button
+              onClick={() => setActiveTab('archive')}
+              className={`px-4 py-2 rounded-sm text-sm font-body capitalize transition-colors flex items-center gap-2 ${
+                activeTab === 'archive' ? 'bg-foreground text-background' : 'bg-secondary text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <Archive className="w-3.5 h-3.5" />
+              Archive
+              {archivedPosts.length > 0 && (
+                <span className={`px-1.5 py-0.5 rounded-full text-xs ${activeTab === 'archive' ? 'bg-background/20' : 'bg-muted'}`}>
+                  {archivedPosts.length}
+                </span>
+              )}
+            </button>
+          </div>
+          {activeTab === 'archive' && archivedPosts.length > 0 && (
+            <Button onClick={handleClearArchive} disabled={clearing} variant="destructive" className="gap-2">
+              {clearing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
+              {clearing ? 'Clearing...' : 'Clear Archive'}
+            </Button>
+          )}
+        </div>
+
         <div className="flex gap-2 mb-6">
           {PLATFORMS.map(p => (
             <button
@@ -145,7 +198,7 @@ export default function SocialMediaStudio() {
           </div>
         ) : filtered.length === 0 ? (
           <div className="text-center py-20 text-muted-foreground">
-            <p>No posts yet. Click "Generate New Posts" to get started.</p>
+            <p>{activeTab === 'archive' ? 'No published posts in the archive.' : 'No posts yet. Click "Generate New Posts" to get started.'}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
