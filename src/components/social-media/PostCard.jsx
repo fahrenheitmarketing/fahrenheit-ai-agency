@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
-import { Check, X, Loader2, Send } from 'lucide-react';
+import { Check, X, Loader2, Send, ImageIcon, FilePlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const PLATFORM_STYLES = {
@@ -17,10 +17,30 @@ const STATUS_STYLES = {
   published: 'bg-purple-100 text-purple-700',
 };
 
-export default function PostCard({ post, onStatusChange }) {
+export default function PostCard({ post, onStatusChange, onRegenerateImage, onCreateNew }) {
   const [updating, setUpdating] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [publishError, setPublishError] = useState(null);
+  const [regenImage, setRegenImage] = useState(false);
+  const [creatingNew, setCreatingNew] = useState(false);
+
+  const handleRegenImage = async () => {
+    setRegenImage(true);
+    try {
+      await onRegenerateImage(post);
+    } finally {
+      setRegenImage(false);
+    }
+  };
+
+  const handleCreateNew = async () => {
+    setCreatingNew(true);
+    try {
+      await onCreateNew(post);
+    } finally {
+      setCreatingNew(false);
+    }
+  };
 
   const updateStatus = async (status) => {
     setUpdating(true);
@@ -87,6 +107,16 @@ export default function PostCard({ post, onStatusChange }) {
             </Button>
           </div>
         )}
+        <div className="flex gap-2 mt-2">
+          <Button size="sm" variant="ghost" className="gap-1 flex-1 text-xs" onClick={handleRegenImage} disabled={regenImage || creatingNew}>
+            {regenImage ? <Loader2 className="w-3 h-3 animate-spin" /> : <ImageIcon className="w-3 h-3" />}
+            {regenImage ? 'Regenerating...' : 'Regenerate Image'}
+          </Button>
+          <Button size="sm" variant="ghost" className="gap-1 flex-1 text-xs" onClick={handleCreateNew} disabled={regenImage || creatingNew}>
+            {creatingNew ? <Loader2 className="w-3 h-3 animate-spin" /> : <FilePlus className="w-3 h-3" />}
+            {creatingNew ? 'Creating...' : 'New Post'}
+          </Button>
+        </div>
       </div>
     </div>
   );

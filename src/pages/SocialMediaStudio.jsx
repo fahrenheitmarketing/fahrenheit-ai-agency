@@ -60,6 +60,28 @@ export default function SocialMediaStudio() {
     setPosts(prev => prev.map(p => p.id === id ? { ...p, status } : p));
   };
 
+  const handleRegenerateImage = async (post) => {
+    toast({ title: 'Regenerating image...', description: post.topic });
+    try {
+      await base44.functions.invoke('regeneratePostImages', { post_ids: [post.id] });
+      toast({ title: 'Image regenerated', description: post.topic });
+      await loadPosts();
+    } catch (err) {
+      toast({ title: 'Regeneration failed', description: err.message, variant: 'destructive' });
+    }
+  };
+
+  const handleCreateNewPost = async (post) => {
+    toast({ title: 'Creating new post...', description: `Based on: ${post.topic}` });
+    try {
+      await base44.functions.invoke('createNewPost', { based_on_post_id: post.id });
+      toast({ title: 'New post created' });
+      await loadPosts();
+    } catch (err) {
+      toast({ title: 'Creation failed', description: err.message, variant: 'destructive' });
+    }
+  };
+
   const handleProcessFeedback = async () => {
     setProcessing(true);
     try {
@@ -128,7 +150,7 @@ export default function SocialMediaStudio() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map(post => (
-              <PostCard key={post.id} post={post} onStatusChange={handleStatusChange} />
+              <PostCard key={post.id} post={post} onStatusChange={handleStatusChange} onRegenerateImage={handleRegenerateImage} onCreateNew={handleCreateNewPost} />
             ))}
           </div>
         )}
