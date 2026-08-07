@@ -1,0 +1,56 @@
+{
+  "name": "PostFeedback",
+  "type": "object",
+  "properties": {
+    "post_id": {
+      "type": "string",
+      "description": "ID of the SocialMediaPost this feedback relates to"
+    },
+    "batch_id": {
+      "type": "string",
+      "description": "Batch this post belongs to, for grouping on the review page"
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "facebook",
+        "instagram",
+        "linkedin"
+      ]
+    },
+    "client_name": {
+      "type": "string",
+      "description": "Name entered by the client leaving feedback"
+    },
+    "comment": {
+      "type": "string",
+      "description": "The client's comment or requested changes"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "changes_requested"
+      ],
+      "description": "Whether the client approved the post or requested changes"
+    }
+  },
+  "required": [
+    "post_id",
+    "action"
+  ],
+  "rls": {
+    "create": null,
+    "read": null,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

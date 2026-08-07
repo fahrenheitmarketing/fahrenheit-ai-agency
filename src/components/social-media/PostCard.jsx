@@ -17,7 +17,8 @@ const STATUS_STYLES = {
   published: 'bg-purple-100 text-purple-700',
 };
 
-export default function PostCard({ post, onStatusChange, onRegenerateImage, onCreateNew }) {
+export default function PostCard({ post, onStatusChange, onRegenerateImage, onCreateNew, clientFeedback = [] }) {
+  const latestFeedback = clientFeedback[0];
   const [updating, setUpdating] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [publishError, setPublishError] = useState(null);
@@ -88,6 +89,15 @@ export default function PostCard({ post, onStatusChange, onRegenerateImage, onCr
           <p className="text-xs text-muted-foreground mb-2 font-body">📅 {post.proposed_publish_date}</p>
         )}
         <p className="text-sm text-foreground leading-relaxed mb-4 line-clamp-4 whitespace-pre-wrap">{post.content}</p>
+        {latestFeedback && (
+          <div className="mb-4 text-xs bg-secondary rounded-sm p-2 font-body">
+            <span className="font-medium">{latestFeedback.client_name || 'Client'}</span>{' '}
+            <span className={latestFeedback.action === 'approved' ? 'text-green-700' : 'text-amber-700'}>
+              {latestFeedback.action === 'approved' ? 'approved' : 'requested changes'}
+            </span>
+            {latestFeedback.comment && <p className="text-muted-foreground mt-1">{latestFeedback.comment}</p>}
+          </div>
+        )}
         {post.status === 'approved' && (
           <div className="flex flex-col gap-2 mt-auto">
             {publishError && <p className="text-xs text-red-600">{publishError}</p>}

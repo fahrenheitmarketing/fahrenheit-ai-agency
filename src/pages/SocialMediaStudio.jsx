@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
-import { Loader2, Sparkles, MessageSquareReply, RefreshCw, Trash2, Archive } from 'lucide-react';
+import { Loader2, Sparkles, MessageSquareReply, RefreshCw, Trash2, Archive, Link2, Check } from 'lucide-react';
 import PostCard from '@/components/social-media/PostCard';
 import AgentChat from '@/components/social-media/AgentChat';
 import { useToast } from '@/components/ui/use-toast';
@@ -11,6 +11,7 @@ const PLATFORMS = ['all', 'facebook', 'instagram', 'linkedin'];
 export default function SocialMediaStudio() {
   const { toast } = useToast();
   const [posts, setPosts] = useState([]);
+  const [feedback, setFeedback] = useState([]);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
   const [processing, setProcessing] = useState(false);
@@ -18,12 +19,17 @@ export default function SocialMediaStudio() {
   const [filter, setFilter] = useState('all');
   const [activeTab, setActiveTab] = useState('studio');
   const [clearing, setClearing] = useState(false);
+  const [copiedBatch, setCopiedBatch] = useState(null);
 
   const loadPosts = useCallback(async () => {
     setLoading(true);
     try {
-      const data = await base44.entities.SocialMediaPost.list('-created_date', 100);
+      const [data, feedbackData] = await Promise.all([
+        base44.entities.SocialMediaPost.list('-created_date', 100),
+        base44.entities.PostFeedback.list('-created_date', 200),
+      ]);
       setPosts(data);
+      setFeedback(feedbackData);
     } catch (err) {
       console.error(err);
     } finally {
@@ -112,11 +118,28 @@ export default function SocialMediaStudio() {
     }
   };
 
+  const handleCopyReviewLink = (batchId) => {
+    const url = `${window.location.origin}/social-media-post-review?batch_id=${batchId}`;
+    navigator.clipboard.writeText(url);
+    setCopiedBatch(batchId);
+    toast({ title: 'Review link copied', description: 'Paste it in an email or message to your client.' });
+    setTimeout(() => setCopiedBatch(null), 2000);
+  };
+
   const studioPosts = posts.filter(p => p.status !== 'published');
   const archivedPosts = posts.filter(p => p.status === 'published');
   const filtered = activeTab === 'studio'
     ? (filter === 'all' ? studioPosts : studioPosts.filter(p => p.platform === filter))
     : (filter === 'all' ? archivedPosts : archivedPosts.filter(p => p.platform === filter));
+
+  const batchGroups = activeTab === 'studio'
+    ? filtered.reduce((acc, post) => {
+        const key = post.batch_id || 'no-batch';
+        if (!acc[key]) acc[key] = [];
+        acc[key].push(post);
+        return acc;
+      }, {})
+    : null;
 
   return (
     <div className="min-h-screen bg-background">
@@ -199,6 +222,34 @@ export default function SocialMediaStudio() {
         ) : filtered.length === 0 ? (
           <div className="text-center py-20 text-muted-foreground">
             <p>{activeTab === 'archive' ? 'No published posts in the archive.' : 'No posts yet. Click "Generate New Posts" to get started.'}</p>
+          </div>
+        ) : activeTab === 'studio' ? (
+          <div className="space-y-10">
+            {Object.entries(batchGroups).map(([batchId, batchPosts]) => (
+              <div key={batchId}>
+                {batchId !== 'no-batch' && (
+                  <div className="flex items-center justify-between mb-4 pb-2 border-b border-border">
+                    <p className="text-xs text-muted-foreground font-body">Batch: {batchId}</p>
+                    <Button size="sm" variant="outline" className="gap-2" onClick={() => handleCopyReviewLink(batchId)}>
+                      {copiedBatch === batchId ? <Check className="w-3.5 h-3.5" /> : <Link2 className="w-3.5 h-3.5" />}
+                      {copiedBatch === batchId ? 'Link Copied' : 'Copy Review Link'}
+                    </Button>
+                  </div>
+                )}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {batchPosts.map(post => (
+                    <PostCard
+                      key={post.id}
+                      post={post}
+                      onStatusChange={handleStatusChange}
+                      onRegenerateImage={handleRegenerateImage}
+                      onCreateNew={handleCreateNewPost}
+                      clientFeedback={feedback.filter(f => f.post_id === post.id)}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
