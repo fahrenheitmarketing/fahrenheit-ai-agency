@@ -8,7 +8,7 @@ const stats = [
 { value: '2008', label: 'Founded in Austin, TX' },
 { value: '18+', label: 'Years in Business' },
 { value: '350+', label: 'Global Clients Served' },
-{ value: "100%", label: "Monthly er" }];
+{ value: "100%", label: "Monthly R" }];
 
 
 const values = [
