@@ -5,34 +5,34 @@ import { ArrowRight } from 'lucide-react';
 import CTASection from '../components/shared/CTASection';
 
 const stats = [
-  { value: '2008', label: 'Founded in Austin, TX' },
-  { value: '18+', label: 'Years in Business' },
-  { value: '350+', label: 'Global Clients Served' },
-  { value: '$0', label: 'Long-Term Contracts' },
-];
+{ value: '2008', label: 'Founded in Austin, TX' },
+{ value: '18+', label: 'Years in Business' },
+{ value: '350+', label: 'Global Clients Served' },
+{ value: "100%", label: "Monthly er" }];
+
 
 const values = [
-  {
-    num: '01',
-    title: 'AI-First, Always',
-    description: 'Every process, strategy, and decision is enhanced by artificial intelligence — not as a gimmick, but as a fundamental competitive advantage for our clients.',
-  },
-  {
-    num: '02',
-    title: 'Radical Transparency',
-    description: 'No hidden fees, no jargon, no smoke and mirrors. You see exactly what we do, why we do it, and what it costs. Month-to-month because we believe in earning trust.',
-  },
-  {
-    num: '03',
-    title: 'Human + Machine',
-    description: 'AI handles the data, pattern recognition, and optimization. Our experienced team handles strategy, creativity, and relationships. The best of both worlds.',
-  },
-  {
-    num: '04',
-    title: 'Results Over Everything',
-    description: "We don't celebrate vanity metrics. We celebrate revenue growth, conversion improvements, and ROI. If it doesn't move your business forward, we don't do it.",
-  },
-];
+{
+  num: '01',
+  title: 'AI-First, Always',
+  description: 'Every process, strategy, and decision is enhanced by artificial intelligence — not as a gimmick, but as a fundamental competitive advantage for our clients.'
+},
+{
+  num: '02',
+  title: 'Radical Transparency',
+  description: 'No hidden fees, no jargon, no smoke and mirrors. You see exactly what we do, why we do it, and what it costs. Month-to-month because we believe in earning trust.'
+},
+{
+  num: '03',
+  title: 'Human + Machine',
+  description: 'AI handles the data, pattern recognition, and optimization. Our experienced team handles strategy, creativity, and relationships. The best of both worlds.'
+},
+{
+  num: '04',
+  title: 'Results Over Everything',
+  description: "We don't celebrate vanity metrics. We celebrate revenue growth, conversion improvements, and ROI. If it doesn't move your business forward, we don't do it."
+}];
+
 
 export default function About() {
   return (
@@ -60,12 +60,12 @@ export default function About() {
               </Link>
             </div>
             <div className="grid grid-cols-2 gap-px bg-border border border-border">
-              {stats.map((s) => (
-                <div key={s.label} className="bg-secondary/50 hover:bg-secondary transition-colors duration-200 p-8">
+              {stats.map((s) =>
+              <div key={s.label} className="bg-secondary/50 hover:bg-secondary transition-colors duration-200 p-8">
                   <p className="font-heading text-4xl font-normal text-foreground mb-1">{s.value}</p>
                   <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">{s.label}</p>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -82,8 +82,8 @@ export default function About() {
                 <img
                   src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/1e2a5c8c8_generated_image.png"
                   alt="Ricardo Casas"
-                  className="w-full h-full object-cover object-top opacity-90"
-                />
+                  className="w-full h-full object-cover object-top opacity-90" />
+                
               </div>
               <div className="border-t border-border pt-6">
                 <h2 className="font-heading text-3xl font-normal mb-1">Ricardo Casas</h2>
@@ -135,8 +135,8 @@ export default function About() {
               </h2>
             </div>
             <div className="lg:col-span-2">
-              {values.map((v) => (
-                <div key={v.num} className="py-8 border-t border-border">
+              {values.map((v) =>
+              <div key={v.num} className="py-8 border-t border-border">
                   <div className="flex items-start gap-8">
                     <span className="text-xs text-muted-foreground font-body pt-1 flex-shrink-0">{v.num}</span>
                     <div>
@@ -145,7 +145,7 @@ export default function About() {
                     </div>
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -157,8 +157,8 @@ export default function About() {
           src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
           alt=""
           aria-hidden="true"
-          className="absolute top-0 right-0 w-[360px] pointer-events-none opacity-10 select-none"
-        />
+          className="absolute top-0 right-0 w-[360px] pointer-events-none opacity-10 select-none" />
+        
         <div className="max-w-7xl mx-auto relative">
           <p className="text-xs uppercase tracking-widest text-background/40 mb-6 font-body">Account Management</p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -183,15 +183,15 @@ export default function About() {
               </p>
               <div className="grid grid-cols-3 gap-px bg-background/10 border border-background/10 mt-8">
                 {[
-                  { label: 'Transparent reporting' },
-                  { label: 'Honest conversations' },
-                  { label: 'Your budget, treated like our own' },
-                ].map((item) => (
-                  <div key={item.label} className="bg-background/5 px-6 py-5">
+                { label: 'Transparent reporting' },
+                { label: 'Honest conversations' },
+                { label: 'Your budget, treated like our own' }].
+                map((item) =>
+                <div key={item.label} className="bg-background/5 px-6 py-5">
                     <span className="block w-1.5 h-1.5 rounded-full bg-accent mb-3" />
                     <p className="text-xs uppercase tracking-widest text-background/60 font-body">{item.label}</p>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -214,19 +214,19 @@ export default function About() {
             </div>
             <div className="bg-foreground text-background rounded-sm p-10 space-y-8">
               {[
-                { label: 'Campaign Optimization', detail: '24/7 AI monitoring & adjustment', to: '/services/sem' },
-                { label: 'Data Interpretation', detail: 'Real-time insights, not monthly reports', to: '/services/strategy' },
-                { label: 'Budget Efficiency', detail: 'AI eliminates waste before it happens', to: '/services/cro' },
-                { label: 'Competitive Intelligence', detail: 'Continuous market signal analysis', to: '/services/seo' },
-              ].map((item) => (
-                <Link key={item.label} to={item.to} className="flex items-start justify-between gap-4 border-b border-background/10 pb-6 last:border-0 last:pb-0 group">
+              { label: 'Campaign Optimization', detail: '24/7 AI monitoring & adjustment', to: '/services/sem' },
+              { label: 'Data Interpretation', detail: 'Real-time insights, not monthly reports', to: '/services/strategy' },
+              { label: 'Budget Efficiency', detail: 'AI eliminates waste before it happens', to: '/services/cro' },
+              { label: 'Competitive Intelligence', detail: 'Continuous market signal analysis', to: '/services/seo' }].
+              map((item) =>
+              <Link key={item.label} to={item.to} className="flex items-start justify-between gap-4 border-b border-background/10 pb-6 last:border-0 last:pb-0 group">
                   <div>
                     <p className="text-sm font-medium text-background font-body">{item.label}</p>
                     <p className="text-xs text-background/50 font-body mt-0.5">{item.detail}</p>
                   </div>
                   <span className="text-accent text-lg flex-shrink-0 group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -235,8 +235,8 @@ export default function About() {
       <CTASection
         headline="Let's Build Something Great Together"
         subtext="No contracts. No commitments. Just a conversation about how AI-first marketing can grow your business."
-        buttonText="Start the Conversation"
-      />
-    </>
-  );
+        buttonText="Start the Conversation" />
+      
+    </>);
+
 }
