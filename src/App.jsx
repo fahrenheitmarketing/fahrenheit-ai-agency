@@ -31,6 +31,8 @@ import KyleBudaTX from './pages/locations/KyleBudaTX';
 import BastropTX from './pages/locations/BastropTX';
 import Promo from './pages/Promo';
 import PromoAlt from './pages/PromoAlt';
+import PromoRetainer from './pages/PromoRetainer';
+import PromoWebsite from './pages/PromoWebsite';
 import Portfolio from './pages/Portfolio';
 import ContentStudio from './pages/ContentStudio';
 import SocialMediaStudio from './pages/SocialMediaStudio';
@@ -83,6 +85,8 @@ const AuthenticatedApp = () => {
         <Route path="/digital-marketing-agency-bastrop-tx" element={<BastropTX />} />
         <Route path="/promo" element={<Promo />} />
         <Route path="/promo2" element={<PromoAlt />} />
+        <Route path="/promo-retainer" element={<PromoRetainer />} />
+        <Route path="/promo-website" element={<PromoWebsite />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/content-studio" element={<ContentStudio />} />
         <Route path="/social-media-studio" element={<SocialMediaStudio />} />
