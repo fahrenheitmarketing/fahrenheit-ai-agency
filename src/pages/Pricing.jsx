@@ -84,19 +84,19 @@ export default function Pricing() {
           className="absolute top-0 right-0 w-[400px] pointer-events-none opacity-60 select-none"
         />
         <div className="relative max-w-7xl mx-auto text-center">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent mb-4 font-body">
             Transparent Pricing
           </span>
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6 max-w-4xl mx-auto">
-            Month-to-Month. <span className="text-primary">No Contracts.</span>
+            Month-to-Month. <span className="text-accent">No Contracts.</span>
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
             We must earn your trust every single month. If we don't deliver results, you walk. It's that simple. Our retainers start from $1,500/month.
           </p>
           <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-primary" /> Month-to-month</div>
-            <div className="flex items-center gap-2"><Shield className="w-4 h-4 text-primary" /> Cancel anytime</div>
-            <div className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> AI-powered</div>
+            <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-accent" /> Month-to-month</div>
+            <div className="flex items-center gap-2"><Shield className="w-4 h-4 text-accent" /> Cancel anytime</div>
+            <div className="flex items-center gap-2"><Zap className="w-4 h-4 text-accent" /> AI-powered</div>
           </div>
         </div>
       </section>
@@ -142,7 +142,7 @@ export default function Pricing() {
                           <div className="space-y-2">
                             {block.features.map((feature) => (
                               <div key={feature} className="flex items-start gap-3">
-                                <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-white' : 'text-primary'}`} />
+                                <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-white' : 'text-accent'}`} />
                                 <span className={`text-sm ${tier.popular ? 'text-white/90' : ''}`}>{feature}</span>
                               </div>
                             ))}
@@ -155,7 +155,7 @@ export default function Pricing() {
                           <div className="space-y-2">
                             {tier.sharedFeatures.map((feature) => (
                               <div key={feature} className="flex items-start gap-3">
-                                <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-white' : 'text-primary'}`} />
+                                <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-white' : 'text-accent'}`} />
                                 <span className={`text-sm ${tier.popular ? 'text-white/90' : ''}`}>{feature}</span>
                               </div>
                             ))}
@@ -167,7 +167,7 @@ export default function Pricing() {
                     <div className="space-y-3">
                       {tier.features.map((feature) => (
                         <div key={feature} className="flex items-start gap-3">
-                          <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-white' : 'text-primary'}`} />
+                          <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? 'text-white' : 'text-accent'}`} />
                           <span className={`text-sm ${tier.popular ? 'text-white/90' : ''}`}>{feature}</span>
                         </div>
                       ))}

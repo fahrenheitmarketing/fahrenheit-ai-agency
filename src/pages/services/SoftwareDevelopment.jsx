@@ -55,11 +55,11 @@ export default function SoftwareDevelopment() {
         />
         <div className="relative max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent mb-4 font-body">
               Custom Software Development
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
-              Intelligent Applications <span className="text-primary">Built to Operate</span>
+              Intelligent Applications <span className="text-accent">Built to Operate</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               Off-the-shelf software doesn't solve unique problems. We build custom web applications and operational platforms engineered specifically for your business — combining intelligent automation, real-time visibility, and AI-driven insights to help you scale faster and operate smarter.
@@ -91,8 +91,8 @@ export default function SoftwareDevelopment() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilities.map((cap) => (
               <div key={cap.title} className="bg-card p-8 rounded-2xl border border-border">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                  <cap.icon className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+                  <cap.icon className="w-6 h-6 text-accent" />
                 </div>
                 <h3 className="font-heading text-lg font-normal mb-2">{cap.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{cap.description}</p>
@@ -114,7 +114,7 @@ export default function SoftwareDevelopment() {
               <div className="space-y-4">
                 {['Strategic discovery & requirements gathering', 'Full-stack architecture design & planning', 'Agile development with transparent progress', 'AI integration & intelligent automation', 'Comprehensive testing & quality assurance', 'Deployment & ongoing optimization', 'Training, documentation & support', 'Continuous improvement & feature roadmap'].map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                     <span className="text-sm">{item}</span>
                   </div>
                 ))}
@@ -149,19 +149,19 @@ export default function SoftwareDevelopment() {
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Scheduling & resource management</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Project tracking & team collaboration</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Inventory & supply chain visibility</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Customer relationship management</span>
                 </li>
               </ul>
@@ -174,19 +174,19 @@ export default function SoftwareDevelopment() {
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Ecommerce platforms & marketplaces</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>SaaS applications & software solutions</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Member portals & community platforms</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Content management & publishing systems</span>
                 </li>
               </ul>
@@ -199,19 +199,19 @@ export default function SoftwareDevelopment() {
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Predictive analytics & forecasting</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Business intelligence dashboards</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Data integration & ETL pipelines</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>AI-powered insights & recommendations</span>
                 </li>
               </ul>
@@ -224,19 +224,19 @@ export default function SoftwareDevelopment() {
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Third-party API integrations</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Custom automation workflows</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>Legacy system modernization</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>AI-assisted process automation</span>
                 </li>
               </ul>
@@ -257,8 +257,8 @@ export default function SoftwareDevelopment() {
             {/* BigCommerce */}
             <div className="bg-card border border-border rounded-2xl p-10">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Code className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <Code className="w-6 h-6 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-heading text-xl font-normal">BigCommerce Development</h3>
@@ -271,12 +271,12 @@ export default function SoftwareDevelopment() {
               <ul className="space-y-2 text-sm text-muted-foreground mb-8">
                 {['Custom Stencil theme development', 'ERP, CRM & fulfillment integrations', 'B2B functionality & account hierarchies', 'Multi-storefront & multi-currency setup', 'Core Web Vitals & performance optimization', 'Headless commerce architecture'].map(item => (
                   <li key={item} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline font-body">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline font-body">
                 Start a BigCommerce project <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -284,8 +284,8 @@ export default function SoftwareDevelopment() {
             {/* Shopify */}
             <div className="bg-card border border-border rounded-2xl p-10">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <Zap className="w-6 h-6 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-heading text-xl font-normal">Shopify Development</h3>
@@ -298,12 +298,12 @@ export default function SoftwareDevelopment() {
               <ul className="space-y-2 text-sm text-muted-foreground mb-8">
                 {['Custom Liquid theme development', 'Shopify Plus for enterprise brands', 'App integrations & custom app development', 'Checkout customization & optimization', 'Migration from other platforms', 'Ongoing CRO & performance management'].map(item => (
                   <li key={item} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline font-body">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline font-body">
                 Start a Shopify project <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

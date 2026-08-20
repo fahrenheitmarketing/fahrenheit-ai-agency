@@ -50,8 +50,8 @@ export default function Contact() {
           animate={{ opacity: 1, scale: 1 }}
           className="max-w-lg mx-auto text-center"
         >
-          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-8 h-8 text-primary" />
+          <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
+            <CheckCircle className="w-8 h-8 text-accent" />
           </div>
           <h1 className="font-heading text-3xl font-normal mb-4">Thank You</h1>
           <p className="text-muted-foreground leading-relaxed">
@@ -81,8 +81,8 @@ export default function Contact() {
             <div className="space-y-6">
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <p className="font-medium text-sm mb-1">Based In</p>
@@ -91,8 +91,8 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <p className="font-medium text-sm mb-1">Call Us</p>

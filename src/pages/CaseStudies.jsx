@@ -115,11 +115,11 @@ export default function CaseStudies() {
         />
         <div className="relative max-w-7xl mx-auto">
           <div className="max-w-3xl mb-12">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent mb-4 font-body">
               Case Studies
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
-              Real Results. Real <span className="text-primary">Clients. Real ROI.</span>
+              Real Results. Real <span className="text-accent">Clients. Real ROI.</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               From local service providers to enterprise retail, we deliver measurable growth across industries and platforms. Explore how we turn AI and strategy into compounding revenue.

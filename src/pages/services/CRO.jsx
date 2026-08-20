@@ -60,11 +60,11 @@ export default function CRO() {
         />
         <div className="relative max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent mb-4 font-body">
               Conversion Rate Optimization
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
-              Turn More Visitors Into <span className="text-primary">Paying Customers</span>
+              Turn More Visitors Into <span className="text-accent">Paying Customers</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               You're already paying for traffic. CRO makes that investment work harder. Our AI-powered approach identifies exactly where you're losing conversions and fixes it — systematically, measurably, month after month.
@@ -95,8 +95,8 @@ export default function CRO() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilities.map((cap) => (
               <div key={cap.title} className="bg-card p-8 rounded-2xl border border-border">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                  <cap.icon className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+                  <cap.icon className="w-6 h-6 text-accent" />
                 </div>
                 <h3 className="font-heading text-lg font-normal mb-2">{cap.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{cap.description}</p>
@@ -114,15 +114,15 @@ export default function CRO() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-8 rounded-2xl bg-secondary/50 border border-border">
-              <p className="text-4xl font-heading font-bold text-primary mb-2">50%+</p>
+              <p className="text-4xl font-heading font-bold text-accent mb-2">50%+</p>
               <p className="text-sm text-muted-foreground">Average conversion lift for our CRO clients</p>
             </div>
             <div className="p-8 rounded-2xl bg-secondary/50 border border-border">
-              <p className="text-4xl font-heading font-bold text-primary mb-2">$0</p>
+              <p className="text-4xl font-heading font-bold text-accent mb-2">$0</p>
               <p className="text-sm text-muted-foreground">Additional ad spend needed for the lift</p>
             </div>
             <div className="p-8 rounded-2xl bg-secondary/50 border border-border">
-              <p className="text-4xl font-heading font-bold text-primary mb-2">30 Days</p>
+              <p className="text-4xl font-heading font-bold text-accent mb-2">30 Days</p>
               <p className="text-sm text-muted-foreground">Typical time to first measurable improvement</p>
             </div>
           </div>
@@ -154,7 +154,7 @@ export default function CRO() {
                   'Navigation architecture & path-to-conversion mapping',
                 ].map(item => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                     <span className="text-sm">{item}</span>
                   </div>
                 ))}
@@ -185,8 +185,8 @@ export default function CRO() {
                 },
               ].map(card => (
                 <div key={card.title} className="bg-card border border-border rounded-2xl p-6">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <card.icon className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                    <card.icon className="w-5 h-5 text-accent" />
                   </div>
                   <h3 className="font-heading text-base font-normal mb-2">{card.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{card.description}</p>

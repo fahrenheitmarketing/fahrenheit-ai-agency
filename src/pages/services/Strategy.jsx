@@ -60,11 +60,11 @@ export default function Strategy() {
         />
         <div className="relative max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4 font-body">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent mb-4 font-body">
               Digital Strategy
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
-              Strategy Built on <span className="text-primary">Intelligence, Not Instinct</span>
+              Strategy Built on <span className="text-accent">Intelligence, Not Instinct</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               Great marketing starts with great strategy. We use AI to analyze your market, understand your customers, and build a roadmap that turns digital presence into predictable revenue growth.
@@ -95,8 +95,8 @@ export default function Strategy() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilities.map((cap) => (
               <div key={cap.title} className="bg-card p-8 rounded-2xl border border-border">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                  <cap.icon className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+                  <cap.icon className="w-6 h-6 text-accent" />
                 </div>
                 <h3 className="font-heading text-lg font-normal mb-2">{cap.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{cap.description}</p>
@@ -117,7 +117,7 @@ export default function Strategy() {
               <div className="space-y-4">
                 {['Competitive landscape analysis & monitoring', 'Customer persona development with behavioral data', 'Channel strategy & budget allocation', 'Content strategy & editorial planning', 'KPI framework & measurement architecture', 'Quarterly business reviews & strategy updates'].map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                     <span className="text-sm">{item}</span>
                   </div>
                 ))}
