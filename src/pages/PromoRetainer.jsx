@@ -54,7 +54,7 @@ export default function PromoRetainer() {
   };
 
   return (
-    <>
+    <div className="promo-brand">
       {selectedStudy && <RequestCaseStudyModal study={selectedStudy} onClose={() => setSelectedStudy(null)} />}
       <div className="min-h-screen bg-background">
 
@@ -239,6 +239,6 @@ export default function PromoRetainer() {
           Get a Free Consultation <ArrowRight className="w-4 h-4" />
         </span>
       </a>
-    </>
+    </div>
   );
 }

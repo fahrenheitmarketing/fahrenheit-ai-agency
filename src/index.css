@@ -52,6 +52,12 @@
   }
 }
 
+/* Promo landing pages — align accent with the site's true burnt-orange brand color */
+.promo-brand {
+  --accent: 15 64% 52%;
+  --ring: 15 64% 52%;
+}
+
 /* Dark homepage scope — matches reference design (charcoal bg, burnt orange accent) */
 .home-dark {
   --background: 24 10% 10%;

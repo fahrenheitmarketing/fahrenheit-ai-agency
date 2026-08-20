@@ -59,7 +59,7 @@ export default function PromoWebsite() {
   };
 
   return (
-    <>
+    <div className="promo-brand">
       {selectedStudy && <RequestCaseStudyModal study={selectedStudy} onClose={() => setSelectedStudy(null)} />}
       <div className="min-h-screen bg-background">
 
@@ -218,6 +218,6 @@ export default function PromoWebsite() {
           Claim This Offer <ArrowRight className="w-4 h-4" />
         </span>
       </a>
-    </>
+    </div>
   );
 }
