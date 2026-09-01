@@ -135,7 +135,11 @@ export default function CaseStudies() {
             {allCaseStudies.map((study) => (
               <div
                 key={study.id}
-                className="rounded-2xl border border-border bg-card p-8 transition-all hover:shadow-lg"
+                role="button"
+                tabIndex={0}
+                onClick={() => setSelectedStudy(study)}
+                onKeyDown={(e) => { if (e.key === 'Enter') setSelectedStudy(study); }}
+                className="rounded-2xl border border-border bg-card p-8 transition-all hover:shadow-lg hover:border-accent/50 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <span className="inline-block text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">
                   {study.category}
@@ -158,8 +162,8 @@ export default function CaseStudies() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="w-full gap-2 font-body"
-                  onClick={() => setSelectedStudy(study)}
+                  className="w-full gap-2 font-body pointer-events-none"
+                  tabIndex={-1}
                 >
                   Request Details <ArrowRight className="w-3.5 h-3.5" />
                 </Button>

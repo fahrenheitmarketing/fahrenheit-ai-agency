@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import MobileStickyCTA from './MobileStickyCTA';
 
 const pageNames = {
   '/': 'Homepage',
@@ -28,10 +29,11 @@ export default function SiteLayout() {
   return (
     <div className={`min-h-screen flex flex-col ${isHome ? 'home-dark bg-background text-foreground' : ''} ${isPromo ? 'promo-brand' : ''}`}>
       <Navbar />
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-20 pb-16 lg:pb-0">
         <Outlet />
       </main>
       <Footer />
+      <MobileStickyCTA />
     </div>
   );
 }

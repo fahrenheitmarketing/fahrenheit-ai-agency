@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Calendar, Repeat, Users, Layers } from 'lucide-react';
 
 const cards = [
@@ -9,6 +10,7 @@ const cards = [
     caption: 'Nearly two decades of building and scaling digital programs.',
     stat: '18+',
     statLabel: 'Years',
+    link: '/about',
     gradient: 'from-orange-500/20 to-red-600/10',
     glow: 'shadow-[0_0_40px_-12px_rgba(211,99,54,0.4)]',
     accent: 'text-orange-400',
@@ -21,6 +23,7 @@ const cards = [
     caption: 'No long-term contracts. We earn your business every month.',
     stat: '0',
     statLabel: 'Contracts',
+    link: '/pricing',
     gradient: 'from-emerald-500/20 to-teal-600/10',
     glow: 'shadow-[0_0_40px_-12px_rgba(16,185,129,0.4)]',
     accent: 'text-emerald-400',
@@ -33,6 +36,7 @@ const cards = [
     caption: 'Senior strategists and specialists — no junior account farming.',
     stat: '100%',
     statLabel: 'Senior',
+    link: '/about',
     gradient: 'from-violet-500/20 to-purple-600/10',
     glow: 'shadow-[0_0_40px_-12px_rgba(139,92,246,0.4)]',
     accent: 'text-violet-400',
@@ -45,6 +49,7 @@ const cards = [
     caption: 'SEO, SEM, Social, CRO, Development — all under one roof.',
     stat: '7',
     statLabel: 'Services',
+    link: '/services',
     gradient: 'from-sky-500/20 to-blue-600/10',
     glow: 'shadow-[0_0_40px_-12px_rgba(56,189,248,0.4)]',
     accent: 'text-sky-400',
@@ -59,12 +64,10 @@ export default function BoldCards() {
       {cards.map((card, i) => {
         const Icon = card.icon;
         return (
-          <motion.div
+          <Link
             key={card.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 + i * 0.12 }}
-            className={`relative overflow-hidden bg-transparent backdrop-blur-md border border-border/40 rounded-lg p-6 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 ${card.ring}`}
+            to={card.link}
+            className={`relative overflow-hidden bg-transparent backdrop-blur-md border border-border/40 rounded-lg p-6 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${card.ring}`}
           >
             {/* Gradient wash */}
             <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`} />
@@ -90,7 +93,7 @@ export default function BoldCards() {
 
             {/* Bottom accent line */}
             <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${card.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-          </motion.div>
+          </Link>
         );
       })}
     </div>

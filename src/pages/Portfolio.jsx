@@ -158,8 +158,15 @@ export default function Portfolio() {
             {projects.map((project, i) => (
               <article
                 key={project.name}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-0 border-b border-border py-16 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}
+                className={`relative grid grid-cols-1 lg:grid-cols-2 gap-0 border-b border-border py-16 items-center transition-colors hover:bg-secondary/20 ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}
               >
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${project.name}`}
+                  className="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent rounded-sm"
+                />
                 {/* Image */}
                 <div className={`relative group ${i % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                   <div className="overflow-hidden rounded-sm border border-border shadow-md">
@@ -169,14 +176,9 @@ export default function Portfolio() {
                       className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   </div>
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-4 right-4 bg-foreground text-background text-xs font-body font-medium px-3 py-1.5 rounded-sm flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-accent"
-                  >
+                  <span className="absolute top-4 right-4 bg-foreground text-background text-xs font-body font-medium px-3 py-1.5 rounded-sm flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     View Live Site <ExternalLink className="w-3 h-3" />
-                  </a>
+                  </span>
                 </div>
 
                 {/* Content */}
@@ -197,14 +199,9 @@ export default function Portfolio() {
                       </span>
                     ))}
                   </div>
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-body font-medium text-accent hover:underline"
-                  >
+                  <span className="inline-flex items-center gap-2 text-sm font-body font-medium text-accent group-hover:underline">
                     Visit {project.name.split(' ')[0]} <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
+                  </span>
                 </div>
               </article>
             ))}

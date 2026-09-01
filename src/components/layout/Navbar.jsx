@@ -91,10 +91,23 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="lg:hidden p-2 text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button
+          className="lg:hidden p-3 -mr-1 text-foreground flex items-center justify-center"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
+        >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </nav>
+
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 top-[72px] z-40 lg:hidden"
+          onClick={() => setMobileOpen(false)}
+          aria-hidden="true"
+        />
+      )}
 
       <AnimatePresence>
         {mobileOpen && (
@@ -102,7 +115,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-b border-border overflow-hidden"
+            className="lg:hidden bg-background border-b border-border overflow-hidden relative z-50"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               <div className="border-b border-border pb-4">
