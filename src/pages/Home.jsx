@@ -16,7 +16,7 @@ export default function Home() {
       <ReposSection />
       <OutcomesSection />
       <ProcessSection />
-      <CTASection className="bg-card text-foreground border-t border-border" />
+      <CTASection className="bg-card text-foreground border-t border-border" secondaryLink="/portfolio" />
     </>
   );
 }
