@@ -18,22 +18,6 @@ const allCaseStudies = [
 
 const tiers = [
   {
-    name: 'Growth',
-    price: '$1,500',
-    hasFrom: true,
-    period: '/month',
-    description: 'Ideal for startups and small businesses ready to build a strong digital foundation with AI-powered marketing.',
-    value: 'Get enterprise-grade AI tooling and strategy without the enterprise price tag. We do the heavy lifting so you can focus on running your business.',
-    features: [
-      'AI Content Strategy – Data-driven content that attracts and converts.',
-      'Online Presence – Blogs, social, and content that build authority.',
-      'Monthly Insights – Actionable data and performance reporting.',
-      'AI Competitive Analysis – Stay ahead with market intelligence.',
-      'Dedicated Account Manager – One trusted partner for every initiative.',
-      'Monthly Performance Reviews – Optimize strategy with measurable results.',
-    ],
-  },
-  {
     name: 'Scale',
     price: '$3,500',
     hasFrom: true,
@@ -141,7 +125,7 @@ export default function PromoAlt() {
                   </h1>
                 </a>
                 <p className="text-background/70 font-body text-lg leading-relaxed mb-8">
-                  AI-powered marketing programs and a complete website redesign — transparent pricing, no long-term contracts. Month-to-month retainers from <strong className="text-background">$1,500</strong>. Full website redesign from <strong className="text-background">$5,000</strong>.
+                  AI-powered marketing programs and a complete website redesign — transparent pricing, no long-term contracts. Month-to-month retainers from <strong className="text-background">$3,500</strong>. Full website redesign from <strong className="text-background">$5,000</strong>.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a
@@ -164,7 +148,7 @@ export default function PromoAlt() {
                   onClick={(e) => { e.preventDefault(); document.getElementById('retainer-tiers')?.scrollIntoView({ behavior: 'smooth' }); }}
                   className="inline-flex items-center gap-1 text-sm font-body text-background/60 hover:text-accent transition-colors mt-3"
                 >
-                  See pricing from $1,500/mo <ArrowRight className="w-3.5 h-3.5" />
+                  See pricing from $3,500/mo <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
               {/* Contact form — above the fold so mobile visitors can act immediately */}
@@ -220,17 +204,12 @@ export default function PromoAlt() {
                 All plans include AI-powered tools, a dedicated account manager, and the flexibility to cancel anytime.
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-border rounded-sm overflow-hidden">
-              {tiers.map((tier, i) => (
+            <div className="grid grid-cols-1 max-w-xl mx-auto border border-border rounded-sm overflow-hidden">
+              {tiers.map((tier) => (
                 <div
                   key={tier.name}
-                  className={`flex flex-col p-10 ${tier.popular ? 'bg-foreground text-background' : 'bg-background'} ${i < tiers.length - 1 ? 'border-b lg:border-b-0 lg:border-r border-border' : ''}`}
+                  className={`flex flex-col p-10 ${tier.popular ? 'bg-foreground text-background' : 'bg-background'}`}
                 >
-                  {tier.popular && (
-                    <span className="inline-block text-xs font-body font-semibold uppercase tracking-widest bg-accent text-white px-3 py-1 rounded-sm mb-6 w-fit">
-                      Most Popular
-                    </span>
-                  )}
                   <p className={`text-xs uppercase tracking-widest mb-3 font-body ${tier.popular ? 'text-background/40' : 'text-muted-foreground'}`}>{tier.name}</p>
                   <a href="#contact-form" onClick={scrollToForm} className="block mb-2 cursor-pointer group/price">
                     <span className="flex items-baseline gap-1.5">

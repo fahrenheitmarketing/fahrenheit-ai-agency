@@ -73,7 +73,7 @@ export default function HeroSection() {
                 <p className="text-sm text-muted-foreground font-body">Starting at only</p>
               </div>
               <p className="font-heading text-3xl font-normal text-foreground">
-                $1,500<span className="text-base text-muted-foreground font-body">/mo</span>
+                $3,500<span className="text-base text-muted-foreground font-body">/mo</span>
               </p>
             </motion.div>
           </div>

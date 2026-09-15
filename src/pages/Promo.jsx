@@ -17,22 +17,6 @@ const allCaseStudies = [
 
 const tiers = [
   {
-    name: 'Growth',
-    price: '$1,500',
-    hasFrom: true,
-    period: '/month',
-    description: 'Ideal for startups and small businesses ready to build a strong digital foundation with AI-powered marketing.',
-    value: 'Get enterprise-grade AI tooling and strategy without the enterprise price tag. We do the heavy lifting so you can focus on running your business.',
-    features: [
-      'AI Content Strategy – Data-driven content that attracts and converts.',
-      'Online Presence – Blogs, social, and content that build authority.',
-      'Monthly Insights – Actionable data and performance reporting.',
-      'AI Competitive Analysis – Stay ahead with market intelligence.',
-      'Dedicated Account Manager – One trusted partner for every initiative.',
-      'Monthly Performance Reviews – Optimize strategy with measurable results.',
-    ],
-  },
-  {
     name: 'Scale',
     price: '$3,500',
     hasFrom: true,
@@ -143,7 +127,7 @@ export default function Promo() {
             <Zap className="w-3.5 h-3.5" /> Limited-Time Offer
           </div>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] max-w-4xl mb-8">
-            Agentic Marketing. Real Results. Full Website: From $5,000. Month-to-month Retainer: From $1,500. Read on.
+            Agentic Marketing. Real Results. Full Website: From $5,000. Month-to-month Retainer: From $3,500. Read on.
           </h1>
           <p className="text-muted-foreground font-body text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
             AI-powered marketing programs and a complete website redesign offer — all with transparent pricing, no long-term contracts, and a team that's been doing this since 2008.
@@ -167,17 +151,12 @@ export default function Promo() {
               All plans include AI-powered tools, a dedicated account manager, and the flexibility to cancel anytime.
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-border rounded-sm overflow-hidden">
-            {tiers.map((tier, i) => (
+          <div className="grid grid-cols-1 max-w-xl mx-auto border border-border rounded-sm overflow-hidden">
+            {tiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`flex flex-col p-10 ${tier.popular ? 'bg-foreground text-background' : 'bg-background'} ${i < tiers.length - 1 ? 'border-b lg:border-b-0 lg:border-r border-border' : ''}`}
+                className={`flex flex-col p-10 ${tier.popular ? 'bg-foreground text-background' : 'bg-background'}`}
               >
-                {tier.popular && (
-                  <span className="inline-block text-xs font-body font-semibold uppercase tracking-widest bg-accent text-white px-3 py-1 rounded-sm mb-6 w-fit">
-                    Most Popular
-                  </span>
-                )}
                 <p className={`text-xs uppercase tracking-widest mb-3 font-body ${tier.popular ? 'text-background/40' : 'text-muted-foreground'}`}>{tier.name}</p>
                 <div className="mb-2 flex items-baseline gap-1.5">
                   {tier.hasFrom && (
@@ -469,7 +448,6 @@ export default function Promo() {
                     className="w-full border border-border bg-background rounded-sm px-4 py-3 text-sm font-body focus:outline-none focus:border-accent transition-colors"
                   >
                     <option value="">Select an option…</option>
-                    <option value="Growth Retainer ($1,500/mo)">Growth Retainer — From $1,500/mo</option>
                     <option value="Scale Retainer ($3,500/mo)">Scale Retainer — From $3,500/mo</option>
                     <option value="Enterprise Retainer">Enterprise Retainer — Custom</option>
                     <option value="Website Redesign ($5,000)">Website Redesign — From $5,000</option>

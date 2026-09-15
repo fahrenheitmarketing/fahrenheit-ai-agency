@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function CTASection({
   headline = "Bring us a business problem. We'll bring the AI.",
-  subtext = "Month-to-month retainers starting at $1,500. A 30-minute strategy call is free — you'll leave with a working hypothesis even if we never work together.",
+  subtext = "Month-to-month retainers starting at $3,500. A 30-minute strategy call is free — you'll leave with a working hypothesis even if we never work together.",
   buttonText = "Book a strategy call",
   buttonLink = "/contact",
   secondaryText = "See our work",

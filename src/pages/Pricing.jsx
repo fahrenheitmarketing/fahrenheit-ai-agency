@@ -6,21 +6,6 @@ import CTASection from '../components/shared/CTASection';
 
 const tiers = [
   {
-    name: 'Growth',
-    price: '$1,500',
-    hasFrom: true,
-    suffix: '/month',
-    description: 'Ideal for startups and small businesses ready to build a strong digital foundation with AI-powered marketing.',
-    features: [
-      'AI Content Strategy – Data-driven content that attracts and converts.',
-      'Online Presence – Blogs, social, and content that build authority.',
-      'Monthly Insights – Actionable data and performance reporting.',
-      'AI Competitive Analysis – Stay ahead with market intelligence.',
-      'Dedicated Account Manager – One trusted partner for every initiative.',
-      'Monthly Performance Reviews – Optimize strategy with measurable results.',
-    ],
-  },
-  {
     name: 'Scale',
     price: '$3,500',
     hasFrom: true,
@@ -91,7 +76,7 @@ export default function Pricing() {
             Month-to-Month. <span className="text-accent">No Contracts.</span>
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
-            We must earn your trust every single month. If we don't deliver results, you walk. It's that simple. Our retainers start from $1,500/month.
+            We must earn your trust every single month. If we don't deliver results, you walk. It's that simple. Our retainers start from $3,500/month.
           </p>
           <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-accent" /> Month-to-month</div>
@@ -104,7 +89,7 @@ export default function Pricing() {
       {/* Tiers */}
       <section className="pb-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {tiers.map((tier) => (
               <div
                 key={tier.name}

@@ -75,7 +75,7 @@ export default function SEM() {
             </Link>
             <Link to="/pricing">
               <Button size="lg" variant="outline" className="rounded-sm px-8 font-body">
-                Management from $1,500/mo
+                Management from $3,500/mo
               </Button>
             </Link>
           </div>

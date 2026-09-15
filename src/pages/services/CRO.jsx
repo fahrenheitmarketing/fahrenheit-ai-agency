@@ -77,7 +77,7 @@ export default function CRO() {
               </Link>
               <Link to="/pricing">
                 <Button size="lg" variant="outline" className="rounded-full px-8 font-body">
-                  From $1,500/mo
+                  From $3,500/mo
                 </Button>
               </Link>
             </div>
@@ -201,7 +201,7 @@ export default function CRO() {
 
       <CTASection
         headline="Your Traffic Deserves Better Conversions"
-        subtext="Stop leaving revenue on the table. AI-powered CRO, month-to-month, starting at $1,500."
+        subtext="Stop leaving revenue on the table. AI-powered CRO, month-to-month, starting at $3,500."
         buttonText="Start Converting More"
       />
     </>

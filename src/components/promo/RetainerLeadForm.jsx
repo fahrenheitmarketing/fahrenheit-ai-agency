@@ -60,7 +60,6 @@ export default function RetainerLeadForm() {
         <select value={formData.tier} onChange={e => setFormData({ ...formData, tier: e.target.value })}
           className="w-full border border-border bg-background rounded-sm px-4 py-3 text-sm font-body text-foreground focus:outline-none focus:border-accent transition-colors" style={{ color: 'hsl(18 12% 11%)' }}>
           <option value="">Select an option…</option>
-          <option value="Growth Retainer ($1,500/mo)">Growth Retainer — From $1,500/mo</option>
           <option value="Scale Retainer ($3,500/mo)">Scale Retainer — From $3,500/mo</option>
           <option value="Enterprise Retainer">Enterprise Retainer — Custom</option>
           <option value="Not Sure Yet">Not Sure Yet</option>

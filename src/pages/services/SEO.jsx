@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: 'What does SEO cost at Fahrenheit?',
-    answer: 'SEO retainers start at $1,500/month. Scope and investment scale based on the competitiveness of your market, the number of target keywords, content volume, and whether AIO/GIO work is included. We\'ll walk you through the options during your free audit.',
+    answer: 'SEO retainers start at $3,500/month. Scope and investment scale based on the competitiveness of your market, the number of target keywords, content volume, and whether AIO/GIO work is included. We\'ll walk you through the options during your free audit.',
   },
 ];
 
@@ -131,7 +131,7 @@ export default function SEO() {
             </Link>
             <Link to="/pricing">
               <Button size="lg" variant="outline" className="rounded-sm px-8 font-body">
-                From $1,500/mo
+                From $3,500/mo
               </Button>
             </Link>
           </div>

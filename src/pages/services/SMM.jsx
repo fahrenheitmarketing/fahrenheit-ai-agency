@@ -68,7 +68,7 @@ export default function SMM() {
             </Link>
             <Link to="/pricing">
               <Button size="lg" variant="outline" className="rounded-sm px-8 font-body">
-                From $1,500/mo
+                From $3,500/mo
               </Button>
             </Link>
           </div>
@@ -193,7 +193,7 @@ export default function SMM() {
 
       <CTASection
         headline="Ready to Turn Social Into Revenue?"
-        subtext="Let's build a social strategy that actually moves the needle. Month-to-month, starting at $1,500."
+        subtext="Let's build a social strategy that actually moves the needle. Month-to-month, starting at $3,500."
         buttonText="Start the Conversation"
       />
     </>

@@ -77,7 +77,7 @@ export default function Strategy() {
               </Link>
               <Link to="/pricing">
                 <Button size="lg" variant="outline" className="rounded-full px-8 font-body">
-                  From $1,500/mo
+                  From $3,500/mo
                 </Button>
               </Link>
             </div>

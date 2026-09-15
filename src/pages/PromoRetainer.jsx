@@ -16,19 +16,6 @@ const caseStudies = [
 
 const tiers = [
   {
-    name: 'Growth', price: '$1,500', hasFrom: true, period: '/month',
-    description: 'Ideal for startups and small businesses ready to build a strong digital foundation with AI-powered marketing.',
-    value: 'Get enterprise-grade AI tooling and strategy without the enterprise price tag. We do the heavy lifting so you can focus on running your business.',
-    features: [
-      'AI Content Strategy – Data-driven content that attracts and converts.',
-      'Online Presence – Blogs, social, and content that build authority.',
-      'Monthly Insights – Actionable data and performance reporting.',
-      'AI Competitive Analysis – Stay ahead with market intelligence.',
-      'Dedicated Account Manager – One trusted partner for every initiative.',
-      'Monthly Performance Reviews – Optimize strategy with measurable results.',
-    ],
-  },
-  {
     name: 'Scale', price: '$3,500', hasFrom: true, period: '/month', popular: true,
     description: 'Comprehensive digital transformation and dedicated AI infrastructure. Two retainer paths — support or strategy — both backed by our senior multidisciplinary team.',
     value: 'One price, two ways to work with us. Some businesses need a trusted partner to execute ongoing requests. Others need an outsourced marketing department building and running the plan. Both paths get the same senior team.',
@@ -71,7 +58,7 @@ export default function PromoRetainer() {
                   Marketing That Earns Your Business Every Month.
                 </h1>
                 <p className="text-background/70 font-body text-lg leading-relaxed mb-8">
-                  AI-powered retainer programs with a dedicated account manager, transparent reporting, and zero long-term contracts. Plans start from <strong className="text-background">$1,500/month</strong>.
+                  AI-powered retainer programs with a dedicated account manager, transparent reporting, and zero long-term contracts. Plans start from <strong className="text-background">$3,500/month</strong>.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a href="#contact-form" onClick={scrollToForm} className="inline-flex items-center gap-2 bg-accent text-white text-sm font-body font-medium px-6 py-3 rounded-sm hover:bg-accent/90 active:scale-[0.97] transition-all shadow-sm">
@@ -120,10 +107,9 @@ export default function PromoRetainer() {
               <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.1] mb-3">Choose Your Growth Level</h2>
               <p className="text-muted-foreground font-body text-base max-w-xl">All plans include AI-powered tools, a dedicated account manager, and the flexibility to cancel anytime.</p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-border rounded-sm overflow-hidden">
-              {tiers.map((tier, i) => (
-                <div key={tier.name} className={`flex flex-col p-10 ${tier.popular ? 'bg-foreground text-background' : 'bg-background'} ${i < tiers.length - 1 ? 'border-b lg:border-b-0 lg:border-r border-border' : ''}`}>
-                  {tier.popular && <span className="inline-block text-xs font-body font-semibold uppercase tracking-widest bg-accent text-white px-3 py-1 rounded-sm mb-6 w-fit">Most Popular</span>}
+            <div className="grid grid-cols-1 max-w-xl mx-auto border border-border rounded-sm overflow-hidden">
+              {tiers.map((tier) => (
+                <div key={tier.name} className={`flex flex-col p-10 ${tier.popular ? 'bg-foreground text-background' : 'bg-background'}`}>
                   <p className={`text-xs uppercase tracking-widest mb-3 font-body ${tier.popular ? 'text-background/40' : 'text-muted-foreground'}`}>{tier.name}</p>
                   <a href="#contact-form" onClick={scrollToForm} className="block mb-2 cursor-pointer group/price">
                     <span className="flex items-baseline gap-1.5">
