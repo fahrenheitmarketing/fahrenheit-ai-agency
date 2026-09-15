@@ -151,79 +151,59 @@ export default function Promo() {
               All plans include AI-powered tools, a dedicated account manager, and the flexibility to cancel anytime.
             </p>
           </div>
-          <div className="grid grid-cols-1 max-w-xl mx-auto border border-border rounded-sm overflow-hidden">
-            {tiers.map((tier) => (
-              <div
-                key={tier.name}
-                className={`flex flex-col p-10 ${tier.popular ? 'bg-foreground text-background' : 'bg-background'}`}
-              >
-                <p className={`text-xs uppercase tracking-widest mb-3 font-body ${tier.popular ? 'text-background/40' : 'text-muted-foreground'}`}>{tier.name}</p>
+          {tiers.map((tier) => (
+            <div key={tier.name} className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-border rounded-sm overflow-hidden">
+              <div className="p-10 bg-background border-b lg:border-b-0 lg:border-r border-border">
+                <p className="text-xs uppercase tracking-widest mb-3 font-body text-muted-foreground">{tier.name} Retainer</p>
                 <div className="mb-2 flex items-baseline gap-1.5">
-                  {tier.hasFrom && (
-                    <span className={`text-sm font-body ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>From</span>
-                  )}
-                  <span className={`font-heading text-5xl font-normal ${tier.popular ? 'text-background' : 'text-foreground'}`}>{tier.price}</span>
-                  {tier.period && <span className={`text-sm font-body ml-1 ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>{tier.period}</span>}
+                  {tier.hasFrom && <span className="text-sm font-body text-muted-foreground">From</span>}
+                  <span className="font-heading text-6xl font-normal text-foreground">{tier.price}</span>
+                  {tier.period && <span className="text-sm font-body ml-1 text-muted-foreground">{tier.period}</span>}
                 </div>
-                <p className={`text-sm font-body leading-relaxed mb-6 ${tier.popular ? 'text-background/70' : 'text-muted-foreground'}`}>{tier.description}</p>
-
-                <div className={`text-sm font-body leading-relaxed p-4 rounded-sm mb-8 ${tier.popular ? 'bg-background/10 text-background/80' : 'bg-secondary/60 text-foreground/70'}`}>
-                  <strong className={`block mb-1 text-xs uppercase tracking-widest ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>Why it matters</strong>
-                  {tier.value}
+                <p className="text-base font-body text-muted-foreground leading-relaxed mb-8">{tier.description}</p>
+                <div className="bg-secondary/60 rounded-sm p-6 mb-8">
+                  <strong className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Why it matters</strong>
+                  <p className="text-sm font-body text-foreground/70 leading-relaxed">{tier.value}</p>
                 </div>
-
-                <div className="flex-1">
-                  {tier.subBlocks ? (
-                    <div className="space-y-6">
-                      {tier.subBlocks.map((block) => (
-                        <div key={block.title}>
-                          <h4 className={`text-sm font-body font-semibold mb-1 ${tier.popular ? 'text-background' : 'text-foreground'}`}>{block.title}</h4>
-                          <p className={`text-xs font-body mb-3 ${tier.popular ? 'text-background/60' : 'text-muted-foreground'}`}>{block.description}</p>
-                          <div className="space-y-2">
-                            {block.features.map((f, fi) => (
-                              <div key={fi} className="flex items-start gap-3">
-                                <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
-                                <span className={`text-sm font-body leading-snug ${tier.popular ? 'text-background/80' : 'text-foreground/80'}`}>{f}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                      {tier.sharedFeatures && (
-                        <div className={`pt-4 border-t ${tier.popular ? 'border-background/20' : 'border-border'}`}>
-                          <p className={`text-xs font-body uppercase tracking-widest mb-3 ${tier.popular ? 'text-background/50' : 'text-muted-foreground'}`}>Included with either path</p>
-                          <div className="space-y-2">
-                            {tier.sharedFeatures.map((f, fi) => (
-                              <div key={fi} className="flex items-start gap-3">
-                                <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
-                                <span className={`text-sm font-body leading-snug ${tier.popular ? 'text-background/80' : 'text-foreground/80'}`}>{f}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <div className="space-y-3">
-                      {tier.features.map((f, fi) => (
-                        <div key={fi} className="flex items-start gap-3">
-                          <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
-                          <span className={`text-sm font-body leading-snug ${tier.popular ? 'text-background/80' : 'text-foreground/80'}`}>{f}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
                 <a
                   href="#contact-form"
-                  className={`mt-10 inline-flex items-center justify-center gap-2 text-sm font-body font-medium px-6 py-3 rounded-sm transition-colors ${tier.popular ? 'bg-accent text-white hover:bg-accent/90' : 'border border-foreground/20 text-foreground hover:border-accent hover:text-accent'}`}
+                  className="inline-flex items-center gap-2 bg-accent text-white text-sm font-body font-medium px-6 py-3 rounded-sm hover:bg-accent/90 transition-colors"
                 >
                   Get Started <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
-            ))}
-          </div>
+              <div className="p-10 bg-background">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-8 font-body">What's included</p>
+                <div className="space-y-6">
+                  {tier.subBlocks.map((block) => (
+                    <div key={block.title}>
+                      <h4 className="text-sm font-body font-semibold mb-1 text-foreground">{block.title}</h4>
+                      <p className="text-xs font-body mb-3 text-muted-foreground">{block.description}</p>
+                      <div className="space-y-2">
+                        {block.features.map((f, fi) => (
+                          <div key={fi} className="flex items-start gap-3">
+                            <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
+                            <span className="text-sm font-body leading-snug text-foreground/80">{f}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                  <div className="pt-4 border-t border-border">
+                    <p className="text-xs font-body uppercase tracking-widest mb-3 text-muted-foreground">Included with either path</p>
+                    <div className="space-y-2">
+                      {tier.sharedFeatures.map((f, fi) => (
+                        <div key={fi} className="flex items-start gap-3">
+                          <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent" />
+                          <span className="text-sm font-body leading-snug text-foreground/80">{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
           <p className="text-sm font-body text-muted-foreground text-center mt-8">
             Need something bigger? We also offer custom Enterprise packages for organizations with multi-market, multi-location, or board-level reporting needs. <Link to="/pricing" className="text-accent hover:underline">See full pricing for details →</Link>
           </p>
