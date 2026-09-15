@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const steps = [
-  { num: '01', title: 'Diagnose', description: 'Map the P&L to the workflows. Identify where AI creates leverage — and where it doesn\'t.' },
-  { num: '02', title: 'Deploy', description: 'Ship working systems in weeks, not quarters. Models, integrations, strategy — production-grade from day one.' },
-  { num: '03', title: 'Scale', description: 'Operate, measure, and compound. Outcomes reviewed monthly against revenue and efficiency targets.' },
+  { num: '01', title: 'Diagnose', description: 'Map the P&L to the workflows. Identify where AI creates leverage — and where it doesn\'t.', link: '/process/diagnose' },
+  { num: '02', title: 'Deploy', description: 'Ship working systems in weeks, not quarters. Models, integrations, strategy — production-grade from day one.', link: '/process/deploy' },
+  { num: '03', title: 'Scale', description: 'Operate, measure, and compound. Outcomes reviewed monthly against revenue and efficiency targets.', link: '/process/scale' },
 ];
 
 export default function ProcessSection() {
@@ -22,11 +23,18 @@ export default function ProcessSection() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {steps.map((s, i) => (
-            <div key={i} className="bg-card border border-border rounded-sm shadow-sm p-8">
+            <Link
+              key={i}
+              to={s.link}
+              className="group bg-card border border-border rounded-sm shadow-sm p-8 block transition-colors hover:border-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
               <p className="text-xs text-muted-foreground font-body mb-6">{s.num}</p>
-              <h3 className="font-heading text-2xl font-normal mb-3">{s.title}</h3>
-              <p className="text-sm text-muted-foreground font-body leading-relaxed">{s.description}</p>
-            </div>
+              <h3 className="font-heading text-2xl font-normal mb-3 group-hover:text-accent transition-colors">{s.title}</h3>
+              <p className="text-sm text-muted-foreground font-body leading-relaxed mb-6">{s.description}</p>
+              <span className="text-xs uppercase tracking-widest text-accent font-body inline-flex items-center gap-2">
+                Learn more <span>→</span>
+              </span>
+            </Link>
           ))}
         </div>
       </div>

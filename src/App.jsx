@@ -37,6 +37,9 @@ import Portfolio from './pages/Portfolio';
 import ContentStudio from './pages/ContentStudio';
 import SocialMediaStudio from './pages/SocialMediaStudio';
 import SocialMediaPostReview from './pages/SocialMediaPostReview';
+import Diagnose from './pages/process/Diagnose';
+import Deploy from './pages/process/Deploy';
+import Scale from './pages/process/Scale';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -87,6 +90,9 @@ const AuthenticatedApp = () => {
         <Route path="/promo2" element={<PromoAlt />} />
         <Route path="/promo-retainer" element={<PromoRetainer />} />
         <Route path="/promo-website" element={<PromoWebsite />} />
+        <Route path="/process/diagnose" element={<Diagnose />} />
+        <Route path="/process/deploy" element={<Deploy />} />
+        <Route path="/process/scale" element={<Scale />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/content-studio" element={<ContentStudio />} />
         <Route path="/social-media-studio" element={<SocialMediaStudio />} />
