@@ -71,7 +71,7 @@ export default function ServicesOverview() {
             {services.map((s) => (
               <Link key={s.num} to={s.link} className="group block py-8 border-t border-border hover:border-foreground/20 transition-colors">
                 <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
+                  <div className="flex-1 origin-left transition-transform duration-300 group-hover:scale-[1.3]">
                     <div className="flex items-baseline gap-4 mb-2">
                       <span className="text-xs text-muted-foreground font-body">{s.num}</span>
                       <span className="text-xs uppercase tracking-widest text-accent font-body">{s.tagline}</span>
