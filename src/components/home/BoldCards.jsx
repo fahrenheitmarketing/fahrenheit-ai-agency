@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Calendar, Repeat, Users, Layers } from 'lucide-react';
+import { Calendar, Repeat, DollarSign } from 'lucide-react';
 
 const cards = [
   {
@@ -31,25 +31,12 @@ const cards = [
     ring: 'group-hover:border-emerald-500/50',
   },
   {
-    icon: Users,
-    title: 'Seasoned Staff',
-    caption: 'Senior strategists and specialists — no junior account farming.',
-    stat: '100%',
-    statLabel: 'Senior',
-    link: '/about',
-    gradient: 'from-violet-500/20 to-purple-600/10',
-    glow: 'shadow-[0_0_40px_-12px_rgba(139,92,246,0.4)]',
-    accent: 'text-violet-400',
-    iconBg: 'bg-violet-500/15',
-    ring: 'group-hover:border-violet-500/50',
-  },
-  {
-    icon: Layers,
-    title: 'Full-Service Digital Agency',
-    caption: 'SEO, SEM, Social, CRO, Development — all under one roof.',
-    stat: '7',
-    statLabel: 'Services',
-    link: '/services',
+    icon: DollarSign,
+    title: 'Comprehensive Retainers',
+    caption: 'Full-service marketing programs starting from $3,500/month.',
+    stat: '$3,500',
+    statLabel: 'Starting At',
+    link: '/pricing',
     gradient: 'from-sky-500/20 to-blue-600/10',
     glow: 'shadow-[0_0_40px_-12px_rgba(56,189,248,0.4)]',
     accent: 'text-sky-400',
@@ -60,7 +47,7 @@ const cards = [
 
 export default function BoldCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
+    <div className="grid grid-cols-1 gap-4 h-full">
       {cards.map((card, i) => {
         const Icon = card.icon;
         return (
