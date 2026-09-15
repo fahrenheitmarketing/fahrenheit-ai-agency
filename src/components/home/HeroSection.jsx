@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import BoldCards from './BoldCards';
-import WaveBackground from './WaveBackground';
+import HeroParticles from './HeroParticles';
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[76px] scroll-m-0">
-      <WaveBackground />
+      <HeroParticles />
       {/* Cubes pattern — top right */}
       <img
         src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
