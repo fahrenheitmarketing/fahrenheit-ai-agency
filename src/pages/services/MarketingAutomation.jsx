@@ -209,7 +209,7 @@ export default function MarketingAutomation() {
               </div>
               <div className="border border-border rounded-sm p-8 bg-accent/5">
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Investment</p>
-                <p className="font-heading text-2xl font-normal text-accent mb-3">$2,500 – $4,500/month</p>
+                <p className="font-heading text-2xl font-normal text-accent mb-3">$3,500 – $5,500/month</p>
                 <p className="text-xs text-muted-foreground font-body">Month-to-month. Separate from platform costs and ad spend.</p>
               </div>
             </div>
