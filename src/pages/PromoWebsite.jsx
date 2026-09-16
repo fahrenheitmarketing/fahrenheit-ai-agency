@@ -34,7 +34,7 @@ const projects = [
   { name: 'Greenspoint Dental', url: 'https://greenspoint.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/fd14ca806_greens.png', industry: 'Dental' },
   { name: 'ZOMMA Group', url: 'https://zomma-group.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/30f79e425_zomma.png', industry: 'Accounting' },
   { name: 'Brent Coon & Assoc.', url: 'https://bcoon.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5a8f48e31_bcoon.png', industry: 'Legal' },
-  { name: 'MacLeod & Co.', url: 'https://mcleod.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/d29162b19_macleod.png', industry: 'Commercial Real Estate' },
+  { name: 'MacLeod & Co.', url: 'https://macleod.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/d29162b19_macleod.png', industry: 'Commercial Real Estate' },
   { name: 'Austin Wealth', url: 'https://austinwealth.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/73368fac8_Austinwealth.png', industry: 'Wealth Management' },
   { name: 'Spring Systems', url: 'https://springstream.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c6634d67c_Springstream.png', industry: 'B2B SaaS' },
   { name: 'Golden Hour Café', url: 'https://goldenhour.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/78d382475_Goldenhour.png', industry: 'Hospitality' },
