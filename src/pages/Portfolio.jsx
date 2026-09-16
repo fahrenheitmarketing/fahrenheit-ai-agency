@@ -54,7 +54,7 @@ const projects = [
   },
   {
     name: "MacLeod & Co. Commercial Real Estate",
-    url: "https://mcleod.fmkt.agency",
+    url: "https://macleod.fmkt.agency",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/d29162b19_macleod.png",
     industry: "Commercial Real Estate",
     snippet: "Close to $800M in closed deals — and a website that owns it. MacLeod's bold, high-contrast design communicates transactional gravity and institutional credibility in the first five seconds. Because in commercial real estate, perception is everything.",
