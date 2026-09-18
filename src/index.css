@@ -83,3 +83,18 @@
   --chart-4: 43 74% 66%;
   --chart-5: 27 87% 67%;
 }
+
+/* Navbar breakpoint — desktop nav only at 1280px+, burger menu below.
+   Defined in plain CSS so it never depends on Tailwind JIT generation. */
+@media (max-width: 1279px) {
+  .nav-desktop-flex { display: none !important; }
+  .nav-desktop-block { display: none !important; }
+  .nav-mobile-flex { display: flex !important; }
+  .nav-mobile-block { display: block !important; }
+}
+@media (min-width: 1280px) {
+  .nav-desktop-flex { display: flex !important; }
+  .nav-desktop-block { display: block !important; }
+  .nav-mobile-flex { display: none !important; }
+  .nav-mobile-block { display: none !important; }
+}
