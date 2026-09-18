@@ -90,7 +90,7 @@ export default function MarketingAutomation() {
                 Stop Doing <span className="italic">Manual</span> Marketing
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8 font-body">
-                Marketing automation isn't just about sending emails. It's about building intelligent systems that nurture prospects, qualify leads, and accelerate revenue — 24/7. We're HubSpot certified experts, and we design workflows that actually work.
+                Marketing automation isn't just about sending emails. It's about building intelligent systems that nurture prospects, qualify leads, and accelerate revenue — 24/7. We're HubSpot & HighLevel certified experts, and we design workflows that actually work.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact">
@@ -148,24 +148,34 @@ export default function MarketingAutomation() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">Platform Agnostic</p>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">Dual-Partner Agency</p>
               <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15] mb-6">
-                HubSpot Experts. Multi-Platform Capable.
+                HubSpot &amp; HighLevel Partners. Multi-Platform Capable.
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4 font-body">
-                We're HubSpot certified partners because HubSpot gets it right — unified CRM, integrated automation, and intelligent workflows. But whether you're on HubSpot, HighLevel (GoHighLevel), Marketo, Klaviyo, ActiveCampaign, or building a custom stack, we speak the language of automation.
+                We're certified partners on both HubSpot and HighLevel — two of the most powerful automation platforms available today. We'll recommend the right one for your business, or build on whatever you already run.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8 font-body">
                 All modern platforms share the same core workflow: segment audiences, trigger campaigns, score leads, nurture prospects, and measure impact. We help you master that workflow on whatever platform fits your business.
               </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div className="border border-border rounded-sm p-6 bg-card">
+                  <p className="text-xs uppercase tracking-widest text-accent mb-2 font-body">Certified Partner</p>
+                  <h3 className="font-heading text-xl font-normal mb-2">HubSpot</h3>
+                  <p className="text-sm text-muted-foreground font-body leading-relaxed">Unified CRM, automation, and reporting in one platform. Best for mid-market and B2B teams that need depth, integrations, and enterprise-grade reporting.</p>
+                </div>
+                <div className="border border-border rounded-sm p-6 bg-card">
+                  <p className="text-xs uppercase tracking-widest text-accent mb-2 font-body">Partner Agency</p>
+                  <h3 className="font-heading text-xl font-normal mb-2">HighLevel (GoHighLevel)</h3>
+                  <p className="text-sm text-muted-foreground font-body leading-relaxed">All-in-one platform built for speed. Best for agencies, local service businesses, and SMBs that want CRM, funnels, and automation without stitching five tools together.</p>
+                </div>
+              </div>
               <div className="bg-foreground text-background rounded-sm p-6">
-                <p className="text-xs uppercase tracking-widest font-body mb-4 flex items-center gap-2">
+                <p className="text-xs uppercase tracking-widest font-body mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-accent"></span>
-                  Platforms We Service
+                  Also Experienced With
                 </p>
-                <div className="grid grid-cols-2 gap-3 text-sm font-body">
-                  <span>HubSpot (Preferred)</span>
-                  <span>HighLevel (GHL)</span>
+                <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-body">
                   <span>Marketo</span>
                   <span>Klaviyo</span>
                   <span>ActiveCampaign</span>
