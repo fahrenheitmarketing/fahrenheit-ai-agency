@@ -8,7 +8,7 @@ import FAQSection from '../../components/shared/FAQSection';
 const faqs = [
   {
     question: 'What platforms do you work with?',
-    answer: 'We\'re HubSpot certified partners, but we work across the major platforms — Marketo, Klaviyo, ActiveCampaign, Pardot, and custom-built stacks. We recommend HubSpot when clients are starting fresh because of its unified CRM, automation, and reporting. But we work with whatever you already have.',
+    answer: 'We\'re HubSpot certified partners, but we work across the major platforms — HighLevel (GoHighLevel), Marketo, Klaviyo, ActiveCampaign, Pardot, and custom-built stacks. We recommend HubSpot when clients are starting fresh because of its unified CRM, automation, and reporting. But we work with whatever you already have.',
   },
   {
     question: 'What\'s the difference between marketing automation and email marketing?',
@@ -153,7 +153,7 @@ export default function MarketingAutomation() {
                 HubSpot Experts. Multi-Platform Capable.
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4 font-body">
-                We're HubSpot certified partners because HubSpot gets it right — unified CRM, integrated automation, and intelligent workflows. But whether you're on HubSpot, Marketo, Klaviyo, ActiveCampaign, or building a custom stack, we speak the language of automation.
+                We're HubSpot certified partners because HubSpot gets it right — unified CRM, integrated automation, and intelligent workflows. But whether you're on HubSpot, HighLevel (GoHighLevel), Marketo, Klaviyo, ActiveCampaign, or building a custom stack, we speak the language of automation.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8 font-body">
                 All modern platforms share the same core workflow: segment audiences, trigger campaigns, score leads, nurture prospects, and measure impact. We help you master that workflow on whatever platform fits your business.
