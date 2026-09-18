@@ -165,6 +165,7 @@ export default function MarketingAutomation() {
                 </p>
                 <div className="grid grid-cols-2 gap-3 text-sm font-body">
                   <span>HubSpot (Preferred)</span>
+                  <span>HighLevel (GHL)</span>
                   <span>Marketo</span>
                   <span>Klaviyo</span>
                   <span>ActiveCampaign</span>
