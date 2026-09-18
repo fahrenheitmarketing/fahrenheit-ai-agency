@@ -8,7 +8,7 @@ import FAQSection from '../../components/shared/FAQSection';
 const faqs = [
   {
     question: 'What platforms do you work with?',
-    answer: 'We\'re HubSpot certified partners, but we work across the major platforms — HighLevel (GoHighLevel), Marketo, Klaviyo, ActiveCampaign, Pardot, and custom-built stacks. We recommend HubSpot when clients are starting fresh because of its unified CRM, automation, and reporting. But we work with whatever you already have.',
+    answer: 'We\'re certified partners on both HubSpot and HighLevel (GoHighLevel), and we work across the other major platforms — Marketo, Klaviyo, ActiveCampaign, Pardot, and custom-built stacks. We recommend HubSpot for mid-market and B2B teams that need depth and enterprise-grade reporting, and HighLevel for agencies, local service businesses, and SMBs that want an all-in-one platform built for speed. But we work with whatever you already have.',
   },
   {
     question: 'What\'s the difference between marketing automation and email marketing?',
