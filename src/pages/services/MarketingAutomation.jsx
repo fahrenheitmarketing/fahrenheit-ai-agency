@@ -153,7 +153,7 @@ export default function MarketingAutomation() {
                 HubSpot &amp; HighLevel Partners. Multi-Platform Capable.
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4 font-body">
-                We're certified partners on both HubSpot and HighLevel — two of the most powerful automation platforms available today. We'll recommend the right one for your business, or build on whatever you already run.
+                We're certified partners on both HubSpot and HighLevel (also known as GoHighLevel or GHL) — two of the most powerful automation platforms available today. We'll recommend the right one for your business, or build on whatever you already run.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8 font-body">
                 All modern platforms share the same core workflow: segment audiences, trigger campaigns, score leads, nurture prospects, and measure impact. We help you master that workflow on whatever platform fits your business.
