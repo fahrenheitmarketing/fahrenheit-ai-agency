@@ -49,9 +49,9 @@ export default function Navbar() {
         </Link>
 
         {/* Center Nav */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden min-[1025px]:flex items-center gap-5">
           <DropdownMenu>
-            <DropdownMenuTrigger className={`flex items-center gap-1 text-sm transition-colors outline-none font-body tracking-wide ${isActive('/services') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
+            <DropdownMenuTrigger className={`flex items-center gap-1 text-sm whitespace-nowrap transition-colors outline-none font-body tracking-wide ${isActive('/services') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
               SERVICES <ChevronDown className="w-3.5 h-3.5" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-48 bg-background border-border">
@@ -62,29 +62,29 @@ export default function Navbar() {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Link to="/pricing" className={`text-sm transition-colors font-body tracking-wide ${isActive('/pricing') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
+          <Link to="/pricing" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/pricing') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
             PRICING
           </Link>
-          <Link to="/about" className={`text-sm transition-colors font-body tracking-wide ${isActive('/about') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
+          <Link to="/about" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/about') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
             ABOUT
           </Link>
-          <Link to="/blog" className={`text-sm transition-colors font-body tracking-wide ${isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
+          <Link to="/blog" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
             BLOG
           </Link>
-          <Link to="/portfolio" className={`text-sm transition-colors font-body tracking-wide ${isActive('/portfolio') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
+          <Link to="/portfolio" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/portfolio') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
            PORTFOLIO
           </Link>
-          <Link to="/case-studies" className={`text-sm transition-colors font-body tracking-wide ${isActive('/case-studies') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
+          <Link to="/case-studies" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/case-studies') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
            CASE STUDIES
           </Link>
 
         </div>
 
         {/* CTA */}
-        <div className="hidden lg:block">
+        <div className="hidden min-[1025px]:block">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-accent/90 transition-colors font-body tracking-wide"
+            className="inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-accent/90 transition-colors font-body tracking-wide whitespace-nowrap"
           >
             BOOK A STRATEGY CALL <span className="text-base">↗</span>
           </Link>
@@ -92,7 +92,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden p-3 -mr-1 text-foreground flex items-center justify-center"
+          className="min-[1025px]:hidden p-3 -mr-1 text-foreground flex items-center justify-center"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
@@ -103,7 +103,7 @@ export default function Navbar() {
 
       {mobileOpen && (
         <div
-          className="fixed inset-0 top-[72px] z-40 lg:hidden"
+          className="fixed inset-0 top-[72px] z-40 min-[1025px]:hidden"
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
@@ -115,7 +115,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-b border-border overflow-hidden relative z-50"
+            className="min-[1025px]:hidden bg-background border-b border-border overflow-hidden relative z-50"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               <div className="border-b border-border pb-4">
