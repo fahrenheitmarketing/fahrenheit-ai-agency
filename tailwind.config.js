@@ -4,6 +4,9 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
     extend: {
+      screens: {
+        navDesktop: '1025px',
+      },
       fontFamily: {
         heading: ['Playfair Display', 'Georgia', 'serif'],
         body: ['Inter', 'sans-serif'],
