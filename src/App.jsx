@@ -35,7 +35,6 @@ import PromoRetainer from './pages/PromoRetainer';
 import PromoWebsite from './pages/PromoWebsite';
 import Portfolio from './pages/Portfolio';
 import ContentStudio from './pages/ContentStudio';
-import SocialMediaStudio from './pages/SocialMediaStudio';
 import SocialMediaPostReview from './pages/SocialMediaPostReview';
 import Diagnose from './pages/process/Diagnose';
 import Deploy from './pages/process/Deploy';
@@ -95,7 +94,6 @@ const AuthenticatedApp = () => {
         <Route path="/process/scale" element={<Scale />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/content-studio" element={<ContentStudio />} />
-        <Route path="/social-media-studio" element={<SocialMediaStudio />} />
       </Route>
       <Route path="/social-media-post-review" element={<SocialMediaPostReview />} />
       <Route path="*" element={<PageNotFound />} />
