@@ -32,7 +32,7 @@ const phases = [
       'AM compiles a Project Plan from the SOW, contract, and discovery sales call, including marketing tasks and deliverables.',
       'Client submits the initial payment.',
       'Financial Services lets the AM know payment has been received.',
-      'AM starts the access process using the Access Client onboarding task template.',
+      'AM starts the access process using our Access Client onboarding tasks.',
     ],
   },
   {
