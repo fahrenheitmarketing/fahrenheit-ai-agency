@@ -75,8 +75,8 @@ const phases = [
       'AM creates a weekly reminder to review and approve time rendered on the account and check budget.',
       'AM creates a daily task to report to the client whenever action has been taken on their account that day.',
       'If hosting: create a task to set up site updates.',
-      'If hosting: create a task to notify Laurel when the site launches.',
-      'If a website: create tasks to notify Laurel at billing milestones per the contract.',
+      'If hosting: create a task to notify the billing team when the site launches.',
+      'If a website: create tasks to notify the billing team at billing milestones per the contract.',
     ],
   },
 ];
