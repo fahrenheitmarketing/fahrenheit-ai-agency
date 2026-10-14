@@ -12,7 +12,7 @@ const phases = [
     subtitle: 'From signature to project foundation',
     steps: [
       'Client signs the agreement.',
-      'Ricardo assigns an Account Manager (AM) to the engagement.',
+      'An Account Manager (AM) is assigned to the engagement.',
       'Financial Services sends the AM a signed copy of the contract.',
       'Financial Services sends a welcome email to the client.',
       'Client responds to the welcome email.',
