@@ -16,7 +16,7 @@ const phases = [
       'Financial Services sends the AM a signed copy of the contract.',
       'Financial Services sends a welcome email to the client.',
       'Client responds to the welcome email.',
-      'Financial Services sets up projects in Keito.',
+      'Financial Services sets up projects in our project management tool.',
       'Financial Services sends the first invoice.',
       'Financial Services informs the AMs that the client has responded and the projects are set up.',
     ],
@@ -28,7 +28,7 @@ const phases = [
     subtitle: 'The AM builds the blueprint for the engagement',
     steps: [
       'AM listens to the recorded discovery / sales meeting.',
-      'AM compiles the contract and any pertinent information in ClickUp.',
+      'AM compiles the contract and any pertinent information in our project management tool.',
       'AM compiles a Project Plan from the SOW, contract, and discovery sales call, including marketing tasks and deliverables.',
       'Client submits the initial payment.',
       'Financial Services lets the AM know payment has been received.',
