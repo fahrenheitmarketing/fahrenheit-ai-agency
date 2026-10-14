@@ -77,6 +77,9 @@ export default function Navbar() {
           <Link to="/case-studies" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/case-studies') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
            CASE STUDIES
           </Link>
+          <Link to="/what-to-expect" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/what-to-expect') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
+            WHAT TO EXPECT
+          </Link>
 
         </div>
 
@@ -131,6 +134,7 @@ export default function Navbar() {
               <Link to="/blog" className={`text-sm font-body ${isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>BLOG</Link>
               <Link to="/portfolio" className={`text-sm font-body ${isActive('/portfolio') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>PORTFOLIO</Link>
               <Link to="/case-studies" className={`text-sm font-body ${isActive('/case-studies') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>CASE STUDIES</Link>
+              <Link to="/what-to-expect" className={`text-sm font-body ${isActive('/what-to-expect') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>WHAT TO EXPECT</Link>
 
               <Link to="/contact" className="inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2.5 rounded-sm w-fit font-body">
                 BOOK A STRATEGY CALL ↗
