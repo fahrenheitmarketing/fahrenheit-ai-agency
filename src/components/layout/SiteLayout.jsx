@@ -19,7 +19,6 @@ const pageNames = {
 export default function SiteLayout() {
   const location = useLocation();
   const pageName = pageNames[location.pathname] || 'Unknown Page';
-  const isHome = location.pathname === '/';
   const isPromo = location.pathname === '/promo-retainer' || location.pathname === '/promo-website';
 
   useEffect(() => {
@@ -27,7 +26,7 @@ export default function SiteLayout() {
   }, [location.pathname]);
 
   return (
-    <div className={`min-h-screen flex flex-col ${isHome ? 'home-dark bg-background text-foreground' : ''} ${isPromo ? 'promo-brand' : ''}`}>
+    <div className={`min-h-screen flex flex-col bg-background text-foreground ${isPromo ? 'promo-brand' : ''}`}>
       <Navbar />
       <main className="flex-1 pt-20 pb-16 lg:pb-0">
         <Outlet />
