@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Slider } from '@/components/ui/slider';
 
-const RESPONSE_RATE = 0.012;
+const RESPONSE_RATE = 0.005;
 
 const fmtNum = (n) => new Intl.NumberFormat('en-US').format(n);
 const fmtMoney = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
@@ -48,7 +48,7 @@ export default function EmailEstimator() {
             </div>
           </div>
           <p className="text-xs text-muted-foreground font-body leading-relaxed">
-            Estimates use an average cold email response rate of 1.2%. Your actual results depend on targeting, offer strength, and deliverability — our job is to push every one of those levers in your favor.
+            Estimates use an average cold email response rate of 0.5%. Your actual results depend on targeting, offer strength, and deliverability — our job is to push every one of those levers in your favor.
           </p>
         </div>
 
