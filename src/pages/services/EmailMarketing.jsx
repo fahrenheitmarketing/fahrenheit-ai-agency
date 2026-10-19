@@ -101,55 +101,14 @@ export default function EmailMarketing() {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-secondary/30">
+      <section id="estimator" className="py-24 px-6 scroll-mt-24">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
-            label="The Program"
-            title="Three Disciplines, One Outcome: Replies"
-            description="Cold email fails when any one of these is weak. We run all three as a single, managed system."
+            label="Pipeline Estimator"
+            title="What Could Cold Email Be Worth to You?"
+            description="Set your monthly volume and the value of a single lead. We apply a 2% average response rate to show the conversation and pipeline your program could generate."
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pillars.map((pillar) => (
-              <div key={pillar.title} className="bg-card p-8 rounded-2xl border border-border">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                  <pillar.icon className="w-6 h-6 text-accent" />
-                </div>
-                <h3 className="font-heading text-lg font-normal mb-2">{pillar.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{pillar.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="font-heading text-3xl md:text-4xl font-normal mb-6">Deliverability Is the Whole Game</h2>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Most cold email fails before it is read — filtered, blocked, or dropped into spam. We build the sending infrastructure first: authenticated domains, warmed inboxes, and sending caps that keep your sender reputation clean for the long haul.
-              </p>
-              <div className="space-y-4">
-                {['Dedicated sending domains with full authentication (SPF, DKIM, DMARC)', 'Gradual mailbox warmup before the first campaign', 'Daily send caps and rotation across inboxes', 'Continuous list hygiene and risky-contact suppression', 'Inbox placement monitoring on every campaign', 'Immediate opt-out handling and compliance'].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-foreground text-background rounded-2xl p-10">
-              <Mail className="w-10 h-10 mb-6 text-accent" />
-              <h3 className="font-heading text-2xl font-normal mb-4">Measured in Conversations</h3>
-              <p className="text-background/70 leading-relaxed mb-4">
-                We do not report on sends — we report on replies, meetings booked, and pipeline created. Every month you see exactly how many conversations your program produced and what the next month's tests are.
-              </p>
-              <p className="text-background/70 leading-relaxed">
-                And because the channel compounds — better lists, sharper copy, cleaner reputation — response rates trend upward the longer we run it.
-              </p>
-            </div>
-          </div>
+          <EmailEstimator />
         </div>
       </section>
 
@@ -191,14 +150,55 @@ export default function EmailMarketing() {
         </div>
       </section>
 
-      <section id="estimator" className="py-24 px-6 scroll-mt-24">
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
-            label="Pipeline Estimator"
-            title="What Could Cold Email Be Worth to You?"
-            description="Set your monthly volume and the value of a single lead. We apply a 2% average response rate to show the conversation and pipeline your program could generate."
+            label="The Program"
+            title="Three Disciplines, One Outcome: Replies"
+            description="Cold email fails when any one of these is weak. We run all three as a single, managed system."
           />
-          <EmailEstimator />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {pillars.map((pillar) => (
+              <div key={pillar.title} className="bg-card p-8 rounded-2xl border border-border">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+                  <pillar.icon className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="font-heading text-lg font-normal mb-2">{pillar.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{pillar.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 bg-secondary/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="font-heading text-3xl md:text-4xl font-normal mb-6">Deliverability Is the Whole Game</h2>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Most cold email fails before it is read — filtered, blocked, or dropped into spam. We build the sending infrastructure first: authenticated domains, warmed inboxes, and sending caps that keep your sender reputation clean for the long haul.
+              </p>
+              <div className="space-y-4">
+                {['Dedicated sending domains with full authentication (SPF, DKIM, DMARC)', 'Gradual mailbox warmup before the first campaign', 'Daily send caps and rotation across inboxes', 'Continuous list hygiene and risky-contact suppression', 'Inbox placement monitoring on every campaign', 'Immediate opt-out handling and compliance'].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-foreground text-background rounded-2xl p-10">
+              <Mail className="w-10 h-10 mb-6 text-accent" />
+              <h3 className="font-heading text-2xl font-normal mb-4">Measured in Conversations</h3>
+              <p className="text-background/70 leading-relaxed mb-4">
+                We do not report on sends — we report on replies, meetings booked, and pipeline created. Every month you see exactly how many conversations your program produced and what the next month's tests are.
+              </p>
+              <p className="text-background/70 leading-relaxed">
+                And because the channel compounds — better lists, sharper copy, cleaner reputation — response rates trend upward the longer we run it.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
