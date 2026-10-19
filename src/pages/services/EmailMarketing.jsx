@@ -55,7 +55,7 @@ const pillars = [
 const plans = [
   { name: 'Growth', price: 2500, volume: 25000, features: ['Full strategy & sequencing', 'ICP building & list sourcing', 'Copywriting & A/B testing', 'Deliverability management', 'Monthly reporting & optimization'] },
   { name: 'Scale', price: 5000, volume: 60000, features: ['Everything in Growth', 'Multi-segment targeting', 'Additional sending domains', 'Reply-handling workflows', 'Dedicated campaign manager'] },
-  { name: 'Enterprise', price: 7500, volume: 100000, features: ['Everything in Scale', 'Custom audience modeling', 'Channel expansion (LinkedIn follow-up)', 'Quarterly strategy reviews', 'Priority build-out of new segments'] },
+  { name: 'Enterprise', price: 7500, volume: 100000, features: ['Everything in Scale', 'Custom audience modeling', 'Quarterly strategy reviews', 'Priority build-out of new segments'] },
 ];
 
 export default function EmailMarketing() {
