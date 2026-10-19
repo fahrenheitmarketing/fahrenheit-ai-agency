@@ -19,13 +19,13 @@ const services = [
   { label: 'CRO', path: '/services/cro' },
   { label: 'Marketing Automation', path: '/services/marketing-automation' },
   { label: 'Software Development', path: '/services/software-development' },
+  { label: 'Email Marketing', path: '/services/email-marketing' },
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -45,7 +45,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link to="/" className="flex items-center flex-shrink-0">
-          <img src={LOGO_URL} alt="Fahrenheit Marketing" className={`h-8 ${isHome ? 'brightness-0 invert' : 'brightness-0'}`} />
+          <img src={LOGO_URL} alt="Fahrenheit Marketing" className="h-8 brightness-0" />
         </Link>
 
         {/* Center Nav */}
@@ -65,12 +65,19 @@ export default function Navbar() {
           <Link to="/pricing" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/pricing') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
             PRICING
           </Link>
-          <Link to="/about" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/about') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
-            ABOUT
-          </Link>
-          <Link to="/blog" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
-            BLOG
-          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger className={`flex items-center gap-1 text-sm whitespace-nowrap transition-colors outline-none font-body tracking-wide ${isActive('/about') || isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
+              ABOUT <ChevronDown className="w-3.5 h-3.5" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center" className="w-48 bg-background border-border">
+              <DropdownMenuItem asChild>
+                <Link to="/about" className="cursor-pointer text-sm">About the Agency</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/blog" className="cursor-pointer text-sm">Blog</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Link to="/portfolio" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/portfolio') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
            PORTFOLIO
           </Link>
@@ -130,8 +137,13 @@ export default function Navbar() {
                 </div>
               </div>
               <Link to="/pricing" className={`text-sm font-body ${isActive('/pricing') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>PRICING</Link>
-              <Link to="/about" className={`text-sm font-body ${isActive('/about') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>ABOUT</Link>
-              <Link to="/blog" className={`text-sm font-body ${isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>BLOG</Link>
+              <div className="border-b border-border pb-4">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">About</p>
+                <div className="flex flex-wrap gap-2">
+                  <Link to="/about" className={`inline-flex items-center text-xs font-body font-medium px-3 py-1.5 rounded-full border transition-colors ${isActive('/about') ? 'bg-accent text-white border-accent' : 'bg-secondary text-foreground/80 border-border hover:border-accent hover:text-accent'}`}>ABOUT THE AGENCY</Link>
+                  <Link to="/blog" className={`inline-flex items-center text-xs font-body font-medium px-3 py-1.5 rounded-full border transition-colors ${isActive('/blog') ? 'bg-accent text-white border-accent' : 'bg-secondary text-foreground/80 border-border hover:border-accent hover:text-accent'}`}>BLOG</Link>
+                </div>
+              </div>
               <Link to="/portfolio" className={`text-sm font-body ${isActive('/portfolio') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>PORTFOLIO</Link>
               <Link to="/case-studies" className={`text-sm font-body ${isActive('/case-studies') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>CASE STUDIES</Link>
               <Link to="/what-to-expect" className={`text-sm font-body ${isActive('/what-to-expect') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>WHAT TO EXPECT</Link>
