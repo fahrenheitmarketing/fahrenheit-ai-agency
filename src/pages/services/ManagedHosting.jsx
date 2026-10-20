@@ -119,11 +119,11 @@ export default function ManagedHosting() {
                   Request a Security Review <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
-              <Link to="/pricing">
+              <a href="#pricing">
                 <Button size="lg" variant="outline" className="rounded-full px-8 font-body">
                   See Pricing
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -195,7 +195,7 @@ export default function ManagedHosting() {
       </section>
 
       {/* Tiers */}
-      <section className="py-24 px-6 bg-secondary/30">
+      <section id="pricing" className="py-24 px-6 bg-secondary/30 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             label="Protection Tiers"
