@@ -200,11 +200,11 @@ export default function ManagedHosting() {
           <SectionHeader
             label="Protection Tiers"
             title="The Right Level of Protection for Each Site"
-            description="Every site gets the standard. Sites that face heavier application-level attack traffic get the advanced tier by default."
+            description="Every site gets the standard. Sites that face heavier application-level attack traffic get the advanced tier by default. Enterprise organizations get a dedicated, custom-scoped security program."
           />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
             {/* Standard */}
-            <div className="bg-card border border-border rounded-2xl p-10">
+            <div className="bg-card border border-border rounded-2xl p-8">
               <p className="text-xs uppercase tracking-widest text-muted-foreground font-body mb-3">
                 Standard — included with every managed site
               </p>
@@ -236,7 +236,7 @@ export default function ManagedHosting() {
             </div>
 
             {/* Advanced */}
-            <div className="bg-card border-2 border-accent rounded-2xl p-10 relative">
+            <div className="bg-card border-2 border-accent rounded-2xl p-8 relative">
               <span className="absolute top-6 right-6 inline-block text-xs font-semibold uppercase tracking-widest text-accent font-body">
                 Recommended
               </span>
@@ -270,6 +270,44 @@ export default function ManagedHosting() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Enterprise */}
+            <div className="bg-foreground text-background rounded-2xl p-8 border-2 border-foreground">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent mb-3 font-body">
+                Enterprise
+              </span>
+              <p className="font-heading text-4xl font-normal mb-1">
+                Custom
+                <span className="text-sm text-background/60 font-body font-normal">/month</span>
+              </p>
+              <h3 className="font-heading text-2xl font-normal mb-4 mt-2">Enterprise Protection</h3>
+              <p className="text-background/70 text-sm leading-relaxed mb-6">
+                For organizations with complex infrastructure, compliance obligations, and multiple web
+                properties. This is the level of enterprise hosting and security our team has delivered for
+                brands like PepsiCo, RJ Reynolds, and QuikTrip — a dedicated program built around your stack,
+                not a shared configuration.
+              </p>
+              <ul className="space-y-3 text-sm">
+                {[
+                  'Dedicated security architecture and threat modeling',
+                  'Custom firewall rulesets aligned to compliance requirements (PCI, HIPAA)',
+                  'Multi-property management with consolidated executive reporting',
+                  'Dedicated incident response with post-incident reviews',
+                  'Application-aware bot mitigation tuned to your traffic',
+                  'SLA-backed response times',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link to="/contact" className="mt-8 block">
+                <Button className="w-full rounded-full font-body bg-accent text-white hover:bg-accent/90">
+                  Talk to Us
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
