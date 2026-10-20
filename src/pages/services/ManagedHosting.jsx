@@ -233,6 +233,7 @@ export default function ManagedHosting() {
                   'Bot defenses enabled per site after testing',
                   'Fully managed DNS with a proxied vs. DNS-only audit',
                   'Origin lockdown: allowlist plus authenticated origin pulls',
+                  'CMS core and plugin updates, applied and verified',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
@@ -260,8 +261,7 @@ export default function ManagedHosting() {
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                 Content management systems and e-commerce platforms draw application-level attacks the basic
                 firewall tier is not built to stop. The advanced tier adds the full rulesets and fine-grained
-                controls those sites need — and your monthly fee also covers ongoing CMS and plugin updates, so
-                your site's software never falls behind its security patches.
+                controls those sites need, on top of the CMS and plugin maintenance every managed site receives.
               </p>
               <ul className="space-y-3 text-sm">
                 {[
@@ -270,7 +270,6 @@ export default function ManagedHosting() {
                   'OWASP ruleset covering the broadest class of web vulnerabilities',
                   'Custom rate limiting rules tuned to your real traffic patterns',
                   'Bot management with per-integration exceptions',
-                  'CMS core and plugin updates, applied and verified',
                   'Priority response when a rule change is needed',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
