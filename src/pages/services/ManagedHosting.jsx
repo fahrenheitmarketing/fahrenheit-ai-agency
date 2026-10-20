@@ -142,6 +142,7 @@ export default function ManagedHosting() {
               />
               <div className="space-y-4 mt-8">
                 {[
+                  'Your site runs on a dedicated server — isolated resources on every plan, at every tier',
                   'Your site is placed behind a global edge network with unmetered DDoS protection on every plan',
                   'The origin server is locked down so only the edge can reach it — never the open internet',
                   'DNS is audited record by record and managed on your behalf, with full documentation',
@@ -200,7 +201,7 @@ export default function ManagedHosting() {
           <SectionHeader
             label="Protection Tiers"
             title="The Right Level of Protection for Each Site"
-            description="Every site gets the standard. Sites that face heavier application-level attack traffic get the advanced tier by default. Enterprise organizations get a dedicated, custom-scoped security program."
+            description="Every plan includes a dedicated server — isolated resources on every tier. Sites that face heavier application-level attack traffic get the advanced tier by default, and enterprise organizations get a dedicated, custom-scoped security program."
           />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
             {/* Standard */}
