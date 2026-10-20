@@ -1,39 +1,55 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CheckCircle } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
+import { cn } from '@/lib/utils';
 
 const RESPONSE_RATE = 0.002;
 
 const fmtNum = (n) => new Intl.NumberFormat('en-US').format(n);
 const fmtMoney = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 
-export default function EmailEstimator() {
-  const [volume, setVolume] = useState(25000);
+export default function EmailEstimator({ plans }) {
+  const [planIndex, setPlanIndex] = useState(0);
   const [leadValue, setLeadValue] = useState(500);
 
-  const replies = Math.round(volume * RESPONSE_RATE);
+  const plan = plans[planIndex];
+
+  const replies = Math.round(plan.volume * RESPONSE_RATE);
   const pipeline = replies * leadValue;
-
-  let plan = null;
-  if (volume <= 25000) plan = { name: 'Growth', price: 2500, volume: 25000 };
-  else if (volume <= 60000) plan = { name: 'Scale', price: 5000, volume: 60000 };
-  else if (volume <= 100000) plan = { name: 'Enterprise', price: 7500, volume: 100000 };
-
-  const roi = plan ? pipeline - plan.price : null;
+  const net = pipeline - plan.price;
 
   return (
     <div className="bg-card border border-border rounded-2xl p-8 lg:p-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div className="space-y-12">
           <div>
-            <div className="flex items-baseline justify-between mb-4">
-              <label className="text-sm font-medium font-body">Emails delivered / month</label>
-              <span className="font-heading text-2xl">{fmtNum(volume)}</span>
-            </div>
-            <Slider value={[volume]} onValueChange={(v) => setVolume(v[0])} min={5000} max={150000} step={5000} />
-            <div className="flex justify-between text-xs text-muted-foreground font-body mt-2">
-              <span>5,000</span>
-              <span>150,000</span>
+            <p className="text-sm font-medium font-body mb-4">Choose your plan</p>
+            <div className="space-y-4">
+              {plans.map((p, i) => (
+                <button
+                  key={p.name}
+                  onClick={() => setPlanIndex(i)}
+                  className={cn(
+                    'w-full text-left border rounded-2xl p-5 transition-colors',
+                    i === planIndex
+                      ? 'border-accent bg-accent/5'
+                      : 'border-border hover:border-foreground/30'
+                  )}
+                  aria-pressed={i === planIndex}
+                >
+                  <div className="flex items-baseline justify-between mb-1">
+                    <span className="font-heading text-xl font-normal">{p.name}</span>
+                    <span className="text-sm font-body font-medium">
+                      {fmtMoney(p.price)}
+                      <span className="text-muted-foreground font-normal">/mo</span>
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground font-body">
+                    {fmtNum(p.volume)} emails delivered monthly
+                  </p>
+                </button>
+              ))}
             </div>
           </div>
           <div>
@@ -62,15 +78,25 @@ export default function EmailEstimator() {
               <p className="text-xs uppercase tracking-widest text-muted-foreground font-body mb-1">Estimated pipeline value / month</p>
               <p className="font-heading text-4xl text-accent">{fmtMoney(pipeline)}</p>
             </div>
-            {plan ? (
-              <div className="pt-4 border-t border-border text-sm font-body text-muted-foreground leading-relaxed">
-                Recommended plan: <span className="text-foreground font-medium">{plan.name}</span> — {fmtMoney(plan.price)}/mo for {fmtNum(plan.volume)} emails delivered. Net of retainer, that's <span className="text-foreground font-medium">{fmtMoney(Math.max(roi, 0))}</span> in estimated value.
+            <div className="pt-4 border-t border-border text-sm font-body text-muted-foreground leading-relaxed space-y-2">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                <span>
+                  The <span className="text-foreground font-medium">{plan.name}</span> plan delivers{' '}
+                  {fmtNum(plan.volume)} emails a month at {fmtMoney(plan.price)}/mo.
+                </span>
               </div>
-            ) : (
-              <div className="pt-4 border-t border-border text-sm font-body text-muted-foreground leading-relaxed">
-                You're looking at more than 100,000 emails a month. <Link to="/contact" className="text-accent hover:underline">Talk to us</Link> about a custom volume plan.
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                <span>
+                  Net of retainer, that's{' '}
+                  <span className="text-foreground font-medium">
+                    {net >= 0 ? fmtMoney(net) : `-${fmtMoney(Math.abs(net))}`}
+                  </span>{' '}
+                  in estimated value{net >= 0 ? '' : ' at this lead value'}.
+                </span>
               </div>
-            )}
+            </div>
           </div>
           <Link
             to="/contact"
