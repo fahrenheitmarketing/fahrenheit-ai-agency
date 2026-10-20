@@ -20,6 +20,7 @@ const services = [
   { label: 'Marketing Automation', path: '/services/marketing-automation' },
   { label: 'Software Development', path: '/services/software-development' },
   { label: 'Email Marketing', path: '/services/email-marketing' },
+  { label: 'Managed Hosting & Security', path: '/services/managed-hosting' },
 ];
 
 export default function Navbar() {
