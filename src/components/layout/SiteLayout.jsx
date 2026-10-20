@@ -22,8 +22,15 @@ export default function SiteLayout() {
   const isPromo = location.pathname === '/promo-retainer' || location.pathname === '/promo-website';
 
   useEffect(() => {
+    if (location.hash) {
+      const el = document.getElementById(location.hash.slice(1));
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return (
     <div className={`min-h-screen flex flex-col bg-background text-foreground ${isPromo ? 'promo-brand' : ''}`}>

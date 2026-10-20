@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, Shield, Calendar, Zap } from 'lucide-react';
 import CTASection from '../components/shared/CTASection';
+import OnboardingTimeline from '../components/shared/OnboardingTimeline';
 
 const tiers = [
   {
@@ -173,6 +174,9 @@ export default function Pricing() {
           </div>
         </div>
       </section>
+
+      {/* What to Expect */}
+      <OnboardingTimeline />
 
       {/* Disclaimer */}
       <section className="pb-24 px-6">
