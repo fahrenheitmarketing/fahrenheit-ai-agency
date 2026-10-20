@@ -237,12 +237,14 @@ export default function ManagedHosting() {
 
             {/* Advanced */}
             <div className="bg-card border-2 border-accent rounded-2xl p-8 relative">
-              <span className="absolute top-6 right-6 inline-block text-xs font-semibold uppercase tracking-widest text-accent font-body">
-                Recommended
-              </span>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground font-body mb-3">
-                Advanced — for content platforms &amp; e-commerce
-              </p>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-3">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">
+                  Advanced — for content platforms &amp; e-commerce
+                </p>
+                <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent font-body border border-accent rounded-full px-2 py-0.5">
+                  Recommended
+                </span>
+              </div>
               <p className="font-heading text-4xl font-normal mb-1">
                 $750
                 <span className="text-sm text-muted-foreground font-body font-normal">/month</span>
