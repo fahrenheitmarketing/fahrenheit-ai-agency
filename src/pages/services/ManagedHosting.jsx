@@ -82,9 +82,9 @@ const faqs = [
       'Yes — and we do it gradually, not with a risky overnight cutover. We start with a full audit of your DNS records to determine what can be proxied and what must remain DNS-only, then stage the firewall, rulesets, bot settings, and origin lockdown with a checklist, verifying each step before moving to the next.',
   },
   {
-    question: 'What happens if an attack gets through anyway?',
+    question: 'What happens if my site gets hacked anyway?',
     answer:
-      'The edge blocks the overwhelming majority of attacks before they reach your server. If something does slip past, the origin lockdown ensures the only path in is through the protective edge — so we adjust rules at a single chokepoint, not by scrambling across your infrastructure.',
+      'We restore your site from a previous mirror image — a clean, verified snapshot taken before the incident — so the compromise is wiped out entirely rather than patched over. Because we maintain current mirrors of every site we host, recovery is measured in hours, not days, and our staged restoration process verifies the clean snapshot before traffic is ever pointed back at it. From there we trace how the attacker got in, close that path at the edge or the origin, and work to mitigate any potential data loss by comparing the restored image against your most recent records so nothing of value slips through the cracks.',
   },
 ];
 
