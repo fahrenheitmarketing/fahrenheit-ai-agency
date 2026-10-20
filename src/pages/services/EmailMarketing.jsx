@@ -106,7 +106,7 @@ export default function EmailMarketing() {
           <SectionHeader
             label="Pipeline Estimator"
             title="What Could Cold Email Be Worth to You?"
-            description="Choose a plan and set the value of a single lead. We apply a 0.061033% average response rate to that plan's delivered volume to show the conversations and pipeline your program could generate."
+            description="Choose a plan and set the value of a single lead. We apply a 0.08% average response rate to that plan's delivered volume to show the conversations and pipeline your program could generate."
           />
           <EmailEstimator plans={plans} />
         </div>
