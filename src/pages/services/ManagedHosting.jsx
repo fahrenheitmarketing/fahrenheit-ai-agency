@@ -208,7 +208,11 @@ export default function ManagedHosting() {
               <p className="text-xs uppercase tracking-widest text-muted-foreground font-body mb-3">
                 Standard — included with every managed site
               </p>
-              <h3 className="font-heading text-2xl font-normal mb-4">Essential Protection</h3>
+              <p className="font-heading text-4xl font-normal mb-1">
+                $500
+                <span className="text-sm text-muted-foreground font-body font-normal">/month</span>
+              </p>
+              <h3 className="font-heading text-2xl font-normal mb-4 mt-2">Essential Protection</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                 The baseline for brochure sites, landing pages, and marketing properties. Unmetered DDoS
                 protection paired with a basic managed firewall — simple, reliable coverage against the attacks
@@ -239,11 +243,16 @@ export default function ManagedHosting() {
               <p className="text-xs uppercase tracking-widest text-muted-foreground font-body mb-3">
                 Advanced — for content platforms &amp; e-commerce
               </p>
-              <h3 className="font-heading text-2xl font-normal mb-4">Advanced Protection</h3>
+              <p className="font-heading text-4xl font-normal mb-1">
+                $750
+                <span className="text-sm text-muted-foreground font-body font-normal">/month</span>
+              </p>
+              <h3 className="font-heading text-2xl font-normal mb-4 mt-2">Advanced Protection</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                 Content management systems and e-commerce platforms draw application-level attacks the basic
                 firewall tier is not built to stop. The advanced tier adds the full rulesets and fine-grained
-                controls those sites need.
+                controls those sites need — and your monthly fee also covers ongoing CMS and plugin updates, so
+                your site's software never falls behind its security patches.
               </p>
               <ul className="space-y-3 text-sm">
                 {[
@@ -252,6 +261,7 @@ export default function ManagedHosting() {
                   'OWASP ruleset covering the broadest class of web vulnerabilities',
                   'Custom rate limiting rules tuned to your real traffic patterns',
                   'Bot management with per-integration exceptions',
+                  'CMS core and plugin updates, applied and verified',
                   'Priority response when a rule change is needed',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
