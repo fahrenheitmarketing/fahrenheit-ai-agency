@@ -1,86 +1,68 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
 
-export default function TeamCarousel({ items }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
-    loop: false,
-    dragFree: false,
-  });
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(true);
-  const [crops, setCrops] = useState({});
+const SLIDE_WIDTH = 'w-[75vw] sm:w-[40vw] lg:w-[23vw]';
 
-  const handleImgLoad = (index, crop, e) => {
-    if (!crop) return;
-    const el = e.currentTarget;
-    const topPx = Math.round((el.clientHeight * (crop.top || 0)) / 100);
-    const bottomPx = Math.round((el.clientHeight * (crop.bottom || 0)) / 100);
-    setCrops((prev) => ({
-      ...prev,
-      [index]: { height: el.clientHeight - topPx - bottomPx, topPx },
-    }));
-  };
-
-  const onSelect = useCallback((api) => {
-    setCanPrev(api.canScrollPrev());
-    setCanNext(api.canScrollNext());
-  }, []);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    onSelect(emblaApi);
-    emblaApi.on('select', onSelect).on('reInit', onSelect);
-  }, [emblaApi, onSelect]);
-
+function TeamSlide({ member, crop, onImgLoad }) {
   return (
-    <div className="relative">
-      <div ref={emblaRef} className="overflow-hidden cursor-grab active:cursor-grabbing">
-        <div className="flex gap-0">
-          {items.map((member, i) => (
-            <div key={member.name} className="flex-[0_0_80%] sm:flex-[0_0_45%] lg:flex-[0_0_24%] min-w-0">
-              <div
-                className="group relative overflow-hidden"
-                style={crops[i] ? { height: crops[i].height } : undefined}
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  loading="lazy"
-                  onLoad={(e) => handleImgLoad(i, member.crop, e)}
-                  style={crops[i] ? { marginTop: -crops[i].topPx } : undefined}
-                  draggable="false"
-                  className="block w-full h-auto object-contain object-center transition-transform duration-500 group-hover:scale-[1.02] select-none"
-                />
-                <div className="absolute inset-0 bg-foreground/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="w-full px-6 pb-6">
-                    <p className="font-heading text-xl md:text-2xl text-white leading-tight">{member.name}</p>
-                    <p className="text-xs md:text-sm uppercase tracking-widest text-accent font-body mt-1.5">{member.role}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+    <div className={`${SLIDE_WIDTH} shrink-0 min-w-0 px-0.5`}>
+      <div
+        className="group relative overflow-hidden"
+        style={crop ? { height: crop.height } : undefined}
+      >
+        <img
+          src={member.image}
+          alt={member.name}
+          loading="lazy"
+          draggable="false"
+          onLoad={onImgLoad}
+          style={crop ? { marginTop: -crop.topPx } : undefined}
+          className="block w-full h-auto object-contain object-center transition-transform duration-500 group-hover:scale-[1.02] select-none"
+        />
+        <div className="absolute inset-0 bg-foreground/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+          <div className="w-full px-6 pb-6">
+            <p className="font-heading text-xl md:text-2xl text-white leading-tight">{member.name}</p>
+            <p className="text-xs md:text-sm uppercase tracking-widest text-accent font-body mt-1.5">{member.role}</p>
+          </div>
         </div>
       </div>
+    </div>
+  );
+}
 
-      <button
-        onClick={() => emblaApi?.scrollPrev()}
-        disabled={!canPrev}
-        aria-label="Previous team members"
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-10 h-10 rounded-full bg-background border border-border shadow-sm flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-colors disabled:opacity-0 disabled:pointer-events-none"
+export default function TeamCarousel({ items, speedSeconds = 45 }) {
+  const [crops, setCrops] = useState({});
+
+  const handleImgLoad = (member, e) => {
+    if (!member.crop) return;
+    const el = e.currentTarget;
+    const topPx = Math.round((el.clientHeight * (member.crop.top || 0)) / 100);
+    const bottomPx = Math.round((el.clientHeight * (member.crop.bottom || 0)) / 100);
+    setCrops((prev) =>
+      prev[member.name]
+        ? prev
+        : { ...prev, [member.name]: { height: el.clientHeight - topPx - bottomPx, topPx } }
+    );
+  };
+
+  return (
+    <div className="relative overflow-hidden group/marquee" aria-label="Team members">
+      <div
+        className="flex w-max animate-marquee group-hover/marquee:[animation-play-state:paused]"
+        style={{ animationDuration: `${speedSeconds}s` }}
       >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-      <button
-        onClick={() => emblaApi?.scrollNext()}
-        disabled={!canNext}
-        aria-label="Next team members"
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 w-10 h-10 rounded-full bg-background border border-border shadow-sm flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-colors disabled:opacity-0 disabled:pointer-events-none"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </button>
+        {[0, 1].map((copy) => (
+          <div key={copy} className="flex shrink-0" aria-hidden={copy === 1}>
+            {items.map((member) => (
+              <TeamSlide
+                key={`${copy}-${member.name}`}
+                member={member}
+                crop={crops[member.name]}
+                onImgLoad={(e) => handleImgLoad(member, e)}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
