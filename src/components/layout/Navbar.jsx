@@ -1,30 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+  Menu,
+  X,
+  ChevronDown,
+  Compass,
+  Search,
+  Target,
+  Megaphone,
+  TrendingUp,
+  Workflow,
+  Code2,
+  Mail,
+  ShieldCheck,
+  Users,
+  BookOpen,
+} from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import MegaMenu from './MegaMenu';
 
 const LOGO_URL = 'https://media.base44.com/images/public/user_696032597527e77c90fca3ba/9a7da2942_FahrenheitMarketingLogo.png';
 
 const services = [
-  { label: 'Strategy', path: '/services/strategy' },
-  { label: 'SEO', path: '/services/seo' },
-  { label: 'SEM / PPC', path: '/services/sem' },
-  { label: 'Social Media', path: '/services/smm' },
-  { label: 'CRO', path: '/services/cro' },
-  { label: 'Marketing Automation', path: '/services/marketing-automation' },
-  { label: 'Software Development', path: '/services/software-development' },
-  { label: 'Email Marketing', path: '/services/email-marketing' },
-  { label: 'Managed Hosting & Security', path: '/services/managed-hosting' },
+  { icon: Compass, label: 'Strategy', description: 'Full-funnel growth strategy and roadmaps', path: '/services/strategy' },
+  { icon: Search, label: 'SEO', description: 'Own page one and AI search results', path: '/services/seo' },
+  { icon: Target, label: 'SEM / PPC', description: 'AI-assisted paid search management', path: '/services/sem' },
+  { icon: Megaphone, label: 'Social Media', description: 'Agentic social content and management', path: '/services/smm' },
+  { icon: TrendingUp, label: 'CRO', description: 'Turn more visitors into customers', path: '/services/cro' },
+  { icon: Workflow, label: 'Marketing Automation', description: 'Lifecycle journeys that nurture and convert', path: '/services/marketing-automation' },
+  { icon: Code2, label: 'Software Development', description: 'Custom platforms, portals, and integrations', path: '/services/software-development' },
+  { icon: Mail, label: 'Email Marketing', description: 'Cold email programs that build pipeline', path: '/services/email-marketing' },
+  { icon: ShieldCheck, label: 'Managed Hosting & Security', description: 'Fast, hardened, fully managed hosting', path: '/services/managed-hosting' },
+];
+
+const aboutMenu = [
+  { icon: Users, label: 'About the Agency', description: 'Our story, our team, and how we work', path: '/about' },
+  { icon: BookOpen, label: 'Blog', description: 'Marketing insights and AI perspectives', path: '/blog' },
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -34,7 +50,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => { setMobileOpen(false); }, [location]);
+  useEffect(() => { setMobileOpen(false); setOpenMenu(null); }, [location]);
 
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/';
@@ -42,7 +58,10 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${scrolled ? 'bg-background/95 backdrop-blur-sm border-b border-border' : 'bg-transparent'}`}>
+    <header
+      onMouseLeave={() => setOpenMenu(null)}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${scrolled ? 'bg-background/95 backdrop-blur-sm border-b border-border' : 'bg-transparent'}`}
+    >
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link to="/" className="flex items-center flex-shrink-0">
@@ -51,34 +70,27 @@ export default function Navbar() {
 
         {/* Center Nav */}
         <div className="nav-desktop-flex items-center gap-5">
-          <DropdownMenu>
-            <DropdownMenuTrigger className={`flex items-center gap-1 text-sm whitespace-nowrap transition-colors outline-none font-body tracking-wide ${isActive('/services') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
-              SERVICES <ChevronDown className="w-3.5 h-3.5" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="center" className="w-48 bg-background border-border">
-              {services.map((s) => (
-                <DropdownMenuItem key={s.path} asChild>
-                  <Link to={s.path} className="cursor-pointer text-sm">{s.label}</Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <button
+            onMouseEnter={() => setOpenMenu('services')}
+            onClick={() => setOpenMenu(openMenu === 'services' ? null : 'services')}
+            aria-haspopup="true"
+            aria-expanded={openMenu === 'services'}
+            className={`flex items-center gap-1 text-sm whitespace-nowrap transition-colors outline-none font-body tracking-wide ${isActive('/services') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}
+          >
+            SERVICES <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === 'services' ? 'rotate-180' : ''}`} />
+          </button>
           <Link to="/pricing" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/pricing') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
             PRICING
           </Link>
-          <DropdownMenu>
-            <DropdownMenuTrigger className={`flex items-center gap-1 text-sm whitespace-nowrap transition-colors outline-none font-body tracking-wide ${isActive('/about') || isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
-              ABOUT <ChevronDown className="w-3.5 h-3.5" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="center" className="w-48 bg-background border-border">
-              <DropdownMenuItem asChild>
-                <Link to="/about" className="cursor-pointer text-sm">About the Agency</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/blog" className="cursor-pointer text-sm">Blog</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <button
+            onMouseEnter={() => setOpenMenu('about')}
+            onClick={() => setOpenMenu(openMenu === 'about' ? null : 'about')}
+            aria-haspopup="true"
+            aria-expanded={openMenu === 'about'}
+            className={`flex items-center gap-1 text-sm whitespace-nowrap transition-colors outline-none font-body tracking-wide ${isActive('/about') || isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}
+          >
+            ABOUT <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === 'about' ? 'rotate-180' : ''}`} />
+          </button>
           <Link to="/portfolio" className={`text-sm whitespace-nowrap transition-colors font-body tracking-wide ${isActive('/portfolio') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}>
            PORTFOLIO
           </Link>
@@ -107,6 +119,15 @@ export default function Navbar() {
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </nav>
+
+      <AnimatePresence>
+        {openMenu === 'services' && (
+          <MegaMenu items={services} columns={3} onNavigate={() => setOpenMenu(null)} />
+        )}
+        {openMenu === 'about' && (
+          <MegaMenu items={aboutMenu} columns={2} onNavigate={() => setOpenMenu(null)} />
+        )}
+      </AnimatePresence>
 
       {mobileOpen && (
         <div
