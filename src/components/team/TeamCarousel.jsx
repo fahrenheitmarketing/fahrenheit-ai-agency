@@ -10,6 +10,18 @@ export default function TeamCarousel({ items }) {
   });
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
+  const [crops, setCrops] = useState({});
+
+  const handleImgLoad = (index, crop, e) => {
+    if (!crop) return;
+    const el = e.currentTarget;
+    const topPx = Math.round((el.clientHeight * (crop.top || 0)) / 100);
+    const bottomPx = Math.round((el.clientHeight * (crop.bottom || 0)) / 100);
+    setCrops((prev) => ({
+      ...prev,
+      [index]: { height: el.clientHeight - topPx - bottomPx, topPx },
+    }));
+  };
 
   const onSelect = useCallback((api) => {
     setCanPrev(api.canScrollPrev());
@@ -26,13 +38,18 @@ export default function TeamCarousel({ items }) {
     <div className="relative">
       <div ref={emblaRef} className="overflow-hidden cursor-grab active:cursor-grabbing">
         <div className="flex gap-0">
-          {items.map((member) => (
+          {items.map((member, i) => (
             <div key={member.name} className="flex-[0_0_80%] sm:flex-[0_0_45%] lg:flex-[0_0_24%] min-w-0">
-              <div className="group relative overflow-hidden">
+              <div
+                className="group relative overflow-hidden"
+                style={crops[i] ? { height: crops[i].height } : undefined}
+              >
                 <img
                   src={member.image}
                   alt={member.name}
                   loading="lazy"
+                  onLoad={(e) => handleImgLoad(i, member.crop, e)}
+                  style={crops[i] ? { marginTop: -crops[i].topPx } : undefined}
                   draggable="false"
                   className="block w-full h-auto object-contain object-center transition-transform duration-500 group-hover:scale-[1.02] select-none"
                 />
