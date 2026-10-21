@@ -24,7 +24,7 @@ export default function Team() {
       </section>
 
       <section className="pb-24 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-border">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-0">
           {teamMembers.map((member) => (
             <TeamMemberCard key={member.name} {...member} />
           ))}
