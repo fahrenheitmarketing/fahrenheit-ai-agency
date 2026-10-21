@@ -28,13 +28,13 @@ export default function TeamCarousel({ items }) {
         <div className="flex gap-0">
           {items.map((member) => (
             <div key={member.name} className="flex-[0_0_80%] sm:flex-[0_0_45%] lg:flex-[0_0_24%] min-w-0">
-              <div className="group relative overflow-hidden aspect-[3/4]">
+              <div className="group relative overflow-hidden">
                 <img
                   src={member.image}
                   alt={member.name}
                   loading="lazy"
                   draggable="false"
-                  className="absolute inset-0 w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.02] select-none"
+                  className="block w-full h-auto object-contain object-center transition-transform duration-500 group-hover:scale-[1.02] select-none"
                 />
                 <div className="absolute inset-0 bg-foreground/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="w-full px-6 pb-6">
