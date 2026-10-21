@@ -19,6 +19,7 @@ import EmailMarketing from './pages/services/EmailMarketing';
 import ManagedHosting from './pages/services/ManagedHosting';
 import Pricing from './pages/Pricing';
 import About from './pages/About';
+import Team from './pages/Team';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPostPage from './pages/BlogPostPage';
@@ -77,6 +78,7 @@ const AuthenticatedApp = () => {
         <Route path="/services/managed-hosting" element={<ManagedHosting />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/about" element={<About />} />
+        <Route path="/team" element={<Team />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/services" element={<Services />} />

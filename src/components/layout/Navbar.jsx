@@ -5,6 +5,7 @@ import {
   X,
   ChevronDown,
   Compass,
+  User,
   Search,
   Target,
   Megaphone,
@@ -35,6 +36,7 @@ const services = [
 
 const aboutMenu = [
   { icon: Users, label: 'About the Agency', description: 'Our story, our team, and how we work', path: '/about' },
+  { icon: User, label: 'Team', description: 'Meet the people behind the work', path: '/team' },
   { icon: BookOpen, label: 'Blog', description: 'Marketing insights and AI perspectives', path: '/blog' },
 ];
 
@@ -87,7 +89,7 @@ export default function Navbar() {
             onClick={() => setOpenMenu(openMenu === 'about' ? null : 'about')}
             aria-haspopup="true"
             aria-expanded={openMenu === 'about'}
-            className={`flex items-center gap-1 text-sm whitespace-nowrap transition-colors outline-none font-body tracking-wide ${isActive('/about') || isActive('/blog') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}
+            className={`flex items-center gap-1 text-sm whitespace-nowrap transition-colors outline-none font-body tracking-wide ${isActive('/about') || isActive('/blog') || isActive('/team') ? 'text-accent' : 'text-foreground/70 hover:text-foreground'}`}
           >
             ABOUT <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === 'about' ? 'rotate-180' : ''}`} />
           </button>
@@ -125,7 +127,7 @@ export default function Navbar() {
           <MegaMenu items={services} columns={3} onNavigate={() => setOpenMenu(null)} />
         )}
         {openMenu === 'about' && (
-          <MegaMenu items={aboutMenu} columns={2} onNavigate={() => setOpenMenu(null)} />
+          <MegaMenu items={aboutMenu} columns={3} onNavigate={() => setOpenMenu(null)} />
         )}
       </AnimatePresence>
 
@@ -159,6 +161,7 @@ export default function Navbar() {
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">About</p>
                 <div className="flex flex-wrap gap-2">
                   <Link to="/about" className={`inline-flex items-center text-xs font-body font-medium px-3 py-1.5 rounded-full border transition-colors ${isActive('/about') ? 'bg-accent text-white border-accent' : 'bg-secondary text-foreground/80 border-border hover:border-accent hover:text-accent'}`}>ABOUT THE AGENCY</Link>
+                  <Link to="/team" className={`inline-flex items-center text-xs font-body font-medium px-3 py-1.5 rounded-full border transition-colors ${isActive('/team') ? 'bg-accent text-white border-accent' : 'bg-secondary text-foreground/80 border-border hover:border-accent hover:text-accent'}`}>TEAM</Link>
                   <Link to="/blog" className={`inline-flex items-center text-xs font-body font-medium px-3 py-1.5 rounded-full border transition-colors ${isActive('/blog') ? 'bg-accent text-white border-accent' : 'bg-secondary text-foreground/80 border-border hover:border-accent hover:text-accent'}`}>BLOG</Link>
                 </div>
               </div>
