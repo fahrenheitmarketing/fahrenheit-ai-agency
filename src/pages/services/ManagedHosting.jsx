@@ -55,7 +55,7 @@ const protectionLayers = [
     icon: Globe,
     title: 'DNS Management',
     description:
-      'We host and manage your DNS, routing domains and subdomains through the edge network whenever possible so every visitor passes through protection first. Platforms that cannot sit behind a proxy without breaking page delivery or SSL are served DNS-only and hardened at the origin instead — an audit we run on every onboarding.',
+      'We manage your DNS, routing domains and subdomains through the edge network whenever possible so every visitor passes through protection first. Platforms that cannot sit behind a proxy without breaking page delivery or SSL are served DNS-only and hardened at the origin instead — an audit we run on every onboarding.',
   },
 ];
 
