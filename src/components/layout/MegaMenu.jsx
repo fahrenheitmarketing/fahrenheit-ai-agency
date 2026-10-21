@@ -23,14 +23,14 @@ export default function MegaMenu({ items, columns = 3, onNavigate }) {
                 key={item.path}
                 to={item.path}
                 onClick={onNavigate}
-                className={`group flex items-start gap-4 px-6 py-6 transition-colors hover:bg-secondary/40 ${col < columns - 1 ? 'border-r border-dashed border-border' : ''} ${!isLastRow ? 'border-b border-dashed border-border' : ''}`}
+                className={`group flex items-start gap-4 px-6 py-6 transition-colors hover:bg-accent ${col < columns - 1 ? 'border-r border-dashed border-border' : ''} ${!isLastRow ? 'border-b border-dashed border-border' : ''}`}
               >
-                <item.icon className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" strokeWidth={1.75} />
+                <item.icon className="w-5 h-5 text-accent flex-shrink-0 mt-0.5 group-hover:text-white transition-colors" strokeWidth={1.75} />
                 <div>
-                  <p className="text-sm font-medium font-body text-foreground group-hover:text-accent transition-colors">
+                  <p className="text-sm font-medium font-body text-foreground group-hover:text-white transition-colors">
                     {item.label}
                   </p>
-                  <p className="text-xs text-muted-foreground font-body mt-1 leading-relaxed">
+                  <p className="text-xs text-muted-foreground font-body mt-1 leading-relaxed group-hover:text-white/80 transition-colors">
                     {item.description}
                   </p>
                 </div>
