@@ -11,7 +11,7 @@ export default function TeamMemberCard({ name, role, image }) {
         src={image}
         alt={name}
         loading="lazy"
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        className="absolute inset-0 w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.02]"
       />
       {/* Rollover overlay */}
       <div className="absolute inset-0 bg-foreground/70 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 flex items-end">
