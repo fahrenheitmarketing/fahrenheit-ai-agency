@@ -25,10 +25,10 @@ export default function TeamCarousel({ items }) {
   return (
     <div className="relative">
       <div ref={emblaRef} className="overflow-hidden cursor-grab active:cursor-grabbing">
-        <div className="flex gap-[5px]">
+        <div className="flex gap-0">
           {items.map((member) => (
             <div key={member.name} className="flex-[0_0_80%] sm:flex-[0_0_45%] lg:flex-[0_0_24%] min-w-0">
-              <div className="group relative overflow-hidden rounded-sm aspect-[3/4]">
+              <div className="group relative overflow-hidden aspect-[3/4]">
                 <img
                   src={member.image}
                   alt={member.name}
