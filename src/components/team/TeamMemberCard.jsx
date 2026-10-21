@@ -3,7 +3,7 @@ import React from 'react';
 export default function TeamMemberCard({ name, role, image }) {
   return (
     <div
-      className="group relative overflow-hidden rounded-sm bg-secondary aspect-[3/4] focus-within:ring-2 focus-within:ring-accent"
+      className="group relative overflow-hidden rounded-sm aspect-[3/4] focus-within:ring-2 focus-within:ring-accent"
       tabIndex={0}
       aria-label={`${name}, ${role}`}
     >
