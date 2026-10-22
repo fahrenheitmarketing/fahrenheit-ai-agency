@@ -2,7 +2,7 @@
 export const teamMembers = [
   { name: 'Louis', role: 'Marketing Associate', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/ddb31a6e9_louis1.png' },
   { name: 'Tita', role: 'Senior Developer', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/d461c9bb7_tita1.png' },
-  { name: 'Steven', role: 'Marketing Director', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/863e37c15_steven.png', crop: { top: 3.5, bottom: 3.5 } },
+  { name: 'Steven', role: 'Marketing Director', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/863e37c15_steven.png', crop: { top: 5, bottom: 5 } },
   { name: 'Nick', role: 'Creative Director', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/739a63306_nick1.png' },
   { name: 'Laurel', role: 'HR and Operations Manager', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/e81f28818_laurel1.png' },
   { name: 'Jorge', role: 'Senior Developer', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/92d13e97a_jorge1.png' },
