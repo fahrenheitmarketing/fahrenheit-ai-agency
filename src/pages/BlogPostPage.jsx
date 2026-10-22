@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import { getBlogPostUrl } from '@/lib/blogUtils';
+import usePostHead from '@/hooks/usePostHead';
 import { base44 } from '@/api/base44Client';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -18,7 +19,7 @@ const categoryColors = {
 };
 
 export default function BlogPostPage() {
-  const { postSlug } = useParams();
+  const { serviceSlug, postSlug } = useParams();
   const [post, setPost] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -39,6 +40,8 @@ export default function BlogPostPage() {
     });
   }, [postSlug]);
 
+  usePostHead(post);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -54,6 +57,11 @@ export default function BlogPostPage() {
         <Link to="/blog" className="text-sm font-body text-accent hover:underline">← Back to Blog</Link>
       </div>
     );
+  }
+
+  const canonicalPath = getBlogPostUrl(post);
+  if (canonicalPath !== `/services/${serviceSlug}/${postSlug}`) {
+    return <Navigate to={canonicalPath} replace />;
   }
 
   return (

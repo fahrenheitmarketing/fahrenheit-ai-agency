@@ -41,6 +41,14 @@
     "featured": {
       "type": "boolean",
       "default": false
+    },
+    "seo_title": {
+      "type": "string",
+      "description": "Optional custom page title for search results (60 characters or fewer)"
+    },
+    "meta_description": {
+      "type": "string",
+      "description": "Optional custom meta description for search results (about 155 characters)"
     }
   },
   "required": [
