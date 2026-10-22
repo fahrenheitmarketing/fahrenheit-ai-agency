@@ -144,7 +144,13 @@ No text in the image. Clean, high-quality, suitable as a featured blog image. 16
     });
 
     // Step 5: Create the BlogPost entity
-    const slug = metaResponse.slug || SLUGIFY(selectedTopic.topic);
+    const baseSlug = metaResponse.slug || SLUGIFY(selectedTopic.topic);
+    let slug = baseSlug;
+    let suffix = 2;
+    while ((await base44.asServiceRole.entities.BlogPost.filter({ slug }, { limit: 1 })).items.length > 0) {
+      slug = `${baseSlug}-${suffix}`;
+      suffix += 1;
+    }
     const today = new Date().toISOString().split('T')[0];
 
     const blogPost = await base44.asServiceRole.entities.BlogPost.create({

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { getBlogPostUrl } from '@/lib/blogUtils';
 import usePostHead from '@/hooks/usePostHead';
+import useNoindex from '@/hooks/useNoindex';
 import { base44 } from '@/api/base44Client';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -41,6 +42,7 @@ export default function BlogPostPage() {
   }, [postSlug]);
 
   usePostHead(post);
+  useNoindex(!loading && !post);
 
   if (loading) {
     return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useNoindex from '@/hooks/useNoindex';
 
 const links = [
   { to: '/services', label: 'Services' },
@@ -9,6 +10,7 @@ const links = [
 ];
 
 export default function NotFound() {
+  useNoindex(true);
   return (
     <section className="py-24 lg:py-40 px-6">
       <div className="max-w-3xl mx-auto text-center">
