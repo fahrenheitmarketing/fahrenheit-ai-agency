@@ -35,6 +35,11 @@
         "converted"
       ],
       "default": "new"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional internal notes about this chat"
     }
   },
   "required": [

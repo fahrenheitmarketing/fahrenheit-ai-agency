@@ -33,6 +33,11 @@
         "changes_requested"
       ],
       "description": "Whether the client approved the post or requested changes"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional internal notes about this feedback"
     }
   },
   "required": [
