@@ -17,7 +17,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-5 font-body">Services</h4>
             <div className="flex flex-col gap-3">
-              {[['Strategy', '/services/strategy'], ['SEO', '/services/seo'], ['SEM / PPC', '/services/sem'], ['Social Media', '/services/smm'], ['CRO', '/services/cro'], ['Marketing Automation', '/services/marketing-automation'], ['Software Development', '/services/software-development']].map(([label, path]) => (
+              {[['Strategy', '/services/strategy'], ['SEO', '/services/seo'], ['SEM / PPC', '/services/sem'], ['Social Media', '/services/smm'], ['CRO', '/services/cro'], ['Marketing Automation', '/services/marketing-automation'], ['Software Development', '/services/software-development'], ['Email Marketing', '/services/email-marketing'], ['Managed Hosting & Security', '/services/managed-hosting']].map(([label, path]) => (
                 <Link key={path} to={path} className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">{label}</Link>
               ))}
             </div>
@@ -26,6 +26,7 @@ export default function Footer() {
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-5 font-body">Resources</h4>
             <div className="flex flex-col gap-3">
               <Link to="/blog" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Blog</Link>
+              <Link to="/portfolio" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Portfolio</Link>
               <Link to="/case-studies" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Case Studies</Link>
               <Link to="/promo" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Promo</Link>
             </div>
@@ -34,6 +35,7 @@ export default function Footer() {
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-5 font-body">Company</h4>
             <div className="flex flex-col gap-3">
               <Link to="/about" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">About</Link>
+              <Link to="/team" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Team</Link>
               <Link to="/pricing" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Pricing</Link>
               <Link to="/contact" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Contact</Link>
 
