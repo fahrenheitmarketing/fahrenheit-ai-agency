@@ -37,8 +37,6 @@ import PromoAlt from './pages/PromoAlt';
 import PromoRetainer from './pages/PromoRetainer';
 import PromoWebsite from './pages/PromoWebsite';
 import Portfolio from './pages/Portfolio';
-import ContentStudio from './pages/ContentStudio';
-import SocialMediaPostReview from './pages/SocialMediaPostReview';
 import Diagnose from './pages/process/Diagnose';
 import Deploy from './pages/process/Deploy';
 import Scale from './pages/process/Scale';
@@ -100,9 +98,7 @@ const AuthenticatedApp = () => {
         <Route path="/process/scale" element={<Scale />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/what-to-expect" element={<Pricing />} />
-        <Route path="/content-studio" element={<ContentStudio />} />
       </Route>
-      <Route path="/social-media-post-review" element={<SocialMediaPostReview />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
