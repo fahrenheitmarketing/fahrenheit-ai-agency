@@ -34,9 +34,19 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] mb-8"
             >
+              AI-First Digital Marketing Agency{' '}
+              <span className="text-accent italic">in Austin, TX</span>
+            </motion.h1>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="font-heading text-4xl md:text-5xl font-normal leading-[1.15] mb-8"
+            >
               Choose the model that's right{' '}
               <span className="text-accent italic">for your business</span>.
-            </motion.h1>
+            </motion.h2>
 
             <motion.p
               initial={{ opacity: 0, y: 10 }}
