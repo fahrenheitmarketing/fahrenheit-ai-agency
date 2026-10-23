@@ -15,10 +15,8 @@ function getZoom(crop) {
 // on the subject (rows with contrast against the background) instead of the canvas.
 // Photos wider than the frame (e.g. 4:5 headshots) are shown in full, and the
 // frame is painted with the photo's own edge color so the leftover space blends in.
-function useSubjectPosition() {
-  const [objectPos, setObjectPos] = useState('50% 50%');
-  const [fit, setFit] = useState('cover');
-  const [edgeColor, setEdgeColor] = useState(null);
+function useSubjectPosition(focusX = 50) {
+  const [objectPos, setObjectPos] = useState(`${focusX}% 50%`);
   const onLoad = (e) => {
     const img = e.currentTarget;
     const { naturalWidth: w, naturalHeight: h } = img;
@@ -33,14 +31,8 @@ function useSubjectPosition() {
     ctx.drawImage(img, 0, 0, cw, ch);
     const data = ctx.getImageData(0, 0, cw, ch).data;
     if (ar > STANDARD_AR + 0.02) {
-      // Wider than the frame: show the whole photo, frame background matches its edges.
-      let r = 0, g = 0, b = 0, n = 0;
-      for (const [x, y] of [[1, 1], [cw - 2, 1], [1, ch - 2], [cw - 2, ch - 2], [cw / 2, 1], [cw / 2, ch - 2]]) {
-        const o = ((y | 0) * cw + (x | 0)) * 4;
-        r += data[o]; g += data[o + 1]; b += data[o + 2]; n++;
-      }
-      setFit('contain');
-      setEdgeColor(`rgb(${Math.round(r / n)}, ${Math.round(g / n)}, ${Math.round(b / n)})`);
+      // Wider than the frame: fill the frame like the other portraits, centered on the face.
+      setObjectPos(`${focusX}% 50%`);
       return;
     }
     if (ar >= STANDARD_AR - 0.02) return;
@@ -63,15 +55,15 @@ function useSubjectPosition() {
     const center = ((top + bottom) / 2) / (ch - 1);
     setObjectPos(`50% ${Math.round(center * 100)}%`);
   };
-  return { objectPos, fit, edgeColor, onLoad };
+  return { objectPos, onLoad };
 }
 
 function TeamSlide({ member }) {
   const zoom = getZoom(member.crop);
-  const { objectPos, fit, edgeColor, onLoad } = useSubjectPosition();
+  const { objectPos, onLoad } = useSubjectPosition(member.focusX);
   return (
     <div className={`${SLIDE_WIDTH} shrink-0 min-w-0 px-0.5`}>
-      <div className="group relative overflow-hidden" style={{ aspectRatio: '800 / 1470', ...(edgeColor ? { backgroundColor: edgeColor } : {}) }}>
+      <div className="group relative overflow-hidden" style={{ aspectRatio: '800 / 1470' }}>
         <img
           src={member.image}
           alt={member.name}
@@ -79,7 +71,7 @@ function TeamSlide({ member }) {
           draggable="false"
           crossOrigin="anonymous"
           onLoad={onLoad}
-          style={{ objectFit: fit, objectPosition: objectPos, ...(zoom > 1 ? { transform: `scale(${zoom})` } : {}) }}
+          style={{ objectFit: 'cover', objectPosition: objectPos, ...(zoom > 1 ? { transform: `scale(${zoom})` } : {}) }}
           className={`absolute inset-0 w-full h-full select-none ${
             zoom > 1 ? '' : 'transition-transform duration-500 group-hover:scale-[1.02]'
           }`}
