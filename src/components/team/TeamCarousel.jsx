@@ -13,12 +13,17 @@ function getZoom(crop) {
 
 // Photos taller than the standard frame get cropped vertically; center the crop
 // on the subject (rows with contrast against the background) instead of the canvas.
+// Photos wider than the frame (e.g. 4:5 headshots) are shown in full, and the
+// frame is painted with the photo's own edge color so the leftover space blends in.
 function useSubjectPosition() {
   const [objectPos, setObjectPos] = useState('50% 50%');
+  const [fit, setFit] = useState('cover');
+  const [edgeColor, setEdgeColor] = useState(null);
   const onLoad = (e) => {
     const img = e.currentTarget;
     const { naturalWidth: w, naturalHeight: h } = img;
-    if (!w || !h || w / h >= STANDARD_AR - 0.02) return;
+    if (!w || !h) return;
+    const ar = w / h;
     const cw = 64;
     const ch = Math.max(2, Math.round((h * cw) / w));
     const canvas = document.createElement('canvas');
@@ -27,6 +32,18 @@ function useSubjectPosition() {
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     ctx.drawImage(img, 0, 0, cw, ch);
     const data = ctx.getImageData(0, 0, cw, ch).data;
+    if (ar > STANDARD_AR + 0.02) {
+      // Wider than the frame: show the whole photo, frame background matches its edges.
+      let r = 0, g = 0, b = 0, n = 0;
+      for (const [x, y] of [[1, 1], [cw - 2, 1], [1, ch - 2], [cw - 2, ch - 2], [cw / 2, 1], [cw / 2, ch - 2]]) {
+        const o = ((y | 0) * cw + (x | 0)) * 4;
+        r += data[o]; g += data[o + 1]; b += data[o + 2]; n++;
+      }
+      setFit('contain');
+      setEdgeColor(`rgb(${Math.round(r / n)}, ${Math.round(g / n)}, ${Math.round(b / n)})`);
+      return;
+    }
+    if (ar >= STANDARD_AR - 0.02) return;
     const spread = (y) => {
       let mn = 255;
       let mx = 0;
@@ -46,15 +63,15 @@ function useSubjectPosition() {
     const center = ((top + bottom) / 2) / (ch - 1);
     setObjectPos(`50% ${Math.round(center * 100)}%`);
   };
-  return { objectPos, onLoad };
+  return { objectPos, fit, edgeColor, onLoad };
 }
 
 function TeamSlide({ member }) {
   const zoom = getZoom(member.crop);
-  const { objectPos, onLoad } = useSubjectPosition();
+  const { objectPos, fit, edgeColor, onLoad } = useSubjectPosition();
   return (
     <div className={`${SLIDE_WIDTH} shrink-0 min-w-0 px-0.5`}>
-      <div className="group relative overflow-hidden" style={{ aspectRatio: '800 / 1470' }}>
+      <div className="group relative overflow-hidden" style={{ aspectRatio: '800 / 1470', ...(edgeColor ? { backgroundColor: edgeColor } : {}) }}>
         <img
           src={member.image}
           alt={member.name}
@@ -62,8 +79,8 @@ function TeamSlide({ member }) {
           draggable="false"
           crossOrigin="anonymous"
           onLoad={onLoad}
-          style={{ objectPosition: objectPos, ...(zoom > 1 ? { transform: `scale(${zoom})` } : {}) }}
-          className={`absolute inset-0 w-full h-full object-cover select-none ${
+          style={{ objectFit: fit, objectPosition: objectPos, ...(zoom > 1 ? { transform: `scale(${zoom})` } : {}) }}
+          className={`absolute inset-0 w-full h-full select-none ${
             zoom > 1 ? '' : 'transition-transform duration-500 group-hover:scale-[1.02]'
           }`}
         />
