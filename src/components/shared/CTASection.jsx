@@ -24,7 +24,7 @@ export default function CTASection({
         <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-8 max-w-3xl">
           {headline}
         </h2>
-        <p className="text-foreground/60 text-base md:text-lg max-w-2xl mb-10 font-body leading-relaxed">{subtext}</p>
+        <p className="opacity-75 text-base md:text-lg max-w-2xl mb-10 font-body leading-relaxed">{subtext}</p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             to={buttonLink}
