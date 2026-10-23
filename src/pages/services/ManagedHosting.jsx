@@ -159,8 +159,11 @@ export default function ManagedHosting() {
               Managed Hosting &amp; Cyber Security
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
-              Fast by Default, <span className="text-accent">Secure by Design</span>
+              Website Security Services Built Into Your <span className="text-accent">Hosting</span>
             </h1>
+            <p className="font-heading text-xl md:text-2xl text-foreground mb-4">
+              Fast by Default, <span className="text-accent">Secure by Design</span>.
+            </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               Every site we host is placed behind enterprise-grade edge protection as standard — unmetered DDoS
               mitigation, a managed web application firewall, hardened origin servers, fully managed DNS, and
