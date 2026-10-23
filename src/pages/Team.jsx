@@ -15,9 +15,21 @@ export default function Team() {
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
               The People Behind <span className="text-accent">the Work</span>
             </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-5">
+              Fahrenheit is a senior team of digital marketing experts: strategists, SEO and paid media
+              specialists, designers, developers, and data analysts who have spent years running
+              campaigns, building websites, and growing revenue for businesses across industries.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-5">
+              Together we bring decades of collective experience across search, social, conversion
+              optimization, marketing automation, and software development. That depth means the people
+              who scope your work are the people who deliver it, with no junior hand-offs and no
+              guesswork.
+            </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Strategists, marketers, designers, and engineers — the team you'll actually work with. Hover
-              over a portrait to meet them.
+              Since 2008 we have paired hands-on expertise with an AI-first approach, so every client
+              gets seasoned judgment backed by faster research, sharper analysis, and clearer reporting.
+              Hover over a portrait to meet the team.
             </p>
           </div>
         </div>
