@@ -10,6 +10,6 @@ export const teamMembers = [
   { name: 'Henry', role: 'Senior Developer', image: '/team/henry-portrait-full.png' },
   { name: 'Chelsea', role: 'UI/UX Designer', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/840b7ad47_chelsea1.png' },
   { name: 'Evan', role: 'Account Manager', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/706a6d2e3_evan1.png' },
-  { name: 'Alex', role: 'Account Manager', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/822355131_alex-headshot.webp' },
+  { name: 'Alex', role: 'Account Manager', image: '/team/alex-portrait-full.png' },
   { name: 'Ricardo', role: 'CEO', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/4032b80b0_ricardo11.png' },
 ];
