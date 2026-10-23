@@ -74,8 +74,11 @@ export default function EmailMarketing() {
               Email Marketing
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
-              Cold Email That <span className="text-accent">Opens Doors</span>, Not Spam Folders
+              Cold Email Agency: Managed Programs That Reach <span className="text-accent">Decision-Makers</span>
             </h1>
+            <p className="font-heading text-xl md:text-2xl text-foreground mb-4">
+              Cold Email That <span className="text-accent">Opens Doors</span>, Not Spam Folders.
+            </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               We run precision cold email programs end to end — strategy, targeting, messaging, and deliverability — putting your offer in front of decision-makers who have a reason to reply.
             </p>
