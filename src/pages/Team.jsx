@@ -26,11 +26,7 @@ export default function Team() {
               who scope your work are the people who deliver it, with no junior hand-offs and no
               guesswork.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">We pair hands-on expertise with an AI-first approach, so every client gets seasoned judgment backed by faster research, sharper analysis, and clearer reporting. Hover over a portrait to meet the team.
-
-
-
-            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">Hover over a portrait to meet the team.</p>
           </div>
         </div>
       </section>
@@ -43,7 +39,7 @@ export default function Team() {
 
       <CTASection
         headline="Want This Team in Your Corner?"
-        subtext="Bring us a business problem and we'll bring the people, the process, and the AI to solve it."
+        subtext="We pair hands-on expertise with an AI-first approach, so every client gets seasoned judgment backed by faster research, sharper analysis, and clearer reporting. Bring us a business problem and we'll bring the people, the process, and the AI to solve it."
         buttonText="Book a strategy call" />
       
     </>);
