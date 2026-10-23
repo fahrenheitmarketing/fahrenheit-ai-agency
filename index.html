@@ -7,13 +7,13 @@
     <meta name="description" content="Fahrenheit Marketing is an AI-first digital marketing agency specializing in SEO, SEM, social media, CRO, and strategic planning. Month-to-month retainers starting at $1,500. No long-term contracts." />
     <meta name="keywords" content="AI marketing agency, digital marketing, SEO, SEM, PPC, social media marketing, CRO, conversion rate optimization, Austin TX, AI-powered marketing" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.fahrenheitmarketing.com/" />
+    <link rel="canonical" href="https://fahrenheit.fmkt.agency/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Fahrenheit Marketing | AI-First Digital Marketing Agency" />
     <meta property="og:description" content="AI-powered SEO, SEM, social media, and CRO. Month-to-month retainers from $1,500. No contracts — we earn your trust every month." />
-    <meta property="og:url" content="https://www.fahrenheitmarketing.com/" />
+    <meta property="og:url" content="https://fahrenheit.fmkt.agency/" />
     <meta property="og:site_name" content="Fahrenheit Marketing" />
 
     <!-- Twitter Card -->
@@ -22,25 +22,58 @@
     <meta name="twitter:description" content="AI-powered digital marketing. Month-to-month retainers from $1,500. No long-term contracts." />
 
     <!-- Structured Data -->
+    <!-- Keep in sync with SITE_URL / SITE_LOGO in src/lib/siteConfig.js -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Fahrenheit Marketing",
-      "description": "AI-first digital marketing agency specializing in SEO, SEM, social media marketing, CRO, and strategic planning.",
-      "url": "https://www.fahrenheitmarketing.com",
-      "email": "rcasas@fahrenheitmarketing.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Austin",
-        "addressRegion": "TX",
-        "addressCountry": "US"
-      },
-      "priceRange": "$$",
-      "foundingDate": "2008",
-      "areaServed": "Worldwide",
-      "serviceType": ["SEO", "SEM", "PPC", "Social Media Marketing", "Conversion Rate Optimization", "Digital Strategy"],
-      "sameAs": []
+      "@graph": [
+        {
+          "@type": "MarketingAgency",
+          "@id": "https://fahrenheit.fmkt.agency/#organization",
+          "name": "Fahrenheit Marketing",
+          "legalName": "Fahrenheit Marketing, LLC",
+          "url": "https://fahrenheit.fmkt.agency/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://media.base44.com/images/public/user_696032597527e77c90fca3ba/9a7da2942_FahrenheitMarketingLogo.png"
+          },
+          "image": "https://media.base44.com/images/public/user_696032597527e77c90fca3ba/9a7da2942_FahrenheitMarketingLogo.png",
+          "telephone": "+1-512-206-4220",
+          "email": "info@fahrenheitmarketing.com",
+          "foundingDate": "2008",
+          "founder": {
+            "@type": "Person",
+            "name": "Ricardo Casas",
+            "sameAs": "https://www.linkedin.com/in/ricardocasas/"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Austin",
+            "addressRegion": "TX",
+            "postalCode": "78745",
+            "addressCountry": "US"
+          },
+          "areaServed": [
+            { "@type": "Country", "name": "United States" },
+            { "@type": "City", "name": "Austin, TX" }
+          ],
+          "sameAs": [
+            "https://share.google/ySp8MlMSR4yKDmuMy",
+            "https://www.linkedin.com/company/fahrenheit-marketing/",
+            "https://www.facebook.com/FahrenheitMarketing/",
+            "https://www.instagram.com/fahrenheitmarketing_/"
+          ],
+          "description": "AI-first digital marketing agency in Austin, TX offering SEO, paid media, CRO, marketing automation, and custom software development."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://fahrenheit.fmkt.agency/#website",
+          "name": "Fahrenheit Marketing",
+          "url": "https://fahrenheit.fmkt.agency/",
+          "inLanguage": "en-US",
+          "publisher": { "@id": "https://fahrenheit.fmkt.agency/#organization" }
+        }
+      ]
     }
     </script>
 

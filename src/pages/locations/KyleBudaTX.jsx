@@ -1,22 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LocationLayout from '../../components/locations/LocationLayout';
+import { buildLocationSchema } from '@/lib/locationSchema';
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "MarketingAgency",
-  "name": "Fahrenheit Marketing",
-  "url": "https://www.fahrenheitmarketing.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kyle",
-    "addressRegion": "TX",
-    "addressCountry": "US"
-  },
-  "areaServed": ["Kyle", "Buda", "Austin", "San Marcos", "Wimberley", "Lockhart"],
-  "foundingDate": "2008",
-  "description": "Digital marketing agency serving Kyle and Buda, TX businesses with SEO, PPC, social media, and web development services."
-};
+const schema = buildLocationSchema('Kyle & Buda', ['Kyle', 'Buda']);
 
 const services = [
   { heading: "Local SEO & AI Search Visibility", body: "Kyle and Buda are booming, and so is the competition for local search visibility. We build SEO strategies that help you rank in both traditional search results and the AI-generated answers that customers increasingly rely on.", link: "/services/seo" },

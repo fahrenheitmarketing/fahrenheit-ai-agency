@@ -1,22 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LocationLayout from '../../components/locations/LocationLayout';
+import { buildLocationSchema } from '@/lib/locationSchema';
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "MarketingAgency",
-  "name": "Fahrenheit Marketing",
-  "url": "https://www.fahrenheitmarketing.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Cedar Park",
-    "addressRegion": "TX",
-    "addressCountry": "US"
-  },
-  "areaServed": ["Cedar Park", "Leander", "Liberty Hill", "Austin", "Round Rock"],
-  "foundingDate": "2008",
-  "description": "Digital marketing agency serving Cedar Park, TX businesses with SEO, PPC, social media, and web development services."
-};
+const schema = buildLocationSchema('Cedar Park', ['Cedar Park']);
 
 const services = [
   { heading: "SEO & AI Search Optimization", body: "Cedar Park businesses need to be found — in traditional search and increasingly in AI-generated answers from tools like Google's AI Overviews and ChatGPT. We build strategies that cover both.", link: "/services/seo" },

@@ -1,8 +1,8 @@
 import { getBlogPostUrl } from '@/lib/blogUtils';
 
-export const SITE_URL = 'https://fahrenheit.fmkt.agency';
-export const SITE_NAME = 'Fahrenheit AI Agency';
-export const SITE_LOGO = 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/0b10edc43_logo.png';
+import { SITE_URL, SITE_NAME, SITE_LOGO, ORGANIZATION_ID } from '@/lib/siteConfig';
+
+export { SITE_URL, SITE_NAME, SITE_LOGO };
 
 const TITLE_MAX = 60;
 const DESC_MAX = 155;
@@ -48,12 +48,7 @@ export function buildPostSeo(post) {
     headline: post.title,
     url,
     image,
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: { '@type': 'ImageObject', url: SITE_LOGO },
-    },
+    publisher: { '@id': ORGANIZATION_ID },
   };
   if (description) jsonLd.description = description;
   if (post.published_date) jsonLd.datePublished = post.published_date;

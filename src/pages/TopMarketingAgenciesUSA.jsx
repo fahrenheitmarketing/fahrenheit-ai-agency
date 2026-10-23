@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import CTASection from '../components/shared/CTASection';
+import useFaqSchema from '@/hooks/useFaqSchema';
+import parseMarkdownFaqs from '@/lib/parseMarkdownFaqs';
 
 const content = `## Key Takeaways
 
@@ -103,7 +105,10 @@ To find the best marketing agencies, look for firms with a proven track record i
 At Fahrenheit Marketing, we are proud to be recognized among the top marketing agencies in the USA. Our commitment to being a strategic marketing agency means we don't just follow trends — we set them. Whether you need the best marketing companies for a complex migration or a custom website build, our team is ready to deliver. [Contact Fahrenheit Marketing today](/contact) to start your journey with one of the best marketing firms in the US.
 `;
 
+const faqs = parseMarkdownFaqs(content);
+
 export default function TopMarketingAgenciesUSA() {
+  useFaqSchema(faqs);
   return (
     <>
       <div className="min-h-screen bg-background">

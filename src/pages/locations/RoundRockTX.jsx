@@ -1,22 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LocationLayout from '../../components/locations/LocationLayout';
+import { buildLocationSchema } from '@/lib/locationSchema';
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "MarketingAgency",
-  "name": "Fahrenheit Marketing",
-  "url": "https://www.fahrenheitmarketing.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Round Rock",
-    "addressRegion": "TX",
-    "addressCountry": "US"
-  },
-  "areaServed": ["Round Rock", "Austin", "Pflugerville", "Hutto", "Taylor"],
-  "foundingDate": "2008",
-  "description": "Digital marketing agency serving Round Rock, TX businesses with SEO, PPC, social media, and web development services."
-};
+const schema = buildLocationSchema('Round Rock', ['Round Rock']);
 
 const services = [
   { heading: "Local & National SEO", body: "Round Rock's market is competitive — you're not just competing with local businesses, you're up against Austin brands with larger budgets. We build SEO strategies that help you rank in your own backyard and outperform bigger players in search.", link: "/services/seo" },

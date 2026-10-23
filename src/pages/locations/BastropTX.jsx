@@ -1,22 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LocationLayout from '../../components/locations/LocationLayout';
+import { buildLocationSchema } from '@/lib/locationSchema';
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "MarketingAgency",
-  "name": "Fahrenheit Marketing",
-  "url": "https://www.fahrenheitmarketing.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bastrop",
-    "addressRegion": "TX",
-    "addressCountry": "US"
-  },
-  "areaServed": ["Bastrop", "Smithville", "Elgin", "Lockhart", "Austin"],
-  "foundingDate": "2008",
-  "description": "Digital marketing agency serving Bastrop, TX businesses with SEO, PPC, social media, and web development services."
-};
+const schema = buildLocationSchema('Bastrop', ['Bastrop']);
 
 const services = [
   { heading: "SEO — Local Visibility That Compounds", body: "Bastrop is getting discovered — by new residents, by tourists, and by investors. We help local businesses show up at the right moment in both traditional search and the AI-generated answers that are reshaping how people find services.", link: "/services/seo" },

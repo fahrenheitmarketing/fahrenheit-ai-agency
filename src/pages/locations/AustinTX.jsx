@@ -1,22 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LocationLayout from '../../components/locations/LocationLayout';
+import { buildLocationSchema } from '@/lib/locationSchema';
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "MarketingAgency",
-  "name": "Fahrenheit Marketing",
-  "url": "https://www.fahrenheitmarketing.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Austin",
-    "addressRegion": "TX",
-    "addressCountry": "US"
-  },
-  "areaServed": ["Austin", "Round Rock", "Cedar Park", "Georgetown", "Kyle", "Buda", "Bastrop"],
-  "foundingDate": "2008",
-  "description": "Full-service digital marketing agency in Austin, TX specializing in SEO, PPC, content marketing, social media, and web development."
-};
+const schema = buildLocationSchema('Austin', ['Austin']);
 
 const services = [
   {

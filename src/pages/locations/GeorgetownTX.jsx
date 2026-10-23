@@ -1,22 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LocationLayout from '../../components/locations/LocationLayout';
+import { buildLocationSchema } from '@/lib/locationSchema';
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "MarketingAgency",
-  "name": "Fahrenheit Marketing",
-  "url": "https://www.fahrenheitmarketing.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Georgetown",
-    "addressRegion": "TX",
-    "addressCountry": "US"
-  },
-  "areaServed": ["Georgetown", "Round Rock", "Austin", "Taylor", "Hutto", "Jarrell"],
-  "foundingDate": "2008",
-  "description": "Digital marketing agency serving Georgetown, TX businesses with SEO, PPC, social media, and web development services."
-};
+const schema = buildLocationSchema('Georgetown', ['Georgetown']);
 
 const services = [
   { heading: "SEO — Local and Beyond", body: "Georgetown's population growth means more local competition online every year. We build SEO strategies that establish your authority in local search and in the AI-generated answers that are increasingly shaping how people find businesses.", link: "/services/seo" },
