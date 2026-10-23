@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const SLIDE_WIDTH = 'w-[75vw] sm:w-[40vw] lg:w-[23vw]';
+// Aspect ratio of the standard team portraits — every slide uses this frame.
+const STANDARD_AR = 800 / 1470;
 
 // Zoom the photo so the trimmed top/bottom bands fall outside the frame.
 function getZoom(crop) {
@@ -9,18 +11,59 @@ function getZoom(crop) {
   return 1 / (1 - trimmed / 100);
 }
 
+// Photos taller than the standard frame get cropped vertically; center the crop
+// on the subject (rows with contrast against the background) instead of the canvas.
+function useSubjectPosition() {
+  const [objectPos, setObjectPos] = useState('50% 50%');
+  const onLoad = (e) => {
+    const img = e.currentTarget;
+    const { naturalWidth: w, naturalHeight: h } = img;
+    if (!w || !h || w / h >= STANDARD_AR - 0.02) return;
+    const cw = 64;
+    const ch = Math.max(2, Math.round((h * cw) / w));
+    const canvas = document.createElement('canvas');
+    canvas.width = cw;
+    canvas.height = ch;
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    ctx.drawImage(img, 0, 0, cw, ch);
+    const data = ctx.getImageData(0, 0, cw, ch).data;
+    const spread = (y) => {
+      let mn = 255;
+      let mx = 0;
+      for (let x = 0; x < cw; x++) {
+        const v = data[(y * cw + x) * 4];
+        if (v < mn) mn = v;
+        if (v > mx) mx = v;
+      }
+      return mx - mn;
+    };
+    const threshold = 40;
+    let top = 0;
+    let bottom = ch - 1;
+    while (top < bottom && spread(top) <= threshold) top++;
+    while (bottom > top && spread(bottom) <= threshold) bottom--;
+    if (top >= bottom) return;
+    const center = ((top + bottom) / 2) / (ch - 1);
+    setObjectPos(`50% ${Math.round(center * 100)}%`);
+  };
+  return { objectPos, onLoad };
+}
+
 function TeamSlide({ member }) {
   const zoom = getZoom(member.crop);
+  const { objectPos, onLoad } = useSubjectPosition();
   return (
     <div className={`${SLIDE_WIDTH} shrink-0 min-w-0 px-0.5`}>
-      <div className="group relative overflow-hidden">
+      <div className="group relative overflow-hidden" style={{ aspectRatio: '800 / 1470' }}>
         <img
           src={member.image}
           alt={member.name}
           loading="lazy"
           draggable="false"
-          style={zoom > 1 ? { transform: `scale(${zoom})` } : undefined}
-          className={`block w-full h-auto object-contain object-center select-none ${
+          crossOrigin="anonymous"
+          onLoad={onLoad}
+          style={{ objectPosition: objectPos, ...(zoom > 1 ? { transform: `scale(${zoom})` } : {}) }}
+          className={`absolute inset-0 w-full h-full object-cover select-none ${
             zoom > 1 ? '' : 'transition-transform duration-500 group-hover:scale-[1.02]'
           }`}
         />
