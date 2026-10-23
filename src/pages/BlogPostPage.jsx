@@ -142,6 +142,7 @@ export default function BlogPostPage() {
                   [&_td]:py-3 [&_td]:pr-4 [&_td]:border-b [&_td]:border-border [&_td]:text-muted-foreground
                   [&_tr:last-child_td]:border-b-0"
                   components={{
+                    h1: ({ children }) => <h2>{children}</h2>,
                     a: ({ href, children }) => {
                       const isInternal = href && href.startsWith('/');
                       return isInternal

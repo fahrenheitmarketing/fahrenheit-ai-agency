@@ -94,7 +94,7 @@ export default function SoftwareDevelopment() {
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
                   <cap.icon className="w-6 h-6 text-accent" />
                 </div>
-                <h3 className="font-heading text-lg font-normal mb-2">{cap.title}</h3>
+                <h2 className="font-heading text-lg font-normal mb-2">{cap.title}</h2>
                 <p className="text-muted-foreground text-sm leading-relaxed">{cap.description}</p>
               </div>
             ))}
@@ -312,7 +312,7 @@ export default function SoftwareDevelopment() {
           {/* Platform decision note */}
           <div className="mt-10 bg-secondary/40 border border-border rounded-2xl p-8 flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="flex-1">
-              <h4 className="font-heading text-lg font-normal mb-2">Not sure which platform is right for you?</h4>
+              <h3 className="font-heading text-lg font-normal mb-2">Not sure which platform is right for you?</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 We'll give you an honest recommendation based on your catalog complexity, integration needs, and growth goals — not based on which platform benefits us more.
               </p>

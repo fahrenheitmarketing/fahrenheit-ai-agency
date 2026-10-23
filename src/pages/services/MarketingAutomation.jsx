@@ -135,7 +135,7 @@ export default function MarketingAutomation() {
                 <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-6 text-accent">
                   {cap.icon}
                 </div>
-                <h3 className="font-heading text-lg font-normal mb-3">{cap.title}</h3>
+                <h2 className="font-heading text-lg font-normal mb-3">{cap.title}</h2>
                 <p className="text-sm text-muted-foreground font-body leading-relaxed">{cap.description}</p>
               </div>
             ))}

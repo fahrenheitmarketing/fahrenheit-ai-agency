@@ -177,7 +177,7 @@ export default function Promo() {
                 <div className="space-y-6">
                   {tier.subBlocks.map((block) => (
                     <div key={block.title}>
-                      <h4 className="text-sm font-body font-semibold mb-1 text-foreground">{block.title}</h4>
+                      <h3 className="text-sm font-body font-semibold mb-1 text-foreground">{block.title}</h3>
                       <p className="text-xs font-body mb-3 text-muted-foreground">{block.description}</p>
                       <div className="space-y-2">
                         {block.features.map((f, fi) => (

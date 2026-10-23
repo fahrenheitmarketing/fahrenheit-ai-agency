@@ -163,7 +163,7 @@ export default function EmailMarketing() {
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
                   <pillar.icon className="w-6 h-6 text-accent" />
                 </div>
-                <h3 className="font-heading text-lg font-normal mb-2">{pillar.title}</h3>
+                <h2 className="font-heading text-lg font-normal mb-2">{pillar.title}</h2>
                 <p className="text-muted-foreground text-sm leading-relaxed">{pillar.description}</p>
               </div>
             ))}

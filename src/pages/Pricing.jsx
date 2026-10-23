@@ -106,7 +106,7 @@ export default function Pricing() {
                   </span>
                 )}
                 <div className="mb-6">
-                  <h3 className="font-heading text-xl font-normal mb-2">{tier.name}</h3>
+                  <h2 className="font-heading text-xl font-normal mb-2">{tier.name}</h2>
                   <div className="flex items-baseline gap-1.5 mb-3">
                     {tier.hasFrom && (
                       <span className={`text-sm font-body ${tier.popular ? 'text-white/70' : 'text-muted-foreground'}`}>From</span>
@@ -123,7 +123,7 @@ export default function Pricing() {
                     <div className="space-y-6">
                       {tier.subBlocks.map((block) => (
                         <div key={block.title}>
-                          <h4 className={`text-sm font-heading font-semibold mb-1 ${tier.popular ? 'text-white' : 'text-foreground'}`}>{block.title}</h4>
+                          <h3 className={`text-sm font-heading font-semibold mb-1 ${tier.popular ? 'text-white' : 'text-foreground'}`}>{block.title}</h3>
                           <p className={`text-xs mb-3 ${tier.popular ? 'text-white/60' : 'text-muted-foreground'}`}>{block.description}</p>
                           <div className="space-y-2">
                             {block.features.map((feature) => (
@@ -182,7 +182,7 @@ export default function Pricing() {
       <section className="pb-24 px-6">
         <div className="max-w-3xl mx-auto">
           <div className="bg-muted rounded-2xl p-8">
-            <h3 className="font-heading text-xl font-normal mb-4">What's Included — and What Isn't</h3>
+            <h2 className="font-heading text-xl font-normal mb-4">What's Included — and What Isn't</h2>
             <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
               <p>
                 <strong className="text-foreground">AI Stack:</strong> Included. The AI tools we deploy to power your campaigns, reporting, and automation are part of your retainer — no separate bills, no surprise costs.

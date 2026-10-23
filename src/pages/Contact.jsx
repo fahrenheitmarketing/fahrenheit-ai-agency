@@ -113,9 +113,9 @@ export default function Contact() {
           {/* Right - Form */}
           <div>
             <div className="lg:hidden mb-8">
-              <h1 className="font-heading text-3xl md:text-4xl font-normal leading-[1.05] mb-3">
+              <p className="font-heading text-3xl md:text-4xl font-normal leading-[1.05] mb-3">
                 Let's Discuss Your <span className="italic text-accent">Growth</span>
-              </h1>
+              </p>
               <p className="text-muted-foreground text-sm leading-relaxed font-body">
                 No sales pitch. Just an honest conversation about your goals.
               </p>

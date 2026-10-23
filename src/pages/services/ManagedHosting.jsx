@@ -217,7 +217,7 @@ export default function ManagedHosting() {
             </div>
             <div className="bg-foreground text-background rounded-2xl p-10">
               <ShieldCheck className="w-10 h-10 mb-6 text-accent" />
-              <h3 className="font-heading text-2xl font-normal mb-4">Two Layers, Working Together</h3>
+              <h2 className="font-heading text-2xl font-normal mb-4">Two Layers, Working Together</h2>
               <p className="text-background/70 leading-relaxed mb-4">
                 All traffic goes through the edge network first, where attack traffic and bad bots are filtered
                 out and your server’s address stays hidden. Then the server firewall makes sure nobody can

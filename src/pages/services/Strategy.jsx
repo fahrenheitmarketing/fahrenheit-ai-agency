@@ -98,7 +98,7 @@ export default function Strategy() {
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
                   <cap.icon className="w-6 h-6 text-accent" />
                 </div>
-                <h3 className="font-heading text-lg font-normal mb-2">{cap.title}</h3>
+                <h2 className="font-heading text-lg font-normal mb-2">{cap.title}</h2>
                 <p className="text-muted-foreground text-sm leading-relaxed">{cap.description}</p>
               </div>
             ))}

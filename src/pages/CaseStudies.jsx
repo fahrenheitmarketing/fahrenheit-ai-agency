@@ -144,7 +144,7 @@ export default function CaseStudies() {
                 <span className="inline-block text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">
                   {study.category}
                 </span>
-                <h3 className="font-heading text-xl font-normal mb-2">{study.title}</h3>
+                <h2 className="font-heading text-xl font-normal mb-2">{study.title}</h2>
                 <p className="text-sm font-semibold text-accent mb-4">{study.tagline}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                   {study.description}
