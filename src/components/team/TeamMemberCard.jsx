@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TeamMemberCard({ name, role, image, focusX = 50 }) {
+export default function TeamMemberCard({ name, role, image, focusX = 50, zoom = 1 }) {
   return (
     <figure className="group">
       <div className="relative overflow-hidden rounded-sm aspect-[4/5] bg-secondary">
@@ -9,8 +9,11 @@ export default function TeamMemberCard({ name, role, image, focusX = 50 }) {
           alt={`${name}, ${role} portrait`}
           loading="lazy"
           draggable="false"
-          style={{ objectPosition: `${focusX}% 20%` }}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          style={{
+            objectPosition: `${focusX}% 20%`,
+            ...(zoom > 1 ? { transform: `scale(${zoom})`, transformOrigin: `${focusX}% 25%` } : {}),
+          }}
+          className={`absolute inset-0 w-full h-full object-cover ${zoom > 1 ? '' : 'transition-transform duration-500 group-hover:scale-[1.03]'}`}
         />
       </div>
       <figcaption className="pt-4">
