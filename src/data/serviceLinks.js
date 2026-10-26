@@ -37,3 +37,17 @@ export const SERVICES_BY_CATEGORY = {
   'UX & Accessibility': ['dev', 'cro', 'seo'],
 };
 export const DEFAULT_BLOG_SERVICES = ['strategy', 'seo', 'cro'];
+
+// Contact form "Service Interest" options — every service in the site's Services menu.
+export const SERVICE_OPTIONS = [
+  { value: 'strategy', label: 'Strategic Planning' },
+  { value: 'seo', label: 'SEO' },
+  { value: 'sem', label: 'SEM / PPC' },
+  { value: 'smm', label: 'Social Media Marketing' },
+  { value: 'cro', label: 'Conversion Rate Optimization' },
+  { value: 'automation', label: 'Marketing Automation' },
+  { value: 'software-development', label: 'Software Development' },
+  { value: 'email-marketing', label: 'Email Marketing' },
+  { value: 'hosting', label: 'Managed Hosting & Security' },
+  { value: 'general', label: 'General Inquiry' },
+];

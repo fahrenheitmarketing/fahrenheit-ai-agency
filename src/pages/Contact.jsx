@@ -5,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Send, Mail, MapPin, Phone, CheckCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import { SERVICE_OPTIONS } from '@/data/serviceLinks';
 import { motion } from 'framer-motion';
 
 export default function Contact() {
@@ -170,13 +171,9 @@ export default function Contact() {
                     <SelectValue placeholder="What are you interested in?" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="software-development">Software Development</SelectItem>
-                    <SelectItem value="seo">SEO</SelectItem>
-                    <SelectItem value="sem">SEM / PPC</SelectItem>
-                    <SelectItem value="smm">Social Media Marketing</SelectItem>
-                    <SelectItem value="cro">Conversion Rate Optimization</SelectItem>
-                    <SelectItem value="strategy">Strategic Planning</SelectItem>
-                    <SelectItem value="general">General Inquiry</SelectItem>
+                    {SERVICE_OPTIONS.map((s) => (
+                      <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
