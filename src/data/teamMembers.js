@@ -4,7 +4,7 @@ export const teamMembers = [
   { name: 'Laurel', role: 'HR and Operations Manager', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/4227e6d00_Laurel.webp' },
   { name: 'Evan', role: 'Account Manager', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/29805bd53_Evan.webp' },
   { name: 'Alex', role: 'Account Manager', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/920668318_Alex.webp' },
-  { name: 'Steven', role: 'Marketing Director', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f0b56d350_Steven.webp' },
+  { name: 'Steven', role: 'Marketing Director', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/53b054ade_Steven.webp' },
   { name: 'Nick', role: 'Creative Director', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c2db583b1_Nick.webp' },
   { name: 'Louis', role: 'Marketing Associate', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/531e66cdf_Louis.webp' },
   { name: 'Khan', role: 'Marketing Associate', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/d7de5c776_Khan.webp' },
