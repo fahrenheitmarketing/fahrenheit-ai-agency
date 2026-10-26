@@ -152,7 +152,7 @@ export default function BlogPostPage() {
                     }
                   }}
                 >
-                  {post.content}
+                  {post.content.replace(/[ \t]*\[\d+(?:\s*[,–-]\s*\d+)*\](?!\()/g, '')}
                 </ReactMarkdown>
               ) : (
                 <p className="text-muted-foreground font-body">No content available for this article.</p>
