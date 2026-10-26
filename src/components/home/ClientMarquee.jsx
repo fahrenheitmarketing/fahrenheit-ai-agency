@@ -63,7 +63,7 @@ const LogoItem = ({ client, i }) =>
     <img
       key={i}
       src={client.logo}
-      alt={client.name}
+      alt={`${client.name} logo`}
       className="w-auto flex-shrink-0 object-contain"
       style={{ filter: 'grayscale(100%) opacity(0.45)', height: client.scale ? `${3.5 * client.scale}rem` : '3.5rem' }}
     />

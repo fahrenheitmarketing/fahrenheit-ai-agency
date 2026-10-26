@@ -66,7 +66,7 @@ function TeamSlide({ member }) {
       <div className="group relative overflow-hidden" style={{ aspectRatio: '800 / 1470' }}>
         <img
           src={member.image}
-          alt={member.name}
+          alt={`${member.name}, ${member.role} portrait`}
           loading="lazy"
           draggable="false"
           crossOrigin="anonymous"

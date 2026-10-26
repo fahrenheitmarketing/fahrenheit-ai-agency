@@ -290,7 +290,7 @@ export default function Promo() {
               >
                 <img
                   src={project.img}
-                  alt={project.name}
+                  alt={`${project.name} website homepage`}
                   className="w-full h-32 object-cover object-top group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors flex items-center justify-center">

@@ -9,7 +9,7 @@ export default function TeamMemberCard({ name, role, image }) {
     >
       <img
         src={image}
-        alt={name}
+        alt={`${name}, ${role} portrait`}
         loading="lazy"
         className="absolute inset-0 w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.02]"
       />

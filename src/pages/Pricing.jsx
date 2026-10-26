@@ -65,7 +65,7 @@ export default function Pricing() {
       <section className="relative py-24 lg:py-32 px-6 overflow-hidden">
         <img
           src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
-          alt=""
+          alt="" aria-hidden="true"
           aria-hidden="true"
           className="absolute top-0 right-0 w-[400px] pointer-events-none opacity-60 select-none"
         />

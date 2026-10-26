@@ -12,7 +12,7 @@ export default function ReposSection() {
       {/* Cubes pattern — bottom left */}
       <img
         src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
-        alt=""
+        alt="" aria-hidden="true"
         aria-hidden="true"
         className="absolute bottom-0 left-0 w-[420px] pointer-events-none opacity-70 select-none rotate-180"
       />
