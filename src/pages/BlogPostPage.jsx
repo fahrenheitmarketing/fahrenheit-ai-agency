@@ -154,6 +154,7 @@ export default function BlogPostPage() {
                               title={String(children).replace('Video:', '').trim()}
                               className="w-full h-full rounded-sm"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              referrerPolicy="strict-origin-when-cross-origin"
                               allowFullScreen
                             />
                           </span>
