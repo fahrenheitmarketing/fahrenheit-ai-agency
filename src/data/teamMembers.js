@@ -2,7 +2,7 @@
 export const teamMembers = [
   { name: 'Ricardo', role: 'CEO', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/e9ee43803_Ricardo.webp' },
   { name: 'Laurel', role: 'HR and Operations Manager', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f05292a68_Laurel.webp' },
-  { name: 'Evan', role: 'Account Manager', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/706a6d2e3_evan1.png' },
+  { name: 'Evan', role: 'Account Manager', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/06ee5c8ab_Evan.webp' },
   { name: 'Alex', role: 'Account Manager', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/34ca15a39_Alex.webp' },
   { name: 'Steven', role: 'Marketing Director', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/3a8eff03e_Steven.webp' },
   { name: 'Nick', role: 'Creative Director', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/392cfa5ea_Nick.webp' },
