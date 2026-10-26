@@ -145,6 +145,20 @@ export default function BlogPostPage() {
                   components={{
                     h1: ({ children }) => <h2>{children}</h2>,
                     a: ({ href, children }) => {
+                      const ytId = href && href.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([\w-]{11})/)?.[1];
+                      if (ytId && String(children).startsWith('Video:')) {
+                        return (
+                          <span className="block my-10 aspect-video w-full">
+                            <iframe
+                              src={`https://www.youtube-nocookie.com/embed/${ytId}`}
+                              title={String(children).replace('Video:', '').trim()}
+                              className="w-full h-full rounded-sm"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            />
+                          </span>
+                        );
+                      }
                       const isInternal = href && href.startsWith('/');
                       return isInternal
                         ? <Link to={href} className="text-accent underline hover:text-accent/80 transition-colors">{children}</Link>
