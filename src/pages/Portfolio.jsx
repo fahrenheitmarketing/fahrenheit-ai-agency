@@ -15,7 +15,7 @@ const projects = [
   {
     name: "Blackridge Government Affairs",
     url: "https://blackridge.fmkt.agency",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/b666f575b_blackridge.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/8e39cdef0_blackridge.webp",
     industry: "Government Affairs",
     snippet: "Power meets polish. A dark, authoritative design built for one of Texas's most formidable lobbying practices. Gold accents and Capitol imagery signal influence at the highest level — because their clients demand nothing less.",
     tags: ["Government Affairs", "B2B", "Austin"],
@@ -31,7 +31,7 @@ const projects = [
   {
     name: "Greenspoint Dental",
     url: "https://greenspoint.fmkt.agency",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/fd14ca806_greens.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/398a28bf1_greenspoint.webp",
     industry: "Dental",
     snippet: "No judgment. No jargon. Just a website that books appointments. We built Greenspoint Dental a bilingual, SEO-optimized site that speaks fluent Houston — complete with a $99 new patient special front and center where it matters most.",
     tags: ["Dental", "Healthcare", "Houston"],
@@ -63,7 +63,7 @@ const projects = [
   {
     name: "Austin Wealth Management",
     url: "https://austinwealth.fmkt.agency",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/73368fac8_Austinwealth.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/e34558739_Austinwealth.webp",
     industry: "Wealth Management",
     snippet: "Clarity over complexity. We built Austin Wealth Management a site that speaks directly to young professionals and equity-compensated executives — turning financial anxiety into confidence with warm city imagery and zero sales pressure.",
     tags: ["Finance", "Wealth Management", "Austin"],
@@ -71,7 +71,7 @@ const projects = [
   {
     name: "Spring Systems EDI",
     url: "https://springstream.fmkt.agency",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c6634d67c_Springstream.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/037d4081c_Springsystems.webp",
     industry: "B2B SaaS",
     snippet: "EDI integration doesn't have to look boring. Spring Systems gets a clean, product-led design that shows — not just tells — how their platform simplifies retail compliance. The UI mockup hero section does the selling before a single word is read.",
     tags: ["B2B SaaS", "EDI", "Supply Chain"],
@@ -103,7 +103,7 @@ const projects = [
   {
     name: "Route to Market Imports",
     url: "https://rtm-imports.fmkt.agency/",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c5f258ac2_rtm.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/6c36fc1d7_rtm_imports.webp",
     industry: "Beverage Imports",
     snippet: "Thirty years and a national wholesale network, distilled into one bold statement: America's specialist beverage importer. We gave Route to Market Imports a rich, editorial design that positions them exactly where they belong — at the top of the category.",
     tags: ["Beverage", "Imports", "National"],
