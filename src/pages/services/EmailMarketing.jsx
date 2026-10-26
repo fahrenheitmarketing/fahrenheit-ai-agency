@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Crosshair, PenLine, Radar, CheckCircle, Mail } from 'lucide-react';
+import RelatedServices from '@/components/shared/RelatedServices';
 import CTASection from '../../components/shared/CTASection';
 import FAQSection from '../../components/shared/FAQSection';
 import SectionHeader from '../../components/shared/SectionHeader';
@@ -207,6 +208,7 @@ export default function EmailMarketing() {
 
       <FAQSection faqs={faqs} title="Common Questions About Cold Email" />
 
+      <RelatedServices current="email" />
       <CTASection
         headline="Your Next Customer Hasn't Heard of You Yet."
         subtext="A managed cold email program from $2,500/month. A 30-minute strategy call is free — we'll pressure-test whether cold email fits your growth model before you spend a dollar."

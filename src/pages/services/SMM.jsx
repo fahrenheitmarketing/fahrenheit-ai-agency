@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Share2, Brain, Target, Layers, Eye, BarChart3, CheckCircle } from 'lucide-react';
+import RelatedServices from '@/components/shared/RelatedServices';
 import CTASection from '../../components/shared/CTASection';
 import FAQSection from '../../components/shared/FAQSection';
 
@@ -191,6 +192,7 @@ export default function SMM() {
 
       <FAQSection faqs={faqs} title="Common Questions About Paid Social" />
 
+      <RelatedServices current="smm" />
       <CTASection
         headline="Ready to Turn Social Into Revenue?"
         subtext="Let's build a social strategy that actually moves the needle. Month-to-month, starting at $3,500."

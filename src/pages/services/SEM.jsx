@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MousePointerClick, Brain, Target, BarChart3, Layers, RefreshCw, CheckCircle } from 'lucide-react';
+import RelatedServices from '@/components/shared/RelatedServices';
 import CTASection from '../../components/shared/CTASection';
 import FAQSection from '../../components/shared/FAQSection';
 import SectionHeader from '../../components/shared/SectionHeader';
@@ -210,6 +211,7 @@ export default function SEM() {
 
       <FAQSection faqs={faqs} title="Common Questions About Search Advertising" />
 
+      <RelatedServices current="sem" />
       <CTASection
         headline="Stop Wasting Ad Spend"
         subtext="Let's put your brand in front of buyers who are actively searching for what you offer. Get a free search audit and see where your campaigns could work harder."

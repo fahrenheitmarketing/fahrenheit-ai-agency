@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, Globe, Search, FileText, Brain, TrendingUp, BarChart3, MapPin, Link2 } from 'lucide-react';
+import RelatedServices from '@/components/shared/RelatedServices';
 import CTASection from '../../components/shared/CTASection';
 import FAQSection from '../../components/shared/FAQSection';
 
@@ -253,6 +254,7 @@ export default function SEO() {
 
       <FAQSection faqs={faqs} title="Common Questions About SEO" />
 
+      <RelatedServices current="seo" />
       <CTASection
         headline="Ready to Appear Everywhere Your Buyers Search?"
         subtext="Start with a free SEO audit. We'll show you where you stand in traditional search, where you're missing in AI Overviews, and what it would take to get cited in generative engines."

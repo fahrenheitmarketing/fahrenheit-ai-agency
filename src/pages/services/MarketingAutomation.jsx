@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Zap, BarChart3, Users, Workflow, Settings, TrendingUp } from 'lucide-react';
+import RelatedServices from '@/components/shared/RelatedServices';
 import CTASection from '../../components/shared/CTASection';
 import FAQSection from '../../components/shared/FAQSection';
 
@@ -230,6 +231,7 @@ export default function MarketingAutomation() {
 
       <FAQSection faqs={faqs} title="Common Questions About Marketing Automation" />
 
+      <RelatedServices current="automation" />
       <CTASection
         headline="Ready to Automate Your Growth?"
         subtext="Let's audit your current setup, identify gaps, and build a system that scales with your business."

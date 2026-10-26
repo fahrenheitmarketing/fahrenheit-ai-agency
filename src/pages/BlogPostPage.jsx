@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { ArrowLeft } from 'lucide-react';
 import CTASection from '../components/shared/CTASection';
+import BlogServiceLinks from '@/components/blog/BlogServiceLinks';
 
 const categoryColors = {
   'Data & Analytics': 'bg-blue-100 text-blue-700',
@@ -156,6 +157,7 @@ export default function BlogPostPage() {
               ) : (
                 <p className="text-muted-foreground font-body">No content available for this article.</p>
               )}
+              <BlogServiceLinks category={post.category} />
             </article>
 
             {/* Related Articles - Right Sidebar */}

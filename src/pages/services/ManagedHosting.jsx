@@ -16,6 +16,7 @@ import {
   KeyRound,
   ScanSearch,
 } from 'lucide-react';
+import RelatedServices from '@/components/shared/RelatedServices';
 import CTASection from '../../components/shared/CTASection';
 import FAQSection from '../../components/shared/FAQSection';
 import SectionHeader from '../../components/shared/SectionHeader';
@@ -488,6 +489,7 @@ export default function ManagedHosting() {
 
       <FAQSection faqs={faqs} title="Common Questions About Managed Hosting &amp; Security" />
 
+      <RelatedServices current="hosting" />
       <CTASection
         headline="When Was the Last Time Anyone Audited Your Site's Security?"
         subtext="We'll review your current hosting and DNS setup and tell you exactly where you're exposed — no obligation, no scare tactics, just findings."

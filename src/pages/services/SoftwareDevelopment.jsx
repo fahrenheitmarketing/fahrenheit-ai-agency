@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Code, Brain, Zap, Database, Lock, BarChart3, CheckCircle } from 'lucide-react';
+import RelatedServices from '@/components/shared/RelatedServices';
 import CTASection from '../../components/shared/CTASection';
 import FAQSection from '../../components/shared/FAQSection';
 
@@ -328,6 +329,7 @@ export default function SoftwareDevelopment() {
 
       <FAQSection faqs={faqs} title="Common Questions About Custom Software" />
 
+      <RelatedServices current="dev" />
       <CTASection
         headline="Ready to Build Your Next Application?"
         subtext="Let's talk about your operational challenges and explore what's possible with custom software. We'll work with you to define scope, timelines, and investment."

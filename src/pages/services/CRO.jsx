@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, LineChart, Brain, TestTubes, MousePointerClick, Eye, Layers, CheckCircle, Paintbrush, Navigation, Smartphone, ScanEye } from 'lucide-react';
+import RelatedServices from '@/components/shared/RelatedServices';
 import CTASection from '../../components/shared/CTASection';
 import FAQSection from '../../components/shared/FAQSection';
 
@@ -199,6 +200,7 @@ export default function CRO() {
 
       <FAQSection faqs={faqs} title="Common Questions About CRO" />
 
+      <RelatedServices current="cro" />
       <CTASection
         headline="Your Traffic Deserves Better Conversions"
         subtext="Stop leaving revenue on the table. AI-powered CRO, month-to-month, starting at $3,500."

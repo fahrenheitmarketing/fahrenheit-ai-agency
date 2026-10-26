@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Compass, Brain, BarChart3, Target, Lightbulb, Map, CheckCircle } from 'lucide-react';
+import RelatedServices from '@/components/shared/RelatedServices';
 import CTASection from '../../components/shared/CTASection';
 import FAQSection from '../../components/shared/FAQSection';
 
@@ -138,6 +139,7 @@ export default function Strategy() {
 
       <FAQSection faqs={faqs} title="Common Questions About Digital Strategy" />
 
+      <RelatedServices current="strategy" />
       <CTASection
         headline="Stop Guessing. Start Growing."
         subtext="An AI-powered strategic roadmap, delivered monthly. No long-term contracts — just results."
