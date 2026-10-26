@@ -1,104 +1,52 @@
-import React, { useState } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import TeamMemberCard from '@/components/team/TeamMemberCard';
 
-const SLIDE_WIDTH = 'w-[75vw] sm:w-[40vw] lg:w-[23vw]';
-// Aspect ratio of the standard team portraits — every slide uses this frame.
-const STANDARD_AR = 800 / 1470;
+// Swipeable, scroll-snapping carousel. Mobile shows ~1.4 cards (peek hints more),
+// tablet 2-3, desktop 4. Names stay visible under every portrait.
+export default function TeamCarousel({ items }) {
+  const trackRef = useRef(null);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(true);
 
-// Zoom the photo so the trimmed top/bottom bands fall outside the frame.
-function getZoom(crop) {
-  if (!crop) return 1;
-  const trimmed = (crop.top || 0) + (crop.bottom || 0);
-  return 1 / (1 - trimmed / 100);
-}
+  const update = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    setCanPrev(el.scrollLeft > 4);
+    setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
 
-// Photos taller than the standard frame get cropped vertically; center the crop
-// on the subject (rows with contrast against the background) instead of the canvas.
-// Photos wider than the frame (e.g. 4:5 headshots) are shown in full, and the
-// frame is painted with the photo's own edge color so the leftover space blends in.
-function useSubjectPosition(focusX = 50) {
-  const [objectPos, setObjectPos] = useState(`${focusX}% 50%`);
-  const onLoad = (e) => {
-    const img = e.currentTarget;
-    const { naturalWidth: w, naturalHeight: h } = img;
-    if (!w || !h) return;
-    const ar = w / h;
-    const cw = 64;
-    const ch = Math.max(2, Math.round((h * cw) / w));
-    const canvas = document.createElement('canvas');
-    canvas.width = cw;
-    canvas.height = ch;
-    const ctx = canvas.getContext('2d', { willReadFrequently: true });
-    ctx.drawImage(img, 0, 0, cw, ch);
-    const data = ctx.getImageData(0, 0, cw, ch).data;
-    if (ar > STANDARD_AR + 0.02) {
-      // Wider than the frame: fill the frame like the other portraits, centered on the face.
-      setObjectPos(`${focusX}% 50%`);
-      return;
-    }
-    if (ar >= STANDARD_AR - 0.02) return;
-    const spread = (y) => {
-      let mn = 255;
-      let mx = 0;
-      for (let x = 0; x < cw; x++) {
-        const v = data[(y * cw + x) * 4];
-        if (v < mn) mn = v;
-        if (v > mx) mx = v;
-      }
-      return mx - mn;
-    };
-    const threshold = 40;
-    let top = 0;
-    let bottom = ch - 1;
-    while (top < bottom && spread(top) <= threshold) top++;
-    while (bottom > top && spread(bottom) <= threshold) bottom--;
-    if (top >= bottom) return;
-    const center = ((top + bottom) / 2) / (ch - 1);
-    setObjectPos(`50% ${Math.round(center * 100)}%`);
+  useEffect(() => {
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, [update]);
+
+  const scrollByPage = (dir) => {
+    const el = trackRef.current;
+    el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: 'smooth' });
   };
-  return { objectPos, onLoad };
-}
 
-function TeamSlide({ member }) {
-  const zoom = getZoom(member.crop);
-  const { objectPos, onLoad } = useSubjectPosition(member.focusX);
-  return (
-    <div className={`${SLIDE_WIDTH} shrink-0 min-w-0 px-0.5`}>
-      <div className="group relative overflow-hidden" style={{ aspectRatio: '800 / 1470' }}>
-        <img
-          src={member.image}
-          alt={`${member.name}, ${member.role} portrait`}
-          loading="lazy"
-          draggable="false"
-          crossOrigin="anonymous"
-          onLoad={onLoad}
-          style={{ objectFit: 'cover', objectPosition: objectPos, ...(zoom > 1 ? { transform: `scale(${zoom})` } : {}) }}
-          className={`absolute inset-0 w-full h-full select-none ${
-            zoom > 1 ? '' : 'transition-transform duration-500 group-hover:scale-[1.02]'
-          }`}
-        />
-        <div className="absolute inset-0 bg-foreground/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-          <div className="w-full px-6 pb-6">
-            <p className="font-heading text-xl md:text-2xl text-white leading-tight">{member.name}</p>
-            <p className="text-xs md:text-sm uppercase tracking-widest text-accent font-body mt-1.5">{member.role}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+  const arrow =
+    'hidden sm:flex absolute top-[38%] -translate-y-1/2 z-10 h-11 w-11 items-center justify-center rounded-full bg-background border border-border shadow-md text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent transition-colors disabled:opacity-0 disabled:pointer-events-none';
 
-export default function TeamCarousel({ items, speedSeconds = 45 }) {
   return (
-    <div className="relative overflow-hidden group/marquee" aria-label="Team members">
+    <div className="relative" role="region" aria-roledescription="carousel" aria-label="Team members">
+      <button type="button" aria-label="Previous team members" disabled={!canPrev} onClick={() => scrollByPage(-1)} className={`${arrow} left-2`}>
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button type="button" aria-label="Next team members" disabled={!canNext} onClick={() => scrollByPage(1)} className={`${arrow} right-2`}>
+        <ChevronRight className="w-5 h-5" />
+      </button>
+
       <div
-        className="flex w-max animate-marquee group-hover/marquee:[animation-play-state:paused]"
-        style={{ animationDuration: `${speedSeconds}s` }}
+        ref={trackRef}
+        onScroll={update}
+        className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-6 px-6 scroll-px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        {[0, 1].map((copy) => (
-          <div key={copy} className="flex shrink-0" aria-hidden={copy === 1}>
-            {items.map((member) => (
-              <TeamSlide key={`${copy}-${member.name}`} member={member} />
-            ))}
+        {items.map((m) => (
+          <div key={m.name} className="snap-start shrink-0 basis-[70%] sm:basis-[44%] md:basis-1/3 lg:basis-1/4 pr-4 lg:pr-6">
+            <TeamMemberCard {...m} />
           </div>
         ))}
       </div>

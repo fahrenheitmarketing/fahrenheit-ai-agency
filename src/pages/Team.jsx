@@ -1,6 +1,6 @@
 import React from 'react';
 import CTASection from '@/components/shared/CTASection';
-import TeamMemberCard from '@/components/team/TeamMemberCard';
+import TeamCarousel from '@/components/team/TeamCarousel';
 import { teamMembers } from '@/data/teamMembers';
 
 export default function Team() {
@@ -32,11 +32,7 @@ export default function Team() {
 
       <section className="pb-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-10 lg:gap-x-8 lg:gap-y-14">
-            {teamMembers.map((m) => (
-              <TeamMemberCard key={m.name} {...m} />
-            ))}
-          </div>
+          <TeamCarousel items={teamMembers} />
         </div>
       </section>
 
