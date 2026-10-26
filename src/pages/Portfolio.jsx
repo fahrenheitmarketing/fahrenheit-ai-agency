@@ -7,7 +7,7 @@ const projects = [
   {
     name: "Briaud Financial Advisors",
     url: "https://briaudfinal.fmkt.agency",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f32b50479_briaud.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/1f353ad8a_briaud.webp",
     industry: "Financial Advisory",
     snippet: "A timeless, trust-first design for a fee-only fiduciary that has managed generational wealth since 1986. Cinematic full-bleed landscape imagery communicates permanence and calm — exactly what high-net-worth families want from an advisor.",
     tags: ["Finance", "Wealth Management", "Texas"],
@@ -23,7 +23,7 @@ const projects = [
   {
     name: "Concierge Pediatrics",
     url: "https://conciergecare.fmkt.agency",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f760fc864_concierge.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/1fa0665e4_concierge.webp",
     industry: "Healthcare",
     snippet: "Warm, reassuring, and conversion-ready. We designed this Miami Beach pediatric practice site to immediately communicate care and accessibility — turning anxious parents into confident members from the first scroll.",
     tags: ["Healthcare", "Pediatrics", "Miami"],
@@ -39,7 +39,7 @@ const projects = [
   {
     name: "ZOMMA Group CPAs",
     url: "https://zomma-group.fmkt.agency",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/30f79e425_zomma.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/15eea9c58_zomma.webp",
     industry: "Accounting",
     snippet: "Forbes-recognized and built to look like it. ZOMMA's site pairs a dramatic Miami skyline with bold, confident typography — positioning this award-winning CPA firm as the strategic partner serious businesses actually need.",
     tags: ["Accounting", "Finance", "Miami"],
@@ -47,7 +47,7 @@ const projects = [
   {
     name: "Brent Coon & Associates",
     url: "https://bcoon.fmkt.agency",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5a8f48e31_bcoon.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/79afaed32_bcoon.webp",
     industry: "Legal",
     snippet: "Over $1 billion recovered. The site had to match the mission. We built a commanding, dark-themed presence for this national trial law firm that radiates authority and turns visitors into clients — fast.",
     tags: ["Legal", "Trial Law", "National"],
@@ -55,7 +55,7 @@ const projects = [
   {
     name: "MacLeod & Co. Commercial Real Estate",
     url: "https://macleod.fmkt.agency",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/d29162b19_macleod.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/aa65a90a0_macleod.webp",
     industry: "Commercial Real Estate",
     snippet: "Close to $800M in closed deals — and a website that owns it. MacLeod's bold, high-contrast design communicates transactional gravity and institutional credibility in the first five seconds. Because in commercial real estate, perception is everything.",
     tags: ["Real Estate", "Commercial", "Southwest U.S."],
@@ -79,7 +79,7 @@ const projects = [
   {
     name: "Golden Hour Café & Wine Bar",
     url: "https://goldenhour.fmkt.agency",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/78d382475_Goldenhour.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/428a2bf3e_goldenhour.webp",
     industry: "Hospitality",
     snippet: "South Austin's best-kept secret deserves a website that feels as good as that first sip. Lush sunset photography, warm earth tones, and editorial typography make Golden Hour's site as inviting as the patio itself.",
     tags: ["Hospitality", "Restaurant", "Austin"],
@@ -87,7 +87,7 @@ const projects = [
   {
     name: "Cuono Engineering",
     url: "https://cuono.fmkt.agency/",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/3d026b4a4_cuono.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c24ed56e2_cuono.webp",
     industry: "Structural Engineering",
     snippet: "Heritage and precision in one frame. We built Cuono Engineering a commanding, image-driven site that communicates 25+ years of structural expertise — from historic New York restorations to modern high-rises — without saying a word more than necessary.",
     tags: ["Engineering", "Construction", "New York"],
@@ -95,7 +95,7 @@ const projects = [
   {
     name: "TeamLogic IT",
     url: "https://teamlogic.fmkt.agency/",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/560e50224_teamlogic.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/ee4806a20_teamlogic.webp",
     industry: "Managed IT Services",
     snippet: "350+ locations. 140,000+ devices managed. The site had to scale to match the brand. We built a clean, stats-forward design for TeamLogic IT that leads with proof — turning skeptical IT buyers into consultation requests before they reach the fold.",
     tags: ["B2B", "Technology", "National"],
@@ -111,7 +111,7 @@ const projects = [
   {
     name: "WestLoop Law",
     url: "https://westlaw.fmkt.agency/",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/2b8320c61_westlaw.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/fba292e2c_westlaw.webp",
     industry: "Personal Injury Law",
     snippet: "Your lawyer is also a medical doctor. That's a story worth telling — loudly. We built WestLoop Law a conversion-first site that puts the attorney's unique dual credential front and center, turning injured Houstonians into booked case reviews.",
     tags: ["Legal", "Personal Injury", "Houston"],
@@ -119,7 +119,7 @@ const projects = [
   {
     name: "Molzahn, Reed & Rouse",
     url: "https://mr2.fmkt.agency/",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c7a70a59d_m2rlaw.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/e6ec7f44c_m2rlaw.webp",
     industry: "Civil Litigation",
     snippet: "Reputation. Relationships. Results. M2R is a Chicago firm built for complexity — civil disputes, business counsel, real estate conflict, appellate strategy. We built them a site as serious as their practice: dark, cinematic, and impossible to ignore.",
     tags: ["Legal", "Civil Litigation", "Chicago"],

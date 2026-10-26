@@ -28,21 +28,21 @@ const websiteOffer = {
 };
 
 const projects = [
-  { name: 'Briaud Financial', url: 'https://briaudfinal.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f32b50479_briaud.png', industry: 'Financial Advisory' },
+  { name: 'Briaud Financial', url: 'https://briaudfinal.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/1f353ad8a_briaud.webp', industry: 'Financial Advisory' },
   { name: 'Blackridge', url: 'https://blackridge.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/b666f575b_blackridge.png', industry: 'Government Affairs' },
-  { name: 'Concierge Pediatrics', url: 'https://conciergecare.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f760fc864_concierge.png', industry: 'Healthcare' },
+  { name: 'Concierge Pediatrics', url: 'https://conciergecare.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/1fa0665e4_concierge.webp', industry: 'Healthcare' },
   { name: 'Greenspoint Dental', url: 'https://greenspoint.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/fd14ca806_greens.png', industry: 'Dental' },
-  { name: 'ZOMMA Group', url: 'https://zomma-group.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/30f79e425_zomma.png', industry: 'Accounting' },
-  { name: 'Brent Coon & Assoc.', url: 'https://bcoon.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5a8f48e31_bcoon.png', industry: 'Legal' },
-  { name: 'MacLeod & Co.', url: 'https://macleod.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/d29162b19_macleod.png', industry: 'Commercial Real Estate' },
+  { name: 'ZOMMA Group', url: 'https://zomma-group.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/15eea9c58_zomma.webp', industry: 'Accounting' },
+  { name: 'Brent Coon & Assoc.', url: 'https://bcoon.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/79afaed32_bcoon.webp', industry: 'Legal' },
+  { name: 'MacLeod & Co.', url: 'https://macleod.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/aa65a90a0_macleod.webp', industry: 'Commercial Real Estate' },
   { name: 'Austin Wealth', url: 'https://austinwealth.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/73368fac8_Austinwealth.png', industry: 'Wealth Management' },
   { name: 'Spring Systems', url: 'https://springstream.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c6634d67c_Springstream.png', industry: 'B2B SaaS' },
-  { name: 'Golden Hour Café', url: 'https://goldenhour.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/78d382475_Goldenhour.png', industry: 'Hospitality' },
-  { name: 'Cuono Engineering', url: 'https://cuono.fmkt.agency/', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/3d026b4a4_cuono.png', industry: 'Structural Engineering' },
-  { name: 'TeamLogic IT', url: 'https://teamlogic.fmkt.agency/', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/560e50224_teamlogic.png', industry: 'Managed IT Services' },
+  { name: 'Golden Hour Café', url: 'https://goldenhour.fmkt.agency', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/428a2bf3e_goldenhour.webp', industry: 'Hospitality' },
+  { name: 'Cuono Engineering', url: 'https://cuono.fmkt.agency/', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c24ed56e2_cuono.webp', industry: 'Structural Engineering' },
+  { name: 'TeamLogic IT', url: 'https://teamlogic.fmkt.agency/', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/ee4806a20_teamlogic.webp', industry: 'Managed IT Services' },
   { name: 'RTM Imports', url: 'https://rtm-imports.fmkt.agency/', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c5f258ac2_rtm.png', industry: 'Beverage Imports' },
-  { name: 'WestLoop Law', url: 'https://westlaw.fmkt.agency/', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/2b8320c61_westlaw.png', industry: 'Personal Injury Law' },
-  { name: 'M2R Law', url: 'https://mr2.fmkt.agency/', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c7a70a59d_m2rlaw.png', industry: 'Civil Litigation' },
+  { name: 'WestLoop Law', url: 'https://westlaw.fmkt.agency/', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/fba292e2c_westlaw.webp', industry: 'Personal Injury Law' },
+  { name: 'M2R Law', url: 'https://mr2.fmkt.agency/', img: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/e6ec7f44c_m2rlaw.webp', industry: 'Civil Litigation' },
 ];
 
 export default function PromoWebsite() {
