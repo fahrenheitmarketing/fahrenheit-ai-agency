@@ -1,6 +1,6 @@
 import React from 'react';
 import CTASection from '@/components/shared/CTASection';
-import TeamCarousel from '@/components/team/TeamCarousel';
+import TeamMemberCard from '@/components/team/TeamMemberCard';
 import { teamMembers } from '@/data/teamMembers';
 
 export default function Team() {
@@ -20,20 +20,23 @@ export default function Team() {
               specialists, designers, developers, and data analysts who have spent years running
               campaigns, building websites, and growing revenue for businesses across industries.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-5">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Together we bring decades of collective experience across search, social, conversion
               optimization, marketing automation, and software development. That depth means the people
               who scope your work are the people who deliver it, with no junior hand-offs and no
               guesswork.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">Hover over a portrait to meet the team.</p>
           </div>
         </div>
       </section>
 
       <section className="pb-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <TeamCarousel items={teamMembers} />
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-10 lg:gap-x-8 lg:gap-y-14">
+            {teamMembers.map((m) => (
+              <TeamMemberCard key={m.name} {...m} />
+            ))}
+          </div>
         </div>
       </section>
 
