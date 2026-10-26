@@ -11,6 +11,6 @@ export const teamMembers = [
   { name: 'Chelsea', role: 'UI/UX Designer', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/b316c8f9e_Chelsea.webp' },
   { name: 'Jorge', role: 'Senior Developer', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c20b3647d_Jorge.webp' },
   { name: 'Ian', role: 'Senior Developer', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/073a2013c_ian_headshot.webp' },
-  { name: 'Henry', role: 'Senior Developer', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/fa842c711_henry-headshot.webp', focusX: 46 },
+  { name: 'Henry', role: 'Senior Developer', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/fa842c711_henry-headshot.webp' },
   { name: 'Tita', role: 'Senior Developer', image: 'https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5fa54696b_Tita.webp' },
 ];
