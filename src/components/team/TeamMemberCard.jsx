@@ -3,13 +3,13 @@ import React from 'react';
 export default function TeamMemberCard({ name, role, image }) {
   return (
     <figure className="group">
-      <div className="overflow-hidden rounded-sm bg-secondary">
+      <div className="relative overflow-hidden rounded-sm aspect-[4/5] bg-secondary">
         <img
           src={image}
           alt={`${name}, ${role} portrait`}
           loading="lazy"
           draggable="false"
-          className="w-full h-auto block"
+          className="absolute inset-0 w-full h-full object-cover object-top"
         />
       </div>
       <figcaption className="pt-4">
