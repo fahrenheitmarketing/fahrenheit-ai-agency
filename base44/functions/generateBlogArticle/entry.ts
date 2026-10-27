@@ -180,6 +180,7 @@ No text in the image. Clean, high-quality, suitable as a featured blog image. 16
       featured_image_url: imageResponse.url
     });
   } catch (error) {
-    return Response.json({ error: error.message, stack: error.stack }, { status: 500 });
+    console.error('generateBlogArticle error:', error);
+    return Response.json({ error: 'Internal server error' }, { status: 500 });
   }
 });

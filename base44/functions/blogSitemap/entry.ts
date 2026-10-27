@@ -57,6 +57,7 @@ export default async function (req: Request): Promise<Response> {
       },
     });
   } catch (error) {
-    return Response.json({ error: error.message }, { status: 500 });
+    console.error('blogSitemap error:', error);
+    return Response.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
