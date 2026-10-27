@@ -7,10 +7,12 @@ import CTASection from '../components/shared/CTASection';
 import OnboardingTimeline from '../components/shared/OnboardingTimeline';
 import EmailMarketingPricing from '../components/pricing/EmailMarketingPricing';
 import HostingPricing from '../components/hosting/HostingPricing';
+import PricingOverview from '../components/pricing/PricingOverview';
 
 const tiers = [
   {
     name: 'Scale',
+    anchor: 'retainers',
     price: '$3,500',
     hasFrom: true,
     suffix: '/month',
@@ -43,6 +45,7 @@ const tiers = [
   },
   {
     name: 'Custom Website',
+    anchor: 'website',
     price: '$7,500',
     hasFrom: true,
     suffix: 'one-time',
@@ -65,7 +68,7 @@ export default function Pricing() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-24 lg:py-32 px-6 overflow-hidden">
+      <section className="relative py-16 lg:py-20 px-6 overflow-hidden">
         <img
           src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
           alt="" aria-hidden="true"
@@ -90,6 +93,9 @@ export default function Pricing() {
         </div>
       </section>
 
+      {/* Offering Overview */}
+      <PricingOverview />
+
       {/* Tiers */}
       <section className="pb-24 px-6">
         <div className="max-w-7xl mx-auto">
@@ -97,7 +103,8 @@ export default function Pricing() {
             {tiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`rounded-2xl p-8 flex flex-col ${
+                id={tier.anchor}
+                className={`scroll-mt-24 rounded-2xl p-8 flex flex-col ${
                   tier.popular
                     ? 'bg-accent text-white border-2 border-accent relative'
                     : 'bg-card border border-border'
@@ -179,10 +186,14 @@ export default function Pricing() {
       </section>
 
       {/* Email Marketing Plans */}
-      <EmailMarketingPricing />
+      <section id="email-marketing" className="scroll-mt-24">
+        <EmailMarketingPricing />
+      </section>
 
       {/* Hosting Plans */}
-      <HostingPricing />
+      <section id="hosting" className="scroll-mt-24">
+        <HostingPricing />
+      </section>
 
       {/* What to Expect */}
       <OnboardingTimeline />
