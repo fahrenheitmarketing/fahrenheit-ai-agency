@@ -70,7 +70,7 @@ export default function PromoRetainer() {
                   </a>
                 </div>
               </div>
-              <div className="bg-background rounded-sm p-6 md:p-8">
+              <div className="bg-background text-foreground rounded-sm p-6 md:p-8">
                 <RetainerLeadForm />
               </div>
             </div>
@@ -214,7 +214,7 @@ export default function PromoRetainer() {
                 ))}
               </div>
             </div>
-            <div id="contact-form" className="bg-background rounded-sm p-10">
+            <div id="contact-form" className="bg-background text-foreground rounded-sm p-10">
               <RetainerLeadForm />
             </div>
           </div>
