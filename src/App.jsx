@@ -92,6 +92,8 @@ const AuthenticatedApp = () => {
         <Route path="/promo" element={<Promo />} />
         <Route path="/promo-alt" element={<PromoAlt />} />
         <Route path="/promo2" element={<Navigate to="/promo-alt" replace />} />
+        <Route path="/process" element={<Navigate to="/process/diagnose" replace />} />
+        <Route path="/sample-page" element={<Navigate to="/" replace />} />
         <Route path="/promo-retainer" element={<PromoRetainer />} />
         <Route path="/promo-website" element={<PromoWebsite />} />
         <Route path="/process/diagnose" element={<Diagnose />} />

@@ -2,7 +2,7 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.54';
 
 // Mirrors src/lib/siteConfig.js (SITE_URL) and src/lib/blogUtils.js (categoryToServiceSlug).
 // Functions cannot import from src/, so keep these in sync with those files.
-const SITE_URL = 'https://fahrenheit.fmkt.agency';
+const SITE_URL = 'https://fahrenheitmarketing.com';
 const categoryToServiceSlug: Record<string, string> = {
   'SEO': 'seo',
   'Data & Analytics': 'seo',
@@ -14,7 +14,6 @@ const categoryToServiceSlug: Record<string, string> = {
   'Social Media & Influencer': 'smm',
   'UX & Accessibility': 'software-development',
 };
-const EXCLUDED_SLUG = 'top-10-marketing-agencies-usa';
 
 const escapeXml = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
@@ -38,7 +37,6 @@ export default async function (req: Request): Promise<Response> {
     } while (cursor);
 
     const urls = posts
-      .filter((p) => p.slug !== EXCLUDED_SLUG)
       .map((p) => {
         const serviceSlug = categoryToServiceSlug[p.category] || 'blog';
         const postSlug = p.slug || p.id;
