@@ -7,7 +7,7 @@ const rows = [
   ['General support queues', 'Dedicated account management'],
   ['Standardized security configurations', 'Security configurations reviewed for the managed environment'],
   ['Automated backups', 'Managed backup strategy and recovery assistance'],
-  ['Malware alerts and variable cleanup policies', 'Standard malware remediation included'],
+  ['Malware alerts and variable cleanup policies', 'Standard server malware remediation included'],
   ['Reactive support interactions', 'Proactive maintenance and security reviews'],
   ['Infrastructure-focused service', 'Infrastructure, security, and technical accountability'],
 ];

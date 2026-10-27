@@ -69,7 +69,7 @@ export default function HostingPricing() {
         <SectionHeader
           label="Hosting Plans"
           title="Enterprise Protection. Predictable Monthly Investment."
-          description="Choose the level of management, security, and response coverage appropriate for your business. All plans include dedicated account management, layered security, proactive monitoring, and standard malware remediation."
+          description="Choose the level of management, security, and response coverage appropriate for your business. All plans include dedicated account management, layered security, proactive monitoring, and standard server malware remediation."
         />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Essential */}
@@ -158,7 +158,7 @@ export default function HostingPricing() {
         </div>
         <p className="text-xs text-muted-foreground leading-relaxed mt-8 max-w-3xl">
           All plans include a dedicated account manager, layered security, proactive monitoring, and standard
-          malware remediation. Hosting resources, storage, and bandwidth are sized to your site&apos;s
+          server malware remediation. Hosting resources, storage, and bandwidth are sized to your site&apos;s
           requirements and confirmed during onboarding; Enterprise plans are scoped individually.
         </p>
       </div>
