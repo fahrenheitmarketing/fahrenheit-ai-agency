@@ -10,11 +10,7 @@ export default function WebsiteLeadForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    const body = `New website redesign inquiry from the Fahrenheit Website Redesign landing page.\n\nName: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || '—'}\nPhone: ${formData.phone || '—'}\nCurrent Website: ${formData.website || '—'}\n\nMessage:\n${formData.message || '—'}`;
-    await Promise.all([
-      base44.integrations.Core.SendEmail({ to: 'rcasas@fahrenheitmarketing.com', subject: `Website Redesign Inquiry — ${formData.name} (${formData.company || 'No company'})`, body }),
-      base44.integrations.Core.SendEmail({ to: 'sbosch@fahrenheitmarketing.com', subject: `Website Redesign Inquiry — ${formData.name} (${formData.company || 'No company'})`, body }),
-    ]);
+    await base44.functions.invoke('submitLead', { kind: 'website', data: formData });
     setSubmitted(true);
     setSubmitting(false);
   };

@@ -20,10 +20,16 @@ const SLUGIFY = (text) => {
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const user = await base44.auth.me();
-
     if (req.method === 'OPTIONS') {
       return new Response(null, { status: 204 });
+    }
+
+    const user = await base44.auth.me().catch((e) => (e.status === 401 ? null : Promise.reject(e)));
+    if (!user) {
+      return Response.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+    if (user.role !== 'admin') {
+      return Response.json({ error: 'Forbidden: admin access required' }, { status: 403 });
     }
 
     const body = await req.json().catch(() => ({}));

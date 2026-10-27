@@ -10,11 +10,7 @@ export default function RetainerLeadForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    const body = `New retainer inquiry from the Fahrenheit Retainer landing page.\n\nName: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || '—'}\nPhone: ${formData.phone || '—'}\nInterested Tier: ${formData.tier || '—'}\n\nMessage:\n${formData.message || '—'}`;
-    await Promise.all([
-      base44.integrations.Core.SendEmail({ to: 'rcasas@fahrenheitmarketing.com', subject: `Retainer Inquiry — ${formData.name} (${formData.company || 'No company'})`, body }),
-      base44.integrations.Core.SendEmail({ to: 'sbosch@fahrenheitmarketing.com', subject: `Retainer Inquiry — ${formData.name} (${formData.company || 'No company'})`, body }),
-    ]);
+    await base44.functions.invoke('submitLead', { kind: 'retainer', data: formData });
     setSubmitted(true);
     setSubmitting(false);
   };

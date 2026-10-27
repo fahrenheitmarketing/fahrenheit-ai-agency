@@ -10,6 +10,7 @@ export default function ChatPanel() {
   const [conversationId, setConversationId] = useState(null);
   const [started, setStarted] = useState(false);
   const messagesContainerRef = useRef(null);
+  const chatTokenRef = useRef(null);
 
   const SUGGESTED_QUESTIONS = [
     'What brands have you worked with?',
@@ -30,6 +31,7 @@ export default function ChatPanel() {
     try {
       const res = await base44.functions.invoke('initializeChat', {});
       console.log('Chat initialized:', res.data);
+      chatTokenRef.current = res.data.chatToken;
       setConversationId(res.data.conversationId);
       return res.data.conversationId;
     } catch (error) {
@@ -53,6 +55,7 @@ export default function ChatPanel() {
       // Send via backend function
       const res = await base44.functions.invoke('chatWithAgent', {
         conversationId: activeId,
+        chatToken: chatTokenRef.current,
         message: text,
       });
       

@@ -10,16 +10,7 @@ export default function PromoContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    await base44.integrations.Core.SendEmail({
-      to: 'rcasas@fahrenheitmarketing.com',
-      subject: `Promo Page Inquiry — ${formData.name} (${formData.company || 'No company'})`,
-      body: `New inquiry from the Fahrenheit Promo page.\n\nName: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || '—'}\nPhone: ${formData.phone || '—'}\nService Interest: ${formData.interest || '—'}\n\nMessage:\n${formData.message || '—'}`,
-    });
-    await base44.integrations.Core.SendEmail({
-      to: 'sbosch@fahrenheitmarketing.com',
-      subject: `Promo Page Inquiry — ${formData.name} (${formData.company || 'No company'})`,
-      body: `New inquiry from the Fahrenheit Promo page.\n\nName: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || '—'}\nPhone: ${formData.phone || '—'}\nService Interest: ${formData.interest || '—'}\n\nMessage:\n${formData.message || '—'}`,
-    });
+    await base44.functions.invoke('submitLead', { kind: 'promo', data: formData });
     setSubmitted(true);
     setSubmitting(false);
   };

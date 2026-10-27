@@ -12,17 +12,7 @@ export default function QuickLeadForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    const body = `Quick lead from the Promo page (mobile fast-path).\n\nName: ${name}\nEmail: ${email}\nBusiness URL: ${url}`;
-    await base44.integrations.Core.SendEmail({
-      to: 'rcasas@fahrenheitmarketing.com',
-      subject: `Get in Touch Request — ${name}`,
-      body,
-    });
-    await base44.integrations.Core.SendEmail({
-      to: 'sbosch@fahrenheitmarketing.com',
-      subject: `Get in Touch Request — ${name}`,
-      body,
-    });
+    await base44.functions.invoke('submitLead', { kind: 'quick', data: { name, email, url } });
     setSubmitted(true);
     setSubmitting(false);
   };

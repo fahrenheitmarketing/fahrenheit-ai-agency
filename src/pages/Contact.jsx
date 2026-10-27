@@ -24,21 +24,7 @@ export default function Contact() {
     });
 
     // Also send email notification
-    await base44.integrations.Core.SendEmail({
-      to: 'rcasas@fahrenheitmarketing.com',
-      subject: `New Contact Form: ${form.name} - ${form.company || 'No company'}`,
-      from_name: 'Fahrenheit Website',
-      body: `
-        <h2>New Contact Submission</h2>
-        <p><strong>Name:</strong> ${form.name}</p>
-        <p><strong>Email:</strong> ${form.email}</p>
-        <p><strong>Company:</strong> ${form.company || 'Not provided'}</p>
-        <p><strong>Phone:</strong> ${form.phone || 'Not provided'}</p>
-        <p><strong>Service Interest:</strong> ${form.service_interest || 'General'}</p>
-        <p><strong>Message:</strong></p>
-        <p>${form.message || 'No message provided'}</p>
-      `,
-    });
+    await base44.functions.invoke('submitLead', { kind: 'contact', data: form });
 
     setSubmitted(true);
     setSubmitting(false);
