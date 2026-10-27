@@ -3,6 +3,7 @@ import { X, Send, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { base44 } from '@/api/base44Client';
+import HoneypotField from '@/components/shared/HoneypotField';
 
 export default function RequestCaseStudyModal({ study, onClose }) {
   const [email, setEmail] = useState('');
@@ -18,6 +19,7 @@ export default function RequestCaseStudyModal({ study, onClose }) {
       name,
       caseStudyId: study.id,
       caseStudyTitle: study.title,
+      hp: e.target.elements.hp_url?.value || '',
     });
     setSent(true);
     setLoading(false);
@@ -52,6 +54,7 @@ export default function RequestCaseStudyModal({ study, onClose }) {
               Enter your email and we'll send you the full PDF case study instantly.
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
+              <HoneypotField />
               <Input
                 type="text"
                 placeholder="Your name"

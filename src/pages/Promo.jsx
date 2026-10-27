@@ -5,6 +5,7 @@ import { CheckCircle, Zap, Shield, Calendar, ArrowRight, Star } from 'lucide-rea
 import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
 import RequestCaseStudyModal from '../components/case-studies/RequestCaseStudyModal';
+import HoneypotField from '@/components/shared/HoneypotField';
 
 const allCaseStudies = [
   { id: 1, category: 'Local SEO', title: 'Professional Cleaning Services', tagline: '1,874% increase in local search visibility', description: 'Commercial cleaning company transforms from sparse digital presence to top local rankings through GBP optimization and content strategy.', metrics: [{ label: 'Maps Impressions', value: '+2,179%' }, { label: 'Search Impressions', value: '+207%' }, { label: 'Business Contacts', value: '+205%' }] },
@@ -97,7 +98,7 @@ export default function Promo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    await base44.functions.invoke('submitLead', { kind: 'promo', data: formData });
+    await base44.functions.invoke('submitLead', { kind: 'promo', data: formData, hp: e.target.elements.hp_url?.value || '' });
     setSubmitted(true);
     setSubmitting(false);
   };
@@ -366,6 +367,7 @@ export default function Promo() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
+                <HoneypotField />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Name *</label>

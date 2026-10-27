@@ -1,8 +1,13 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
+import { allow, clientIp } from '../../shared/rateLimit.ts';
 
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
+
+    if (!(await allow(base44, `init:${clientIp(req)}`, 5, 3600))) {
+      return Response.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
+    }
 
     // Unguessable per-conversation token; the client must present it on every message
     const chatToken = crypto.randomUUID();

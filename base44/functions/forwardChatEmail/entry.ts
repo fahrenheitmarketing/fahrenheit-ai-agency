@@ -1,5 +1,6 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 import { escapeHtml, clip } from '../../shared/escapeHtml.ts';
+import { allow } from '../../shared/rateLimit.ts';
 
 Deno.serve(async (req) => {
   try {
@@ -13,6 +14,21 @@ Deno.serve(async (req) => {
 
     if (!transcript) {
       return Response.json({ error: 'Missing transcript' }, { status: 400 });
+    }
+
+    // Only a real chat (conversation id + its secret token) may forward a transcript
+    const conversationId = clip(body.conversationId, 200);
+    const chatToken = clip(body.chatToken, 200);
+    if (!conversationId || !chatToken) {
+      return Response.json({ error: 'Missing conversationId or chatToken' }, { status: 400 });
+    }
+    const conversation = await base44.asServiceRole.agents.getConversation(conversationId).catch(() => null);
+    if (!conversation?.metadata?.chatToken || conversation.metadata.chatToken !== chatToken) {
+      return Response.json({ error: 'Forbidden' }, { status: 403 });
+    }
+    // One forwarded transcript per conversation
+    if (!(await allow(base44, `fwd:${conversationId}`, 1, 86400))) {
+      return Response.json({ error: 'Already forwarded' }, { status: 429 });
     }
 
     // Save interaction to entity

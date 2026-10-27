@@ -1,5 +1,6 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 import { escapeHtml, clip } from '../../shared/escapeHtml.ts';
+import { allow, clientIp } from '../../shared/rateLimit.ts';
 
 Deno.serve(async (req) => {
   try {
@@ -13,6 +14,14 @@ Deno.serve(async (req) => {
     if (!email || !caseStudyId) {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
+    // Spam trap filled in: pretend it worked, do nothing.
+    if (body.hp) return Response.json({ success: true });
+    if (!(await allow(base44, `case:${clientIp(req)}`, 3, 3600))) {
+      return Response.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
+    }
+    // Same email asking for the same case study again: already recorded and sent to the team.
+    const dup = await base44.asServiceRole.entities.CaseStudyRequest.filter({ email, case_study_id: caseStudyId });
+    if ((Array.isArray(dup) ? dup : dup?.items || []).length > 0) return Response.json({ success: true });
 
     // Save the request to the database
     await base44.asServiceRole.entities.CaseStudyRequest.create({

@@ -1,0 +1,43 @@
+{
+  "name": "RateLimit",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Bucket name plus visitor address or conversation id"
+    },
+    "window_start": {
+      "type": "number",
+      "description": "Start of the current counting window (ms since epoch)"
+    },
+    "count": {
+      "type": "number",
+      "description": "Calls counted in the current window"
+    }
+  },
+  "required": [
+    "key"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
 import { escapeHtml, clip } from '../../shared/escapeHtml.ts';
+import { allow, clientIp } from '../../shared/rateLimit.ts';
 
 const RCASAS = 'rcasas@fahrenheitmarketing.com';
 const SBOSCH = 'sbosch@fahrenheitmarketing.com';
@@ -35,10 +36,15 @@ const KINDS: Record<string, { title: string; subject: string; to: string[]; from
 export default async function (req: Request): Promise<Response> {
   try {
     const base44 = createClientFromRequest(req);
-    const { kind, data } = await req.json().catch(() => ({}));
+    const { kind, data, hp } = await req.json().catch(() => ({}));
     const cfg = KINDS[kind];
     if (!cfg || !data || typeof data !== 'object') {
       return Response.json({ error: 'Invalid request' }, { status: 400 });
+    }
+    // Spam trap filled in: pretend it worked, send nothing.
+    if (hp) return Response.json({ success: true });
+    if (!(await allow(base44, `lead:${clientIp(req)}`, 5, 3600))) {
+      return Response.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
     }
 
     const values: Record<string, string> = {};

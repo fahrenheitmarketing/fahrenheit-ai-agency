@@ -9,6 +9,8 @@ import { base44 } from '@/api/base44Client';
 import { SERVICE_OPTIONS } from '@/data/serviceLinks';
 import { motion } from 'framer-motion';
 
+import HoneypotField from '@/components/shared/HoneypotField';
+
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', company: '', phone: '', service_interest: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
@@ -16,6 +18,11 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const hp = e.target.elements.hp_url?.value || '';
+    if (hp) {
+      setSubmitted(true);
+      return;
+    }
     setSubmitting(true);
 
     await base44.entities.ContactSubmission.create({
@@ -24,7 +31,7 @@ export default function Contact() {
     });
 
     // Also send email notification
-    await base44.functions.invoke('submitLead', { kind: 'contact', data: form });
+    await base44.functions.invoke('submitLead', { kind: 'contact', data: form, hp });
 
     setSubmitted(true);
     setSubmitting(false);
@@ -109,6 +116,7 @@ export default function Contact() {
               </p>
             </div>
             <form onSubmit={handleSubmit} className="bg-card rounded-2xl border border-border p-6 lg:p-8 space-y-5">
+              <HoneypotField />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium mb-1.5 block">Name *</label>

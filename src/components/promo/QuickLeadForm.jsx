@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Mail, User, ArrowRight, CheckCircle, Globe } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 
+import HoneypotField from '@/components/shared/HoneypotField';
+
 export default function QuickLeadForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -12,7 +14,7 @@ export default function QuickLeadForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    await base44.functions.invoke('submitLead', { kind: 'quick', data: { name, email, url } });
+    await base44.functions.invoke('submitLead', { kind: 'quick', data: { name, email, url }, hp: e.target.elements.hp_url?.value || '' });
     setSubmitted(true);
     setSubmitting(false);
   };
@@ -28,6 +30,7 @@ export default function QuickLeadForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+      <HoneypotField />
       <div className="relative flex-1">
         <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
         <input

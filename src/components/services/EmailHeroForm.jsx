@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 
+import HoneypotField from '@/components/shared/HoneypotField';
+
 export default function EmailHeroForm() {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
@@ -10,7 +12,7 @@ export default function EmailHeroForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    await base44.functions.invoke('submitLead', { kind: 'emailMarketing', data: formData });
+    await base44.functions.invoke('submitLead', { kind: 'emailMarketing', data: formData, hp: e.target.elements.hp_url?.value || '' });
     setSubmitted(true);
     setSubmitting(false);
   };
@@ -32,6 +34,7 @@ export default function EmailHeroForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <HoneypotField />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className={labelClass}>Name *</label>
