@@ -80,7 +80,7 @@ export default function HeroSection() {
             >
               <Link
                 to="/pricing"
-                className="inline-flex items-center gap-4 bg-accent/10 border border-accent/30 rounded-lg px-5 py-4 transition-colors hover:bg-accent/20 hover:border-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="inline-flex items-center gap-4 bg-background border border-accent/40 rounded-lg px-5 py-4 transition-colors hover:border-accent/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <div>
                   <p className="text-xs uppercase tracking-widest text-accent font-body mb-1">AI-Powered Retainers</p>
