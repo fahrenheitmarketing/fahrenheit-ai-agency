@@ -52,12 +52,19 @@ export default function ChatPanel() {
       // Add user message immediately
       setMessages(prev => [...prev, { role: 'user', content: text }]);
       
-      // Send via backend function
-      const res = await base44.functions.invoke('chatWithAgent', {
-        conversationId: activeId,
+      // Send via backend function; if the chat has expired (410), start a fresh one and retry once
+      const post = (id) => base44.functions.invoke('chatWithAgent', {
+        conversationId: id,
         chatToken: chatTokenRef.current,
         message: text,
       });
+      let res;
+      try {
+        res = await post(activeId);
+      } catch (err) {
+        if (err?.response?.status !== 410) throw err;
+        res = await post(await initConversation());
+      }
       
       if (res.data.response) {
         setMessages(prev => [...prev, { role: 'assistant', content: res.data.response }]);

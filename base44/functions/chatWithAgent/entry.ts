@@ -1,6 +1,8 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 import { allow, clientIp } from '../../shared/rateLimit.ts';
 
+const MAX_CHAT_AGE_MS = 24 * 60 * 60 * 1000;
+
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
@@ -13,16 +15,28 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Invalid message' }, { status: 400 });
     }
 
-    if (!(await allow(base44, `chat:${clientIp(req)}`, 60, 3600))) {
+    // Per visitor, then a site-wide ceiling so rotating addresses cannot run up AI usage
+    if (!(await allow(base44, `chat:${clientIp(req)}`, 60, 3600)) || !(await allow(base44, 'chat:all', 600, 3600))) {
       return Response.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
     }
 
-    // Use service role for agent management
-    const conversation = await base44.asServiceRole.agents.getConversation(conversationId);
+    // Use service role for agent management. A bad id answers exactly like a bad token.
+    const conversation = await base44.asServiceRole.agents.getConversation(conversationId).catch(() => null);
 
     // Only the holder of the server-issued token may use this conversation
     if (!conversation?.metadata?.chatToken || conversation.metadata.chatToken !== chatToken) {
       return Response.json({ error: 'Forbidden' }, { status: 403 });
+    }
+
+    // Chats expire after 24 hours; the page starts a fresh one
+    const createdAt = Number(conversation.metadata.createdAt) || 0;
+    if (!createdAt || Date.now() - createdAt > MAX_CHAT_AGE_MS) {
+      return Response.json({ error: 'Chat expired' }, { status: 410 });
+    }
+
+    // At most one message every 2 seconds per chat
+    if (!(await allow(base44, `gap:${conversationId}`, 1, 2))) {
+      return Response.json({ error: 'Slow down. Please try again in a moment.' }, { status: 429 });
     }
 
     // Cap messages per conversation

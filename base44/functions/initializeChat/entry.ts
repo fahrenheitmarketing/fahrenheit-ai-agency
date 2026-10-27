@@ -5,7 +5,8 @@ Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
 
-    if (!(await allow(base44, `init:${clientIp(req)}`, 5, 3600))) {
+    // Per visitor, then a site-wide ceiling so rotating addresses cannot run up AI usage
+    if (!(await allow(base44, `init:${clientIp(req)}`, 5, 3600)) || !(await allow(base44, 'init:all', 200, 3600))) {
       return Response.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
     }
 
@@ -19,6 +20,7 @@ Deno.serve(async (req) => {
         name: 'Hero Chat',
         description: 'Homepage hero chatbox',
         chatToken,
+        createdAt: Date.now(),
       },
     });
 
