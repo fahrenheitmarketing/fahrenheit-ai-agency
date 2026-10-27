@@ -130,7 +130,7 @@ const projects = [
   {
     name: "Austin Institute of Dental Medicine",
     url: "https://aidm.fmkt.agency/",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/162a5197e_aidm.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/b722dfed2_austin-institute-dental-medicine.webp",
     industry: "Dental Medicine",
     snippet: "A comprehensive dental medical institute where board-certified specialists, CODA Initial Accredited residency programs, and surgical suites converge. We built AIDM a clean, clinical-yet-warm presence that makes an elite care team feel approachable — and bookable.",
     tags: ["Healthcare", "Dental", "Austin"],
@@ -138,7 +138,7 @@ const projects = [
   {
     name: "vCompute",
     url: "https://vcompute.fmkt.agency/",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/ae3b6175d_vcompute.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/f8b76ace6_vcompute.webp",
     industry: "AI Infrastructure",
     snippet: "Computation as a physical force. We built vCompute a dark, technical-first site for their Houston data center platform — complete with an interactive GPU pricing calculator that lets buyers size their own cluster before they ever talk to sales.",
     tags: ["Technology", "Data Centers", "Houston"],
@@ -146,7 +146,7 @@ const projects = [
   {
     name: "Aplaz Group",
     url: "https://aplaz.fmkt.agency/",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/bbb24ee36_aplaz.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/c0453f9cc_aplaz-group.webp",
     industry: "HR & Payroll Services",
     snippet: "We handle the compliance. You lead the growth. We gave Aplaz a serif-led, editorial design with an employee-count savings calculator — turning outsourced HR and payroll from a grudge purchase into a growth story.",
     tags: ["B2B", "HR & Payroll", "National"],
@@ -154,7 +154,7 @@ const projects = [
   {
     name: "M&G Financial Partners",
     url: "https://mng.fmkt.agency/",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/d27b8db83_mandg.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/167688a05_mg-financial-partners.webp",
     industry: "Fractional CFO & Accounting",
     snippet: "Growth is a narrative. We authored the strategy. We built M&G a quiet-luxury, private-office aesthetic for their fractional CFO practice — metrics-forward, watermark-branded, and every bit as composed as the financial function they run.",
     tags: ["Finance", "Fractional CFO", "Frisco"],
@@ -162,7 +162,7 @@ const projects = [
   {
     name: "Master Fire Prevention",
     url: "https://masterfire.fmkt.agency/",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/0a1170a87_masterfire.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/1c3df0dab_master-fire-prevention.webp",
     industry: "Fire Protection",
     snippet: "55 years keeping New York City open and compliant. We built Master Fire Prevention an FDNY-credentialed, status-forward site — certifications, response metrics, and a live-quote path that earns trust in the first five seconds.",
     tags: ["Fire Protection", "NYC", "Compliance"],
@@ -170,7 +170,7 @@ const projects = [
   {
     name: "Poulson Law Offices",
     url: "https://poulsonlaw.com/",
-    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/48e2c22e3_poulson.png",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/2d6855d19_poulson-law-offices.webp",
     industry: "Law",
     snippet: "Architects of Resolution. Five decades, two generations, and a Cooperstown practice with Wall Street reach — we built Poulson Law a stately, column-framed presence in navy and gold worthy of the firm's standing.",
     tags: ["Legal", "Estate & Corporate", "New York"],
