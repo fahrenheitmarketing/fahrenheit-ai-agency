@@ -39,7 +39,7 @@ const faqs = [
 const pillars = [
   {
     icon: Radar,
-    title: 'Cold Email Strategy',
+    title: 'Program Design',
     description: 'We design the program around your revenue goal, not a blast list: offer positioning, sequencing cadence, sender infrastructure, and a weekly testing plan that compounds response rates month over month.',
   },
   {
@@ -55,9 +55,9 @@ const pillars = [
 ];
 
 const plans = [
-  { name: 'Growth', price: 2500, volume: 25000, features: ['Full strategy & sequencing', 'ICP building & list sourcing', 'Copywriting & A/B testing', 'Deliverability management', 'Monthly reporting & optimization'] },
+  { name: 'Growth', price: 2500, volume: 25000, features: ['Sequencing & campaign design', 'ICP building & list sourcing', 'Copywriting & A/B testing', 'Deliverability management', 'Monthly reporting & optimization'] },
   { name: 'Scale', price: 5000, volume: 60000, features: ['Everything in Growth', 'Multi-segment targeting', 'Additional sending domains', 'Reply-handling workflows', 'Dedicated campaign manager'] },
-  { name: 'Enterprise', price: 7500, volume: 100000, features: ['Everything in Scale', 'Custom audience modeling', 'Quarterly strategy reviews', 'Priority build-out of new segments'] },
+  { name: 'Enterprise', price: 7500, volume: 100000, features: ['Everything in Scale', 'Custom audience modeling', 'Quarterly program reviews', 'Priority build-out of new segments'] },
 ];
 
 export default function EmailMarketing() {
@@ -82,12 +82,12 @@ export default function EmailMarketing() {
               Cold Email That <span className="text-accent">Opens Doors</span>, Not Spam Folders.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              We run precision cold email programs end to end — strategy, targeting, messaging, and deliverability — putting your offer in front of decision-makers who have a reason to reply.
+              We run precision cold email programs end to end — program design, targeting, messaging, and deliverability — putting your offer in front of decision-makers who have a reason to reply.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contact">
                 <Button size="lg" className="rounded-full px-8 gap-2 font-body">
-                  Request a Strategy Session <ArrowRight className="w-4 h-4" />
+                  Request a Consultation <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
               <a
@@ -122,7 +122,7 @@ export default function EmailMarketing() {
           <SectionHeader
             label="Pricing"
             title="Simple Tiers, Priced by Delivered Volume"
-            description="Every plan includes strategy, targeting, messaging, and deliverability management. One-time setup fee of $1,500."
+            description="Every plan includes program design, targeting, messaging, and deliverability management. One-time setup fee of $1,500."
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan) => (
@@ -212,8 +212,8 @@ export default function EmailMarketing() {
       <RelatedServices current="email" />
       <CTASection
         headline="Your Next Customer Hasn't Heard of You Yet."
-        subtext="A managed cold email program from $2,500/month. A 30-minute strategy call is free — we'll pressure-test whether cold email fits your growth model before you spend a dollar."
-        buttonText="Book a strategy call"
+        subtext="A managed cold email program from $2,500/month. A 30-minute consultation is free — we'll pressure-test whether cold email fits your growth model before you spend a dollar."
+        buttonText="Book a consultation"
       />
     </>
   );
