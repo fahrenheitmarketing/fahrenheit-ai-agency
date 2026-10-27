@@ -51,7 +51,7 @@ export default function Contact() {
           </div>
           <h1 className="font-heading text-3xl font-normal mb-4">Thank You</h1>
           <p className="text-muted-foreground leading-relaxed">
-            We've received your message and will be in touch within 24 hours. In the meantime, feel free to chat with our AI assistant for immediate answers.
+            We've received your message and will be in touch within 24 hours.
           </p>
         </motion.div>
       </section>
