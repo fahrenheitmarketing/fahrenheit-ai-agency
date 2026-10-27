@@ -122,7 +122,7 @@ export default function PromoAlt() {
                 </a>
                 <a href="#contact-form" onClick={scrollToForm} className="block cursor-pointer group">
                   <h1 className="font-heading text-5xl md:text-6xl font-normal leading-[1.05] mb-6 text-background group-hover:text-accent transition-colors">
-                    Agentic Marketing. Real Results.
+                    AI-Powered Marketing. Real Results.
                   </h1>
                 </a>
                 <p className="text-background/70 font-body text-lg leading-relaxed mb-8">

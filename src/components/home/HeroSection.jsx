@@ -55,7 +55,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-muted-foreground text-base md:text-lg leading-relaxed mb-12 max-w-xl font-body"
             >
-              Whether it's an agentic AI package, managed hosting, an ongoing retainer that leverages AI wherever possible to maximize your ROI, or a one-time fixed-bid project — every solution is tailored to your specific needs.
+              Whether it's managed hosting, an ongoing retainer that leverages AI wherever possible to maximize your ROI, or a one-time fixed-bid project — every solution is tailored to your specific needs.
             </motion.p>
 
             <motion.div
@@ -83,7 +83,7 @@ export default function HeroSection() {
                 className="inline-flex items-center gap-4 bg-accent/10 border border-accent/30 rounded-lg px-5 py-4 transition-colors hover:bg-accent/20 hover:border-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-accent font-body mb-1">Agentic Retainers</p>
+                  <p className="text-xs uppercase tracking-widest text-accent font-body mb-1">AI-Powered Retainers</p>
                   <p className="text-sm text-muted-foreground font-body">Starting at only</p>
                 </div>
                 <p className="font-heading text-3xl font-normal text-foreground">

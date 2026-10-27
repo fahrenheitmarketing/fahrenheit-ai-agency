@@ -128,7 +128,7 @@ export default function Promo() {
             <Zap className="w-3.5 h-3.5" /> Limited-Time Offer
           </div>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] max-w-4xl mb-8">
-            Agentic Marketing. Real Results. Full Website: From $7,500. Month-to-month Retainer: From $3,500. Read on.
+            AI-Powered Marketing. Real Results. Full Website: From $7,500. Month-to-month Retainer: From $3,500. Read on.
           </h1>
           <p className="text-muted-foreground font-body text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
             AI-powered marketing programs and a complete website redesign offer — all with transparent pricing, no long-term contracts, and a team that's been doing this since 2008.

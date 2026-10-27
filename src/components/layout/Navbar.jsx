@@ -27,7 +27,7 @@ const services = [
   { icon: Compass, label: 'Strategy', description: 'Full-funnel growth strategy and roadmaps', path: '/services/strategy' },
   { icon: Search, label: 'SEO', description: 'Own page one and AI search results', path: '/services/seo' },
   { icon: Target, label: 'SEM / PPC', description: 'AI-assisted paid search management', path: '/services/sem' },
-  { icon: Megaphone, label: 'Social Media', description: 'Agentic social content and management', path: '/services/smm' },
+  { icon: Megaphone, label: 'Social Media', description: 'AI-powered social content and management', path: '/services/smm' },
   { icon: TrendingUp, label: 'CRO', description: 'Turn more visitors into customers', path: '/services/cro' },
   { icon: Workflow, label: 'Marketing Automation', description: 'Lifecycle journeys that nurture and convert', path: '/services/marketing-automation' },
   { icon: Code2, label: 'Software Development', description: 'Custom platforms, portals, and integrations', path: '/services/software-development' },
