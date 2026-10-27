@@ -8,7 +8,7 @@ const trustIndicators = [
   'Dedicated Account Management',
   'Proactive Security Monitoring',
   'Hands-On Incident Response',
-  'Standard Malware Remediation Included',
+  'Standard Server Malware Remediation Included',
 ];
 
 export default function HostingHero() {

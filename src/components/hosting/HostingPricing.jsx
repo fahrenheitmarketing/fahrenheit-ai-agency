@@ -17,7 +17,7 @@ const essentialFeatures = [
   'Business-hours support',
   'Human-led security incident investigation',
   'Initial threat containment',
-  'Standard malware remediation',
+  'Standard server malware remediation',
   'Backup restoration assistance',
   'Periodic security and maintenance review',
 ];

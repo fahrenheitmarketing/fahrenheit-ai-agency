@@ -58,7 +58,7 @@ export default function IncidentResponse() {
             <ShieldCheck className="w-10 h-10 text-accent flex-shrink-0" aria-hidden="true" />
             <div>
               <h3 className="font-heading text-2xl md:text-3xl font-normal mb-5 max-w-2xl leading-snug">
-                Standard Malware Remediation Is Included in Every Plan.
+                Standard Server Malware Remediation Is Included in Every Plan.
               </h3>
               <p className="text-background/70 leading-relaxed mb-4 max-w-4xl">
                 Routine malware cleanup and standard incident response are included at no additional charge
