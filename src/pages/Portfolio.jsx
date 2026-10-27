@@ -202,7 +202,7 @@ export default function Portfolio() {
                     ))}
                   </div>
                   <span className="inline-flex items-center gap-2 text-sm font-body font-medium text-accent group-hover:underline">
-                    {project.linkLabel || `Visit ${project.name.split(' ')[0]}`} <ExternalLink className="w-3.5 h-3.5" />
+                    {project.linkLabel || `Visit ${project.name}`} <ExternalLink className="w-3.5 h-3.5" />
                   </span>
                 </div>
               </article>
