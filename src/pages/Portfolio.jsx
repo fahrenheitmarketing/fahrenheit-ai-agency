@@ -1,8 +1,9 @@
 import React from 'react';
 import { mediaUrl } from '@/lib/media';
-import { Link } from 'react-router-dom';
 import CTASection from '../components/shared/CTASection';
-import { ExternalLink } from 'lucide-react';
+import ProjectRow from '../components/portfolio/ProjectRow';
+import { ArrowDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -181,80 +182,101 @@ export default function Portfolio() {
     <>
       <div className="min-h-screen bg-background">
 
-        {/* Hero */}
-        <section className="relative py-20 px-6 lg:px-10 border-b border-border overflow-hidden">
-          <img
-            src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
-            alt="" aria-hidden="true"
+        {/* Hero — oversized type on dark */}
+        <section className="relative bg-foreground text-background pt-28 pb-20 px-6 lg:px-10 overflow-hidden">
+          <span
             aria-hidden="true"
-            className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-50 select-none"
-          />
+            className="hidden xl:block absolute right-10 top-1/2 -translate-y-1/2 text-[10px] uppercase tracking-[0.5em] text-background/30 font-body select-none"
+            style={{ writingMode: 'vertical-rl' }}
+          >
+            Selected Work — Fahrenheit Marketing
+          </span>
+
           <div className="relative max-w-7xl mx-auto">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">
-              Our Work
-            </p>
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] max-w-4xl mb-8">
-              Websites That Work as Hard as Your Business
-            </h1>
-            <p className="text-muted-foreground font-body text-base md:text-lg leading-relaxed max-w-2xl">
-              From fee-only fiduciaries to national trial law firms, every site we build is designed with one goal: turn the right visitors into the right clients. Here's a look at some of our recent work.
-            </p>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-xs uppercase tracking-widest text-accent mb-8 font-body"
+            >
+              [ Our Work ]
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-heading text-5xl md:text-7xl lg:text-8xl font-normal leading-[0.95] max-w-5xl mb-8"
+            >
+              Websites That Work as Hard as Your Business.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-background/70 font-body text-base md:text-lg leading-relaxed max-w-2xl mb-14"
+            >
+              From fee-only fiduciaries to national trial law firms, every site we build is designed with one goal: turn the right visitors into the right clients.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="flex flex-wrap items-center gap-x-12 gap-y-6"
+            >
+              <div>
+                <p className="font-heading text-3xl md:text-4xl font-normal">{projects.length}</p>
+                <p className="text-[10px] uppercase tracking-widest text-background/40 mt-1 font-body">Case Studies</p>
+              </div>
+              <div className="w-px h-10 bg-background/15" aria-hidden="true"></div>
+              <div>
+                <p className="font-heading text-3xl md:text-4xl font-normal">2008</p>
+                <p className="text-[10px] uppercase tracking-widest text-background/40 mt-1 font-body">Building Since</p>
+              </div>
+              <div className="w-px h-10 bg-background/15" aria-hidden="true"></div>
+              <div>
+                <p className="font-heading text-3xl md:text-4xl font-normal">Austin, TX</p>
+                <p className="text-[10px] uppercase tracking-widest text-background/40 mt-1 font-body">Headquarters</p>
+              </div>
+              <div className="flex items-center gap-2 text-background/40 text-xs uppercase tracking-widest font-body ml-auto">
+                Scroll <ArrowDown className="w-4 h-4 animate-bounce" />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Thumbnail strip */}
+          <div className="relative max-w-7xl mx-auto mt-16 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+            <div className="flex w-max animate-marquee">
+              {[...projects, ...projects].map((project, i) => (
+                <img
+                  key={`${project.name}-${i}`}
+                  src={mediaUrl(project.image)}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="h-40 md:h-52 w-auto rounded-sm opacity-60 hover:opacity-100 transition-opacity mr-4"
+                />
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Portfolio Grid */}
-        <section className="py-20 px-6 lg:px-10">
-          <div className="max-w-7xl mx-auto space-y-0">
-            {projects.map((project, i) => (
-              <article
-                key={project.name}
-                className={`relative grid grid-cols-1 lg:grid-cols-2 gap-0 border-b border-border py-16 items-center transition-colors hover:bg-secondary/20 ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}
-              >
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Visit ${project.name}`}
-                  className="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent rounded-sm"
-                />
-                {/* Image */}
-                <div className={`relative group ${i % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                  <div className="overflow-hidden rounded-sm border border-border shadow-md">
-                    <img
-                      src={mediaUrl(project.image)}
-                      alt={`${project.name} homepage design`}
-                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <span className="absolute top-4 right-4 bg-foreground text-background text-xs font-body font-medium px-3 py-1.5 rounded-sm flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                    View Live Site <ExternalLink className="w-3 h-3" />
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div className={`px-0 lg:px-12 ${i % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">
-                    {project.industry}
-                  </p>
-                  <h2 className="font-heading text-3xl md:text-4xl font-normal leading-[1.1] mb-5">
-                    {project.name}
-                  </h2>
-                  <p className="text-muted-foreground font-body text-base leading-relaxed mb-6">
-                    {project.snippet}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="text-xs font-body px-3 py-1 border border-border rounded-sm text-muted-foreground">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <span className="inline-flex items-center gap-2 text-sm font-body font-medium text-accent group-hover:underline">
-                    {project.linkLabel || `Visit ${project.name}`} <ExternalLink className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </article>
-            ))}
+        {/* Case Study Index */}
+        <section className="py-20 lg:py-24 px-6 lg:px-10">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-end justify-between mb-10">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">
+                [ Case Studies ]
+              </p>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground font-body tabular-nums">
+                {projects.length} Projects
+              </p>
+            </div>
+            <div className="border-t border-border">
+              {projects.map((project, i) => (
+                <ProjectRow key={project.name} project={project} index={i} />
+              ))}
+            </div>
           </div>
         </section>
 
