@@ -55,6 +55,20 @@ export default async function (req: Request): Promise<Response> {
       return Response.json({ error: 'Name and email are required' }, { status: 400 });
     }
 
+    // Contact submissions are also stored as leads, server-side
+    if (kind === 'contact') {
+      const SERVICE_INTERESTS = ['seo', 'sem', 'smm', 'cro', 'strategy', 'automation', 'software-development', 'email-marketing', 'hosting', 'general'];
+      await base44.asServiceRole.entities.ContactSubmission.create({
+        name: values.name,
+        email: values.email,
+        company: values.company,
+        phone: values.phone,
+        message: values.message,
+        service_interest: SERVICE_INTERESTS.includes(values.service_interest) ? values.service_interest : 'general',
+        status: 'new',
+      });
+    }
+
     const subject = `${cfg.subject} — ${values.name.replace(/[\r\n]+/g, ' ').slice(0, 100)}${values.company ? ` (${values.company.replace(/[\r\n]+/g, ' ').slice(0, 100)})` : ''}`;
     const rows = cfg.fields
       .map(([key, label]) => `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(values[key] || 'Not provided').replace(/\n/g, '<br/>')}</p>`)

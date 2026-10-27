@@ -15,6 +15,7 @@ export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', company: '', phone: '', service_interest: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,17 +25,17 @@ export default function Contact() {
       return;
     }
     setSubmitting(true);
+    setError(null);
 
-    await base44.entities.ContactSubmission.create({
-      ...form,
-      status: 'new',
-    });
-
-    // Also send email notification
-    await base44.functions.invoke('submitLead', { kind: 'contact', data: form, hp });
-
-    setSubmitted(true);
-    setSubmitting(false);
+    try {
+      // The backend records the lead and sends the email notification
+      await base44.functions.invoke('submitLead', { kind: 'contact', data: form, hp });
+      setSubmitted(true);
+    } catch (err) {
+      setError('Something went wrong sending your message. Please try again or call us directly.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -189,6 +190,9 @@ export default function Contact() {
               >
                 {submitting ? 'Sending...' : 'Send Message'} <Send className="w-4 h-4" />
               </Button>
+              {error && (
+                <p className="text-sm text-destructive text-center" role="alert">{error}</p>
+              )}
               <p className="text-xs text-muted-foreground text-center">
                 We typically respond within 24 hours. No spam, ever.
               </p>
