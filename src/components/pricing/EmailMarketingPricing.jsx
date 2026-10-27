@@ -6,7 +6,7 @@ import SectionHeader from '@/components/shared/SectionHeader';
 
 const plans = [
   { name: 'Growth', price: 2500, volume: 25000, features: ['Sequencing & campaign design', 'ICP building & list sourcing', 'Copywriting & A/B testing', 'Deliverability management', 'Monthly reporting & optimization'] },
-  { name: 'Scale', price: 5000, volume: 60000, features: ['Everything in Growth', 'Multi-segment targeting', 'Additional sending domains', 'Reply-handling workflows', 'Dedicated campaign manager'] },
+  { name: 'Scale', price: 5000, volume: 60000, features: ['Everything in Growth', 'Multi-segment targeting (up to 2 segments)', 'Additional sending domains', 'Reply-handling workflows', 'Dedicated campaign manager'] },
   { name: 'Enterprise', price: 7500, volume: 100000, features: ['Everything in Scale', 'Custom audience modeling', 'Quarterly program reviews', 'Priority build-out of new segments'] },
 ];
 
