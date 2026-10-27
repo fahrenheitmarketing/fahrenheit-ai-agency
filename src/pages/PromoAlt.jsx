@@ -54,7 +54,7 @@ const tiers = [
 ];
 
 const websiteOffer = {
-  price: 'From $5,000',
+  price: 'From $7,500',
   period: 'flat rate',
   description: 'A fully redesigned website — up to 50 pages — including all content, copywriting, and SEO optimization. One fixed price, no surprises.',
   value: 'Most agencies charge $10,000–$50,000 for a project of this scope. We leverage AI-assisted content production and our proven design process to deliver a professionally redesigned site at a fraction of the typical cost — without cutting corners on strategy or quality.',
@@ -126,7 +126,7 @@ export default function PromoAlt() {
                   </h1>
                 </a>
                 <p className="text-background/70 font-body text-lg leading-relaxed mb-8">
-                  AI-powered marketing programs and a complete website redesign — transparent pricing, no long-term contracts. Month-to-month retainers from <strong className="text-background">$3,500</strong>. Full website redesign from <strong className="text-background">$5,000</strong>.
+                  AI-powered marketing programs and a complete website redesign — transparent pricing, no long-term contracts. Month-to-month retainers from <strong className="text-background">$3,500</strong>. Full website redesign from <strong className="text-background">$7,500</strong>.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a
@@ -182,7 +182,7 @@ export default function PromoAlt() {
                 {
                   number: '03',
                   title: 'Fixed-Price Website Redesigns',
-                  body: 'Most agencies quote $10,000–$50,000 for a full redesign. We deliver the same quality — up to 50 pages, content included — from $5,000. No scope creep. No surprises.',
+                  body: 'Most agencies quote $10,000–$50,000 for a full redesign. We deliver the same quality — up to 50 pages, content included — from $7,500. No scope creep. No surprises.',
                 },
               ].map((item, i) => (
                 <div key={item.number} className={`p-10 bg-background ${i < 2 ? 'border-b md:border-b-0 md:border-r border-border' : ''}`}>

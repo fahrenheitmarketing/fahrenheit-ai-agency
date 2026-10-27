@@ -43,7 +43,7 @@ const tiers = [
   },
   {
     name: 'Custom Website',
-    price: '$5,000',
+    price: '$7,500',
     hasFrom: true,
     suffix: 'one-time',
     description: 'A complete website redesign, built to launch and built to grow.',

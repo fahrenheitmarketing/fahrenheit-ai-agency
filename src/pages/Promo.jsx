@@ -54,7 +54,7 @@ const tiers = [
 
 const websiteOffer = {
   name: 'Complete Website Redesign',
-  price: 'From $5,000',
+  price: 'From $7,500',
   period: 'flat rate',
   description: 'A fully redesigned website — up to 50 pages — including all content, copywriting, and SEO optimization. One fixed price, no surprises.',
   value: 'Most agencies charge $10,000–$50,000 for a project of this scope. We leverage AI-assisted content production and our proven design process to deliver a professionally redesigned site at a fraction of the typical cost — without cutting corners on strategy or quality.',
@@ -128,7 +128,7 @@ export default function Promo() {
             <Zap className="w-3.5 h-3.5" /> Limited-Time Offer
           </div>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] max-w-4xl mb-8">
-            Agentic Marketing. Real Results. Full Website: From $5,000. Month-to-month Retainer: From $3,500. Read on.
+            Agentic Marketing. Real Results. Full Website: From $7,500. Month-to-month Retainer: From $3,500. Read on.
           </h1>
           <p className="text-muted-foreground font-body text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
             AI-powered marketing programs and a complete website redesign offer — all with transparent pricing, no long-term contracts, and a team that's been doing this since 2008.
@@ -431,7 +431,7 @@ export default function Promo() {
                     <option value="">Select an option…</option>
                     <option value="Scale Retainer ($3,500/mo)">Scale Retainer — From $3,500/mo</option>
                     <option value="Enterprise Retainer">Enterprise Retainer — Custom</option>
-                    <option value="Website Redesign ($5,000)">Website Redesign — From $5,000</option>
+                    <option value="Website Redesign ($7,500)">Website Redesign — From $7,500</option>
                     <option value="Software Development">Software Development</option>
                     <option value="Multiple / Not Sure">Multiple / Not Sure Yet</option>
                   </select>

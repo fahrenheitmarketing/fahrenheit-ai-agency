@@ -13,7 +13,7 @@ const caseStudies = [
 ];
 
 const websiteOffer = {
-  price: 'From $5,000', period: 'flat rate',
+  price: 'From $7,500', period: 'flat rate',
   description: 'A fully redesigned website — up to 50 pages — including all content, copywriting, and SEO optimization. One fixed price, no surprises.',
   value: 'Most agencies charge $10,000–$50,000 for a project of this scope. We leverage AI-assisted content production and our proven design process to deliver a professionally redesigned site at a fraction of the typical cost — without cutting corners on strategy or quality.',
   features: [
@@ -77,7 +77,7 @@ export default function PromoWebsite() {
                   A Professionally Redesigned Website. One Flat Price.
                 </h1>
                 <p className="text-background/70 font-body text-lg leading-relaxed mb-8">
-                  Up to 50 pages, fully redesigned — content, copywriting, and SEO all included. No scope creep, no surprises. From <strong className="text-background">$5,000</strong>.
+                  Up to 50 pages, fully redesigned — content, copywriting, and SEO all included. No scope creep, no surprises. From <strong className="text-background">$7,500</strong>.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a href="#contact-form" onClick={scrollToForm} className="inline-flex items-center gap-2 bg-accent text-white text-sm font-body font-medium px-6 py-3 rounded-sm hover:bg-accent/90 active:scale-[0.97] transition-all shadow-sm">
@@ -104,7 +104,7 @@ export default function PromoWebsite() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-border rounded-sm overflow-hidden">
               {[
-                { number: '01', title: 'Fixed Price, No Surprises', body: 'Most agencies quote $10,000–$50,000 for a full redesign. We deliver the same quality — up to 50 pages — from $5,000. The price you see is the price you pay.' },
+                { number: '01', title: 'Fixed Price, No Surprises', body: 'Most agencies quote $10,000–$50,000 for a full redesign. We deliver the same quality — up to 50 pages — from $7,500. The price you see is the price you pay.' },
                 { number: '02', title: 'Content & SEO Included', body: "No separate copywriting invoice. Every page comes with SEO-optimized content written for your audience and search intent — ready to publish." },
                 { number: '03', title: 'Built to Convert', body: 'Every layout is engineered around a clear conversion goal, not just aesthetics — mobile-first, fast, and structured to turn visitors into leads.' },
               ].map((item, i) => (

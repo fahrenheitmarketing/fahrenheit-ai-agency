@@ -95,7 +95,7 @@ export default function PromoContactForm() {
           <option value="">Select an option…</option>
           <option value="Scale Retainer ($3,500/mo)">Scale Retainer — From $3,500/mo</option>
           <option value="Enterprise Retainer">Enterprise Retainer — Custom</option>
-          <option value="Website Redesign ($5,000)">Website Redesign — From $5,000</option>
+          <option value="Website Redesign ($7,500)">Website Redesign — From $7,500</option>
           <option value="Software Development">Software Development</option>
           <option value="Multiple / Not Sure">Multiple / Not Sure Yet</option>
         </select>
