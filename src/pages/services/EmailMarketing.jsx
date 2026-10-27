@@ -8,6 +8,7 @@ import CTASection from '../../components/shared/CTASection';
 import FAQSection from '../../components/shared/FAQSection';
 import SectionHeader from '../../components/shared/SectionHeader';
 import EmailEstimator from '../../components/services/EmailEstimator';
+import EmailHeroForm from '../../components/services/EmailHeroForm';
 
 const faqs = [
   {
@@ -71,36 +72,45 @@ export default function EmailMarketing() {
           className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-60 select-none rotate-180 -z-10"
         />
         <div className="relative max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent mb-4 font-body">
-              Email Marketing
-            </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
-              Cold Email Agency: Managed Programs That Reach <span className="text-accent">Decision-Makers</span>
-            </h1>
-            <p className="font-heading text-xl md:text-2xl text-foreground mb-4">
-              Cold Email That <span className="text-accent">Opens Doors</span>, Not Spam Folders.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              We run precision cold email programs end to end — program design, targeting, messaging, and deliverability — putting your offer in front of decision-makers who have a reason to reply.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contact">
-                <Button size="lg" className="rounded-full px-8 gap-2 font-body">
-                  Request a Consultation <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
-              <a
-                href="#estimator"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('estimator').scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                <Button size="lg" variant="outline" className="rounded-full px-8 font-body">
-                  Estimate your pipeline
-                </Button>
-              </a>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+            <div className="max-w-3xl lg:col-span-3">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent mb-4 font-body">
+                Email Marketing
+              </span>
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-6">
+                Cold Email Agency: Managed Programs That Reach <span className="text-accent">Decision-Makers</span>
+              </h1>
+              <p className="font-heading text-xl md:text-2xl text-foreground mb-4">
+                Cold Email That <span className="text-accent">Opens Doors</span>, Not Spam Folders.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                We run precision cold email programs end to end — program design, targeting, messaging, and deliverability — putting your offer in front of decision-makers who have a reason to reply.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/contact">
+                  <Button size="lg" className="rounded-full px-8 gap-2 font-body">
+                    Request a Consultation <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </Link>
+                <a
+                  href="#estimator"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('estimator').scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <Button size="lg" variant="outline" className="rounded-full px-8 font-body">
+                    Estimate your pipeline
+                  </Button>
+                </a>
+              </div>
+            </div>
+            <div className="lg:col-span-2 bg-card border border-border rounded-2xl p-8 shadow-sm">
+              <h2 className="font-heading text-xl font-normal mb-1">Get a Quick Quote</h2>
+              <p className="text-sm text-muted-foreground font-body mb-6">
+                Tell us a little about your business and we'll follow up with recommendations.
+              </p>
+              <EmailHeroForm />
             </div>
           </div>
         </div>

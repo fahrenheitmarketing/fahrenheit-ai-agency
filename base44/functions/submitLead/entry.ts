@@ -22,6 +22,10 @@ const KINDS: Record<string, { title: string; subject: string; to: string[]; from
     title: 'New website redesign inquiry from the Fahrenheit Website Redesign landing page', subject: 'Website Redesign Inquiry', to: [RCASAS, SBOSCH], fromName: 'Fahrenheit Website',
     fields: [['name', 'Name'], ['email', 'Email'], ['company', 'Company'], ['phone', 'Phone'], ['website', 'Current Website'], ['message', 'Message']],
   },
+  emailMarketing: {
+    title: 'New inquiry from the Email Marketing page', subject: 'Email Marketing Inquiry', to: [RCASAS], fromName: 'Fahrenheit Website',
+    fields: [['name', 'Name'], ['email', 'Email'], ['company', 'Company'], ['phone', 'Phone'], ['message', 'Message']],
+  },
   quick: {
     title: 'Quick lead from the Promo page', subject: 'Get in Touch Request', to: [RCASAS, SBOSCH], fromName: 'Fahrenheit Website',
     fields: [['name', 'Name'], ['email', 'Email'], ['url', 'Business URL']],
