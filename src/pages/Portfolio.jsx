@@ -102,11 +102,12 @@ const projects = [
     tags: ["B2B", "Technology", "National"],
   },
   {
-    name: "Route to Market Imports",
+    name: "Route-to-Market Imports (RTM)",
+    linkLabel: "Visit RTM Imports",
     url: "https://rtm-imports.fmkt.agency/",
     image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/6c36fc1d7_rtm_imports.webp",
     industry: "Beverage Imports",
-    snippet: "Thirty years and a national wholesale network, distilled into one bold statement: America's specialist beverage importer. We gave Route to Market Imports a rich, editorial design that positions them exactly where they belong — at the top of the category.",
+    snippet: "Thirty years and a national wholesale network, distilled into one bold statement: America's specialist beverage importer. We gave Route-to-Market Imports a rich, editorial design that positions them exactly where they belong — at the top of the category.",
     tags: ["Beverage", "Imports", "National"],
   },
   {
@@ -201,7 +202,7 @@ export default function Portfolio() {
                     ))}
                   </div>
                   <span className="inline-flex items-center gap-2 text-sm font-body font-medium text-accent group-hover:underline">
-                    Visit {project.name.split(' ')[0]} <ExternalLink className="w-3.5 h-3.5" />
+                    {project.linkLabel || `Visit ${project.name.split(' ')[0]}`} <ExternalLink className="w-3.5 h-3.5" />
                   </span>
                 </div>
               </article>
