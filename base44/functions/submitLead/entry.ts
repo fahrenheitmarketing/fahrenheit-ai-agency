@@ -8,7 +8,7 @@ const SBOSCH = 'sbosch@fahrenheitmarketing.com';
 // Narrow, fixed set of lead forms: each defines its subject prefix, recipients and allowed fields.
 const KINDS: Record<string, { title: string; subject: string; to: string[]; fromName: string; fields: [string, string][] }> = {
   contact: {
-    title: 'New Contact Submission', subject: 'New Contact Form', to: [RCASAS], fromName: 'Fahrenheit Website',
+    title: 'New Contact Submission', subject: 'New Contact Form', to: [RCASAS, SBOSCH], fromName: 'Fahrenheit Website',
     fields: [['name', 'Name'], ['email', 'Email'], ['company', 'Company'], ['phone', 'Phone'], ['service_interest', 'Service Interest'], ['message', 'Message']],
   },
   promo: {
@@ -24,7 +24,7 @@ const KINDS: Record<string, { title: string; subject: string; to: string[]; from
     fields: [['name', 'Name'], ['email', 'Email'], ['company', 'Company'], ['phone', 'Phone'], ['website', 'Current Website'], ['message', 'Message']],
   },
   emailMarketing: {
-    title: 'New inquiry from the Email Marketing page', subject: 'Email Marketing Inquiry', to: [RCASAS], fromName: 'Fahrenheit Website',
+    title: 'New inquiry from the Email Marketing page', subject: 'Email Marketing Inquiry', to: [RCASAS, SBOSCH], fromName: 'Fahrenheit Website',
     fields: [['name', 'Name'], ['email', 'Email'], ['company', 'Company'], ['phone', 'Phone'], ['message', 'Message']],
   },
   quick: {

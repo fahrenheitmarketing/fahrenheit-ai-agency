@@ -33,18 +33,23 @@ Deno.serve(async (req) => {
     });
 
     // Notify the team (all request-supplied values are HTML-escaped)
-    await base44.asServiceRole.integrations.Core.SendEmail({
-      to: 'rcasas@fahrenheitmarketing.com',
-      subject: `Case Study Request: ${caseStudyTitle.replace(/[\r\n]+/g, ' ')}`,
-      from_name: 'Fahrenheit Website',
-      body: `
-        <h2>New Case Study Request</h2>
-        <p><strong>Name:</strong> ${escapeHtml(name || 'Not provided')}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p><strong>Case Study:</strong> ${escapeHtml(caseStudyTitle)}</p>
-        <p>Please send them the PDF manually.</p>
-      `,
-    });
+    const notifyBody = `
+      <h2>New Case Study Request</h2>
+      <p><strong>Name:</strong> ${escapeHtml(name || 'Not provided')}</p>
+      <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+      <p><strong>Case Study:</strong> ${escapeHtml(caseStudyTitle)}</p>
+      <p>Please send them the PDF manually.</p>
+    `;
+    await Promise.all(
+      ['rcasas@fahrenheitmarketing.com', 'sbosch@fahrenheitmarketing.com'].map((to) =>
+        base44.asServiceRole.integrations.Core.SendEmail({
+          to,
+          subject: `Case Study Request: ${caseStudyTitle.replace(/[\r\n]+/g, ' ')}`,
+          from_name: 'Fahrenheit Website',
+          body: notifyBody,
+        })
+      )
+    );
 
     return Response.json({ success: true });
   } catch (error) {

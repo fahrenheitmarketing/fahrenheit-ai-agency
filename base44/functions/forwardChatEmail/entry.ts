@@ -45,21 +45,26 @@ Deno.serve(async (req) => {
     // Forward via email (all visitor-supplied values are HTML-escaped)
     const subjectName = (visitor_name || 'Anonymous').replace(/[\r\n]+/g, ' ');
     const subjectCompany = (visitor_company || 'Unknown Company').replace(/[\r\n]+/g, ' ');
-    await base44.asServiceRole.integrations.Core.SendEmail({
-      to: 'rcasas@fahrenheitmarketing.com',
-      subject: `New Chat Lead: ${subjectName} - ${subjectCompany}`,
-      from_name: 'Fahrenheit AI Assistant',
-      body: `
-        <h2>New AI Chat Interaction</h2>
-        <p><strong>Name:</strong> ${escapeHtml(visitor_name || 'Not provided')}</p>
-        <p><strong>Email:</strong> ${escapeHtml(visitor_email || 'Not provided')}</p>
-        <p><strong>Company:</strong> ${escapeHtml(visitor_company || 'Not provided')}</p>
-        <p><strong>Page:</strong> ${escapeHtml(page_source || 'Unknown')}</p>
-        <hr/>
-        <h3>Conversation Transcript:</h3>
-        <pre style="white-space: pre-wrap; font-family: sans-serif;">${escapeHtml(transcript)}</pre>
-      `
-    });
+    const forwardBody = `
+      <h2>New AI Chat Interaction</h2>
+      <p><strong>Name:</strong> ${escapeHtml(visitor_name || 'Not provided')}</p>
+      <p><strong>Email:</strong> ${escapeHtml(visitor_email || 'Not provided')}</p>
+      <p><strong>Company:</strong> ${escapeHtml(visitor_company || 'Not provided')}</p>
+      <p><strong>Page:</strong> ${escapeHtml(page_source || 'Unknown')}</p>
+      <hr/>
+      <h3>Conversation Transcript:</h3>
+      <pre style="white-space: pre-wrap; font-family: sans-serif;">${escapeHtml(transcript)}</pre>
+    `;
+    await Promise.all(
+      ['rcasas@fahrenheitmarketing.com', 'sbosch@fahrenheitmarketing.com'].map((to) =>
+        base44.asServiceRole.integrations.Core.SendEmail({
+          to,
+          subject: `New Chat Lead: ${subjectName} - ${subjectCompany}`,
+          from_name: 'Fahrenheit AI Assistant',
+          body: forwardBody,
+        })
+      )
+    );
 
     return Response.json({ success: true });
   } catch (error) {
