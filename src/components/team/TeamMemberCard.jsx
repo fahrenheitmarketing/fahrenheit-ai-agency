@@ -1,11 +1,12 @@
 import React from 'react';
+import { mediaUrl } from '@/lib/media';
 
 export default function TeamMemberCard({ name, role, image }) {
   return (
     <figure className="group">
       <div className="relative overflow-hidden rounded-sm aspect-[4/5] bg-secondary">
         <img
-          src={image}
+          src={mediaUrl(image)}
           alt={`${name}, ${role} portrait`}
           loading="lazy"
           draggable="false"

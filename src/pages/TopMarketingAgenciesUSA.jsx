@@ -1,4 +1,5 @@
 import React from 'react';
+import { mediaUrl } from '@/lib/media';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
@@ -122,7 +123,7 @@ export default function TopMarketingAgenciesUSA() {
         {/* Header */}
         <header className="max-w-7xl mx-auto px-6 pb-20 border-b border-border relative">
           <img
-            src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+            src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
             alt="" aria-hidden="true"
             aria-hidden="true"
             className="absolute top-0 right-0 w-[320px] pointer-events-none opacity-80 select-none"

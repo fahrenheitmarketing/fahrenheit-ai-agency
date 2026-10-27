@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { mediaUrl } from '@/lib/media';
 import { Link, useLocation } from 'react-router-dom';
 import {
   Menu,
@@ -67,7 +68,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link to="/" className="flex items-center flex-shrink-0">
-          <img src={LOGO_URL} alt="Fahrenheit Marketing logo" className="h-8 brightness-0" />
+          <img src={mediaUrl(LOGO_URL)} alt="Fahrenheit Marketing logo" className="h-8 brightness-0" />
         </Link>
 
         {/* Center Nav */}

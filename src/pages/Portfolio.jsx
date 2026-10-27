@@ -1,4 +1,5 @@
 import React from 'react';
+import { mediaUrl } from '@/lib/media';
 import { Link } from 'react-router-dom';
 import CTASection from '../components/shared/CTASection';
 import { ExternalLink } from 'lucide-react';
@@ -134,7 +135,7 @@ export default function Portfolio() {
         {/* Hero */}
         <section className="relative py-20 px-6 lg:px-10 border-b border-border overflow-hidden">
           <img
-            src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+            src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
             alt="" aria-hidden="true"
             aria-hidden="true"
             className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-50 select-none"
@@ -171,7 +172,7 @@ export default function Portfolio() {
                 <div className={`relative group ${i % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                   <div className="overflow-hidden rounded-sm border border-border shadow-md">
                     <img
-                      src={project.image}
+                      src={mediaUrl(project.image)}
                       alt={`${project.name} homepage design`}
                       className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                     />

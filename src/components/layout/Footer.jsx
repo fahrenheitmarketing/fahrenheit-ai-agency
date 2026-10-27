@@ -1,4 +1,5 @@
 import React from 'react';
+import { mediaUrl } from '@/lib/media';
 import { Link } from 'react-router-dom';
 
 const LOGO_URL = 'https://media.base44.com/images/public/user_696032597527e77c90fca3ba/9a7da2942_FahrenheitMarketingLogo.png';
@@ -9,7 +10,7 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12 border-b border-border">
           <div className="lg:col-span-2">
-            <img src={LOGO_URL} alt="Fahrenheit Marketing logo" className="h-7 brightness-0 mb-5" />
+            <img src={mediaUrl(LOGO_URL)} alt="Fahrenheit Marketing logo" className="h-7 brightness-0 mb-5" />
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm font-body">
               AI-first digital marketing. We design the systems, deploy the models, and operate the stack — measured in outcomes, not deliverables.
             </p>

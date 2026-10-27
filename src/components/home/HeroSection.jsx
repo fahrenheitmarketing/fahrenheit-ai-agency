@@ -1,4 +1,5 @@
 import React from 'react';
+import { mediaUrl } from '@/lib/media';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import BoldCards from './BoldCards';
@@ -8,7 +9,7 @@ export default function HeroSection() {
     <section className="relative min-h-[92vh] flex items-center overflow-hidden pt-[76px] scroll-m-0">
       {/* Cubes pattern — top right */}
       <img
-        src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+        src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
         alt="" aria-hidden="true"
         aria-hidden="true"
         className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-70 select-none"

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { mediaUrl } from '@/lib/media';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Zap, Shield, Calendar, ArrowRight, Star } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
@@ -118,7 +119,7 @@ export default function Promo() {
       {/* Hero */}
       <section className="relative py-24 px-6 lg:px-10 border-b border-border overflow-hidden">
         <img
-          src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+          src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
           alt="" aria-hidden="true"
           className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-60 select-none"
         />
@@ -289,7 +290,7 @@ export default function Promo() {
                 className="group relative border border-border rounded-sm overflow-hidden hover:border-accent transition-colors"
               >
                 <img
-                  src={project.img}
+                  src={mediaUrl(project.img)}
                   alt={`${project.name} website homepage`}
                   className="w-full h-32 object-cover object-top group-hover:scale-105 transition-transform duration-300"
                 />

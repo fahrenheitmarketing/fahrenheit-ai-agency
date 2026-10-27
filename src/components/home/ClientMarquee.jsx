@@ -1,4 +1,5 @@
 import React from 'react';
+import { mediaUrl } from '@/lib/media';
 
 const clients = [
   {
@@ -62,7 +63,7 @@ const LogoItem = ({ client, i }) =>
   client.logo ? (
     <img
       key={i}
-      src={client.logo}
+      src={mediaUrl(client.logo)}
       alt={`${client.name} logo`}
       className="w-auto flex-shrink-0 object-contain"
       style={{ filter: 'grayscale(100%) opacity(0.45)', height: client.scale ? `${3.5 * client.scale}rem` : '3.5rem' }}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { mediaUrl } from '@/lib/media';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink, X } from 'lucide-react';
 import CTASection from '../components/shared/CTASection';
@@ -134,7 +135,7 @@ function ProjectModal({ project, onClose }) {
               {project.images.map((src, i) => (
                 <img
                   key={i}
-                  src={src}
+                  src={mediaUrl(src)}
                   alt={`${project.client} project screenshot ${i + 1}`}
                   className="w-full rounded-sm border border-border object-cover"
                 />
@@ -171,7 +172,7 @@ export default function Work() {
       {/* Hero */}
       <section className="relative py-24 lg:py-32 px-6 overflow-hidden border-b border-border">
         <img
-          src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+          src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
           alt="" aria-hidden="true"
           aria-hidden="true"
           className="absolute top-0 right-0 w-[400px] pointer-events-none opacity-60 select-none"
@@ -200,7 +201,7 @@ export default function Work() {
                 {/* Card Image Area */}
                 <div className="relative bg-foreground h-56 flex items-center justify-center overflow-hidden">
                   <img
-                    src={project.heroImage}
+                    src={mediaUrl(project.heroImage)}
                     alt={`${project.client} logo`}
                     className="max-h-20 max-w-[220px] object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity"
                     onError={(e) => {

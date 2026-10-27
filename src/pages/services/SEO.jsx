@@ -1,4 +1,5 @@
 import React from 'react';
+import { mediaUrl } from '@/lib/media';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, Globe, Search, FileText, Brain, TrendingUp, BarChart3, MapPin, Link2 } from 'lucide-react';
@@ -110,7 +111,7 @@ export default function SEO() {
       {/* Hero */}
       <section className="relative py-24 lg:py-32 px-6 overflow-hidden border-b border-border">
         <img
-          src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+          src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
           alt="" aria-hidden="true"
           aria-hidden="true"
           className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-60 select-none rotate-180 -z-10"

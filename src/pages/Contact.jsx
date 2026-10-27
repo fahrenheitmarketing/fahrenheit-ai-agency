@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { mediaUrl } from '@/lib/media';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -103,7 +104,7 @@ export default function Contact() {
             </div>
             <div className="mt-8">
               <img
-                src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+                src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
                 alt="" aria-hidden="true"
                 aria-hidden="true"
                 className="w-72 opacity-90 select-none pointer-events-none"

@@ -1,4 +1,5 @@
 import React from 'react';
+import { mediaUrl } from '@/lib/media';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -80,7 +81,7 @@ export default function About() {
             <div>
               <div className="aspect-[4/3] bg-foreground rounded-sm overflow-hidden mb-8 relative">
                 <img
-                  src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/12fff0ac1_RicardoCasas.webp"
+                  src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/12fff0ac1_RicardoCasas.webp")}
                   alt="Ricardo Casas, Founder and CEO of Fahrenheit Marketing"
                   className="w-full h-full object-cover object-top opacity-90" />
                 
@@ -154,7 +155,7 @@ export default function About() {
       {/* Built on Trust */}
       <section className="py-24 px-6 bg-foreground text-background border-b border-border overflow-hidden relative">
         <img
-          src="https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png"
+          src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
           alt="" aria-hidden="true"
           aria-hidden="true"
           className="absolute top-0 right-0 w-[360px] pointer-events-none opacity-10 select-none" />
