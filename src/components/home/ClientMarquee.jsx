@@ -71,7 +71,7 @@ const LogoItem = ({ client, i }) =>
   ) : (
     <span
       key={i}
-      className="font-heading text-xl font-normal text-foreground/40 flex-shrink-0"
+      className="font-heading text-xl font-normal text-muted-foreground flex-shrink-0"
     >
       {client.name}
     </span>

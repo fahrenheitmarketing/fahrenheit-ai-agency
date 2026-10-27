@@ -82,13 +82,13 @@ export default function ServicesOverview() {
     <section className="relative py-24 px-6 lg:px-10 overflow-hidden">
       <img
         src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
-        alt="" aria-hidden="true"
+        width="1002" height="687" alt="" aria-hidden="true"
         aria-hidden="true"
         className="absolute bottom-0 right-0 w-[400px] pointer-events-none opacity-60 select-none"
       />
       <img
         src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
-        alt="" aria-hidden="true"
+        width="1002" height="687" alt="" aria-hidden="true"
         aria-hidden="true"
         className="absolute bottom-0 left-0 w-[420px] pointer-events-none opacity-70 select-none rotate-180"
       />

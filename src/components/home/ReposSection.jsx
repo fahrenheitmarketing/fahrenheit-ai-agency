@@ -13,7 +13,7 @@ export default function ReposSection() {
       {/* Cubes pattern — bottom left */}
       <img
         src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
-        alt="" aria-hidden="true"
+        width="1002" height="687" alt="" aria-hidden="true"
         aria-hidden="true"
         className="absolute bottom-0 left-0 w-[420px] pointer-events-none opacity-70 select-none rotate-180"
       />
@@ -34,7 +34,7 @@ export default function ReposSection() {
                 <div key={i} className="bg-card border border-border rounded-sm shadow-sm grid grid-cols-2 gap-4 px-6 py-5">
                   <div>
                     <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1 font-body">We retired</p>
-                    <p className="font-heading text-lg text-foreground/40 line-through">{r.retired}</p>
+                    <p className="font-heading text-lg text-muted-foreground line-through">{r.retired}</p>
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-widest text-accent mb-1 font-body">In favor of</p>

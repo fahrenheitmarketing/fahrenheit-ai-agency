@@ -197,7 +197,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-xs uppercase tracking-widest text-accent mb-8 font-body"
+              className="text-xs uppercase tracking-widest text-accent-on-dark mb-8 font-body"
             >
               [ Our Work ]
             </motion.p>
@@ -226,19 +226,19 @@ export default function Portfolio() {
             >
               <div>
                 <p className="font-heading text-3xl md:text-4xl font-normal">{projects.length}</p>
-                <p className="text-[10px] uppercase tracking-widest text-background/40 mt-1 font-body">Case Studies</p>
+                <p className="text-[10px] uppercase tracking-widest text-background/50 mt-1 font-body">Case Studies</p>
               </div>
               <div className="w-px h-10 bg-background/15" aria-hidden="true"></div>
               <div>
                 <p className="font-heading text-3xl md:text-4xl font-normal">2008</p>
-                <p className="text-[10px] uppercase tracking-widest text-background/40 mt-1 font-body">Building Since</p>
+                <p className="text-[10px] uppercase tracking-widest text-background/50 mt-1 font-body">Building Since</p>
               </div>
               <div className="w-px h-10 bg-background/15" aria-hidden="true"></div>
               <div>
                 <p className="font-heading text-3xl md:text-4xl font-normal">Austin, TX</p>
-                <p className="text-[10px] uppercase tracking-widest text-background/40 mt-1 font-body">Headquarters</p>
+                <p className="text-[10px] uppercase tracking-widest text-background/50 mt-1 font-body">Headquarters</p>
               </div>
-              <div className="flex items-center gap-2 text-background/40 text-xs uppercase tracking-widest font-body ml-auto">
+              <div className="flex items-center gap-2 text-background/50 text-xs uppercase tracking-widest font-body ml-auto">
                 Scroll <ArrowDown className="w-4 h-4 animate-bounce" />
               </div>
             </motion.div>

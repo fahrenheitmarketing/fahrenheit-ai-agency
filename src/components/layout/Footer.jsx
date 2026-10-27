@@ -16,7 +16,7 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-5 font-body">Services</h4>
+            <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-5 font-body">Services</h3>
             <div className="flex flex-col gap-3">
               {[['Strategy', '/services/strategy'], ['SEO', '/services/seo'], ['SEM / PPC', '/services/sem'], ['Social Media', '/services/smm'], ['CRO', '/services/cro'], ['Marketing Automation', '/services/marketing-automation'], ['Software Development', '/services/software-development'], ['Email Marketing', '/services/email-marketing'], ['Managed Hosting & Security', '/services/managed-hosting']].map(([label, path]) => (
                 <Link key={path} to={path} className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">{label}</Link>
@@ -24,7 +24,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-5 font-body">Resources</h4>
+            <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-5 font-body">Resources</h3>
             <div className="flex flex-col gap-3">
               <Link to="/blog" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Blog</Link>
               <Link to="/portfolio" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Portfolio</Link>
@@ -33,7 +33,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-5 font-body">Company</h4>
+            <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-5 font-body">Company</h3>
             <div className="flex flex-col gap-3">
               <Link to="/about" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">About</Link>
               <Link to="/team" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Team</Link>
