@@ -153,7 +153,7 @@ export default function PromoAlt() {
                 </a>
               </div>
               {/* Contact form — above the fold so mobile visitors can act immediately */}
-              <div className="bg-background rounded-sm p-6 md:p-8 [&_select_option]:text-foreground">
+              <div className="bg-background text-foreground rounded-sm p-6 md:p-8 [&_select_option]:text-foreground">
                 <PromoContactForm />
               </div>
             </div>
@@ -445,7 +445,7 @@ export default function PromoAlt() {
               </div>
             </div>
 
-            <div id="contact-form" className="bg-background rounded-sm p-10">
+            <div id="contact-form" className="bg-background text-foreground rounded-sm p-10">
               <PromoContactForm />
             </div>
           </div>

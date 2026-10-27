@@ -88,7 +88,7 @@ export default function PromoWebsite() {
                   </a>
                 </div>
               </div>
-              <div className="bg-background rounded-sm p-6 md:p-8">
+              <div className="bg-background text-foreground rounded-sm p-6 md:p-8">
                 <WebsiteLeadForm />
               </div>
             </div>
@@ -207,7 +207,7 @@ export default function PromoWebsite() {
                 ))}
               </div>
             </div>
-            <div id="contact-form" className="bg-background rounded-sm p-10">
+            <div id="contact-form" className="bg-background text-foreground rounded-sm p-10">
               <WebsiteLeadForm />
             </div>
           </div>
