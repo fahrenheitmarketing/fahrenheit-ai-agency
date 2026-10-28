@@ -93,11 +93,17 @@ export default async function (req: Request): Promise<Response> {
       .join('');
     const body = `<h2>${escapeHtml(cfg.title)}</h2>${rows}`;
 
-    await Promise.all(
+    // Internal lead notification: transactional, so a recipient's marketing opt-out never blocks it.
+    const results = await Promise.all(
       cfg.to.map((to) =>
-        base44.asServiceRole.integrations.Core.SendEmail({ to, subject, from_name: cfg.fromName, body })
+        base44.asServiceRole.integrations.Core.SendEmail({ to, subject, from_name: cfg.fromName, body, category: 'transactional' })
       )
     );
+    results.forEach((result, i) => {
+      if (result && result.success === false) {
+        console.error(`submitLead: notification to ${cfg.to[i]} not delivered — ${result.reason}: ${result.message}`);
+      }
+    });
 
     return Response.json({ success: true });
   } catch (error) {
