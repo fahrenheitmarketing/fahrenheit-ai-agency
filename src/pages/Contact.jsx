@@ -19,7 +19,7 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const hp = e.target.elements.hp_url?.value || '';
+    const hp = e.target.elements.fx_trap_7?.value || '';
     if (hp) {
       setSubmitted(true);
       return;

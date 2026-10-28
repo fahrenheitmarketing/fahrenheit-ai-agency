@@ -19,7 +19,7 @@ export default function RequestCaseStudyModal({ study, onClose }) {
       name,
       caseStudyId: study.id,
       caseStudyTitle: study.title,
-      hp: e.target.elements.hp_url?.value || '',
+      hp: e.target.elements.fx_trap_7?.value || '',
     });
     setSent(true);
     setLoading(false);

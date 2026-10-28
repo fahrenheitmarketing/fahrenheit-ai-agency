@@ -12,7 +12,7 @@ export default function RetainerLeadForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    await base44.functions.invoke('submitLead', { kind: 'retainer', data: formData, hp: e.target.elements.hp_url?.value || '' });
+    await base44.functions.invoke('submitLead', { kind: 'retainer', data: formData, hp: e.target.elements.fx_trap_7?.value || '' });
     setSubmitted(true);
     setSubmitting(false);
   };
