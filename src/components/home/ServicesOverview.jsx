@@ -93,10 +93,10 @@ export default function ServicesOverview() {
         className="absolute bottom-0 left-0 w-[420px] pointer-events-none opacity-70 select-none rotate-180"
       />
       <style>{`@keyframes services-arrive{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}`}</style>
-      <div className="relative max-w-7xl mx-auto flex flex-col gap-6">
-        <p className="text-[11px] uppercase tracking-[0.17em] text-muted-foreground font-body">02 · What we do</p>
-        <div className="grid grid-cols-1 lg:grid-cols-[310px_1fr] gap-8 lg:gap-12 items-start">
-          <h2 className="font-heading text-4xl lg:text-[37px] font-normal leading-[1.08] tracking-[-0.035em] max-w-[310px]">
+      <div className="relative max-w-7xl mx-auto">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-8 font-body">02 · What we do</p>
+        <div className="flex flex-col gap-12">
+          <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.15] max-w-3xl">
             Nine systems. One mandate: turn AI into P&L.
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -105,23 +105,21 @@ export default function ServicesOverview() {
                 key={s.num}
                 to={s.link}
                 style={{ animation: 'services-arrive .48s cubic-bezier(.2,.75,.25,1) both', animationDelay: `${i * 0.035}s` }}
-                className="group flex flex-col min-w-0 px-5 pt-[18px] pb-4 bg-card border border-border rounded-[3px] shadow-[0_2px_8px_rgba(47,37,29,0.035)] transition-[transform,box-shadow,border-color,background-color] duration-200 hover:-translate-y-[3px] hover:bg-background hover:border-[#d7b7a8] hover:shadow-[0_10px_22px_rgba(66,39,24,0.09)] focus-visible:-translate-y-[3px] focus-visible:bg-background focus-visible:border-[#d7b7a8] focus-visible:shadow-[0_10px_22px_rgba(66,39,24,0.09)] focus-visible:outline-none active:shadow-[0_4px_10px_rgba(66,39,24,0.08)]"
+                className="group flex flex-col min-w-0 px-6 py-6 bg-card border border-border rounded-[3px] shadow-[0_2px_8px_rgba(47,37,29,0.035)] transition-[transform,box-shadow,border-color,background-color] duration-200 hover:-translate-y-[3px] hover:bg-background hover:border-[#d7b7a8] hover:shadow-[0_10px_22px_rgba(66,39,24,0.09)] focus-visible:-translate-y-[3px] focus-visible:bg-background focus-visible:border-[#d7b7a8] focus-visible:shadow-[0_10px_22px_rgba(66,39,24,0.09)] focus-visible:outline-none active:shadow-[0_4px_10px_rgba(66,39,24,0.08)]"
               >
-                <div className="flex items-center gap-2.5 mb-[9px] min-h-4">
-                  <span className="text-[10px] tracking-[0.08em] text-muted-foreground font-body tabular-nums shrink-0">{s.num}</span>
-                  <span className="text-[10px] leading-tight tracking-[0.105em] uppercase font-bold text-accent font-body">{s.tagline}</span>
-                </div>
+                <span className="text-xs text-muted-foreground font-body tabular-nums mb-3">{s.num}</span>
                 <div className="flex items-start justify-between gap-2.5">
-                  <h3 className="font-body text-lg leading-[1.2] font-bold tracking-[-0.025em]">{s.title}</h3>
+                  <h3 className="font-heading text-2xl font-normal leading-[1.15]">{s.title}</h3>
                   <span className="shrink-0 text-lg leading-none text-accent transition-[transform,color] duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#9f3217] group-focus-visible:translate-x-0.5 group-focus-visible:-translate-y-0.5 group-focus-visible:text-[#9f3217]">↗</span>
                 </div>
-                <p className="mt-[9px] text-xs leading-[1.48] text-muted-foreground font-body max-w-[340px] transition-opacity duration-200 lg:opacity-0 lg:group-hover:opacity-100 lg:group-focus-visible:opacity-100">{s.description}</p>
+                <p className="mt-2 text-xs uppercase tracking-widest text-accent font-body leading-snug">{s.tagline}</p>
+                <p className="mt-3 text-sm text-muted-foreground font-body leading-relaxed">{s.description}</p>
               </Link>
             ))}
           </div>
         </div>
-        <div className="border-t border-border pt-3.5">
-          <Link to="/services" className="group inline-flex items-center gap-2.5 text-xs font-semibold text-foreground/80 hover:text-accent focus-visible:text-accent active:text-[#8f3119] focus-visible:outline-none transition-colors duration-200 font-body">
+        <div className="border-t border-border mt-10 pt-8">
+          <Link to="/services" className="group inline-flex items-center gap-2.5 text-sm font-semibold text-foreground/80 hover:text-accent focus-visible:text-accent active:text-[#8f3119] focus-visible:outline-none transition-colors duration-200 font-body">
             Explore all services <span className="text-accent text-base transition-transform duration-200 group-hover:translate-x-[3px] group-focus-visible:translate-x-[3px]">→</span>
           </Link>
         </div>
