@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
         <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground font-body">© {new Date().getFullYear()} Fahrenheit Marketing. All rights reserved.</p>
-          <p className="text-xs text-muted-foreground font-body">Since 2008 · AI-First Today · Austin, Texas</p>
+          <Link to="/about" className="text-xs text-muted-foreground hover:text-accent transition-colors font-body">Since 2008 · AI-First Today · Austin, Texas</Link>
         </div>
       </div>
     </footer>
