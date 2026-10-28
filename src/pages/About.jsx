@@ -102,7 +102,7 @@ export default function About() {
                 "I left a larger outfit, tired of the attitude. I knew we could deliver enterprise-level results with humility and better data."
               </p>
               <p className="text-muted-foreground leading-relaxed font-body">
-                Ricardo Casas founded Fahrenheit Marketing in April 2008 — right as the financial crisis was reshaping how businesses thought about marketing. Formally trained as a creative director but wired like a data strategist, Ricardo built Fahrenheit on a simple premise: exceptional work, radical transparency, and zero long-term contracts.
+                <a href="https://www.linkedin.com/in/ricardocasas" target="_blank" rel="noopener noreferrer" className="underline decoration-accent/50 underline-offset-4 hover:text-accent transition-colors">Ricardo Casas</a> founded Fahrenheit Marketing in April 2008 — right as the financial crisis was reshaping how businesses thought about marketing. Formally trained as a creative director but wired like a data strategist, Ricardo built Fahrenheit on a simple premise: exceptional work, radical transparency, and zero long-term contracts.
               </p>
               <p className="text-muted-foreground leading-relaxed font-body">
                 The agency was profitable from day one. By 2010, Fahrenheit had signed its first publicly traded client. Today, the agency's portfolio includes PepsiCo, Gatorade, QuikTrip, CITGO, TransCore, the Barbara Bush Foundation, RJ Reynolds, and more — all served by a team with an average tenure of 11 years and senior staff bringing as many as 25 years of industry experience.
