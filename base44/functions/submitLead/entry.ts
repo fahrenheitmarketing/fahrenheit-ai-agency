@@ -55,6 +55,16 @@ export default async function (req: Request): Promise<Response> {
       return Response.json({ error: 'Name and email are required' }, { status: 400 });
     }
 
+    if (kind === 'contact') {
+      const phoneDigits = values.phone.replace(/\D/g, '');
+      const valid = values.company && values.message && values.service_interest
+        && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.email)
+        && /^[\d\s()+\-.]+$/.test(values.phone) && phoneDigits.length >= 7 && phoneDigits.length <= 15;
+      if (!valid) {
+        return Response.json({ error: 'Please complete all fields with a valid email and phone number' }, { status: 400 });
+      }
+    }
+
     // Contact submissions are also stored as leads, server-side
     if (kind === 'contact') {
       const SERVICE_INTERESTS = ['seo', 'sem', 'smm', 'cro', 'strategy', 'automation', 'software-development', 'email-marketing', 'hosting', 'general'];

@@ -24,6 +24,20 @@ export default function Contact() {
       setSubmitted(true);
       return;
     }
+    const missing = ['name', 'email', 'company', 'phone', 'service_interest', 'message'].some((k) => !form[k].trim());
+    if (missing) {
+      setError('Please fill in all fields.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.trim())) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    const digits = form.phone.replace(/\D/g, '');
+    if (!/^[\d\s()+\-.]+$/.test(form.phone.trim()) || digits.length < 7 || digits.length > 15) {
+      setError('Please enter a valid phone number.');
+      return;
+    }
     setSubmitting(true);
     setError(null);
 
@@ -141,16 +155,19 @@ export default function Contact() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium mb-1.5 block">Company</label>
+                  <label className="text-sm font-medium mb-1.5 block">Company *</label>
                   <Input
+                    required
                     value={form.company}
                     onChange={(e) => setForm({ ...form, company: e.target.value })}
                     placeholder="Your company"
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-medium mb-1.5 block">Phone</label>
+                  <label className="text-sm font-medium mb-1.5 block">Phone *</label>
                   <Input
+                    required
+                    type="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     placeholder="(555) 123-4567"
@@ -158,7 +175,7 @@ export default function Contact() {
                 </div>
               </div>
               <div>
-                <label className="text-sm font-medium mb-1.5 block">Service Interest</label>
+                <label className="text-sm font-medium mb-1.5 block">Service Interest *</label>
                 <Select
                   value={form.service_interest}
                   onValueChange={(v) => setForm({ ...form, service_interest: v })}
@@ -174,8 +191,9 @@ export default function Contact() {
                 </Select>
               </div>
               <div>
-                <label className="text-sm font-medium mb-1.5 block">Message</label>
+                <label className="text-sm font-medium mb-1.5 block">Message *</label>
                 <Textarea
+                  required
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder="Tell us about your goals..."
