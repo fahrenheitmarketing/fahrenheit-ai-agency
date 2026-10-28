@@ -29,7 +29,6 @@ export default function Footer() {
               <Link to="/blog" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Blog</Link>
               <Link to="/portfolio" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Portfolio</Link>
               <Link to="/case-studies" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Case Studies</Link>
-              <Link to="/promo" className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">Promo</Link>
             </div>
           </div>
           <div>

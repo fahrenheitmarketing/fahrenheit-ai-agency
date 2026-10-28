@@ -32,8 +32,6 @@ import CedarParkTX from './pages/locations/CedarParkTX';
 import GeorgetownTX from './pages/locations/GeorgetownTX';
 import KyleBudaTX from './pages/locations/KyleBudaTX';
 import BastropTX from './pages/locations/BastropTX';
-import Promo from './pages/Promo';
-import PromoAlt from './pages/PromoAlt';
 import PromoRetainer from './pages/PromoRetainer';
 import PromoWebsite from './pages/PromoWebsite';
 import Portfolio from './pages/Portfolio';
@@ -89,9 +87,6 @@ const AuthenticatedApp = () => {
         <Route path="/digital-marketing-agency-georgetown-tx" element={<GeorgetownTX />} />
         <Route path="/digital-marketing-agency-kyle-buda-tx" element={<KyleBudaTX />} />
         <Route path="/digital-marketing-agency-bastrop-tx" element={<BastropTX />} />
-        <Route path="/promo" element={<Promo />} />
-        <Route path="/promo-alt" element={<PromoAlt />} />
-        <Route path="/promo2" element={<Navigate to="/promo-alt" replace />} />
         <Route path="/process" element={<Navigate to="/process/diagnose" replace />} />
         <Route path="/sample-page" element={<Navigate to="/" replace />} />
         <Route path="/promo-retainer" element={<PromoRetainer />} />
