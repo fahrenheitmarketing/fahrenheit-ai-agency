@@ -51,7 +51,10 @@ export default async function (req: Request): Promise<Response> {
       return Response.json({ error: 'Invalid request' }, { status: 400 });
     }
     // Spam trap filled in: pretend it worked, send nothing.
-    if (hp) return Response.json({ success: true });
+    if (hp) {
+      console.warn(`submitLead: spam trap filled, submission dropped (kind=${kind}, trap length=${String(hp).length})`);
+      return Response.json({ success: true });
+    }
     if (!(await allow(base44, `lead:${clientIp(req)}`, 5, 3600))) {
       return Response.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
     }
