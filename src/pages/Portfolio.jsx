@@ -175,6 +175,22 @@ const projects = [
     snippet: "Architects of Resolution. Five decades, two generations, and a Cooperstown practice with Wall Street reach — we built Poulson Law a stately, column-framed presence in navy and gold worthy of the firm's standing.",
     tags: ["Legal", "Estate & Corporate", "New York"],
   },
+  {
+    name: "Ricki's",
+    url: "https://www.rickis.com/",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/413f5eebc_rickis.png",
+    industry: "Women's Fashion Retail",
+    snippet: "A national womenswear retailer with hundreds of stores — and a homepage that had to sell the season in one glance. We built a split-screen hero that pairs quiet, editorial typography with full-bleed campaign photography, letting the product carry the page and the offer sit exactly where a shopper expects it.",
+    tags: ["Retail", "Fashion", "E-commerce"],
+  },
+  {
+    name: "Northern Reflections",
+    url: "https://www.northernreflections.com/",
+    image: "https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/25f201430_northernreflections.png",
+    industry: "Women's Apparel Retail",
+    snippet: "A Canadian apparel brand built on warmth and community, given a storefront to match. Campaign storytelling leads — a charity initiative, layered photography, and a single unmissable call to action — while the promotional bar keeps the current offer in permanent view.",
+    tags: ["Retail", "Apparel", "Canada"],
+  },
 ];
 
 export default function Portfolio() {
