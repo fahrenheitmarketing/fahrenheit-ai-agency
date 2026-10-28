@@ -23,10 +23,15 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-xs uppercase tracking-widest text-muted-foreground mb-8 font-body flex items-center gap-2"
+              className="text-xs uppercase tracking-widest text-muted-foreground mb-8 font-body"
             >
-              <span className="w-2 h-2 rounded-full bg-accent inline-block" />
-              Growing brands since 2008
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              >
+                <span className="w-2 h-2 rounded-full bg-accent inline-block" />
+                Growing brands since 2008
+              </Link>
             </motion.p>
 
             <motion.h1
