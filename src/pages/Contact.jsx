@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 import HoneypotField from '@/components/shared/HoneypotField';
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', company: '', phone: '', service_interest: '', message: '' });
+  const [formState, setForm] = useState({ name: '', email: '', company: '', phone: '', service_interest: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -20,7 +20,11 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const hp = e.target.elements.fx_trap_7?.value || '';
-    const missing = ['name', 'email', 'company', 'phone', 'service_interest', 'message'].some((k) => !form[k].trim());
+    // Read the fields straight from the page so browser autofill is always picked up
+    const fd = new FormData(e.target);
+    const form = { ...formState };
+    ['name', 'email', 'company', 'phone', 'message'].forEach((k) => { form[k] = String(fd.get(k) ?? formState[k] ?? ''); });
+    const missing = ['name', 'email', 'company', 'phone', 'service_interest', 'message'].some((k) => !String(form[k] || '').trim());
     if (missing) {
       setError('Please fill in all fields.');
       return;
@@ -133,8 +137,9 @@ export default function Contact() {
                   <label className="text-sm font-medium mb-1.5 block">Name *</label>
                   <Input
                     required
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    name="name"
+                    value={formState.name}
+                    onChange={(e) => setForm({ ...formState, name: e.target.value })}
                     placeholder="Your name"
                   />
                 </div>
@@ -143,8 +148,9 @@ export default function Contact() {
                   <Input
                     required
                     type="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    name="email"
+                    value={formState.email}
+                    onChange={(e) => setForm({ ...formState, email: e.target.value })}
                     placeholder="you@company.com"
                   />
                 </div>
@@ -154,8 +160,9 @@ export default function Contact() {
                   <label className="text-sm font-medium mb-1.5 block">Company *</label>
                   <Input
                     required
-                    value={form.company}
-                    onChange={(e) => setForm({ ...form, company: e.target.value })}
+                    name="company"
+                    value={formState.company}
+                    onChange={(e) => setForm({ ...formState, company: e.target.value })}
                     placeholder="Your company"
                   />
                 </div>
@@ -164,8 +171,9 @@ export default function Contact() {
                   <Input
                     required
                     type="tel"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    name="phone"
+                    value={formState.phone}
+                    onChange={(e) => setForm({ ...formState, phone: e.target.value })}
                     placeholder="(555) 123-4567"
                   />
                 </div>
@@ -173,8 +181,8 @@ export default function Contact() {
               <div>
                 <label className="text-sm font-medium mb-1.5 block">Service Interest *</label>
                 <Select
-                  value={form.service_interest}
-                  onValueChange={(v) => setForm({ ...form, service_interest: v })}
+                  value={formState.service_interest}
+                  onValueChange={(v) => setForm({ ...formState, service_interest: v })}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="What are you interested in?" />
@@ -190,8 +198,9 @@ export default function Contact() {
                 <label className="text-sm font-medium mb-1.5 block">Message *</label>
                 <Textarea
                   required
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  name="message"
+                  value={formState.message}
+                  onChange={(e) => setForm({ ...formState, message: e.target.value })}
                   placeholder="Tell us about your goals..."
                   className="min-h-[120px]"
                 />
