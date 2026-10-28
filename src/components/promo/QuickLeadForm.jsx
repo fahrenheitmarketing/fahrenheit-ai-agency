@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, User, ArrowRight, CheckCircle, Globe } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import { isValidEmail } from '@/lib/formValidation';
 
 import HoneypotField from '@/components/shared/HoneypotField';
 
@@ -10,9 +11,15 @@ export default function QuickLeadForm() {
   const [url, setUrl] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!isValidEmail(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    setError(null);
     setSubmitting(true);
     await base44.functions.invoke('submitLead', { kind: 'quick', data: { name, email, url }, hp: e.target.elements.fx_trap_7?.value || '' });
     setSubmitted(true);
@@ -29,6 +36,7 @@ export default function QuickLeadForm() {
   }
 
   return (
+    <div>
     <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
       <HoneypotField />
       <div className="relative flex-1">
@@ -72,5 +80,7 @@ export default function QuickLeadForm() {
         {submitting ? 'Sending…' : <>Get in Touch <ArrowRight className="w-4 h-4" /></>}
       </button>
     </form>
+    {error && <p className="text-sm text-destructive mt-2" role="alert">{error}</p>}
+    </div>
   );
 }

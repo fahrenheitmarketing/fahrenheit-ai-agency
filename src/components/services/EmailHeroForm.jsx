@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import { validateLead } from '@/lib/formValidation';
 
 import HoneypotField from '@/components/shared/HoneypotField';
 
@@ -8,9 +9,16 @@ export default function EmailHeroForm() {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const err = validateLead(formData, ['name', 'email', 'company', 'phone', 'message']);
+    if (err) {
+      setError(err);
+      return;
+    }
+    setError(null);
     setSubmitting(true);
     await base44.functions.invoke('submitLead', { kind: 'emailMarketing', data: formData, hp: e.target.elements.fx_trap_7?.value || '' });
     setSubmitted(true);
@@ -47,16 +55,16 @@ export default function EmailHeroForm() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className={labelClass}>Company</label>
+          <label className={labelClass}>Company *</label>
           <input type="text" value={formData.company} onChange={e => setFormData({ ...formData, company: e.target.value })} className={inputClass} placeholder="Company name" />
         </div>
         <div>
-          <label className={labelClass}>Phone</label>
+          <label className={labelClass}>Phone *</label>
           <input type="tel" value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} className={inputClass} placeholder="(512) 000-0000" />
         </div>
       </div>
       <div>
-        <label className={labelClass}>What are you looking for?</label>
+        <label className={labelClass}>What are you looking for? *</label>
         <textarea rows={3} value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })} className={`${inputClass} resize-none`} placeholder="Tell us about your outreach goals" />
       </div>
       <button
@@ -66,6 +74,7 @@ export default function EmailHeroForm() {
       >
         {submitting ? 'Sending…' : <>Get Started <ArrowRight className="w-4 h-4" /></>}
       </button>
+      {error && <p className="text-sm text-destructive text-center" role="alert">{error}</p>}
       <p className="text-xs text-muted-foreground font-body text-center">
         We'll respond within one business day.
       </p>

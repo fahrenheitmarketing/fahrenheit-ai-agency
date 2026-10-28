@@ -3,6 +3,7 @@ import { mediaUrl } from '@/lib/media';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Zap, Shield, Calendar, ArrowRight, Star } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import { validateLead } from '@/lib/formValidation';
 import { Button } from '@/components/ui/button';
 import RequestCaseStudyModal from '../components/case-studies/RequestCaseStudyModal';
 import HoneypotField from '@/components/shared/HoneypotField';
@@ -93,10 +94,17 @@ export default function Promo() {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', phone: '', interest: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
   const [selectedStudy, setSelectedStudy] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const err = validateLead(formData, ['name', 'email', 'company', 'phone', 'interest', 'message']);
+    if (err) {
+      setError(err);
+      return;
+    }
+    setError(null);
     setSubmitting(true);
     await base44.functions.invoke('submitLead', { kind: 'promo', data: formData, hp: e.target.elements.fx_trap_7?.value || '' });
     setSubmitted(true);
@@ -394,7 +402,7 @@ export default function Promo() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Company</label>
+                    <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Company *</label>
                     <input
                       type="text"
                       value={formData.company}
@@ -404,7 +412,7 @@ export default function Promo() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Phone</label>
+                    <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Phone *</label>
                     <input
                       type="tel"
                       value={formData.phone}
@@ -415,7 +423,7 @@ export default function Promo() {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">I'm most interested in</label>
+                  <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">I'm most interested in *</label>
                   <select
                     value={formData.interest}
                     onChange={e => setFormData({ ...formData, interest: e.target.value })}
@@ -430,7 +438,7 @@ export default function Promo() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Tell us about your business</label>
+                  <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Tell us about your business *</label>
                   <textarea
                     rows={4}
                     value={formData.message}
@@ -446,6 +454,7 @@ export default function Promo() {
                 >
                   {submitting ? 'Sending…' : <>Submit Inquiry <ArrowRight className="w-4 h-4" /></>}
                 </button>
+                {error && <p className="text-sm text-destructive text-center" role="alert">{error}</p>}
                 <p className="text-xs text-muted-foreground font-body text-center">
                   We'll respond within one business day.
                 </p>

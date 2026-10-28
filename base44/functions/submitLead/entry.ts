@@ -33,6 +33,15 @@ const KINDS: Record<string, { title: string; subject: string; to: string[]; from
   },
 };
 
+const REQUIRED: Record<string, string[]> = {
+  contact: ['name', 'email', 'company', 'phone', 'service_interest', 'message'],
+  promo: ['name', 'email', 'company', 'phone', 'interest', 'message'],
+  retainer: ['name', 'email', 'company', 'phone', 'tier', 'message'],
+  website: ['name', 'email', 'company', 'phone', 'message'],
+  emailMarketing: ['name', 'email', 'company', 'phone', 'message'],
+  quick: ['name', 'email', 'url'],
+};
+
 export default async function (req: Request): Promise<Response> {
   try {
     const base44 = createClientFromRequest(req);
@@ -55,14 +64,13 @@ export default async function (req: Request): Promise<Response> {
       return Response.json({ error: 'Name and email are required' }, { status: 400 });
     }
 
-    if (kind === 'contact') {
-      const phoneDigits = values.phone.replace(/\D/g, '');
-      const valid = values.company && values.message && values.service_interest
-        && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.email)
-        && /^[\d\s()+\-.]+$/.test(values.phone) && phoneDigits.length >= 7 && phoneDigits.length <= 15;
-      if (!valid) {
-        return Response.json({ error: 'Please complete all fields with a valid email and phone number' }, { status: 400 });
-      }
+    const required = REQUIRED[kind];
+    const phoneDigits = (values.phone || '').replace(/\D/g, '');
+    const valid = required.every((k) => values[k])
+      && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.email)
+      && (!required.includes('phone') || (/^[\d\s()+\-.]+$/.test(values.phone) && phoneDigits.length >= 7 && phoneDigits.length <= 15));
+    if (!valid) {
+      return Response.json({ error: 'Please complete all required fields with a valid email and phone number' }, { status: 400 });
     }
 
     // Contact submissions are also stored as leads, server-side

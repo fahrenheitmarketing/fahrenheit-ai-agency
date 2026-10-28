@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import { validateLead } from '@/lib/formValidation';
 
 import HoneypotField from '@/components/shared/HoneypotField';
 
@@ -8,9 +9,16 @@ export default function WebsiteLeadForm() {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', phone: '', website: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const err = validateLead(formData, ['name', 'email', 'company', 'phone', 'message']);
+    if (err) {
+      setError(err);
+      return;
+    }
+    setError(null);
     setSubmitting(true);
     await base44.functions.invoke('submitLead', { kind: 'website', data: formData, hp: e.target.elements.fx_trap_7?.value || '' });
     setSubmitted(true);
@@ -44,12 +52,12 @@ export default function WebsiteLeadForm() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Company</label>
+          <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Company *</label>
           <input type="text" value={formData.company} onChange={e => setFormData({ ...formData, company: e.target.value })}
             className="w-full border border-border bg-background rounded-sm px-4 py-3 text-sm font-body focus:outline-none focus:border-accent transition-colors" placeholder="Company name" />
         </div>
         <div>
-          <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Phone</label>
+          <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Phone *</label>
           <input type="tel" value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })}
             className="w-full border border-border bg-background rounded-sm px-4 py-3 text-sm font-body focus:outline-none focus:border-accent transition-colors" placeholder="(512) 000-0000" />
         </div>
@@ -60,7 +68,7 @@ export default function WebsiteLeadForm() {
           className="w-full border border-border bg-background rounded-sm px-4 py-3 text-sm font-body focus:outline-none focus:border-accent transition-colors" placeholder="https://yourcurrentsite.com" />
       </div>
       <div>
-        <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Tell us about your project</label>
+        <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2 font-body">Tell us about your project *</label>
         <textarea rows={4} value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })}
           className="w-full border border-border bg-background rounded-sm px-4 py-3 text-sm font-body focus:outline-none focus:border-accent transition-colors resize-none"
           placeholder="How many pages roughly, and what's driving the redesign?" />
@@ -69,6 +77,7 @@ export default function WebsiteLeadForm() {
         className="w-full bg-accent text-white text-sm font-body font-medium px-6 py-4 rounded-sm hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-60">
         {submitting ? 'Sending…' : <>Claim This Offer <ArrowRight className="w-4 h-4" /></>}
       </button>
+      {error && <p className="text-sm text-destructive text-center" role="alert">{error}</p>}
       <p className="text-xs text-muted-foreground font-body text-center">We'll respond within one business day.</p>
     </form>
   );
