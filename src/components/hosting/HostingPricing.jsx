@@ -3,6 +3,31 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { CheckCircle } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
+import ServerSpecs from '@/components/hosting/ServerSpecs';
+
+const essentialSpecs = [
+  { label: 'Processor', value: '4 dedicated vCPU, Premium Intel' },
+  { label: 'Memory', value: '8 GB RAM' },
+  { label: 'Storage', value: '50 GB NVMe SSD' },
+  { label: 'Bandwidth', value: '5 TB transfer' },
+  { label: 'Backups', value: 'Weekly, 4 copies retained' },
+  { label: 'CDN & firewall', value: 'Cloudflare' },
+];
+
+const essentialBestFor =
+  'small and medium-traffic WordPress sites, and small or medium Laravel applications.';
+
+const advancedSpecs = [
+  { label: 'Processor', value: '8 dedicated vCPU, Premium Intel' },
+  { label: 'Memory', value: '16 GB RAM' },
+  { label: 'Storage', value: '100 GB NVMe SSD' },
+  { label: 'Bandwidth', value: '6 TB transfer' },
+  { label: 'Backups', value: 'Daily, 7 copies retained' },
+  { label: 'CDN & firewall', value: 'Cloudflare Pro' },
+];
+
+const advancedBestFor =
+  'medium and high-traffic WordPress sites (WooCommerce, membership sites) and medium Laravel applications with queues, scheduled jobs, and Redis.';
 
 const essentialFeatures = [
   'Managed hosting environment',
@@ -85,6 +110,10 @@ export default function HostingPricing() {
               Professional managed hosting and security for businesses that need reliable protection and
               accountable technical support.
             </p>
+            <ServerSpecs specs={essentialSpecs} bestFor={essentialBestFor} />
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mt-6 mb-3 font-body">
+              What&apos;s included
+            </p>
             <FeatureList items={essentialFeatures} />
             <p className="text-xs text-muted-foreground leading-relaxed mt-6 pt-6 border-t border-border">
               Complex remediation: additional engineering, forensic investigation, or custom application repair
@@ -114,7 +143,8 @@ export default function HostingPricing() {
             <p className="text-muted-foreground text-sm leading-relaxed mt-4 mb-6">
               Enhanced protection and prioritized technical response for business-critical websites.
             </p>
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">
+            <ServerSpecs specs={advancedSpecs} bestFor={advancedBestFor} />
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mt-6 mb-3 font-body">
               Everything in Essential, plus
             </p>
             <FeatureList items={advancedFeatures} />
@@ -159,7 +189,8 @@ export default function HostingPricing() {
         <p className="text-xs text-muted-foreground leading-relaxed mt-8 max-w-3xl">
           All plans include a dedicated account manager, layered security, proactive monitoring, and standard
           server malware remediation. Hosting resources, storage, and bandwidth are sized to your site&apos;s
-          requirements and confirmed during onboarding; Enterprise plans are scoped individually.
+          requirements and confirmed during onboarding; Enterprise plans are scoped individually. Additional
+          NVMe storage or block storage for larger media libraries is available as an add-on.
         </p>
       </div>
     </section>
