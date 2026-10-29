@@ -7,7 +7,7 @@ export default function CTASection({
   subtext = "Month-to-month retainers starting at $3,500. A 30-minute strategy call is free — you'll leave with a working hypothesis even if we never work together.",
   buttonText = "Book a strategy call",
   buttonLink = "/contact",
-  secondaryText = "See our work",
+  secondaryText = "See our pricing",
   secondaryLink = "/pricing",
   className = "bg-foreground text-background",
 }) {
