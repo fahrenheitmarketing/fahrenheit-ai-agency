@@ -13,6 +13,7 @@ const services = [
     tagline: 'Intelligence, not instinct',
     description: "Data-driven roadmaps built from competitive analysis, market signals, and AI modeling. Your growth strategy shouldn't rely on gut feel.",
     link: '/services/strategy',
+    linkText: 'Explore our marketing strategy service',
     highlights: ['Market intelligence', 'Channel mix strategy', 'Predictive growth modeling', 'Quarterly planning reviews'],
   },
   {
@@ -22,6 +23,7 @@ const services = [
     tagline: 'Own page one and AI search results',
     description: 'Marketing engines that learn. We deploy AI across research, content, and technical optimization so organic growth compounds month after month.',
     link: '/services/seo',
+    linkText: 'Explore our SEO services',
     highlights: ['AI-powered keyword research', 'Content strategy & creation', 'Technical SEO optimization', 'Link authority building'],
   },
   {
@@ -31,6 +33,7 @@ const services = [
     tagline: 'Zero waste. Maximum ROAS.',
     description: "AI-managed paid campaigns across search, social, and display. Bids, budgets, and creative — optimized 24/7 so you don't have to.",
     link: '/services/sem',
+    linkText: 'Explore our SEM and PPC services',
     highlights: ['AI bid optimization', 'Precision audience targeting', 'Ad creative intelligence', 'Full-funnel attribution'],
   },
   {
@@ -40,6 +43,7 @@ const services = [
     tagline: 'Social that actually converts',
     description: "Vanity metrics don't pay the bills. We build AI-informed social strategies that drive real engagement, qualified traffic, and measurable revenue.",
     link: '/services/smm',
+    linkText: 'Explore our social media marketing',
     highlights: ['AI content intelligence', 'Audience identification', 'Paid social amplification', 'Community management'],
   },
   {
@@ -49,6 +53,7 @@ const services = [
     tagline: 'Higher conversion, bigger return',
     description: 'Intelligent optimization that personalizes, tests, and improves every touchpoint in real time. Built for profit, not just traffic.',
     link: '/services/cro',
+    linkText: 'Explore our CRO services',
     highlights: ['AI behavioral analysis', 'Intelligent A/B testing', 'Landing page optimization', 'Heatmap & session analysis'],
   },
   {
@@ -58,6 +63,7 @@ const services = [
     tagline: 'Stop doing manual marketing',
     description: 'AI-driven workflows, lead scoring, and nurturing sequences that react in real-time — so your pipeline never sleeps.',
     link: '/services/marketing-automation',
+    linkText: 'Explore our marketing automation',
     highlights: ['Workflow automation', 'Lead intelligence', 'Email optimization', 'Revenue operations'],
   },
   {
@@ -67,6 +73,7 @@ const services = [
     tagline: 'Enterprise software. Startup budget.',
     description: "Custom software that once required million-dollar budgets is now within reach. AI-powered development stacks let us build, ship, and scale at a fraction of the traditional cost.",
     link: '/services/software-development',
+    linkText: 'Explore our software development',
     highlights: ['Custom web applications', 'AI integration', 'Data architecture', 'Real-time platforms'],
   },
   {
@@ -76,6 +83,7 @@ const services = [
     tagline: 'Cold email that builds pipeline',
     description: 'A managed cold email program covering targeting, messaging, and deliverability, so qualified conversations land on your calendar.',
     link: '/services/email-marketing',
+    linkText: 'Explore our email marketing service',
     highlights: ['ICP building & list sourcing', 'Copywriting & A/B testing', 'Deliverability management', 'Monthly reporting & optimization'],
   },
   {
@@ -85,6 +93,7 @@ const services = [
     tagline: 'Fast, hardened, fully managed',
     description: 'Professional managed hosting with layered security, proactive monitoring, and human-led incident response from an accountable team.',
     link: '/services/managed-hosting',
+    linkText: 'Explore our managed hosting and security',
     highlights: ['Web application firewall', 'Backups & maintenance', 'Malware scanning & remediation', 'Dedicated account manager'],
   },
 ];
@@ -144,7 +153,7 @@ export default function Services() {
                   to={s.link}
                   className="inline-flex items-center gap-2 text-sm font-body font-medium border border-border px-5 py-3 rounded-sm hover:border-foreground hover:bg-secondary transition-colors"
                 >
-                  Learn more <ArrowRight className="w-4 h-4" />
+                  {s.linkText} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
