@@ -103,12 +103,12 @@ export default function ManagedHosting() {
   return (
     <>
       <HostingHero />
+      <HostingPricing />
       <ComparisonTable />
       <AccountabilitySection />
       <SecurityGrid />
       <IncidentResponse />
       <ProactiveManagement />
-      <HostingPricing />
       <ServiceBoundaries />
       <MigrationSection />
       <ReportingSection />
