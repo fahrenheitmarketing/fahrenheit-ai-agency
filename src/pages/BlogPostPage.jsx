@@ -29,17 +29,19 @@ export default function BlogPostPage() {
 
   useEffect(() => {
     // Try matching by slug first, then fall back to id
-    base44.entities.BlogPost.list().then((allPosts) => {
-      const currentPost = allPosts.find(p => p.slug === postSlug || p.id === postSlug) || null;
+    setLoading(true);
+    base44.entities.BlogPost.filter({ slug: postSlug }, { limit: 1 }).then(async (page) => {
+      let currentPost = page.items[0] || null;
+      if (!currentPost) {
+        currentPost = await base44.entities.BlogPost.get(postSlug).catch(() => null);
+      }
       setPost(currentPost);
+      setLoading(false);
 
       if (currentPost) {
-        const related = allPosts
-          .filter(p => p.category === currentPost.category && p.id !== currentPost.id)
-          .slice(0, 3);
-        setRelatedPosts(related);
+        const rel = await base44.entities.BlogPost.filter({ category: currentPost.category }, { limit: 4 });
+        setRelatedPosts(rel.items.filter(p => p.id !== currentPost.id).slice(0, 3));
       }
-      setLoading(false);
     });
   }, [postSlug]);
 
