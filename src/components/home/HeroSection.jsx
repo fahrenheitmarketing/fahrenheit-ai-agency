@@ -10,7 +10,7 @@ export default function HeroSection() {
       {/* Cubes pattern — top right */}
       <img
         src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
-        width="1002" height="687" alt="" aria-hidden="true"
+        width="1002" height="687" alt="Decorative geometric cube pattern" aria-hidden="true"
         aria-hidden="true"
         className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-70 select-none"
       />

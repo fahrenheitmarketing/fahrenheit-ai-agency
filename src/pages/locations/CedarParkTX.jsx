@@ -21,7 +21,7 @@ export default function CedarParkTX() {
       <section className="relative py-20 px-6 lg:px-10 border-b border-border overflow-hidden">
         <img
           src={mediaUrl("https://media.base44.com/images/public/69e6c4bd9bbd15c86a9a4b38/5d925e722_cubes-pattern-right-corner-sideda9ee31.png")}
-          alt="" aria-hidden="true"
+          alt="Decorative geometric cube pattern" aria-hidden="true"
           className="absolute top-0 right-0 w-[420px] pointer-events-none opacity-60 select-none"
         />
         <div className="relative max-w-7xl mx-auto">

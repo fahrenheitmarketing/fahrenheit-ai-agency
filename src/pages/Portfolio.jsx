@@ -267,8 +267,7 @@ export default function Portfolio() {
                 <img
                   key={`${project.name}-${i}`}
                   src={mediaUrl(project.image)}
-                  alt=""
-                  aria-hidden="true"
+                  alt={`${project.name} website homepage`}
                   loading="lazy"
                   className="h-40 md:h-52 w-auto rounded-sm opacity-60 hover:opacity-100 transition-opacity mr-4"
                 />
