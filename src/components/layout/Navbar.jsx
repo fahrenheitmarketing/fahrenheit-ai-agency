@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   Users,
   BookOpen,
+  Phone,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import MegaMenu from './MegaMenu';
@@ -103,7 +104,14 @@ export default function Navbar() {
         </div>
 
         {/* CTA */}
-        <div className="nav-desktop-block">
+        <div className="nav-desktop-flex items-center gap-5">
+          <a
+            href="tel:+15122064220"
+            className="flex items-center gap-1.5 text-sm whitespace-nowrap text-foreground/70 hover:text-accent transition-colors font-body tracking-wide"
+          >
+            <Phone className="w-3.5 h-3.5" aria-hidden="true" />
+            512-206-4220
+          </a>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2.5 rounded-sm hover:bg-accent/90 transition-colors font-body tracking-wide whitespace-nowrap"
@@ -172,6 +180,10 @@ export default function Navbar() {
               <Link to="/contact" className="inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2.5 rounded-sm w-fit font-body">
                 BOOK A STRATEGY CALL ↗
               </Link>
+              <a href="tel:+15122064220" className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-accent transition-colors font-body">
+                <Phone className="w-4 h-4" aria-hidden="true" />
+                512-206-4220
+              </a>
             </div>
           </motion.div>
         )}
