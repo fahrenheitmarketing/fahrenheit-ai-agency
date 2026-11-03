@@ -77,25 +77,6 @@ export default function HeroSection() {
               ))}
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-8"
-            >
-              <Link
-                to="/pricing"
-                className="inline-flex items-center gap-4 bg-background border border-accent/40 rounded-lg px-5 py-4 transition-colors hover:border-accent/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              >
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-accent font-body mb-1">AI-Powered Retainers</p>
-                  <p className="text-sm text-muted-foreground font-body">Starting at only</p>
-                </div>
-                <p className="font-heading text-3xl font-normal text-foreground">
-                  $3,500<span className="text-base text-muted-foreground font-body">/mo</span>
-                </p>
-              </Link>
-            </motion.div>
           </div>
 
           {/* Right — Bold Cards */}
