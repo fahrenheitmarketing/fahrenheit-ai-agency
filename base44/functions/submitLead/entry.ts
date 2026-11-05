@@ -108,6 +108,8 @@ export default async function (req: Request): Promise<Response> {
       return Response.json({ error: 'Please complete all required fields with a valid email and phone number' }, { status: 400 });
     }
 
+    await sendToGoHighLevel(kind, values);
+
     // Contact submissions are also stored as leads, server-side
     if (kind === 'contact') {
       const SERVICE_INTERESTS = ['seo', 'sem', 'smm', 'cro', 'strategy', 'automation', 'software-development', 'email-marketing', 'hosting', 'general'];
@@ -139,8 +141,6 @@ export default async function (req: Request): Promise<Response> {
         console.error(`submitLead: notification to ${cfg.to[i]} not delivered — ${result.reason}: ${result.message}`);
       }
     });
-
-    await sendToGoHighLevel(kind, values);
 
     return Response.json({ success: true });
   } catch (error) {
