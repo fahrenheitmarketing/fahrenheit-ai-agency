@@ -42,6 +42,38 @@ const REQUIRED: Record<string, string[]> = {
   quick: ['name', 'email', 'url'],
 };
 
+// Forwards a validated lead to GoHighLevel. Never throws; never logs the payload or URL.
+async function sendToGoHighLevel(kind: string, values: Record<string, string>): Promise<void> {
+  const url = (Deno.env.get('GHL_WEBHOOK_URL') || '').trim();
+  if (!url) return;
+  const [firstName = '', ...rest] = (values.name || '').trim().split(/\s+/);
+  const payload = {
+    kind,
+    firstName,
+    lastName: rest.join(' '),
+    email: values.email || '',
+    phone: values.phone || '',
+    companyName: values.company || '',
+    website: kind === 'website' ? values.website || '' : kind === 'quick' ? values.url || '' : '',
+    message: values.message || '',
+    serviceInterest: values.service_interest || values.interest || '',
+    tier: values.tier || '',
+    sourcePage: kind,
+  };
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(5000),
+    });
+    if (!res.ok) console.warn(`submitLead: GoHighLevel forward failed (kind=${kind}, status=${res.status})`);
+  } catch (error) {
+    const reason = error instanceof Error && error.name === 'TimeoutError' ? 'timeout' : 'network error';
+    console.warn(`submitLead: GoHighLevel forward failed (kind=${kind}, status=${reason})`);
+  }
+}
+
 export default async function (req: Request): Promise<Response> {
   try {
     const base44 = createClientFromRequest(req);
@@ -107,6 +139,8 @@ export default async function (req: Request): Promise<Response> {
         console.error(`submitLead: notification to ${cfg.to[i]} not delivered — ${result.reason}: ${result.message}`);
       }
     });
+
+    await sendToGoHighLevel(kind, values);
 
     return Response.json({ success: true });
   } catch (error) {
