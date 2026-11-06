@@ -29,7 +29,21 @@
         "software-development",
         "email-marketing",
         "hosting",
-        "general"
+        "general",
+        "partnership"
+      ],
+      "enumColors": [
+        "blue",
+        "purple",
+        "pink",
+        "yellow",
+        "blue",
+        "purple",
+        "gray",
+        "pink",
+        "gray",
+        "gray",
+        "green"
       ]
     },
     "status": {

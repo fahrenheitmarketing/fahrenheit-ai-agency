@@ -42,6 +42,14 @@ const REQUIRED: Record<string, string[]> = {
   quick: ['name', 'email', 'url'],
 };
 
+// Phrases that mark a pitch (guest posts, backlinks, white label) rather than a service inquiry.
+const PARTNERSHIP_SIGNALS = ['we help businesses', 'our team specializes', 'partnership', 'white label', 'guest post', 'backlinks'];
+
+function looksLikePartnership(message: string): boolean {
+  const text = ` ${message.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()} `;
+  return PARTNERSHIP_SIGNALS.some((signal) => text.includes(` ${signal} `));
+}
+
 // Forwards a validated lead to GoHighLevel. Never throws; never logs the payload or URL.
 async function sendToGoHighLevel(kind: string, values: Record<string, string>): Promise<void> {
   const url = (Deno.env.get('GHL_WEBHOOK_URL') || '').trim();
@@ -108,11 +116,17 @@ export default async function (req: Request): Promise<Response> {
       return Response.json({ error: 'Please complete all required fields with a valid email and phone number' }, { status: 400 });
     }
 
+    // A pitch in the message wins over the dropdown choice, so the lead is stored, emailed and
+    // forwarded as a partnership.
+    if (values.service_interest && looksLikePartnership(values.message || '')) {
+      values.service_interest = 'partnership';
+    }
+
     await sendToGoHighLevel(kind, values);
 
     // Contact submissions are also stored as leads, server-side
     if (kind === 'contact') {
-      const SERVICE_INTERESTS = ['seo', 'sem', 'smm', 'cro', 'strategy', 'automation', 'software-development', 'email-marketing', 'hosting', 'general'];
+      const SERVICE_INTERESTS = ['seo', 'sem', 'smm', 'cro', 'strategy', 'automation', 'software-development', 'email-marketing', 'hosting', 'general', 'partnership'];
       await base44.asServiceRole.entities.ContactSubmission.create({
         name: values.name,
         email: values.email,
