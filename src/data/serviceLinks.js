@@ -50,4 +50,5 @@ export const SERVICE_OPTIONS = [
   { value: 'email-marketing', label: 'Email Marketing' },
   { value: 'hosting', label: 'Managed Hosting & Security' },
   { value: 'general', label: 'General Inquiry' },
+  { value: 'partnership', label: 'Partnership' },
 ];
