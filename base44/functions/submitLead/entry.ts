@@ -51,7 +51,9 @@ function looksLikePartnership(message: string): boolean {
 }
 
 // Forwards a validated lead to GoHighLevel. Never throws; never logs the payload or URL.
-async function sendToGoHighLevel(kind: string, values: Record<string, string>): Promise<void> {
+type LeadSource = { source: string; medium: string; page: string };
+
+async function sendToGoHighLevel(kind: string, values: Record<string, string>, src: LeadSource): Promise<void> {
   const url = (Deno.env.get('GHL_WEBHOOK_URL') || '').trim();
   if (!url) return;
   const [firstName = '', ...rest] = (values.name || '').trim().split(/\s+/);
@@ -67,6 +69,9 @@ async function sendToGoHighLevel(kind: string, values: Record<string, string>): 
     serviceInterest: values.service_interest || values.interest || '',
     tier: values.tier || '',
     sourcePage: kind,
+    source: src.source,
+    medium: src.medium,
+    formPage: src.page,
   };
   try {
     const res = await fetch(url, {
@@ -85,7 +90,7 @@ async function sendToGoHighLevel(kind: string, values: Record<string, string>): 
 export default async function (req: Request): Promise<Response> {
   try {
     const base44 = createClientFromRequest(req);
-    const { kind, data, hp } = await req.json().catch(() => ({}));
+    const { kind, data, hp, source } = await req.json().catch(() => ({}));
     const cfg = KINDS[kind];
     if (!cfg || !data || typeof data !== 'object') {
       return Response.json({ error: 'Invalid request' }, { status: 400 });
@@ -107,6 +112,14 @@ export default async function (req: Request): Promise<Response> {
       return Response.json({ error: 'Name and email are required' }, { status: 400 });
     }
 
+    // Where the lead came from: captured by the form from UTM tags, the referring site or the page itself.
+    const rawSource = (source && typeof source === 'object' ? source : {}) as Record<string, unknown>;
+    const src: LeadSource = {
+      source: clip(rawSource.source, 80),
+      medium: clip(rawSource.medium, 80),
+      page: clip(rawSource.page, 200),
+    };
+
     const required = REQUIRED[kind];
     const phoneDigits = (values.phone || '').replace(/\D/g, '');
     const valid = required.every((k) => values[k])
@@ -122,7 +135,7 @@ export default async function (req: Request): Promise<Response> {
       values.service_interest = 'partnership';
     }
 
-    await sendToGoHighLevel(kind, values);
+    await sendToGoHighLevel(kind, values, src);
 
     // Contact submissions are also stored as leads, server-side
     if (kind === 'contact') {
@@ -142,7 +155,8 @@ export default async function (req: Request): Promise<Response> {
     const rows = cfg.fields
       .map(([key, label]) => `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(values[key] || 'Not provided').replace(/\n/g, '<br/>')}</p>`)
       .join('');
-    const body = `<h2>${escapeHtml(cfg.title)}</h2>${rows}`;
+    const attribution = `<p><strong>Source / Medium:</strong> ${escapeHtml(`${src.source || 'Unknown'} / ${src.medium || 'Unknown'}`)}${src.page ? `<br/><strong>Form Page:</strong> ${escapeHtml(src.page)}` : ''}</p>`;
+    const body = `<h2>${escapeHtml(cfg.title)}</h2>${rows}${attribution}`;
 
     // Internal lead notification: transactional, so a recipient's marketing opt-out never blocks it.
     const results = await Promise.all(

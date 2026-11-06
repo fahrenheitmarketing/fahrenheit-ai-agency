@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Send, Mail, MapPin, Phone, CheckCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { SERVICE_OPTIONS } from '@/data/serviceLinks';
+import { getLeadSource } from '@/lib/leadSource';
 import { motion } from 'framer-motion';
 
 import HoneypotField from '@/components/shared/HoneypotField';
@@ -43,7 +44,7 @@ export default function Contact() {
 
     try {
       // The backend records the lead and sends the email notification
-      await base44.functions.invoke('submitLead', { kind: 'contact', data: form, hp });
+      await base44.functions.invoke('submitLead', { kind: 'contact', data: form, hp, source: getLeadSource() });
       setSubmitted(true);
     } catch (err) {
       setError('Something went wrong sending your message. Please try again or call us directly.');

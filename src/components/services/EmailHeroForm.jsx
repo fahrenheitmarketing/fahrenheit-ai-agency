@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { validateLead } from '@/lib/formValidation';
+import { getLeadSource } from '@/lib/leadSource';
 
 import HoneypotField from '@/components/shared/HoneypotField';
 
@@ -20,7 +21,7 @@ export default function EmailHeroForm() {
     }
     setError(null);
     setSubmitting(true);
-    await base44.functions.invoke('submitLead', { kind: 'emailMarketing', data: formData, hp: e.target.elements.fx_trap_7?.value || '' });
+    await base44.functions.invoke('submitLead', { kind: 'emailMarketing', data: formData, hp: e.target.elements.fx_trap_7?.value || '', source: getLeadSource() });
     setSubmitted(true);
     setSubmitting(false);
   };
