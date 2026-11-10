@@ -91,7 +91,7 @@ export default function RoundRockTX() {
               Round Rock businesses compete with Austin brands for the same customers. That requires a marketing partner who understands both the local dynamics and the broader Central Texas competitive landscape — not a generic national agency with a templated approach.
             </p>
             <p className="text-muted-foreground font-body text-base leading-relaxed mt-4">
-              Many of our Round Rock clients also compete for customers in neighboring <Link to="/digital-marketing-agency-georgetown-tx" className="text-accent underline hover:text-accent/80 transition-colors">Georgetown</Link> and <Link to="/digital-marketing-agency-cedar-park-tx" className="text-accent underline hover:text-accent/80 transition-colors">Cedar Park</Link>, as well as across <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin</Link>.
+              Round Rock businesses also compete for customers in neighboring <Link to="/digital-marketing-agency-georgetown-tx" className="text-accent underline hover:text-accent/80 transition-colors">Georgetown</Link> and <Link to="/digital-marketing-agency-cedar-park-tx" className="text-accent underline hover:text-accent/80 transition-colors">Cedar Park</Link>, as well as across <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin</Link>.
             </p>
           </div>
           <div className="space-y-0">
