@@ -10,7 +10,7 @@ export default function ServiceAreasSection() {
           Serving Businesses Across Central Texas
         </h2>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed font-body max-w-3xl mb-12">
-          Fahrenheit Marketing has worked with Central Texas businesses since 2008. Our team is headquartered in Austin, and we build SEO, paid media, and web strategies for companies throughout the region.
+          Fahrenheit Marketing has worked with Central Texas businesses since 2008. We are headquartered in Austin and build SEO, paid media, and web strategies for companies throughout the region.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
           {LOCATIONS.map((l) => (

@@ -108,7 +108,7 @@ export default function SEM() {
             </div>
           </div>
           <p className="text-muted-foreground leading-relaxed font-body max-w-3xl">
-            Our <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin-based digital marketing team</Link> manages paid search for businesses in Central Texas and nationwide.
+            As an <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin-headquartered digital marketing agency</Link>, we manage paid search for businesses in Central Texas and nationwide.
           </p>
         </div>
       </section>

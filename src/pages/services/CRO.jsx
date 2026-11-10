@@ -106,7 +106,7 @@ export default function CRO() {
             ))}
           </div>
           <p className="text-muted-foreground leading-relaxed font-body mt-12 max-w-3xl">
-            Our <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin-based team</Link> has improved conversion rates for Central Texas businesses and national brands since 2008.
+            Since 2008, our <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin digital marketing agency</Link> has improved conversion rates for Central Texas businesses and national brands.
           </p>
         </div>
       </section>

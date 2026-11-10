@@ -102,7 +102,7 @@ export default function SoftwareDevelopment() {
             ))}
           </div>
           <p className="text-muted-foreground leading-relaxed font-body mt-12 max-w-3xl">
-            Our development team works alongside our <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin digital marketing agency</Link> strategists, so every build is planned for search and conversion.
+            Development and marketing work as one team at our <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin digital marketing agency</Link>, so every build is planned for search and conversion.
           </p>
         </div>
       </section>

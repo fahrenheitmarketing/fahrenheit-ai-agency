@@ -132,7 +132,7 @@ export default function EmailMarketing() {
           <SectionHeader
             label="Pricing"
             title="Simple Tiers, Priced by Delivered Volume"
-            description={<>Every plan includes program design, targeting, messaging, and deliverability management, handled by our <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin-based digital marketing team</Link>. One-time setup fee of $1,500.</>}
+            description={<>Every plan includes program design, targeting, messaging, and deliverability management from our <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin digital marketing agency</Link>. One-time setup fee of $1,500.</>}
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan) => (
