@@ -9,8 +9,8 @@ export default function Footer() {
   return (
     <footer className="relative bg-background border-t border-border">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-10 pb-24 lg:py-16">
-        <div className="grid grid-cols-2 lg:grid-cols-[1.2fr_1.6fr_1fr_1fr_1fr] gap-x-6 gap-y-8 md:gap-12 pb-8 md:pb-12 border-b border-border">
-          <div className="col-span-2 lg:col-span-1">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-8 md:gap-12 pb-8 md:pb-12 border-b border-border">
+          <div className="col-span-2 lg:col-span-2">
             <img src={mediaUrl(LOGO_URL)} alt="Fahrenheit Marketing logo" className="h-7 brightness-0 mb-5" />
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm font-body">
               AI-first digital marketing. We design the systems, deploy the models, and operate the stack — measured in outcomes, not deliverables.
