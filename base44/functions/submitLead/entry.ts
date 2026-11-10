@@ -100,7 +100,7 @@ export default async function (req: Request): Promise<Response> {
       console.warn(`submitLead: spam trap filled, submission dropped (kind=${kind}, trap length=${String(hp).length})`);
       return Response.json({ success: true });
     }
-    if (!(await allow(base44, `lead:${clientIp(req)}`, 5, 3600)) || !(await allow(base44, 'lead:all', 100, 3600))) {
+    if (!(await allow(base44, `lead:${clientIp(req)}`, 5, 3600))) {
       return Response.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
     }
 

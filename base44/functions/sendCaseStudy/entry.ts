@@ -16,7 +16,7 @@ Deno.serve(async (req) => {
     }
     // Spam trap filled in: pretend it worked, do nothing.
     if (body.hp) return Response.json({ success: true });
-    if (!(await allow(base44, `case:${clientIp(req)}`, 3, 3600)) || !(await allow(base44, 'case:all', 60, 3600))) {
+    if (!(await allow(base44, `case:${clientIp(req)}`, 3, 3600))) {
       return Response.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
     }
     // Same email asking for the same case study again: already recorded and sent to the team.
