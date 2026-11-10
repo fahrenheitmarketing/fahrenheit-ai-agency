@@ -1,6 +1,7 @@
 import React from 'react';
 import { mediaUrl } from '@/lib/media';
 import { Link } from 'react-router-dom';
+import { LOCATIONS } from '@/data/locations';
 
 const LOGO_URL = 'https://media.base44.com/images/public/user_696032597527e77c90fca3ba/9a7da2942_FahrenheitMarketingLogo.png';
 
@@ -8,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-background border-t border-border">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-10 pb-24 lg:py-16">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-8 md:gap-12 pb-8 md:pb-12 border-b border-border">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-8 md:gap-12 pb-8 md:pb-12 border-b border-border">
           <div className="col-span-2 lg:col-span-2">
             <img src={mediaUrl(LOGO_URL)} alt="Fahrenheit Marketing logo" className="h-7 brightness-0 mb-5" />
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm font-body">
@@ -41,10 +42,18 @@ export default function Footer() {
 
             </div>
           </div>
+          <div className="col-span-2 md:col-span-1">
+            <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 md:mb-5 font-body">Service Areas</h3>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-3 md:flex md:flex-col">
+              {LOCATIONS.map((l) => (
+                <Link key={l.to} to={l.to} className="text-sm text-foreground/70 hover:text-accent transition-colors font-body">{l.city}</Link>
+              ))}
+            </div>
+          </div>
         </div>
         <div className="pt-6 md:pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground font-body">© {new Date().getFullYear()} Fahrenheit Marketing. All rights reserved.</p>
-          <Link to="/about" className="text-xs text-muted-foreground hover:text-accent transition-colors font-body">Since 2008 · AI-First Today · Austin, Texas</Link>
+          <Link to="/digital-marketing-agency-austin-tx" className="text-xs text-muted-foreground hover:text-accent transition-colors font-body">Since 2008 · AI-First Today · Austin, Texas</Link>
         </div>
       </div>
     </footer>

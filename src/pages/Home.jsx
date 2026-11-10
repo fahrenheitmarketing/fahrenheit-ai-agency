@@ -2,6 +2,7 @@ import React from 'react';
 import HeroSection from '../components/home/HeroSection';
 import ClientMarquee from '../components/home/ClientMarquee';
 import ServicesOverview from '../components/home/ServicesOverview';
+import ServiceAreasSection from '../components/home/ServiceAreasSection';
 import ReposSection from '../components/home/ReposSection';
 import OutcomesSection from '../components/home/OutcomesSection';
 import ProcessSection from '../components/home/ProcessSection';
@@ -13,6 +14,7 @@ export default function Home() {
       <HeroSection />
       <ClientMarquee />
       <ServicesOverview />
+      <ServiceAreasSection />
       <ReposSection />
       <OutcomesSection />
       <ProcessSection />

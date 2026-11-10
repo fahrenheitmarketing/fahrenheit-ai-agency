@@ -64,7 +64,12 @@ export default function About() {
               {stats.map((s) =>
               <div key={s.label} className="bg-secondary/50 hover:bg-secondary transition-colors duration-200 p-8">
                   <p className="font-heading text-4xl font-normal text-foreground mb-1">{s.value}</p>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">{s.label}</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-body">{s.label.includes('Austin, TX') ? (
+                      <>
+                        {s.label.split('Austin, TX')[0]}
+                        <Link to="/digital-marketing-agency-austin-tx" className="hover:text-accent underline-offset-4 hover:underline transition-colors">Austin, TX</Link>
+                      </>
+                    ) : s.label}</p>
                 </div>
               )}
             </div>

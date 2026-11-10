@@ -41,7 +41,9 @@ export default function HeroSection() {
               className="font-heading text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.05] mb-6"
             >
               AI-First Digital Marketing Agency{' '}
-              <span className="text-accent italic">in Austin, TX</span>
+              <span className="text-accent italic">in{' '}
+                <Link to="/digital-marketing-agency-austin-tx" className="hover:underline underline-offset-4 decoration-1">Austin, TX</Link>
+              </span>
             </motion.h1>
 
             <motion.h2

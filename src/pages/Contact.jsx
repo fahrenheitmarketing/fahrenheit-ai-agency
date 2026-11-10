@@ -9,6 +9,8 @@ import { base44 } from '@/api/base44Client';
 import { SERVICE_OPTIONS } from '@/data/serviceLinks';
 import { getLeadSource } from '@/lib/leadSource';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { LOCATIONS } from '@/data/locations';
 
 import HoneypotField from '@/components/shared/HoneypotField';
 
@@ -97,7 +99,16 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-medium text-sm mb-1">Based In</p>
-                  <p className="text-muted-foreground text-sm">Austin, Texas — Serving Clients Globally</p>
+                  <p className="text-muted-foreground text-sm">Based in Austin, Texas, serving Central Texas businesses and clients worldwide.</p>
+                  <p className="text-muted-foreground text-xs mt-3 leading-relaxed">
+                    <span className="font-medium text-foreground">Central Texas service areas:</span>{' '}
+                    {LOCATIONS.map((l, i) => (
+                      <React.Fragment key={l.to}>
+                        {i > 0 && ' · '}
+                        <Link to={l.to} className="hover:text-accent underline-offset-4 hover:underline transition-colors">{l.city}</Link>
+                      </React.Fragment>
+                    ))}
+                  </p>
                 </div>
               </div>
 
