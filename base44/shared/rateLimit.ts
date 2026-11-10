@@ -2,10 +2,8 @@
 // Each call writes its own record, then counts the records in the window. Creating a record is
 // atomic, so a burst of simultaneous requests cannot all read the same stale number and slip past.
 export function clientIp(req: Request): string {
-  const h = req.headers;
-  const direct = h.get('cf-connecting-ip') || h.get('x-real-ip');
-  if (direct) return direct.trim();
-  return (h.get('x-forwarded-for') || 'unknown').split(',')[0].trim() || 'unknown';
+  // Only the edge-injected address is trusted; x-real-ip / x-forwarded-for are client-controllable.
+  return req.headers.get('cf-connecting-ip')?.trim() || 'unknown';
 }
 
 // Returns true if the call is allowed, false once `max` calls were made within `windowSec`.
