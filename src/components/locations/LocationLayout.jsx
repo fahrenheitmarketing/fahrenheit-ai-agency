@@ -79,8 +79,6 @@ export default function LocationLayout({ schema, currentPath, children }) {
         headline="Bring us a business problem. We'll bring the AI."
         subtext="Austin-based. Results-driven. Month-to-month retainers with no long-term contracts."
         buttonText="Book a strategy call"
-        secondaryText="See our work"
-        secondaryLink="/portfolio"
       />
     </>
   );
