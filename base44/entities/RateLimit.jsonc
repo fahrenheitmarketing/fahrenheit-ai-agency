@@ -13,6 +13,11 @@
     "count": {
       "type": "number",
       "description": "Calls counted in the current window"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional internal notes about this rate limit record"
     }
   },
   "required": [
