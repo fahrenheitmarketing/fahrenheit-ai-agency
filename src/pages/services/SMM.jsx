@@ -99,6 +99,9 @@ export default function SMM() {
               ))}
             </div>
           </div>
+          <p className="text-muted-foreground leading-relaxed font-body max-w-3xl">
+            Our <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin digital marketing agency</Link> plans and runs social campaigns for local and national brands alike.
+          </p>
         </div>
       </section>
 

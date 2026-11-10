@@ -124,6 +124,9 @@ export default function EmailMarketing() {
             description="Choose a plan and set the value of a single lead. We apply a 0.08% average response rate to that plan's delivered volume to show the conversations and pipeline your program could generate."
           />
           <EmailEstimator plans={plans} />
+          <p className="text-muted-foreground leading-relaxed font-body mt-12 max-w-3xl">
+            Our <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin-based digital marketing team</Link> builds email programs that support the rest of your marketing.
+          </p>
         </div>
       </section>
 

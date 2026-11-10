@@ -87,7 +87,7 @@ function FeatureList({ items, dark }) {
   );
 }
 
-export default function HostingPricing() {
+export default function HostingPricing({ children }) {
   return (
     <section id="pricing" className="py-24 px-6 bg-secondary/30 scroll-mt-20">
       <div className="max-w-7xl mx-auto">
@@ -192,6 +192,7 @@ export default function HostingPricing() {
           requirements and confirmed during onboarding; Enterprise plans are scoped individually. Additional
           NVMe storage or block storage for larger media libraries is available as an add-on.
         </p>
+        {children}
       </div>
     </section>
   );

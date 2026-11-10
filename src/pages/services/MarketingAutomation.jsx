@@ -142,6 +142,9 @@ export default function MarketingAutomation() {
               </div>
             ))}
           </div>
+          <p className="text-muted-foreground leading-relaxed font-body mt-12 max-w-3xl">
+            As an <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin digital marketing agency</Link>, we connect automation to the sales processes of Central Texas and national businesses.
+          </p>
         </div>
       </section>
 

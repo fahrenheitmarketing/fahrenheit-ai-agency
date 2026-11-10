@@ -162,6 +162,9 @@ export default function SEO() {
                   The result: faster time to visibility, broader coverage across search surfaces, and a compounding authority that makes your brand harder to displace everywhere that matters.
                 </p>
               </div>
+              <p className="text-muted-foreground leading-relaxed font-body">
+                From our base as a <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">digital marketing agency in Austin</Link>, we combine national SEO expertise with a close understanding of Central Texas search markets.
+              </p>
             </div>
           </div>
         </div>
@@ -225,6 +228,15 @@ export default function SEO() {
               ))}
             </div>
           </div>
+          <p className="text-muted-foreground leading-relaxed font-body max-w-3xl">
+            Local search is part of that picture. We help businesses rank in their own markets across Central Texas, including{' '}
+            <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin</Link>,{' '}
+            <Link to="/digital-marketing-agency-round-rock-tx" className="text-accent underline hover:text-accent/80 transition-colors">Round Rock</Link>,{' '}
+            <Link to="/digital-marketing-agency-cedar-park-tx" className="text-accent underline hover:text-accent/80 transition-colors">Cedar Park</Link>,{' '}
+            <Link to="/digital-marketing-agency-georgetown-tx" className="text-accent underline hover:text-accent/80 transition-colors">Georgetown</Link>,{' '}
+            <Link to="/digital-marketing-agency-kyle-buda-tx" className="text-accent underline hover:text-accent/80 transition-colors">Kyle and Buda</Link>, and{' '}
+            <Link to="/digital-marketing-agency-bastrop-tx" className="text-accent underline hover:text-accent/80 transition-colors">Bastrop</Link>.
+          </p>
         </div>
       </section>
 

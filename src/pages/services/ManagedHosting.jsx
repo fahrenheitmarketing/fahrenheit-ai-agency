@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import RelatedServices from '@/components/shared/RelatedServices';
 import FAQSection from '@/components/shared/FAQSection';
 import HostingHero from '@/components/hosting/HostingHero';
@@ -103,7 +104,11 @@ export default function ManagedHosting() {
   return (
     <>
       <HostingHero />
-      <HostingPricing />
+      <HostingPricing>
+        <p className="text-muted-foreground leading-relaxed font-body mt-8 max-w-3xl">
+          Hosting and security are managed by the same team behind our <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin digital marketing agency</Link>, so performance and SEO stay aligned.
+        </p>
+      </HostingPricing>
       <ComparisonTable />
       <AccountabilitySection />
       <SecurityGrid />
