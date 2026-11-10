@@ -145,6 +145,9 @@ export default function AustinTX() {
               <div className="border-t border-border pt-6">
                 <p className="text-sm font-body font-medium text-foreground">We've been doing this since 2008. We're not experimenting on your budget.</p>
               </div>
+              <p className="text-muted-foreground font-body text-sm leading-relaxed border-t border-border pt-6">
+                Beyond the city limits, we also work with businesses in <Link to="/digital-marketing-agency-round-rock-tx" className="text-accent underline hover:text-accent/80 transition-colors">Round Rock</Link>, <Link to="/digital-marketing-agency-cedar-park-tx" className="text-accent underline hover:text-accent/80 transition-colors">Cedar Park</Link>, <Link to="/digital-marketing-agency-georgetown-tx" className="text-accent underline hover:text-accent/80 transition-colors">Georgetown</Link>, <Link to="/digital-marketing-agency-kyle-buda-tx" className="text-accent underline hover:text-accent/80 transition-colors">Kyle and Buda</Link>, and <Link to="/digital-marketing-agency-bastrop-tx" className="text-accent underline hover:text-accent/80 transition-colors">Bastrop</Link>.
+              </p>
             </div>
           </div>
         </section>

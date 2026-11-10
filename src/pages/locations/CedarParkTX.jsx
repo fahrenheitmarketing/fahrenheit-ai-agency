@@ -90,6 +90,9 @@ export default function CedarParkTX() {
             <p className="text-muted-foreground font-body text-base leading-relaxed">
               Every Cedar Park business is different. We don't plug your company into a pre-built campaign template — we build strategy around your market, your competitors, and your growth goals. That's what being a strategic marketing partner actually means.
             </p>
+            <p className="text-muted-foreground font-body text-base leading-relaxed mt-4">
+              Cedar Park businesses often serve customers across <Link to="/digital-marketing-agency-round-rock-tx" className="text-accent underline hover:text-accent/80 transition-colors">Round Rock</Link> and northwest <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin</Link>, so we plan campaigns around the wider corridor.
+            </p>
           </div>
           <div className="space-y-0">
             {[

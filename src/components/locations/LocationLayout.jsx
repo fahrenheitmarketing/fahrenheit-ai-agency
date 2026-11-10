@@ -2,14 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CTASection from '../shared/CTASection';
 
-const ALL_LOCATIONS = [
-  { name: "Austin (Hub)", path: "/digital-marketing-agency-austin-tx" },
-  { name: "Round Rock", path: "/digital-marketing-agency-round-rock-tx" },
-  { name: "Cedar Park", path: "/digital-marketing-agency-cedar-park-tx" },
-  { name: "Georgetown", path: "/digital-marketing-agency-georgetown-tx" },
-  { name: "Kyle & Buda", path: "/digital-marketing-agency-kyle-buda-tx" },
-  { name: "Bastrop", path: "/digital-marketing-agency-bastrop-tx" },
-];
+import { LOCATIONS } from '@/data/locations';
 
 const ALL_SERVICES = [
   { label: "SEO", to: "/services/seo" },
@@ -34,7 +27,7 @@ export default function LocationLayout({ schema, currentPath, children }) {
     };
   }, [schema]);
 
-  const otherLocations = ALL_LOCATIONS.filter(l => l.path !== currentPath);
+  const otherLocations = LOCATIONS.filter(l => l.to !== currentPath);
 
   return (
     <>
@@ -44,17 +37,20 @@ export default function LocationLayout({ schema, currentPath, children }) {
         {/* Metro Area Links */}
         <section className="py-16 px-6 lg:px-10 border-b border-border bg-secondary/30">
           <div className="max-w-7xl mx-auto">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body">We Also Serve</p>
-            <div className="flex flex-wrap gap-3">
-              {otherLocations.map(loc => (
-                <Link
-                  key={loc.path}
-                  to={loc.path}
-                  className="text-xs font-body font-medium px-4 py-2 rounded-sm border border-border bg-background text-foreground/70 hover:border-accent hover:text-accent transition-colors"
-                >
-                  Digital Marketing Agency — {loc.name} →
-                </Link>
-              ))}
+            <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-body font-normal">We Also Serve</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+              {otherLocations.map(loc => {
+                const name = loc.city.replace(', TX', '');
+                const isHub = loc.to === '/digital-marketing-agency-austin-tx';
+                return (
+                  <Link key={loc.to} to={loc.to} className="block bg-card hover:bg-secondary transition-colors p-6 group">
+                    <span className="block font-heading text-xl font-normal mb-2 group-hover:text-accent transition-colors">
+                      Digital Marketing in {name}{isHub ? ' (Headquarters)' : ''}
+                    </span>
+                    <span className="block text-sm text-muted-foreground font-body leading-relaxed">{loc.descriptor}</span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -83,6 +79,8 @@ export default function LocationLayout({ schema, currentPath, children }) {
         headline="Bring us a business problem. We'll bring the AI."
         subtext="Austin-based. Results-driven. Month-to-month retainers with no long-term contracts."
         buttonText="Book a strategy call"
+        secondaryText="See our work"
+        secondaryLink="/portfolio"
       />
     </>
   );

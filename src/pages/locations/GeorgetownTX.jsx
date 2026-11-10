@@ -90,6 +90,9 @@ export default function GeorgetownTX() {
             <p className="text-muted-foreground font-body text-base leading-relaxed">
               Georgetown isn't a one-size-fits-all market. We work with healthcare groups, professional services firms, B2B companies, and local service businesses across the I-35 corridor — each with different competitive landscapes and different customer journeys. That's why we build strategy before we build campaigns.
             </p>
+            <p className="text-muted-foreground font-body text-base leading-relaxed mt-4">
+              Georgetown's growth is closely tied to the rest of Williamson County, including <Link to="/digital-marketing-agency-round-rock-tx" className="text-accent underline hover:text-accent/80 transition-colors">Round Rock</Link> and <Link to="/digital-marketing-agency-cedar-park-tx" className="text-accent underline hover:text-accent/80 transition-colors">Cedar Park</Link>.
+            </p>
           </div>
           <div className="space-y-0">
             {[

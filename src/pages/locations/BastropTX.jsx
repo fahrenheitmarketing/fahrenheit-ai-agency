@@ -90,6 +90,9 @@ export default function BastropTX() {
             <p className="text-muted-foreground font-body text-base leading-relaxed">
               Bastrop businesses deserve the same quality of marketing strategy as companies in Austin or Houston — and that's exactly what we deliver. We work with clients at every size level, from local service businesses to multi-location brands, and we bring the same rigor to every engagement.
             </p>
+            <p className="text-muted-foreground font-body text-base leading-relaxed mt-4">
+              Like <Link to="/digital-marketing-agency-kyle-buda-tx" className="text-accent underline hover:text-accent/80 transition-colors">Kyle and Buda</Link>, Bastrop is growing quickly, and many businesses here draw customers from across the <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin</Link> metro.
+            </p>
           </div>
           <div className="space-y-0">
             {[

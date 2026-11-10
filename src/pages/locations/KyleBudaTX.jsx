@@ -90,6 +90,9 @@ export default function KyleBudaTX() {
             <p className="text-muted-foreground font-body text-base leading-relaxed">
               We've been in Austin and Central Texas long enough to watch the market evolve through multiple search algorithm shifts, the social media explosion, and now the AI search transition. That experience means we don't have to learn on your dime.
             </p>
+            <p className="text-muted-foreground font-body text-base leading-relaxed mt-4">
+              Kyle and Buda businesses compete with brands from south <Link to="/digital-marketing-agency-austin-tx" className="text-accent underline hover:text-accent/80 transition-colors">Austin</Link>, and we build strategies that account for that overlap.
+            </p>
           </div>
           <div className="space-y-0">
             {[
