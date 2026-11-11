@@ -10,6 +10,7 @@ import remarkGfm from 'remark-gfm';
 import { ArrowLeft } from 'lucide-react';
 import CTASection from '../components/shared/CTASection';
 import BlogServiceLinks from '@/components/blog/BlogServiceLinks';
+import PullQuote from '@/components/blog/PullQuote';
 
 const categoryColors = {
   'Data & Analytics': 'bg-blue-100 text-blue-700',
@@ -149,6 +150,7 @@ export default function BlogPostPage() {
                   [&_tr:last-child_td]:border-b-0"
                   components={{
                     h1: ({ children }) => <h2>{children}</h2>,
+                    blockquote: ({ children }) => <PullQuote>{children}</PullQuote>,
                     a: ({ href, children }) => {
                       const ytId = href && href.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([\w-]{11})/)?.[1];
                       if (ytId && String(children).startsWith('Video:')) {
