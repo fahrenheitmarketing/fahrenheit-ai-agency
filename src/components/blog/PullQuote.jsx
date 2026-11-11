@@ -12,7 +12,7 @@ export default function PullQuote({ children }) {
   if (!isAttribution) return <blockquote>{children}</blockquote>;
 
   return (
-    <figure className="relative my-14 md:my-16 mx-auto w-[85%] max-w-full rounded-md bg-muted/60 p-5 md:p-8 overflow-hidden">
+    <figure className="relative my-14 md:my-16 w-full sm:mx-auto sm:w-[85%] max-w-full rounded-md bg-muted/60 px-4 py-5 sm:px-5 md:p-8 overflow-hidden">
       <span
         aria-hidden="true"
         className="block h-8 mb-2 font-heading text-6xl md:text-7xl leading-none text-accent select-none"
