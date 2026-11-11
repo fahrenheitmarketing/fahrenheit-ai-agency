@@ -149,9 +149,9 @@ A strategic marketing agency focuses on the "why" before the "how." Unlike gener
 
 To find the best marketing agencies, look for firms with a proven track record in your niche. Check their case studies and client reviews to ensure they are one of the top marketing companies capable of handling your specific challenges.
 
-## Partner with a Leader Among Top Marketing Firms
+## Work With Fahrenheit Marketing
 
-At Fahrenheit Marketing, we are proud to be recognized among the top marketing agencies in the USA. Our commitment to being a strategic marketing agency means we don't just follow trends — we set them. Whether you need the best marketing companies for a complex migration or a custom website build, our team is ready to deliver. [Contact Fahrenheit Marketing today](/contact) to start your journey with one of the best marketing firms in the US.
+We’ve been building and marketing websites out of Austin since 2008. Clients rate us 4.9 out of 5 on Clutch, and independent lists from OneLittleWeb and Fabric include us among the Texas and Austin agencies worth a look. If you’re weighing a custom website build, a complex migration, or a retainer that covers strategy through execution, [book a free 30-minute strategy call](/contact). We’ll tell you straight whether we're the right fit.
 `;
 
 export const agencyHeadings = [...content.matchAll(/^### (\d+\. .+)$/gm)].map((m) => m[1]);
