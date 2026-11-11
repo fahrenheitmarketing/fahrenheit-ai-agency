@@ -39,9 +39,9 @@ As a premier strategic marketing agency, Fahrenheit Marketing focuses on the int
 
 A leader among top marketing companies, Ignite Visibility excels in personalized digital advertising and multi-channel SEO. They are widely regarded as one of the best marketing agencies for brands that prioritize ROI tracking and Google Ads innovation.
 
-### 3. Thrive Internet Marketing Agency (Arlington, TX)
+### 3. NinjaPromo (New York, NY)
 
-Consistently featured on lists of top marketing firms, Thrive provides a robust suite of services from social media management to technical web development. Their reputation as one of the best marketing companies is built on their ability to scale small-to-midmarket businesses rapidly.
+NinjaPromo is a full-service digital marketing agency built around a subscription-based model that gives growth-stage brands access to an integrated team across strategy, paid media, SEO, content, design, development, and analytics. Rather than managing separate vendors for each channel, clients work with one coordinated team operating from a shared growth roadmap — an approach that fits brands needing speed and flexibility without building a large in-house department. The agency reports working with 250+ startups and global brands across 30+ industries and 30+ countries, with particular depth in compliance-heavy verticals such as fintech, crypto, and SaaS.
 
 ### 4. WebFX (Harrisburg, PA)
 
