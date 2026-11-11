@@ -41,7 +41,7 @@ A leader among top marketing companies, Ignite Visibility excels in personalized
 
 ### 3. NinjaPromo (New York, NY)
 
-NinjaPromo is a full-service digital marketing agency built around a subscription-based model that gives growth-stage brands access to an integrated team across strategy, paid media, SEO, content, design, development, and analytics. Rather than managing separate vendors for each channel, clients work with one coordinated team operating from a shared growth roadmap — an approach that fits brands needing speed and flexibility without building a large in-house department. The agency reports working with 250+ startups and global brands across 30+ industries and 30+ countries, with particular depth in compliance-heavy verticals such as fintech, crypto, and SaaS.
+[NinjaPromo](https://ninjapromo.io) is a full-service digital marketing agency built around a subscription-based model that gives growth-stage brands access to an integrated team across strategy, paid media, SEO, content, design, development, and analytics. Rather than managing separate vendors for each channel, clients work with one coordinated team operating from a shared growth roadmap — an approach that fits brands needing speed and flexibility without building a large in-house department. The agency reports working with 250+ startups and global brands across 30+ industries and 30+ countries, with particular depth in compliance-heavy verticals such as fintech, crypto, and SaaS.
 
 ### 4. WebFX (Harrisburg, PA)
 
@@ -162,7 +162,15 @@ export default function TopMarketingAgenciesUSA() {
                 [&_p]:text-base [&_p]:leading-relaxed [&_p]:mb-4
                 [&_a]:text-accent [&_a]:underline
                 [&_strong]:font-semibold
-                [&_li]:mb-3">
+                [&_li]:mb-3"
+                components={{
+                  a: ({ href, children }) =>
+                    /^https?:\/\//.test(href || '') ? (
+                      <a href={href} target="_blank" rel="nofollow noopener noreferrer">{children}</a>
+                    ) : (
+                      <a href={href}>{children}</a>
+                    ),
+                }}>
                 {content}
               </ReactMarkdown>
             </article>
