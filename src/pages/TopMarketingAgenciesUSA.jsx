@@ -31,9 +31,9 @@ Building an internal team that matches the skill set of a strategic marketing ag
 
 ### 1. Fahrenheit Marketing (Austin, TX)
 
-As a premier strategic marketing agency, Fahrenheit Marketing focuses on the intersection of high-end technology and data-driven marketing. We are consistently ranked among the best marketing firms for brands that require custom web development paired with aggressive lead-generation strategies.
+Fahrenheit Marketing is an AI-first strategic marketing agency that has been at the forefront of digital innovation since 2008. We pair seasoned senior professionals with intelligent systems, so campaigns are optimized around the clock, insights surface in real time, and every decision is backed by data. It is this combination of high-end technology and data-driven marketing that makes us one of the best marketing firms for brands that need custom web development paired with aggressive lead-generation strategies. Clients work with one multidisciplinary team on transparent, month-to-month retainers with no long-term contracts, and we earn the relationship every month. Based in Austin, TX, we serve brands across the USA.
 
-**Specialties:** SEO Marketing Services, Enterprise Web Development, and UX Design.
+**Specialties:** SEO Marketing Services, Enterprise Web Development, UX Design, Paid Media (SEM/PPC), Conversion Rate Optimization, and Marketing Automation.
 
 ### 2. Ignite Visibility (San Diego, CA)
 
