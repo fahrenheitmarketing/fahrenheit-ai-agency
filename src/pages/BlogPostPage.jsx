@@ -11,6 +11,7 @@ import { ArrowLeft } from 'lucide-react';
 import CTASection from '../components/shared/CTASection';
 import BlogServiceLinks from '@/components/blog/BlogServiceLinks';
 import PullQuote from '@/components/blog/PullQuote';
+import KeyTakeaways from '@/components/blog/KeyTakeaways';
 
 const categoryColors = {
   'Data & Analytics': 'bg-blue-100 text-blue-700',
@@ -151,6 +152,17 @@ export default function BlogPostPage() {
                   components={{
                     h1: ({ children }) => <h2>{children}</h2>,
                     blockquote: ({ children }) => <PullQuote>{children}</PullQuote>,
+                    pre: ({ children }) => {
+                      const cls = React.Children.toArray(children)[0]?.props?.className || '';
+                      return cls.includes('language-key-takeaways') ? <>{children}</> : <pre>{children}</pre>;
+                    },
+                    code: ({ className, children, ...props }) => {
+                      if (className && className.includes('language-key-takeaways')) {
+                        const items = String(children).split('\n').map((l) => l.replace(/^\s*[-*]\s+/, '').trim()).filter(Boolean);
+                        return <KeyTakeaways items={items} />;
+                      }
+                      return <code className={className} {...props}>{children}</code>;
+                    },
                     a: ({ href, children }) => {
                       const ytId = href && href.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([\w-]{11})/)?.[1];
                       if (ytId && String(children).startsWith('Video:')) {
