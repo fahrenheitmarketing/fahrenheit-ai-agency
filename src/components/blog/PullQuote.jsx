@@ -12,11 +12,18 @@ export default function PullQuote({ children }) {
   if (!isAttribution) return <blockquote>{children}</blockquote>;
 
   return (
-    <figure className="my-12 border-l-4 border-accent pl-6 w-full max-w-full">
-      <blockquote className="!m-0 !border-0 !p-0 !not-italic !text-foreground text-lg md:text-xl leading-relaxed break-words">
+    <figure className="relative my-14 md:my-16 mx-auto w-[85%] max-w-full rounded-md bg-muted/60 p-5 md:p-8 overflow-hidden">
+      <span
+        aria-hidden="true"
+        className="absolute top-1 left-3 md:left-5 font-heading text-6xl md:text-7xl leading-none text-accent select-none"
+      >
+        &ldquo;
+      </span>
+      <blockquote className="!m-0 !border-0 !p-0 pt-6 font-heading italic text-[1.2em] md:text-[1.35em] leading-[1.4] text-foreground break-words [&>p]:!m-0 [&>p]:!font-heading [&>p]:!italic">
         {blocks.slice(0, -1)}
       </blockquote>
-      <figcaption className="mt-4 text-sm text-muted-foreground font-body">
+      <figcaption className="mt-5 flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground font-body">
+        <span aria-hidden="true" className="block h-0.5 w-8 shrink-0 bg-accent" />
         <cite className="not-italic">{lastKids[0].props.children}</cite>
       </figcaption>
     </figure>
