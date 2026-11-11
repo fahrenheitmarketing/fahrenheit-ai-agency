@@ -45,6 +45,10 @@ export default async function (req: Request): Promise<Response> {
         const lastmod = toIsoDate(p.updated_date) || toIsoDate(p.published_date);
         return `  <url>\n    <loc>${loc}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`;
       })
+      .concat(
+        // Static page (not rendered from a BlogPost record): keep lastmod in sync with its "Updated" date.
+        `  <url>\n    <loc>${escapeXml(`${SITE_URL}/services/strategy/top-10-marketing-agencies-usa`)}</loc>\n    <lastmod>${new Date('2026-11-11').toISOString()}</lastmod>\n  </url>`,
+      )
       .join('\n');
 
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
