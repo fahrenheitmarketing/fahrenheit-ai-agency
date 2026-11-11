@@ -38,6 +38,11 @@
       "type": "string",
       "format": "date"
     },
+    "last_updated": {
+      "type": "string",
+      "format": "date",
+      "description": "Optional date the article was substantially reworked. When set, it is shown as 'Updated [date]' instead of the publish date"
+    },
     "featured": {
       "type": "boolean",
       "default": false
