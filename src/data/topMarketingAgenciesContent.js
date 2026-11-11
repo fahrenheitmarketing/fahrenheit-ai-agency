@@ -63,6 +63,8 @@ Fahrenheit Marketing is an AI-first strategic marketing agency that has been at 
 
 **Specialties:** [SEO Marketing Services](/services/seo), [Enterprise Web Development](/services/software-development), [Marketing Strategy](/services/strategy), [Paid Media (SEM/PPC)](/services/sem), [Conversion Rate Optimization](/services/cro), and [Marketing Automation](/services/marketing-automation).
 
+**Recognition:** 4.9 out of 5 on Clutch across 16 client reviews. Ranked #24 in OneLittleWeb’s Top 45 Web Design Companies in Texas (2026) and listed in Fabric’s Best Marketing Agencies in Austin (2026). Our founder is a former Forbes Agency Council member who wrote for Forbes.com on SEO, marketing automation, and handling patient data. Earlier recognition includes an Awwwards Honorable Mention for our agency website (2014) and a second place award at Knowbility’s Accessibility Internet Rally.
+
 ### 2. Ignite Visibility (San Diego, CA)
 
 A leader among top marketing companies, Ignite Visibility excels in personalized digital advertising and multi-channel SEO. They are widely regarded as one of the best marketing agencies for brands that prioritize ROI tracking and Google Ads innovation.
