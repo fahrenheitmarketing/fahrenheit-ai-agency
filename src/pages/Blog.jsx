@@ -17,6 +17,7 @@ const CATEGORIES = [
 ];
 
 const PAGE_SIZE = 12;
+const PINNED_SLUG = 'top-10-marketing-agencies-usa';
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);
@@ -31,7 +32,9 @@ export default function Blog() {
 
   useEffect(() => {
     base44.entities.BlogPost.list('-published_date', 100).then((data) => {
-      setPosts(data);
+      // Pin the updated "Top 10 Marketing Agencies" article to the top
+      const pinned = data.filter(p => p.slug === PINNED_SLUG);
+      setPosts([...pinned, ...data.filter(p => p.slug !== PINNED_SLUG)]);
       setLoading(false);
     });
   }, []);
