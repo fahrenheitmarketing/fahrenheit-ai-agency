@@ -166,7 +166,11 @@ export default function TopMarketingAgenciesUSA() {
                 components={{
                   a: ({ href, children }) =>
                     /^https?:\/\//.test(href || '') ? (
-                      <a href={href} target="_blank" rel="nofollow noopener noreferrer">{children}</a>
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel={/ninjapromo\.io/.test(href) ? 'sponsored nofollow noopener noreferrer' : 'nofollow noopener noreferrer'}
+                      >{children}</a>
                     ) : (
                       <a href={href}>{children}</a>
                     ),
