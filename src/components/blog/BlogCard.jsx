@@ -18,7 +18,7 @@ export default function BlogCard({ post }) {
         <span className={`text-xs font-body font-medium px-2.5 py-1 rounded-sm ${categoryColors[post.category] || 'bg-muted text-muted-foreground'}`}>
           {post.category}
         </span>
-        <span className="text-xs text-muted-foreground font-body">{post.read_time} read</span>
+        <span className="text-xs text-muted-foreground font-body">{/read/i.test(post.read_time || '') ? post.read_time : `${post.read_time} read`}</span>
       </div>
       <h3 className="font-heading text-xl md:text-2xl font-normal leading-snug mb-3 group-hover:text-accent transition-colors">
         {post.title}

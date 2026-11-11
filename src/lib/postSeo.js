@@ -40,7 +40,7 @@ export function buildPostSeo(post) {
   const title = buildTitle(post);
   const description = buildDescription(post);
   const url = `${SITE_URL}${getBlogPostUrl(post)}`;
-  const image = SITE_LOGO;
+  const image = post.featured_image || post.image_url || SITE_LOGO;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -53,7 +53,7 @@ export function buildPostSeo(post) {
   if (description) jsonLd.description = description;
   if (post.published_date) jsonLd.datePublished = post.published_date;
   if (post.updated_date) jsonLd.dateModified = post.updated_date;
-  if (post.author) jsonLd.author = { '@type': 'Person', name: post.author };
+  jsonLd.author = { '@id': ORGANIZATION_ID };
 
   return { title, description, url, image, jsonLd };
 }

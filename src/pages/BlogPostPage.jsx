@@ -95,7 +95,7 @@ export default function BlogPostPage() {
                 <span className={`text-xs font-body font-medium px-2.5 py-1 rounded-sm ${categoryColors[post.category] || 'bg-muted text-muted-foreground'}`}>
                   {post.category}
                 </span>
-                {post.read_time && <span className="text-xs text-muted-foreground font-body">{post.read_time} read</span>}
+                {post.read_time && <span className="text-xs text-muted-foreground font-body">{/read/i.test(post.read_time) ? post.read_time : `${post.read_time} read`}</span>}
               </div>
               <h1 className="font-heading text-4xl md:text-5xl font-normal leading-[1.1] mb-8">
                 {post.title}
