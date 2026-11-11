@@ -15,11 +15,11 @@ export default function PullQuote({ children }) {
     <figure className="relative my-14 md:my-16 mx-auto w-[85%] max-w-full rounded-md bg-muted/60 p-5 md:p-8 overflow-hidden">
       <span
         aria-hidden="true"
-        className="absolute top-1 left-3 md:left-5 font-heading text-6xl md:text-7xl leading-none text-accent select-none"
+        className="block h-8 mb-2 font-heading text-6xl md:text-7xl leading-none text-accent select-none"
       >
         &ldquo;
       </span>
-      <blockquote className="!m-0 !border-0 !p-0 pt-6 font-heading italic text-[1.2em] md:text-[1.35em] leading-[1.4] text-foreground break-words [&>p]:!m-0 [&>p]:!font-heading [&>p]:!italic">
+      <blockquote className="!m-0 !border-0 !p-0 font-heading italic text-[1.2em] md:text-[1.35em] leading-[1.4] !text-[color:var(--tw-prose-body)] break-words [&>p]:!m-0 [&>p]:!font-heading [&>p]:!italic [&>p]:!text-[color:var(--tw-prose-body)]">
         {blocks.slice(0, -1)}
       </blockquote>
       <figcaption className="mt-5 flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground font-body">
