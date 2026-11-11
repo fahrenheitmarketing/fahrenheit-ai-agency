@@ -57,7 +57,7 @@ NoGood has earned its spot among the best marketing firms by specializing in "Gr
 
 ### 7. Roofex (CA)
 
-An industry-leading specialist that turns local search visibility into a consistent pipeline of qualified roofing leads. Known for their "roofing-only" expertise, they excel at helping contractors outrank national competitors in local map packs through data-driven optimization and proven conversion strategies.
+[Roofex](https://www.localroofingseo.agency/) is an industry-leading specialist that turns local search visibility into a consistent pipeline of qualified roofing leads. Known for their "roofing-only" expertise, they excel at helping contractors outrank national competitors in local map packs through data-driven optimization and proven conversion strategies.
 
 ### 8. Tinuiti (New York, NY)
 
