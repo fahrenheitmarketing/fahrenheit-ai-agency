@@ -28,7 +28,9 @@ export default function BlogCard({ post }) {
       </p>
       <div className="flex items-center justify-between">
         <span className="text-xs text-muted-foreground font-body">
-          {post.published_date ? new Date(post.published_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : ''}
+          {post.last_updated
+            ? `Updated ${new Date(post.last_updated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}`
+            : post.published_date ? new Date(post.published_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : ''}
         </span>
         <span className="text-xs font-body text-accent flex items-center gap-1 group-hover:gap-2 transition-all">
           Read article <span>→</span>

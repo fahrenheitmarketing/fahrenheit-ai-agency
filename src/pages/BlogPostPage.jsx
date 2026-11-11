@@ -102,7 +102,9 @@ export default function BlogPostPage() {
               </h1>
               <div className="flex flex-col gap-2 text-xs uppercase tracking-widest text-muted-foreground font-body">
                 {post.author && <span>{post.author}</span>}
-                {post.published_date && (
+                {post.last_updated ? (
+                  <span>Updated {new Date(post.last_updated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</span>
+                ) : post.published_date && (
                   <span>{new Date(post.published_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                 )}
               </div>
