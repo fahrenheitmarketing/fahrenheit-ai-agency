@@ -43,6 +43,11 @@
       "format": "date",
       "description": "Optional date the article was substantially reworked. When set, it is shown as 'Updated [date]' instead of the publish date"
     },
+    "publish_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional go-live time (ISO 8601, UTC). The post is hidden everywhere until this time; empty means live immediately"
+    },
     "featured": {
       "type": "boolean",
       "default": false
@@ -67,7 +72,11 @@
         "role": "admin"
       }
     },
-    "read": null,
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
     "update": {
       "user_condition": {
         "role": "admin"

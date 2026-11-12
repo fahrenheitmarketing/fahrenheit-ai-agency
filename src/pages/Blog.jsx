@@ -31,7 +31,8 @@ export default function Blog() {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   useEffect(() => {
-    base44.entities.BlogPost.list('-published_date', 100).then((data) => {
+    base44.functions.invoke('getBlogPosts', { action: 'list' }).then((res) => {
+      const data = res.data.posts;
       // Pin the updated "Top 10 Marketing Agencies" article to the top
       const pinned = data.filter(p => p.slug === PINNED_SLUG);
       setPosts([...pinned, ...data.filter(p => p.slug !== PINNED_SLUG)]);

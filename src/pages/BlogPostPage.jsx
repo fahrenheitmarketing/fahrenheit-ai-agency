@@ -12,6 +12,7 @@ import CTASection from '../components/shared/CTASection';
 import BlogServiceLinks from '@/components/blog/BlogServiceLinks';
 import PullQuote from '@/components/blog/PullQuote';
 import KeyTakeaways from '@/components/blog/KeyTakeaways';
+import NotFound from '@/pages/NotFound';
 
 const categoryColors = {
   'Data & Analytics': 'bg-blue-100 text-blue-700',
@@ -32,18 +33,10 @@ export default function BlogPostPage() {
   useEffect(() => {
     // Try matching by slug first, then fall back to id
     setLoading(true);
-    base44.entities.BlogPost.filter({ slug: postSlug }, { limit: 1 }).then(async (page) => {
-      let currentPost = page.items[0] || null;
-      if (!currentPost) {
-        currentPost = await base44.entities.BlogPost.get(postSlug).catch(() => null);
-      }
-      setPost(currentPost);
+    base44.functions.invoke('getBlogPosts', { action: 'get', slug: postSlug }).then((res) => {
+      setPost(res.data.post);
+      setRelatedPosts(res.data.related || []);
       setLoading(false);
-
-      if (currentPost) {
-        const rel = await base44.entities.BlogPost.filter({ category: currentPost.category }, { limit: 4 });
-        setRelatedPosts(rel.items.filter(p => p.id !== currentPost.id).slice(0, 3));
-      }
     });
   }, [postSlug]);
 
@@ -58,14 +51,7 @@ export default function BlogPostPage() {
     );
   }
 
-  if (!post) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-4">
-        <p className="text-muted-foreground font-body">Article not found.</p>
-        <Link to="/blog" className="text-sm font-body text-accent hover:underline">← Back to Blog</Link>
-      </div>
-    );
-  }
+  if (!post) return <NotFound />;
 
   const canonicalPath = getBlogPostUrl(post);
   if (canonicalPath !== `/services/${serviceSlug}/${postSlug}`) {

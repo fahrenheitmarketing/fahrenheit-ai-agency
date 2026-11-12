@@ -37,6 +37,7 @@ export default async function (req: Request): Promise<Response> {
     } while (cursor);
 
     const urls = posts
+      .filter((p) => !p.publish_at || (!isNaN(new Date(p.publish_at).getTime()) && new Date(p.publish_at).getTime() <= Date.now()))
       .filter((p) => p.slug !== 'top-10-marketing-agencies-usa')
       .map((p) => {
         const serviceSlug = categoryToServiceSlug[p.category] || 'blog';
