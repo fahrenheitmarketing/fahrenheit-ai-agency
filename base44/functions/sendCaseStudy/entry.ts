@@ -2,6 +2,24 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 import { escapeHtml, clip } from '../../shared/escapeHtml.ts';
 import { allow, clientIp } from '../../shared/rateLimit.ts';
 
+const CASE_STUDY_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/WspKR7CcmjKMcB8mjc7x/webhook-trigger/laimk1dn4730d4N3eues';
+
+// Forwards a saved case study request to the CRM webhook. Never throws; gives up after 3 seconds.
+async function forwardCaseStudyRequest(record: Record<string, string>): Promise<void> {
+  try {
+    const res = await fetch(CASE_STUDY_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(record),
+      signal: AbortSignal.timeout(3000),
+    });
+    if (!res.ok) console.warn(`sendCaseStudy: webhook forward failed (status=${res.status})`);
+  } catch (error) {
+    const reason = error instanceof Error && error.name === 'TimeoutError' ? 'timeout' : 'network error';
+    console.warn(`sendCaseStudy: webhook forward failed (status=${reason})`);
+  }
+}
+
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
@@ -32,6 +50,15 @@ Deno.serve(async (req) => {
       status: 'pending',
     });
 
+    // Runs alongside the team emails below; it can never fail or delay the request beyond 3 seconds.
+    const forwarded = forwardCaseStudyRequest({
+      name,
+      email,
+      case_study_id: caseStudyId,
+      case_study_title: caseStudyTitle,
+      status: 'pending',
+    });
+
     // Notify the team (all request-supplied values are HTML-escaped)
     const notifyBody = `
       <h2>New Case Study Request</h2>
@@ -50,6 +77,7 @@ Deno.serve(async (req) => {
         })
       )
     );
+    await forwarded;
 
     return Response.json({ success: true });
   } catch (error) {
