@@ -57,6 +57,10 @@
   --ring: 15 64% 52%;
 }
 
+/* Announcement bar offset — pushes the fixed header and page content down by the bar's height */
+.site-shell > header { top: var(--announce-h, 0px); }
+.site-shell > main { padding-top: calc(5rem + var(--announce-h, 0px)); }
+
 /* Navbar breakpoint — desktop nav only at 1280px+, burger menu below.
    Defined in plain CSS so it never depends on Tailwind JIT generation. */
 @media (max-width: 1279px) {

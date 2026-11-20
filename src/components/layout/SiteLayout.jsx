@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import MobileStickyCTA from './MobileStickyCTA';
+import AnnouncementBar from './AnnouncementBar';
 
 const pageNames = {
   '/': 'Homepage',
@@ -33,7 +34,8 @@ export default function SiteLayout() {
   }, [location.pathname, location.hash]);
 
   return (
-    <div className={`min-h-screen flex flex-col bg-background text-foreground ${isPromo ? 'promo-brand' : ''}`}>
+    <div className={`site-shell min-h-screen flex flex-col bg-background text-foreground ${isPromo ? 'promo-brand' : ''}`}>
+      <AnnouncementBar />
       <Navbar />
       <main className="flex-1 pt-20 pb-16 lg:pb-0">
         <Outlet />
