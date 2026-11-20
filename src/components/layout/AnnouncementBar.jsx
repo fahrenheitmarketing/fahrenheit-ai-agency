@@ -39,7 +39,7 @@ export default function AnnouncementBar() {
   return (
     <div ref={ref} className="fixed top-0 left-0 right-0 z-[60] bg-accent text-white">
       <Link to="/cyber-monday" className="block px-10 py-2 text-center text-xs sm:text-[13px] font-body leading-snug">
-        Cyber Monday: new clients get a free month of email marketing or managed hosting. Offer ends December 4.{' '}
+        Cyber Monday: New clients get a free month of Email Marketing or Managed Hosting. Offer ends December 4.{' '}
         <span className="font-medium underline underline-offset-2 whitespace-nowrap">See the offer</span>
       </Link>
       <button
