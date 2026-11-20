@@ -1,11 +1,6 @@
 import React from 'react';
 import { Mail, Server } from 'lucide-react';
 
-// Highlighted so unfilled placeholders are easy to spot.
-export function Placeholder({ children }) {
-  return <mark className="bg-yellow-200 text-yellow-900 px-1 rounded-sm">[PLACEHOLDER: {children}]</mark>;
-}
-
 export default function OfferCards() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -23,13 +18,12 @@ export default function OfferCards() {
       <div className="border border-border rounded-sm bg-card p-8 flex flex-col">
         <Server className="w-6 h-6 text-accent mb-5" />
         <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Managed Hosting</p>
-        <h2 className="font-heading text-3xl font-normal leading-[1.15] mb-4">Free setup and your first month free</h2>
+        <h2 className="font-heading text-3xl font-normal leading-[1.15] mb-4">Your second month on us</h2>
         <p className="text-sm font-body text-muted-foreground leading-relaxed mb-6">
-          Move to our entry or mid-tier managed hosting and we'll handle setup at no cost, plus cover your first month.
+          Move to Essential or Advanced Protection managed hosting and we'll waive onboarding and cover your second month. You get the same layered security, proactive monitoring, malware scanning, and maintenance included in every plan.
         </p>
         <p className="text-xs font-body text-muted-foreground mt-auto pt-4 border-t border-border leading-relaxed">
-          <Placeholder>term length, e.g. 12-month agreement</Placeholder>{' '}
-          <Placeholder>what setup includes, e.g. migration scope</Placeholder>
+          Essential Protection is $500/month and Advanced Protection is $750/month. Migration scope and any applicable fees are assessed individually during onboarding.
         </p>
       </div>
     </div>

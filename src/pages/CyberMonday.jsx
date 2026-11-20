@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import useNoindex from '@/hooks/useNoindex';
-import OfferCards, { Placeholder } from '@/components/cybermonday/OfferCards';
+import OfferCards from '@/components/cybermonday/OfferCards';
 import CyberMondayForm from '@/components/cybermonday/CyberMondayForm';
 
 const TITLE = 'Cyber Monday Offer | Fahrenheit Marketing';
@@ -78,8 +78,7 @@ export default function CyberMonday() {
 
       <section className="py-8 px-6 lg:px-10">
         <p className="max-w-4xl mx-auto text-xs font-body text-muted-foreground leading-relaxed">
-          Offer valid for new clients who sign between November 27 and December 4, 2026. Service can start as late as January 31, 2027. Can't be combined with other offers.{' '}
-          <Placeholder>hosting term condition</Placeholder>
+          Offer valid for new clients who sign between November 27 and December 4, 2026. Service can start as late as January 31, 2027. Hosting offer applies to Essential and Advanced Protection plans; the free month is applied to your second monthly invoice. Can't be combined with other offers.
         </p>
       </section>
     </div>
