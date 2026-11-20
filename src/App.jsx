@@ -35,6 +35,7 @@ import BastropTX from './pages/locations/BastropTX';
 import PromoRetainer from './pages/PromoRetainer';
 import PromoWebsite from './pages/PromoWebsite';
 import Portfolio from './pages/Portfolio';
+import CyberMonday from './pages/CyberMonday';
 import Diagnose from './pages/process/Diagnose';
 import Deploy from './pages/process/Deploy';
 import Scale from './pages/process/Scale';
@@ -95,6 +96,7 @@ const AuthenticatedApp = () => {
         <Route path="/process/deploy" element={<Deploy />} />
         <Route path="/process/scale" element={<Scale />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/cyber-monday" element={<CyberMonday />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

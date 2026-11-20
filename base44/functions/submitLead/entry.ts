@@ -6,7 +6,12 @@ const RCASAS = 'rcasas@fahrenheitmarketing.com';
 const SBOSCH = 'sbosch@fahrenheitmarketing.com';
 
 // Narrow, fixed set of lead forms: each defines its subject prefix, recipients and allowed fields.
-const KINDS: Record<string, { title: string; subject: string; to: string[]; fromName: string; fields: [string, string][] }> = {
+const KINDS: Record<string, { title: string; subject: string; to: string[]; fromName: string; fields: [string, string][]; subjectFor?: (v: Record<string, string>) => string }> = {
+  cybermonday: {
+    title: 'New Cyber Monday offer claim', subject: 'Cyber Monday offer', to: [RCASAS, SBOSCH], fromName: 'Fahrenheit Website',
+    fields: [['name', 'Name'], ['email', 'Email'], ['company', 'Company'], ['website', 'Website'], ['interest', 'Offer'], ['message', 'Message']],
+    subjectFor: (v) => `Cyber Monday offer: ${v.interest} from ${v.company}`.replace(/[\r\n]+/g, ' ').slice(0, 200),
+  },
   contact: {
     title: 'New Contact Submission', subject: 'New Contact Form', to: [RCASAS, SBOSCH], fromName: 'Fahrenheit Website',
     fields: [['name', 'Name'], ['email', 'Email'], ['company', 'Company'], ['phone', 'Phone'], ['service_interest', 'Service Interest'], ['message', 'Message']],
@@ -40,7 +45,10 @@ const REQUIRED: Record<string, string[]> = {
   website: ['name', 'email', 'company', 'phone', 'message'],
   emailMarketing: ['name', 'email', 'company', 'phone', 'message'],
   quick: ['name', 'email', 'url'],
+  cybermonday: ['name', 'email', 'company', 'website', 'interest'],
 };
+
+const CYBER_MONDAY_OFFERS = ['Email Marketing', 'Managed Hosting', 'Both'];
 
 // Phrases that mark a pitch (guest posts, backlinks, white label) rather than a service inquiry.
 const PARTNERSHIP_SIGNALS = ['we help businesses', 'our team specializes', 'partnership', 'white label', 'guest post', 'backlinks'];
@@ -64,7 +72,7 @@ async function sendToGoHighLevel(kind: string, values: Record<string, string>, s
     email: values.email || '',
     phone: values.phone || '',
     companyName: values.company || '',
-    website: kind === 'website' ? values.website || '' : kind === 'quick' ? values.url || '' : '',
+    website: kind === 'website' || kind === 'cybermonday' ? values.website || '' : kind === 'quick' ? values.url || '' : '',
     message: values.message || '',
     serviceInterest: values.service_interest || values.interest || '',
     tier: values.tier || '',
@@ -125,6 +133,9 @@ export default async function (req: Request): Promise<Response> {
     const valid = required.every((k) => values[k])
       && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.email)
       && (!required.includes('phone') || (/^[\d\s()+\-.]+$/.test(values.phone) && phoneDigits.length >= 7 && phoneDigits.length <= 15));
+    if (kind === 'cybermonday' && !CYBER_MONDAY_OFFERS.includes(values.interest)) {
+      return Response.json({ error: 'Please choose an offer' }, { status: 400 });
+    }
     if (!valid) {
       return Response.json({ error: 'Please complete all required fields with a valid email and phone number' }, { status: 400 });
     }
@@ -151,7 +162,9 @@ export default async function (req: Request): Promise<Response> {
       });
     }
 
-    const subject = `${cfg.subject} — ${values.name.replace(/[\r\n]+/g, ' ').slice(0, 100)}${values.company ? ` (${values.company.replace(/[\r\n]+/g, ' ').slice(0, 100)})` : ''}`;
+    const subject = cfg.subjectFor
+      ? cfg.subjectFor(values)
+      : `${cfg.subject} — ${values.name.replace(/[\r\n]+/g, ' ').slice(0, 100)}${values.company ? ` (${values.company.replace(/[\r\n]+/g, ' ').slice(0, 100)})` : ''}`;
     const rows = cfg.fields
       .map(([key, label]) => `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(values[key] || 'Not provided').replace(/\n/g, '<br/>')}</p>`)
       .join('');
