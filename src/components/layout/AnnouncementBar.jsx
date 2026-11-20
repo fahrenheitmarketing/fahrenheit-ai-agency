@@ -37,16 +37,16 @@ export default function AnnouncementBar() {
   };
 
   return (
-    <div ref={ref} className="fixed top-0 left-0 right-0 z-[60] bg-accent text-white">
+    <div ref={ref} className="fixed top-0 left-0 right-0 z-[60] bg-foreground text-white">
       <Link to="/cyber-monday" className="block px-10 py-2 text-center text-xs sm:text-[13px] font-body leading-snug">
         Cyber Monday: New clients get a free month of Email Marketing or Managed Hosting. Offer ends December 4.{' '}
-        <span className="font-medium underline underline-offset-2 whitespace-nowrap">See the offer</span>
+        <span className="font-semibold text-white underline underline-offset-2 whitespace-nowrap">See the offer</span>
       </Link>
       <button
         type="button"
         onClick={dismiss}
         aria-label="Dismiss announcement"
-        className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-white/90 hover:text-white"
+        className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-white"
       >
         <X className="w-4 h-4" />
       </button>
