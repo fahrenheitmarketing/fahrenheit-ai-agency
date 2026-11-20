@@ -1,7 +1,7 @@
 import React from 'react';
 
 const stats = [
-  { value: '2008', label: 'Helping businesses grow since' },
+  { value: 'Since 2008', label: 'Helping businesses grow, from Austin and beyond', tight: true },
   { value: '568%', label: 'ROAS on Google Shopping in 90 days for a pet supply retailer' },
   { value: '+1,874%', label: 'Local search visibility for a commercial cleaning company' },
 ];
@@ -17,7 +17,7 @@ export default function ProofStrip() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {stats.map((s) => (
             <div key={s.value} className="border border-border rounded-sm bg-card p-8">
-              <span className="font-heading text-5xl font-normal text-accent block mb-4">{s.value}</span>
+              <span className={`font-heading text-5xl font-normal text-accent block mb-4 ${s.tight ? 'tracking-tighter' : ''}`}>{s.value}</span>
               <p className="text-sm font-body text-muted-foreground leading-relaxed">{s.label}</p>
             </div>
           ))}
