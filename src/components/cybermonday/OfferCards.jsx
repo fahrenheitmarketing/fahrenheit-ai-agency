@@ -5,9 +5,9 @@ export default function OfferCards() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div className="border border-border rounded-sm bg-card p-8 flex flex-col">
-        <Mail className="w-6 h-6 text-accent mb-5" />
-        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Email Marketing</p>
-        <h2 className="font-heading text-3xl font-normal leading-[1.15] mb-4">6 months for the price of 5</h2>
+        <Mail className="w-8 h-8 text-accent mb-5" />
+        <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.05] mb-3">Email Marketing</h2>
+        <p className="text-lg font-body font-medium text-accent mb-4">6 months for the price of 5</p>
         <p className="text-sm font-body text-muted-foreground leading-relaxed mb-6">
           Commit to six months of email marketing and we'll cover one of them.
         </p>
@@ -16,9 +16,9 @@ export default function OfferCards() {
         </p>
       </div>
       <div className="border border-border rounded-sm bg-card p-8 flex flex-col">
-        <Server className="w-6 h-6 text-accent mb-5" />
-        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-body">Managed Hosting</p>
-        <h2 className="font-heading text-3xl font-normal leading-[1.15] mb-4">Your second month on us</h2>
+        <Server className="w-8 h-8 text-accent mb-5" />
+        <h2 className="font-heading text-4xl md:text-5xl font-normal leading-[1.05] mb-3">Managed Hosting</h2>
+        <p className="text-lg font-body font-medium text-accent mb-4">Your second month on us</p>
         <p className="text-sm font-body text-muted-foreground leading-relaxed mb-6">
           Move to Essential or Advanced Protection managed hosting and we'll waive onboarding and cover your second month. You get the same layered security, proactive monitoring, malware scanning, and maintenance included in every plan.
         </p>
