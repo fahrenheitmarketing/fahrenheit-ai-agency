@@ -5,7 +5,7 @@ import OfferCards from '@/components/cybermonday/OfferCards';
 import CyberMondayForm from '@/components/cybermonday/CyberMondayForm';
 
 const TITLE = 'Cyber Monday Offer | Fahrenheit Marketing';
-const DESCRIPTION = 'Through December 4, get a free month of email marketing or managed hosting from Fahrenheit Marketing, plus a free email deliverability check.';
+const DESCRIPTION = 'Through December 4, get a free month of email marketing or managed hosting from Fahrenheit Marketing.';
 
 export default function CyberMonday() {
   useNoindex(true);
@@ -55,15 +55,6 @@ export default function CyberMonday() {
       <section className="py-20 px-6 lg:px-10 border-b border-border">
         <div className="max-w-7xl mx-auto">
           <OfferCards />
-        </div>
-      </section>
-
-      <section className="py-20 px-6 lg:px-10 border-b border-border bg-card/40">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading text-3xl md:text-4xl font-normal leading-[1.1] mb-5">Why the deliverability check matters</h2>
-          <p className="text-base font-body text-muted-foreground leading-relaxed">
-            Google, Yahoo, and Microsoft now require proper email authentication from businesses that send in volume. If your domain isn't set up correctly, your emails can land in spam or get rejected without you ever knowing. We'll check your setup and tell you exactly what needs fixing.
-          </p>
         </div>
       </section>
 
