@@ -87,7 +87,7 @@ export default function CyberMonday() {
 
       <section className="py-8 px-6 lg:px-10">
         <p className="max-w-4xl mx-auto text-xs font-body text-muted-foreground leading-relaxed">
-          Offer valid for new clients who sign between November 27 and December 4, 2026. Service can start as late as January 31, 2027. Hosting offer applies to Essential and Advanced Protection plans; the free month is applied to your second monthly invoice. Can't be combined with other offers.
+          Offer valid for new clients who sign by December 4, 2026. Service can start as late as January 31, 2027. Hosting offer applies to Essential and Advanced Protection plans; the free month is applied to your second monthly invoice. Can't be combined with other offers.
         </p>
       </section>
     </div>
