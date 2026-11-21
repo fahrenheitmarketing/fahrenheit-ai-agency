@@ -12,7 +12,7 @@ const FAQS = [
   { question: 'Who qualifies for the Cyber Monday offer?', answer: 'The offer is for new clients who sign by December 4, 2026.' },
   { question: 'When does my service have to start?', answer: 'You can sign now and start as late as January 31, 2027.' },
   { question: 'Which hosting plans does the offer cover?', answer: 'The hosting offer applies to Essential Protection ($500/month) and Advanced Protection ($750/month). Both include layered security, proactive monitoring, malware scanning, and maintenance.' },
-  { question: 'How does the free month work?', answer: 'For managed hosting, we waive onboarding and the free month is applied to your second monthly invoice. For email marketing, commit to six months and we cover one of them.' },
+  { question: 'How does the free month work?', answer: 'Email Marketing: you are billed monthly for months one through five, and month six is free. Managed Hosting: we waive onboarding and your second month is free.' },
   { question: 'Are there any fees for moving my site?', answer: 'Migration scope and any applicable fees are assessed individually during onboarding.' },
   { question: 'Can I combine this with other offers?', answer: "No. This offer can't be combined with other offers." },
 ];
